@@ -160,10 +160,10 @@
                         <div class="card-body">
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/aeropuertoAdd.php" method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                  <input class="form-control" name="nombre" id = "nombre" type="text" placeholder="Nombre" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.keyCode" minlength="4" maxlength="40" pattern="^[a-zA-Z|ñÑ ]+$" required>
+                                  <input class="form-control" name="nombre" id = "nombre" type="text" placeholder="Nombre" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.keyCode" minlength="4" maxlength="40" pattern="/^[a-zA-ZÀ-ÿ\s]{4,15}$/" required>
                                 </div>
                                 <div class="mb-3">
-                                  <input class="form-control" name="hangar" type="text" placeholder="Hangar" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90 || event.keyCode"  minlength="2" maxlength="8" pattern="^[a-zA-Z|ñÑ ]+$" required>
+                                  <input class="form-control" name="hangar" type="text" placeholder="Hangar" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90 || event.keyCode"  minlength="2" maxlength="8" id="hangar" pattern="^[a-zA-Z|ñÑ ]+$" required>
                                 </div>
                                
                                 <div class="mb-3">
