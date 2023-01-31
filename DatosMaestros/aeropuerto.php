@@ -163,7 +163,7 @@
                                   <input class="form-control" name="nombre" id = "nombre" type="text" placeholder="Nombre" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.keyCode" minlength="4" maxlength="40" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
                                 </div>
                                 <div class="mb-3">
-                                  <input class="form-control" name="hangar" type="text" placeholder="Hangar" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90 || event.keyCode"  minlength="2" maxlength="8" id="hangar" pattern="^[a-zA-Z|ñÑ ]+$" required>
+                                  <input class="form-control" name="hangar" type="number" placeholder="Hangar" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90 || event.keyCode"  minlength="2" maxlength="8" id="hangar" required>
                                 </div>
                                
                                 <div class="mb-3">
