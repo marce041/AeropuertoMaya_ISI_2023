@@ -170,7 +170,7 @@
                                 </div>
                                
                                 <div class="mb-3">
-                                    <label for="rol" style="text-left">País</label>
+                                    <label for="rol" class="form-label">País</label>
                                     <select class="form-select" name="estado" id="pais">
                                     
                                     <?php 
