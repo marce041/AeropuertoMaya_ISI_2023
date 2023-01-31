@@ -204,7 +204,7 @@
                                  
                             <label for="rol">Asiento</label>
                                     <select class="form-select" name="estado" id="aeronave" >
-                                    <option option value="opcion">--- Escoja una opcion ---</option>
+                                    <option option value="opcion">--- Escoja una opción ---</option>
                                     <?php 
                                     
                                     
@@ -222,7 +222,7 @@
                                 <div class="mb-3">
                                     <label for="rol">Pasajero</label>
                                     <select class="form-select" name="estado2" id="pasajero">
-                                    <option option value="opcion">--- Escoja una opcion ---</option>
+                                    <option option value="opcion">--- Escoja una opción ---</option>
                                     <?php 
                                         while($datos = mysqli_fetch_array($query2))
                                         {
@@ -236,7 +236,7 @@
                                 <div class="mb-3">
                                     <label for="rol">Equipaje</label>
                                     <select class="form-select" name="estado4" id="equipaje">
-                                    <option option value="opcion">--- Escoja una opcion ---</option>
+                                    <option option value="opcion">--- Escoja una opción ---</option>
                                     <?php 
                                         while($datos = mysqli_fetch_array($query4))
                                         {
@@ -250,7 +250,7 @@
                                 <div class="mb-3">
                                     <label for="rol">Clase</label>
                                     <select class="form-select" name="estado5" id="equipaje">
-                                    <option option value="opcion">--- Escoja una opcion ---</option>
+                                    <option option value="opcion">--- Escoja una opción ---</option>
                                     <?php 
                                         while($datos = mysqli_fetch_array($query5))
                                         {
