@@ -251,6 +251,24 @@
       //aqui podrias decirle al usuario que el valor es incorrecto
         }
     });}
+
+    function validarH{
+    const expresiones = {       
+        hangar: "/^[a-zA-ZÀ-ÿ\s]{4,15}$/", // Letras y espacios, pueden llevar acentos.       
+    } 
+    var estado = document.getElementById("estado"); 
+
+    document.getElementById("validar").addEventListener('click', () =>{
+        var hangar = document.getElementById("hangar").value
+
+        if (expresiones.nombre.test(nombre)) {
+            estado.innerHTML = "Correcto";
+      //Aqui deberias enviar el valor
+        }else{
+            estado.innerHTML = "Incorrecto";
+      //aqui podrias decirle al usuario que el valor es incorrecto
+        }
+    });}
 </script>
 
 </html>
