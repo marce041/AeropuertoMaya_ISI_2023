@@ -194,4 +194,7 @@ align-items: center;
 	.formulario__btn {
 		width: 100%;
 	}
+	.label-default{
+		float: right;
+	}
 }
