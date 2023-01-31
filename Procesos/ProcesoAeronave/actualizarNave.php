@@ -21,7 +21,7 @@
         <!--Empieza Lista -->
         <ul class="navbar-nav color sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../principaladmin.php">
-                <div class="sidebar-brand-text mx-3">Administracion</div>
+                <div class="sidebar-brand-text mx-3">Administración</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
@@ -115,10 +115,10 @@
                 </nav>
 
                 <div class="container-fluid">
-                    <h1 class="h3 mb-2 text-gray-800">Tablas</h1>
+                    
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary text-center">TABLA EDICION DE AERONAVE</h6>
+                            <h6 class="m-0 font-weight-bold text-primary text-center">Editar aeronave</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
