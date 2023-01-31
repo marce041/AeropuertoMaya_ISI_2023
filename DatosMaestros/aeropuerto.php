@@ -154,13 +154,13 @@
                     <!-- Tajeta y Contenido -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Insertar Datos
+                            <h6 class="m-0 font-weight-bold text-primary">Insertar datos
                             </h6>
                         </div>
                         <div class="card-body">
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/aeropuertoAdd.php" method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" required>
+                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="40" pattern="^[a-zA-Z|ñÑ ]+$" required>
                                 </div>
                                 <div class="mb-3">
                                   <input class="form-control" name="hangar" type="text" placeholder="Hangar" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="2" maxlength="8" required>
