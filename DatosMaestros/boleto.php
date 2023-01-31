@@ -187,7 +187,7 @@
                         
                                     <label for="rol">Vuelo</label>
                                     <select class="form-select" name="estado3" id="estado3" onchange="changeFunc()">
-                                    <option option value="opcion">--- Escoja una opcion ---</option>
+                                    <option option value="opcion">--- Escoja una opción ---</option>
                                     <?php 
                                         while($datos = mysqli_fetch_array($query3))
                                         {
