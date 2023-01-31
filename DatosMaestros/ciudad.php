@@ -251,7 +251,7 @@
     var estado = document.getElementById("estado"); 
 
     document.getElementById("validar").addEventListener('click', () =>{
-        var nombre = document.getElementById("nombre").value
+        var nombre = document.getElementById("Nombre").value
 
         if (expresiones.nombre.test(nombre)) {
             estado.innerHTML = "Correcto";
