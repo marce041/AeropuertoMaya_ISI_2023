@@ -161,7 +161,7 @@
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/ciudadAdd.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                     <div class="col-md-10">
-                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
+                                  <input class="form-control" name="nombre" id="nombre" type="text" placeholder="Nombre" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
                                 </div>
                                 </div>
                                 <div class="form-group">
@@ -242,7 +242,26 @@
     <script src="../style/js/demo/chart-pie-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+
+    function validar letras{
+    const expresiones = {       
+        nombre: "/^[a-zA-ZÀ-ÿ\s]{4,15}$/", // Letras y espacios, pueden llevar acentos.       
+    } 
+    var estado = document.getElementById("estado"); 
+
+    document.getElementById("validar").addEventListener('click', () =>{
+        var nombre = document.getElementById("nombre").value
+
+        if (expresiones.nombre.test(nombre)) {
+            estado.innerHTML = "Correcto";
+      //Aqui deberias enviar el valor
+        }else{
+            estado.innerHTML = "Incorrecto";
+      //aqui podrias decirle al usuario que el valor es incorrecto
+        }
+    });}
+    </script>
 </body>
 
 </html>
