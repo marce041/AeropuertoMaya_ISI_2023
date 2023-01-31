@@ -159,14 +159,20 @@
                         </div>
                         <div class="card-body">
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/ciudadAdd.php" method="POST" enctype="multipart/form-data">
-                                <div class="mb-3">
+                            <div class="form-group">
+                                    <div class="col-md-10">
                                   <input class="form-control" name="nombre" type="text" placeholder="Nombre" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
                                 </div>
-                                <div class="mb-3">
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-10">
                                   <input class="form-control" name="codigo" type="text" placeholder="Código postal" onkeypress="return event.charCode>=48 && event.charCode<=57"  minlength="5" maxlength="5" required>
                                 </div>
-                                <div class="mb-3">
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-10">
                                   <input class="form-control" name="terminal" type="text" placeholder="Terminal" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="4" maxlength="20" required>
+                                </div>
                                 </div>
                                
                                 <div class="form-group">
