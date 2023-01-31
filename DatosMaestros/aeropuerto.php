@@ -164,6 +164,16 @@
                                 </div>
                                 <div class="mb-3">
                                   <input class="form-control" name="hangar" type="text" placeholder="Hangar" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90 || event.keyCode"  minlength="2" maxlength="8" required>
+                                  <?php
+if (preg_match("/^[a-z]{4,}$/i", trim($_POST["nombre"])) !== 1) {
+    $error = '
+      El nombre del paciente es incorrecto:<br/>
+      <ul>
+        <li>Mínimo 4 caracteres</li>
+        <li>Solo letras</li>
+      </ul>
+    ';
+}
                                 </div>
                                 <div class="mb-3">
                                     <label for="rol">Ciudad</label>
