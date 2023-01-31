@@ -1,0 +1,132 @@
+<?php
+
+include("conexion.php");
+session_start();
+if(!empty($_POST)){
+    $usuario = mysqli_real_escape_string($conn,$_POST['user']);
+    $password = mysqli_real_escape_string($conn,$_POST['pass']);
+    $password_encriptada = sha1($password);
+
+
+	$sql2 = "SELECT idUser FROM usuario
+    WHERE Usuario = '$usuario' AND Estado = '0'";
+    $resultado2 = $conn->query($sql2);
+    $rows2 = $resultado2->num_rows;
+	if($rows2 > 0){
+		echo  "<script>
+		alert('El usuario está deshabilitado');
+		</script>";
+	}else{
+
+$sql = "SELECT idUser FROM usuario
+    WHERE Usuario = '$usuario' AND Pass = '$password_encriptada'";
+    $resultado = $conn->query($sql);
+    $rows = $resultado->num_rows;
+
+
+    if($rows > 0){
+        $row = $resultado->fetch_assoc();
+        $_SESSION['id_Usuario'] = $row ['ID_Usuario'];
+        header("Location: principaladmin.php");
+        $_SESSION['fails'] = 0;
+    }else{
+        echo  "<script>
+        alert('El usuario o password incorrectas');
+        window.location = 'index.php';
+        </script>";
+		$_SESSION['fails'] = $_SESSION['fails'] + 1;
+		if ($_SESSION['fails'] == 3 ) {
+			echo  "<script>
+			alert('El usuario será deshabilitado');
+			</script>";
+			$eliminar="UPDATE usuario SET Estado='0' WHERE Usuario='$usuario'";
+			$resultado=mysqli_query($conn,$eliminar);
+
+		}
+	
+	}
+}
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Inicio</title>
+	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<main>
+		<form action="<?php $_SERVER["PHP_SELF"]; ?>" method="POST" class="formulario" id="formulario" >
+			<table>
+				
+			<tr>
+					<td colspan=10 width=100% align="center">
+					<img src="img/logo1.png" width="100%" style="margin-left:60%;">
+					<h1> Airlines</h1>
+
+				</td>	
+
+				
+			</tr>	
+						
+			<td colspan=5 ><!-- Grupo: Usuario -->
+				<div class="formulario__grupo" id="grupo__usuario">
+					<label for="usuario" class="formulario__label">Usuario</label>
+					<div class="formulario__grupo-input">
+						<input type="text" class="formulario__input" name="user" id="usuario" placeholder="Usuario">
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					</div>
+		</td>
+		</tr>
+				
+		<tr>
+		<td colspan=5>
+			
+				<!-- Grupo: Contraseña -->
+				<div class="formulario__grupo" id="grupo__password">
+					<label for="password" class="formulario__label">Contraseña</label>
+					<div class="formulario__grupo-input">
+						<input type="password" class="formulario__input" name="pass" id="password" placeholder="Contraseña">
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+				</div>
+			 </td>
+	
+	
+		</tr>
+	<tr>
+		<td colspan="5">
+			<div class="formulario__grupo">
+				<input type="submit"  value="Iniciar Sesión" class="formulario__btn">
+				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+			</div>
+		</td>	
+	</tr>
+			<!-- Grupo: Terminos y Condiciones -->
+			<!--<div class="formulario__grupo" id="grupo__terminos">
+				<label class="formulario__label">
+					<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+					Acepto los Terminos y Condiciones
+				</label>
+			</div>
+
+			<div class="formulario__mensaje" id="formulario__mensaje">
+				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+			</div>
+			<br>
+		-->
+		
+		</form>
+	</table>
+	</main>
+
+
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</body>
+</html>
