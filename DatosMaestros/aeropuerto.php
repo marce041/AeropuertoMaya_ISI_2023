@@ -164,17 +164,8 @@
                                 </div>
                                 <div class="mb-3">
                                   <input class="form-control" name="hangar" type="text" placeholder="Hangar" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90 || event.keyCode"  minlength="2" maxlength="8" required>
-                                  <?php
-if (preg_match("/^[a-z]{4,}$/i", trim($_POST["nombre"])) !== 1) {
-    $error = '
-      El nombre del paciente es incorrecto:<br/>
-      <ul>
-        <li>Mínimo 4 caracteres</li>
-        <li>Solo letras</li>
-      </ul>
-    ';
-}
                                 </div>
+                               
                                 <div class="mb-3">
                                     <label for="rol">Ciudad</label>
                                     <select class="form-select" name="estado" id="ciudad">
@@ -242,5 +233,24 @@ if (preg_match("/^[a-z]{4,}$/i", trim($_POST["nombre"])) !== 1) {
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 </body>
+<script type="text/javascript">
+    
+    const expresiones = {       
+        nombre: "/^[a-zA-ZÀ-ÿ\s]{4,15}$/", // Letras y espacios, pueden llevar acentos.       
+    } 
+    var estado = document.getElementById("estado"); 
+
+    document.getElementById("validar").addEventListener('click', () =>{
+        var nombre = document.getElementById("nombre").value
+
+        if (expresiones.nombre.test(nombre)) {
+            estado.innerHTML = "Correcto";
+      //Aqui deberias enviar el valor
+        }else{
+            estado.innerHTML = "Incorrecto";
+      //aqui podrias decirle al usuario que el valor es incorrecto
+        }
+    });
+</script>
 
 </html>
