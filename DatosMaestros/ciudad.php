@@ -169,7 +169,8 @@
                                   <input class="form-control" name="terminal" type="text" placeholder="Terminal" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="4" maxlength="20" required>
                                 </div>
                                
-                                <div class="mb-3">
+                                <div class="form-group">
+                                    <div class="col-md-10">
                                     <label for="rol" class="form-label">País</label>
                                     <select class="form-select" name="estado" id="pais">
                                     
@@ -183,6 +184,7 @@
                                     ?> 
                                     </select>
                                 </div>
+                                    </div>
                               <div class="col-md-12  mt-5 text-center">
                                    <button class="btn btn-primary" name="btnnombre" type="submit">Guardar</button>
                               </div>
