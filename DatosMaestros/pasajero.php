@@ -14,13 +14,14 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
     <title>Pasajero</title>
 
 
@@ -165,7 +166,7 @@
                         <div class="card-body">
                             <form class="row g-3 needs-validation" id="formularioRegistro" action="../Procesos/Guardar/pasajeroAdd.php" method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre y Apellido" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.charcode>=160 && event.charCode<=165 || event.charCode===32"  minlength="4" maxlength="20" required pattern="[a-zA-Z]+ [a-zA-Z]+" title="Ingrese Su Primer Nombre y Primer Apellido">
+                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre y Apellido" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.charCode>=160 && event.charCode<=165 || event.charCode===32 || event.keyCode"  minlength="10" maxlength="25" required pattern="[a-zA-ZÀ-ÿ\u00f1\u00d1]+ (\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" title="Ingrese Su Primer Nombre y Primer Apellido">
                                 </div>
                                 <div class="mb-3">
                                 <label for="documentos">Documentación</label>
@@ -183,7 +184,7 @@
                                   <input class="form-control" name="telefono"  type="tel" placeholder="Teléfono" onkeypress="return event.charCode>=48 && event.charCode<=57" minlength="8" maxlength="8" required pattern="[2-3][0-9]+|[7-9][0-9]+" title="su numero de teléfono debe de empezar con 2,3,7,8 o 9">
                                 </div>
                                 <div class="mb-3">
-                                  <input class="form-control" name="correo" type="email" placeholder="Correo Electrónico" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.charCode===64 || event.charCode===46"  minlength="11" maxlength="28" required pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+(.com)+|[a-zA-Z0-9]+@[a-zA-Z0-9]+(.net)+|[a-zA-Z0-9]+@[a-zA-Z0-9]+(.hn)" title="ejemplo@ejemplo.com/net/hn">
+                                  <input class="form-control" name="correo" type="email" placeholder="Correo Electrónico" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.charCode===64 || event.charCode===46"  minlength="11" maxlength="50" required pattern="[a-zA-Z0-9.]+@[a-zA-Z0-9]+(.com)+|[a-zA-Z0-9.]+@[a-zA-Z0-9]+(.net)+|[a-zA-Z0-9.]+@[a-zA-Z0-9]+(.hn)" title="ejemplo@ejemplo.com/net/hn">
                                 </div>
                                 <div class="mb-3">
                                     <label for="rol">País</label>
