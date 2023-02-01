@@ -169,7 +169,7 @@
                                   <input class="form-control" name="capacidad"  type="text" placeholder="Capacidad" onkeypress="return event.charCode>=48 && event.charCode<=57"   required pattern="[^0]+|[1-9][0-9]+" title="La capacidad no debe ser 0" minlength="2" maxlength="11">
                                 </div>
                                 <div class="mb-3">
-                                  <input class="form-control" name="Tamaño" type="text" placeholder="Capacidad" onkeypress="return event.charCode>=48 && event.charCode<=57"   required pattern="[^0]+|[1-9][0-9]+" title="El tamaño no debe ser 0" minlength="2" maxlength="11">
+                                  <input class="form-control" name="Tamaño" type="text" placeholder="Tamaño" onkeypress="return event.charCode>=48 && event.charCode<=57"   required pattern="[^0]+|[1-9][0-9]+" title="El tamaño no debe ser 0" minlength="2" maxlength="11">
                                 </div>
                                 <div class="mb-3">
                                   <input class="form-control" name="tipo" type="text" placeholder="Tipo" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="16" required>
