@@ -3,11 +3,11 @@
 
     $id=$_POST['id'];
     $nombre=$_POST['nombre'];
-    $region=$_POST['region'];
+    $estado=$_POST['estado'];
 
   
 
-    $actualizar="UPDATE pais SET Nombre='$nombre', Region='$region' WHERE Id_Pais='$id'";
+    $actualizar="UPDATE pais SET Nombre='$nombre', Region='$estado' WHERE Id_Pais='$id'";
 
     $resultado=mysqli_query($conn,$actualizar);
 

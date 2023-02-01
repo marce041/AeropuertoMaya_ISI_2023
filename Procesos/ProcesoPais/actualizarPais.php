@@ -1,3 +1,11 @@
+<?php
+    
+    if(isset($_POST['estado'])) {
+        $estado=$_POST['estado'];
+        echo $estado;
+    }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,6 +137,7 @@
                                             $Id=$_GET['id'];
                                             $query = mysqli_query($conn,"SELECT * FROM pais WHERE Id_Pais='$Id'")
                                             or die ('error: '.mysqli_error($conn));
+                                            $query2=mysqli_query($conn, "SELECT Id_Region, Nombre FROM region");
                                 
                                             echo 
                                             "
@@ -152,9 +161,15 @@
                                 
                                                         <form action='procesarActualizar.php' method='POST'>
                                                             
-                                                            <td><input type='hidden' value=' $data[Id_Pais]'name='id' ></td>
-                                                            <td><input type='text'  value=' $data[Nombre]'   name='nombre' ></td>
-                                                            <td><input type='text'  value=' $data[Region]' name='region'></td>
+                                                            <td><input type='text' value='$data[Id_Pais]'name='id' readonly></td>
+                                                            <td><input type='text'  value='$data[Nombre]' name='nombre' onkeypress='return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.keyCode' minlength='4' maxlength='50' pattern='^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$' required></td>
+                                                            <td><select value='$data[Region]' name='estado' required>";
+                                                            while ($data = mysqli_fetch_assoc($query2))
+                                                            {echo"
+                                                                <option value='$data[Nombre]'>$data[Nombre]</option>
+                                                            ";
+                                                            }echo"
+                                                            </select></td>
                                                             <td> <button class='btn btn-success' type='submit' ><i class='fas fa-save'></i></button>
                                                            
                                                             </td>
