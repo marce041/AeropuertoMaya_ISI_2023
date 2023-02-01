@@ -184,7 +184,7 @@
                                   <input class="form-control" name="telefono"  type="tel" placeholder="Teléfono" onkeypress="return event.charCode>=48 && event.charCode<=57" minlength="8" maxlength="8" required pattern="[2-3][0-9]+|[7-9][0-9]+" title="su numero de teléfono debe de empezar con 2,3,7,8 o 9">
                                 </div>
                                 <div class="mb-3">
-                                  <input class="form-control" name="correo" type="email" placeholder="Correo Electrónico" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.charCode===64 || event.charCode===46"  minlength="11" maxlength="50" required pattern="[a-zA-Z0-9.]+@[a-zA-Z0-9]+(.com)+|[a-zA-Z0-9.]+@[a-zA-Z0-9]+(.net)+|[a-zA-Z0-9.]+@[a-zA-Z0-9]+(.hn)" title="ejemplo@ejemplo.com/net/hn">
+                                  <input class="form-control" name="correo" type="text" placeholder="Correo Electrónico" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.charCode===64 || event.charCode===46"  minlength="11" maxlength="50" required pattern="[a-zA-Z0-9.]+@[a-zA-Z0-9]+(.com)+|[a-zA-Z0-9.]+@[a-zA-Z0-9]+(.net)+|[a-zA-Z0-9.]+@[a-zA-Z0-9]+(.hn)" title="ejemplo@ejemplo.com/net/hn">
                                 </div>
                                 <div class="mb-3">
                                     <label for="rol">País</label>
