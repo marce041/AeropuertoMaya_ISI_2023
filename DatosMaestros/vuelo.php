@@ -218,7 +218,7 @@
                                   <input class="form-control" name="precio" type="text" placeholder="Precio" onkeypress="return event.charCode>=48 && event.charCode<=57" minlength="1" maxlength="8" required pattern="[^0]+|[1-9][0-9]+" title="Su cantidad no debe ser 0">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="rol">Id_Aeronave</label>
+                                    <label for="rol">Id de Aeronave</label>
                                     <select class="form-select" name="estado3" id="aeronave">
                                     
                                     <?php 
