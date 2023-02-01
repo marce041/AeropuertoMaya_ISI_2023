@@ -49,6 +49,58 @@ $costo_vuelo=$pruebafecha;
 
 $monto=$costo_vuelo + $costo_clase + $costo_equipaje;
 
+$sql2 = "SELECT Id_Boleto FROM boleto
+    WHERE Codigo = '$codigo'";
+    $resultado2 = $conn->query($sql2);
+    $rows2 = $resultado2->num_rows;
+
+if($rows2 > 0){
+
+$queryboletos=mysqli_query($conn, "SELECT `boleto`.`Codigo`, `boleto`.`Id_Pasajero`,`boleto`.`Id_Vuelo`,`boleto`.`Id_Clase` FROM `boleto` WHERE `Codigo`='$codigo';");
+$codg = array();
+$idpas = array();
+$idvuel = array();
+$idclas = array();
+while($datos = mysqli_fetch_array($queryboletos)) {
+    array_push($codg, $datos['Codigo']);
+    array_push($idpas, $datos['Id_Pasajero']);
+    array_push($idvuel, $datos['Id_Vuelo']);
+    array_push($idclas, $datos['Id_Clase']);
+}
+
+$pruebacodg=$codg[0];
+$pruebaidpas=$idpas[0];
+$pruebaidvuel=$idvuel[0];
+$pruebaidclas=$idclas[0];
+
+if(($codigo!=$pruebacodg) || ($estado2!=$pruebaidpas) || ($estado3!=$pruebaidvuel) || ($estado5!=$pruebaidclas)){
+    echo  "<script>
+    alert('Los valores para registrar este boleto no son correctos');
+    window.location = '../../DatosMaestros/boleto.php';
+    </script>";  
+}else{
+    $actualizar="UPDATE listaasientos SET Estado='0' WHERE Id_Lista='$estado'";
+    $insertar="INSERT INTO `boleto` (`Id_Boleto`, `Codigo`, `Id_Asiento`, `Id_Pasajero`, `Id_Vuelo`, `Id_Equipaje`,`Id_Clase`,`Precio`,`Estado`) 
+    VALUES (NULL, '$codigo', '$estado', '$estado2','$estado3','$estado4','$estado5','$monto','1');";
+    $resultado=mysqli_query($conn, $insertar);
+    $res2=mysqli_query($conn, $actualizar);
+
+    // echo "<script> alert('".$nombre."'); </script>";
+
+    if($resultado) {
+        echo  "<script>
+        alert('Se ha insertado correctamente los datos');
+        window.location = '../../DatosMaestros/boleto.php';
+        </script>";
+    
+    } else {
+        echo  "<script>
+        alert('NO SE PUDO insertar los datos');
+        window.location = '../../principaladmin.php';
+        </script>";
+    }   
+}
+}else{
     $actualizar="UPDATE listaasientos SET Estado='0' WHERE Id_Lista='$estado'";
     $insertar="INSERT INTO `boleto` (`Id_Boleto`, `Codigo`, `Id_Asiento`, `Id_Pasajero`, `Id_Vuelo`, `Id_Equipaje`,`Id_Clase`,`Precio`,`Estado`) 
     VALUES (NULL, '$codigo', '$estado', '$estado2','$estado3','$estado4','$estado5','$monto','1');";
@@ -69,4 +121,5 @@ $monto=$costo_vuelo + $costo_clase + $costo_equipaje;
         window.location = '../../principaladmin.php';
         </script>";
     }
+}
 ?>

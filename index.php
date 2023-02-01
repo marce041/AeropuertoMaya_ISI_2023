@@ -26,7 +26,7 @@ $sql = "SELECT idUser FROM usuario
 
     if($rows > 0){
         $row = $resultado->fetch_assoc();
-        $_SESSION['id_Usuario'] = $row ['ID_Usuario'];
+        $_SESSION['idUser'] = $row ['idUser'];
         header("Location: principaladmin.php");
         $_SESSION['fails'] = 0;
     }else{

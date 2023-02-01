@@ -1,5 +1,9 @@
 <?php
     include("conexion.php");
+    session_start();
+if (!isset($_SESSION['idUser'])) {
+    header('location: index.php');
+}
 
     $vuelo=mysqli_query($conn, "SELECT COUNT(`Id_Vuelo`) AS vueloRes FROM `vuelo`;");
     $aeronaves=mysqli_query($conn, "SELECT COUNT(`Id_Aeronave`) AS aeronaveRes FROM `aeronave`;");
@@ -376,7 +380,7 @@
                 <div class="modal-body">Seleccione "Salir" Si asi lo desea.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="index.php">Salir</a>
+                    <a class="btn btn-primary" href="index.php"> <?php session_destroy();?>Salir</a>
                 </div>
             </div>
         </div>
