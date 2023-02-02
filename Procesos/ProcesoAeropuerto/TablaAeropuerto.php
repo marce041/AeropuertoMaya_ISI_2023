@@ -16,10 +16,10 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Aeropuerto</th>
-                            <th scope='col'>Nombre</th>
+                            <th scope='col'>Id del aeropuerto</th>
+                            <th scope='col'>Nombre del aeropuerto</th>
                             <th scope='col'>Hangar</th>
-                            <th scope='col'>Id_Ciudad</th>
+                            <th scope='col'>Id de la ciudad</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>
