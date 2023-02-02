@@ -16,13 +16,13 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Boleto</th>
-                            <th scope='col'>Codigo</th>
-                            <th scope='col'>Id_Asiento</th>
-                            <th scope='col'>Id_Pasajero</th>
-                            <th scope='col'>Id_Vuelo</th>
-                            <th scope='col'>Id_Equipaje</th>
-                            <th scope='col'>Id_Clase</th>
+                            <th scope='col'>Id de boleto</th>
+                            <th scope='col'>Código</th>
+                            <th scope='col'>Id del asiento</th>
+                            <th scope='col'>Id del pasajero</th>
+                            <th scope='col'>Id del vuelo</th>
+                            <th scope='col'>Id del equipaje</th>
+                            <th scope='col'>Id de la clase</th>
                             <th scope='col'>Precio</th>
                             <th scope='col'>Acciones</th>
                         </tr>
