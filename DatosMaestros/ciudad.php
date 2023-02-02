@@ -232,7 +232,14 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById("Nombre").addEventListener("input",function espacios(Nombre) {
+            this.value = this.value.replace(/\b\s{2,}\b/g,'');
+            
+        });
+    </script>
 
+ 
     <script src="../style/Dashboard/jquery/jquery.min.js"></script>
     <script src="../style/Dashboard/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../style/Dashboard/jquery-easing/jquery.easing.min.js"></script>
@@ -245,13 +252,12 @@
         crossorigin="anonymous">
 
 
-  <script>
-      document.getElementById("Nombre").addEventListener("input", function(){
+ 
 
 
-        this.value = this.value.replace(/\b\s{2,}\b/g, ' ');
-    });
-  </script>
+
+
+
     function validar letras{
     const expresiones = {       
         nombre: "/^[a-zA-ZÀ-ÿ\s]{4,15}$/", // Letras y espacios, pueden llevar acentos.       
