@@ -161,7 +161,7 @@
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/ciudadAdd.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                     <div class="col-md-10">
-                                    <input class="form-control" name="nombre" id = "nombre" type="text" placeholder="Nombre" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.keyCode" minlength="4" maxlength="40" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
+                                    <input class="form-control" name="nombre" id = "Nombre" type="text" placeholder="Nombre" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.keyCode" minlength="4" maxlength="40" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
                                 </div>
                                 </div>
                                 <div class="form-group">
@@ -244,6 +244,10 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous">
 
+
+document.getElementById("Nombre").addEventListener("input", function(){
+  this.value = this.value.replace(/  +/g, ' ');
+});
     function validar letras{
     const expresiones = {       
         nombre: "/^[a-zA-ZÀ-ÿ\s]{4,15}$/", // Letras y espacios, pueden llevar acentos.       
