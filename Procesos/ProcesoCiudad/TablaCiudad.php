@@ -17,7 +17,7 @@
                     <thead>
                         <tr class='text-center'>
                             <th scope='col'>Id de ciudad</th>
-                            <th scope='col'>Nombre</th>
+                            <th scope='col'>Nombre de la ciudad</th>
                             <th scope='col'>Código postal</th>
                             <th scope='col'>Terminal</th>
                             <th scope='col'>Id de país</th>
