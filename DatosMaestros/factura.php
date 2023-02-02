@@ -49,7 +49,7 @@ if(isset($_POST['estado4'])) {
         <!--Empieza Lista -->
         <ul class="navbar-nav color sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../principaladmin.php">
-                <div class="sidebar-brand-text mx-3">Administracion</div>
+                <div class="sidebar-brand-text mx-3">Administración</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
@@ -252,7 +252,7 @@ return ((zero.repeat(width - length)) + numberOutput.toString());
                             </div>
                            
                                 <div class="mb-3">
-                                  <input class="form-control" name="rtn" type="text" placeholder="RTN" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="10" maxlength="14" required>
+                                  <input class="form-control" name="RTN" id="RTN" type="text" placeholder="RTN" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="14" maxlength="14" required>
                             </div>
                             <div class="mb-3">
                                   <input class="form-control" name="cai" id="cai" readonly type="text" placeholder="CAI" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="10" maxlength="16" required>
@@ -272,9 +272,17 @@ return ((zero.repeat(width - length)) + numberOutput.toString());
                                     </select>
                                 </div>
                                
-                                <label for="rol">Fecha de Emision</label>
+                                <label for="rol">Fecha de Emisión</label>
                                   <input class="form-control" name="fecha" id="fecha" type="text" onclick="setfecha();" placeholder="Fecha de vuelo" onkeypress="return event.charCode>=0128" maxlength="20" required>
                                 </div>
+                                <script>
+                                   const input = document.getElementById("RTN");
+                                   input.addEventListener("input",function(event){
+                                    if(isNaN(event.target.value)){
+                                      event.target.value = "";
+                                   }
+                                   });
+                             </script>
                                 <script>
                                     function setfecha(){
                                         var today = new Date();
