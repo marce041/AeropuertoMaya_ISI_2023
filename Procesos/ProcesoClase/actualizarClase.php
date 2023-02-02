@@ -158,7 +158,7 @@
                                                             
                                                             <td><input type='hidden' value=' $data[Id_Clase]'name='id' ></td>
                                                             <td><select class='form-select' name='estado2' id='pasajero'>
-                                                            <option option value=''>$data[Tipo_Clase]</option>
+                                                            <option option value='$data[Tipo_Clase]'>$data[Tipo_Clase]</option>
                                                             <option value='Primera Clase'>Primera Clase</option>
                                                             <option value='Ejecutivo'>Ejecutivo</option>
                                                             <option value='Economico premium'>Económico Premium</option>
