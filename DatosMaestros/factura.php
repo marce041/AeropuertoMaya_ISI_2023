@@ -252,10 +252,10 @@ return ((zero.repeat(width - length)) + numberOutput.toString());
                             </div>
                            
                                 <div class="mb-3">
-                                  <input class="form-control" name="RTN" id="RTN" type="text" placeholder="RTN" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="14" maxlength="14" required>
+                                  <input class="form-control" name="rtn" id="RTN" type="text" placeholder="RTN" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="14" maxlength="14" required>
                             </div>
                             <div class="mb-3">
-                                  <input class="form-control" name="cai" id="cai" readonly type="text" placeholder="CAI" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="10" maxlength="16" required>
+                                  <input class="form-control" name="CAI" id="cai" readonly type="text" placeholder="CAI" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="32" maxlength="32" required>
                             </div>
                             <div class="mb-3">
                                     <label for="boleto">Detalle Factura</label>
@@ -354,9 +354,9 @@ return ((zero.repeat(width - length)) + numberOutput.toString());
                                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                             
                                 <div class="mb-3">
-                                <label for="documentos">Metodo de Pago</label>
+                                <label for="documentos">Método de Pago</label>
                                 <select class= "form-select" name="metodo" id="metodo"  onchange="carg(this);" required>
-                                <option option value="opcion">--- Escoja una opcion ---</option>
+                                <option option value="opcion">--- Escoja una opción ---</option>
                                 <option value="Efectivo">Efectivo</option>
                                 <option value="Tarjeta">Tarjeta</option>
                                 <option value="Mixto">Mixto</option>
