@@ -155,9 +155,9 @@
                                 
                                                         <form action='procesarActualizar.php' method='POST'>
                                                             
-                                                            <td><input type='hidden' value=' $data[Id_Moneda]'name='id' ></td>
-                                                            <td><input type='text'  value=' $data[Nombre]'   name='nombre' ></td>
-                                                            <td><input type='text'  value=' $data[ConversionADolar]'   name='conversionadolar'></td>
+                                                            <td><input type='hidden' value='$data[Id_Moneda]'name='id' ></td>
+                                                            <td><input type='text'  value='$data[Nombre]'   name='nombre' onkeypress='return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122'  minlength='4' maxlength='20'></td>
+                                                            <td><input type='text'  value='$data[ConversionADolar]'   name='conversionadolar' onkeypress='return event.charCode>=48 && event.charCode<=57 || event.charCode===46'  minlength='1' maxlength='10'></td>
                                                             <td> <button class='btn btn-success' type='submit' ><i class='fas fa-save'></i></button>
                                                            
                                                             </td>
