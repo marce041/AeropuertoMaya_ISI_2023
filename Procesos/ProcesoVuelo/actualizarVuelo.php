@@ -1,5 +1,21 @@
+<?php
+    
+    if(isset($_POST['estado'])) {
+        $estado=$_POST['estado'];
+        echo $estado;
+    }
+    if(isset($_POST['estado2'])) {
+        $estado2=$_POST['estado2'];
+        echo $estado2;
+    }
+    if(isset($_POST['estado3'])) {
+        $estado3=$_POST['estado3'];
+        echo $estado3;
+    }
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -131,7 +147,10 @@
                                             $Id=$_GET['id'];
                                             $query = mysqli_query($conn,"SELECT * FROM vuelo WHERE Id_Vuelo='$Id'")
                                             or die ('error: '.mysqli_error($conn));
-                                
+
+                                            $query2=mysqli_query($conn, "SELECT Id_Aeropuerto, Nombre FROM aeropuerto");
+                                            $query3=mysqli_query($conn, "SELECT Id_Aeronave, Matricula FROM aeronave");
+                                            $query4=mysqli_query($conn, "SELECT Id_Aeropuerto, Nombre FROM aeropuerto");
                                             echo 
                                             "
                                             <table class='table table-hover'>
@@ -159,15 +178,33 @@
                                 
                                                         <form action='procesarActualizar.php' method='POST'>
                                                             
-                                                            <td><input type='hidden' value=' $data[Id_Vuelo]'name='id' ></td>
-                                                            <td><input type='text'  value=' $data[Codigo]'   name='codigo' ></td>
-                                                            <td><input type='text'  value=' $data[Lugar_Salida]' name='estado'></td>
-                                                            <td><input type='text'  value=' $data[Lugar_LLegada]'   name='estado2'></td>
-                                                            <td><input type='text'  value=' $data[Hora_Salida]' name='horasal'></td>
-                                                            <td><input type='text'  value=' $data[Hora_LLegada]' name='horall'></td>
-                                                            <td><input type='text'  value=' $data[Fecha]' name='fecha'></td>
-                                                            <td><input type='text'  value=' $data[Precio]' name='precio'></td>
-                                                            <td><input type='text'  value=' $data[Id_Aeronave]' name='estado3'></td>
+                                                            <td><input type='text' value=' $data[Id_Vuelo]'name='id' readonly></td>
+                                                            <td><input type='text'  value=' $data[Codigo]'   name='codigo' onkeypress='return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90'  minlength='6' maxlength='6' required></td>
+                                                            <td><select value='$data[Lugar_Salida]' name='estado' required>";
+                                                            while ($data = mysqli_fetch_assoc($query2))
+                                                            {echo"
+                                                                <option value='$data[Nombre]'>$data[Nombre]</option>
+                                                            ";
+                                                            }echo"
+                                                            </select></td>
+                                                            <td><select value='$data[Lugar_LLegada]' name='estado2' required>";
+                                                            while ($data = mysqli_fetch_assoc($query4))
+                                                            {echo"
+                                                                <option value='$data[Nombre]'>$data[Nombre]</option>
+                                                            ";
+                                                            }echo"
+                                                            </select></td>
+                                                            <td><input type='time'  value=' $data[Hora_Salida]' name='horasal' required pattern='^ '</td>
+                                                            <td><input type='time'  value=' $data[Hora_LLegada]' name='horall' required pattern='^ '</td>
+                                                            <td><input type='date'  value=' $data[Fecha]' name='fecha' min='2023-02-01' max='2030-02-01' required></td>
+                                                            <td><input type='text'  value=' $data[Precio]' name='precio' onkeypress='return event.charCode>=48 && event.charCode<=57' minlength='1' maxlength='8' required pattern='[^0 ]+|[1-9]+[0-9]+' title='Su cantidad no debe ser 0'></td>
+                                                            <td><select value=' $data[Id_Aeronave]' name='estado3' required>";
+                                                            while ($data = mysqli_fetch_assoc($query3))
+                                                            {echo"
+                                                                <option value='$data[Id_Aeronave]'>$data[Id_Aeronave]</option>
+                                                            ";
+                                                            }echo"
+                                                            </select></td>
                                                             <td> <button class='btn btn-success' type='submit' ><i class='fas fa-save'></i></button>
                                                            
                                                             </td>

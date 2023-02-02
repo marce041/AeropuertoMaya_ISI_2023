@@ -155,7 +155,7 @@
                                 
                                                         <form action='procesarActualizar.php' method='POST'>
                                                             
-                                                            <td><input type='hidden' value=' $data[Id_Hangar]'name='id' ></td>
+                                                            <td><input type='text' value=' $data[Id_hangar]'name='id' readonly></td>
                                                             <td><input type='text'  value=' $data[Codigo]'   name='codigo' ></td>
                                                             <td><input type='text'  value=' $data[Capacidad]' name='capacidad'></td>
                                                             <td><input type='text'  value=' $data[Id_Aeronave]'   name='estado'></td>

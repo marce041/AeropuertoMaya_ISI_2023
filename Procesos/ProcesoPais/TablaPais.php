@@ -45,7 +45,7 @@
                             </a>
 
                             <!--BOTON ELIMINAR-->
-                            <a href='../Procesos/ProcesoAeropuerto/eliminarPais.php?id=$data[Id_Pais]' name='btneliminar' class='item_tabla btn btn-danger' onclick='return confirm(\"¿Continuar con $data[Nombre]\"); '><i class='fas fa-trash-alt'></i></a> </td>
+                            <a href='../Procesos/ProcesoPais/eliminarPais.php?id=$data[Id_Pais]' name='btneliminar' class='item_tabla btn btn-danger' onclick='return confirm(\"¿Continuar con $data[Nombre]\"); '><i class='fas fa-trash-alt'></i></a> </td>
                         </form>
                     </tr>
 

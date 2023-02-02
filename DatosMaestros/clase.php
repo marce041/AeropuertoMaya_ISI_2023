@@ -29,7 +29,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Boleto</title>
+    <title>Clase</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -178,10 +178,10 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                  <input class="form-control" name="descripcion" type="text" placeholder="Descripcion" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="100" required>
+                                  <input class="form-control" name="descripcion" type="text" placeholder="Descripcion" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.charCode===32"  minlength="4" maxlength="50" required>
                                 </div>
                                 <div class="mb-3">
-                                  <input class="form-control" name="multiplicadorprecio" type="text" placeholder="Multiplicador Precio" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode===46"  minlength="4" maxlength="20" required>
+                                  <input class="form-control" name="multiplicadorprecio" type="text" placeholder="Multiplicador Precio" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode===46"  minlength="1" maxlength="4" required>
                                 </div>
                               <div class="col-md-12  mt-5 text-center">
                                    <button class="btn btn-primary" name="btnnombre" type="submit">Guardar</button>
