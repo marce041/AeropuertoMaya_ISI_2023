@@ -21,7 +21,7 @@
         <!--Empieza Lista -->
         <ul class="navbar-nav color sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../principaladmin.php">
-                <div class="sidebar-brand-text mx-3">Administracion</div>
+                <div class="sidebar-brand-text mx-3">Administración</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
@@ -147,10 +147,10 @@
                         <div class="card-body">
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/tripulacionAdd.php" method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                  <input class="form-control" name="cargo" type="text" placeholder="Cargo" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" required>
+                                  <input class="form-control" name="cargo" type="text" placeholder="Cargo" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="50" required>
                                 </div>
                                 <div class="mb-3">
-                                  <input class="form-control" name="horasvuelo" type="number" placeholder="Horas de vuelo" onkeypress="return event.charCode>=48 && event.charCode<=57" minlength="1" maxlength="8" required>
+                                  <input class="form-control" name="Horas_Vuelo" type="number" placeholder="Horas de vuelo" onkeypress="return event.charCode>=48 && event.charCode<=57" minlength="1" maxlength="3" required>
                                 </div>
                                 <div class="mb-3">
                                   <input class="form-control" name="tipolicencia"  type="text" placeholder="Tipo de licencia" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" required>
