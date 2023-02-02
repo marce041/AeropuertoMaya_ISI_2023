@@ -246,8 +246,10 @@
 
 
   <script>
-  document.getElementById("Nombre").addEventListener("input", function(){
-  this.value = this.value.replace(/\b\s{2,}\b/g, ' ');
+      document.getElementById("Nombre").addEventListener("input", function(){
+
+
+        this.value = this.value.replace(/\b\s{2,}\b/g, ' ');
     });
   </script>
     function validar letras{
