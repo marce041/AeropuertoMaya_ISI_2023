@@ -150,7 +150,7 @@
                                   <input class="form-control" name="cargo" type="text" placeholder="Cargo" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="50" required>
                                 </div>
                                 <div class="mb-3">
-                                  <input class="form-control" name="Horas_Vuelo" type="number" placeholder="Horas de vuelo" onkeypress="return event.charCode>=48 && event.charCode<=57" minlength="1" maxlength="3" required>
+                                  <input class="form-control" name="Horas_Vuelo" type="text" placeholder="Horas de vuelo" onkeypress="return event.charCode>=48 && event.charCode<=57" minlength="1" maxlength="3" required>
                                 </div>
                                 <div class="mb-3">
                                   <input class="form-control" name="tipolicencia"  type="text" placeholder="Tipo de licencia" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" required>
@@ -200,6 +200,16 @@
         </div>
     </div>
 
+    <script>
+        const input = document.getElementById("Horas_Vuelo");
+        input.addEventListener("input",function(event){
+            if(isNaN(event.target.value)){
+                event.target.value = "";
+            }
+        });
+    </script>
+        
+ 
     <script src="../style/Dashboard/jquery/jquery.min.js"></script>
     <script src="../style/Dashboard/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../style/Dashboard/jquery-easing/jquery.easing.min.js"></script>
