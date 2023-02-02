@@ -3,11 +3,11 @@
 
     $codigo=$_POST['codigo'];
     $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
-    $precio=$_POST['precio'];
+    
    
 
-    $insertar="INSERT INTO `reserva` (`Id_Reserva`, `Codigo`, `Id_Vuelo`, `Precio`) 
-    VALUES (NULL, '$codigo', '$estado', '$precio');";
+    $insertar="INSERT INTO `reserva` (`Id_Reserva`, `Codigo`, `Id_Vuelo`) 
+    VALUES (NULL, '$codigo', '$estado');";
 
     $resultado=mysqli_query($conn, $insertar);
 

@@ -2,7 +2,9 @@
     include("conexion.php");
     session_start();
 if (!isset($_SESSION['idUser'])) {
-    header('location: index.php');
+    echo "No está autorizado para ver esto";
+    header('location: index.php'); 
+    die();
 }
 
     $vuelo=mysqli_query($conn, "SELECT COUNT(`Id_Vuelo`) AS vueloRes FROM `vuelo`;");
@@ -380,7 +382,7 @@ if (!isset($_SESSION['idUser'])) {
                 <div class="modal-body">Seleccione "Salir" Si asi lo desea.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="index.php"> <?php session_destroy();?>Salir</a>
+                    <a class="btn btn-primary" href="cerrarsesion.php">Salir</a>
                 </div>
             </div>
         </div>

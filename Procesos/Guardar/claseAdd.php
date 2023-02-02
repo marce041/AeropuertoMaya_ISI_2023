@@ -6,6 +6,20 @@
     $descripcion=$_POST['descripcion'];
     $multiplicadorprecio=$_POST['multiplicadorprecio'];
 
+    $sql2 = "SELECT Id_Clase FROM clase
+    WHERE Tipo_Clase = '$estado2'";
+    $resultado2 = $conn->query($sql2);
+    $rows2 = $resultado2->num_rows;
+
+if($rows2 > 0){
+
+    echo  "<script>
+    alert('Esta clase ya ha sido registrada.');
+    window.location = '../../DatosMaestros/clase.php';
+    </script>"; 
+}else{
+
+
 
     $insertar="INSERT INTO `clase` (`Id_Clase`, `Tipo_Clase`, `Descripcion`, `MultiplicadorPrecio`) 
     VALUES (NULL, '$estado2','$descripcion', '$multiplicadorprecio');";
@@ -26,4 +40,5 @@
         window.location = '../../principaladmin.php';
         </script>";
     }
+}
 ?>

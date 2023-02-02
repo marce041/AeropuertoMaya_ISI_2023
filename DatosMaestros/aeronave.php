@@ -4,7 +4,11 @@
 
     // $buscar="SELECT `IDProveedor`, `RTN` FROM proveedores;";
     // $resultado=mysqli_query($conn, $buscar);
-    
+    session_start();
+    if (!isset($_SESSION['idUser'])) {
+        header('location: ../index.php');
+    }
+
     if(isset($_POST['estado'])) {
         $estado=$_POST['estado'];
         echo $estado;

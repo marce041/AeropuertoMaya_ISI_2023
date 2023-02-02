@@ -7,7 +7,7 @@
 
   
 
-    $actualizar="UPDATE reserva SET Codigo'$codigo', Id_Vuelo='$estado' WHERE Id_Reserva='$id'";
+    $actualizar="UPDATE reserva SET Codigo='$codigo', Id_Vuelo='$estado' WHERE Id_Reserva='$id'";
 
     $resultado=mysqli_query($conn,$actualizar);
 

@@ -176,9 +176,6 @@
                                     ?> 
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                  <input class="form-control" name="precio" type="text" placeholder="Precio" onkeypress="return event.charCode>=48 && event.charCode<=57"  minlength="2" maxlength="5" required>
-                            </div>
                               <div class="col-md-12  mt-5 text-center">
                                    <button class="btn btn-primary" name="btnnombre" type="submit">Guardar</button>
                               </div>
