@@ -147,7 +147,7 @@
                         <div class="card-body">
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/tripulacionAdd.php" method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                  <input class="form-control" name="cargo" type="text" placeholder="Cargo" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="50" required>
+                                  <input class="form-control" name="cargo" id="Cargo" type="text" placeholder="Cargo" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="50" required>
                                 </div>
                                 <div class="mb-3">
                                   <input class="form-control" name="Horas_Vuelo" type="text" placeholder="Horas de vuelo" onkeypress="return event.charCode>=48 && event.charCode<=57" minlength="1" maxlength="3" required>
@@ -199,6 +199,23 @@
             </div>
         </div>
     </div>
+    <script>
+        const input = document.getElementById("Cargo");
+        const vowels = "aeiouAEIOU";
+        input.addEventListener("input", function(event){
+            let value = event.target.value;
+            for(let i=0;i<value.length - 2; i++){
+                if(vowels.indexOf(value[i]) !== -1 && vowels.indexOf(value[i + 1]) !== -1 && vowels.indexOf(value[i + 2]) !== -1){
+                    event.target.value = value.substr(0, i + 2);
+
+                }
+              else if (!vowels.includes(value[i]) && !vowels.includes(value[i + 1]) && !vowels.includes(value[i + 2])){
+                event.target.value = value.substr(0, i + 2);
+            }
+        }
+        });
+        </script>
+
 
     <script>
         const input = document.getElementById("Horas_Vuelo");
