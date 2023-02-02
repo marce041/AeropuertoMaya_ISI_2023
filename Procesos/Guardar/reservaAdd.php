@@ -16,7 +16,7 @@
     if($resultado) {
         echo  "<script>
         alert('Se ha insertado correctamente los datos');
-        window.location = '../../DatosMaestros/aeronave.php';
+        window.location = '../../DatosMaestros/reserva.php';
         </script>";
     
     } else {
