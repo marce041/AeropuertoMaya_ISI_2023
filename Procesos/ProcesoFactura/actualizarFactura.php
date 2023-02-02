@@ -281,6 +281,14 @@
             </div>
         </div>
     </div>
+    <script>
+        const input = document.getElementById("RTN");
+        input.addEventListener("input",function(event){
+            if(isNaN(event.target.value)){
+                event.target.value = "";
+            }
+        });
+    </script>
 
     <script src="../style/Dashboard/jquery/jquery.min.js"></script>
     <script src="../style/Dashboard/bootstrap/js/bootstrap.bundle.min.js"></script>
