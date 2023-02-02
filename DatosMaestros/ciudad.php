@@ -245,9 +245,11 @@
         crossorigin="anonymous">
 
 
-document.getElementById("Nombre").addEventListener("input", function(){
-  this.value = this.value.replace(/  +/g, ' ');
-});
+    <script>
+      document.getElementById("Nombre").addEventListener("input", function(){
+      this.value = this.value.replace(/  +/g, ' ');
+       });
+  </script>
     function validar letras{
     const expresiones = {       
         nombre: "/^[a-zA-ZÀ-ÿ\s]{4,15}$/", // Letras y espacios, pueden llevar acentos.       
