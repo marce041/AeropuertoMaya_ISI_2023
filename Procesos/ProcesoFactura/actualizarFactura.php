@@ -164,7 +164,7 @@
                                                             
                                                             <td><input type='hidden' value='$data[Id_Factura]'name='id' ></td>
                                                             <td><input type='text'  value='$data[Codigo]'   name='codigo' ></td>
-                                                            <td><input type='text'  value='$data[RTN]'   name='rtn' maxlength=14></td>
+                                                            <td><input type='text'  value='$data[RTN]'   name='rtn' maxlength=14 id=rtn></td>
                                                             <td><input type='text'  value='$data[CAI]'   name='cai' maxlength=32 ></td>
                                                             <td><select name='estado2' id='equipaje'>
                                                             <option option value='$data[Id_Detalle]'>$data[Id_Detalle]</option>
