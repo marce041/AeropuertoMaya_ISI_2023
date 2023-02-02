@@ -7,7 +7,7 @@
     $estado2 = filter_input(INPUT_POST, 'estado2', FILTER_SANITIZE_STRING);
    
     
-    $insertar="INSERT INTO `hangar` (`Id_Hangar`, `Codigo`,`Capacidad`, `Id_Aeronave`,`Id_Aeropuerto`) 
+    $insertar="INSERT INTO `hangar` (`Id_hangar`, `Codigo`,`Capacidad`, `Id_Aeronave`,`Id_Aeropuerto`) 
     VALUES (NULL, '$codigo','$capacidad', '$estado','$estado2');";
 
     $resultado=mysqli_query($conn, $insertar);
@@ -17,7 +17,7 @@
     if($resultado) {
         echo  "<script>
         alert('Se ha insertado correctamente los datos');
-        window.location = '../../DatosMaestros/aeronave.php';
+        window.location = '../../DatosMaestros/hangares.php';
         </script>";
     
     } else {
