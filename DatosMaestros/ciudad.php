@@ -171,7 +171,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-10">
-                                  <input class="form-control" name="terminal" type="text" placeholder="Terminal" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="4" maxlength="20" required>
+                                  <input class="form-control" name="terminal" type="text" placeholder="Terminal" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="4" maxlength="13" required>
                                 </div>
                                 </div>
                                

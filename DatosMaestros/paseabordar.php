@@ -169,7 +169,7 @@
                                 </div>
                                 <div class="mb-3">
                                 <label for="boleto">Fecha</label>
-                                  <input class="form-control" name="fecha" type="date" placeholder="Fecha" required>
+                                  <input class="form-control" name="fecha" type="date" placeholder="Fecha" max="2030-12-31" min="2023-01-01" required>
                                 </div>
                                 <div class="mb-3">
                                   <input class="form-control" name="puertaembarque"  type="text" placeholder="Puerta de embarque" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="4" maxlength="20" required>
