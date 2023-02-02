@@ -16,11 +16,11 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Ciudad</th>
+                            <th scope='col'>Id de ciudad</th>
                             <th scope='col'>Nombre</th>
-                            <th scope='col'>Codigo Postal</th>
+                            <th scope='col'>Código postal</th>
                             <th scope='col'>Terminal</th>
-                            <th scope='col'>Id_Pais</th>
+                            <th scope='col'>Id de país</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>
