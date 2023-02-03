@@ -18,7 +18,7 @@
                         <tr class='text-center'>
                             <th scope='col'>Id_Reserva</th>
                             <th scope='col'>Codigo</th>
-                            <th scope='col'>Id_Vuelo</th>
+                            <th scope='col'>Pasajeros</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>
