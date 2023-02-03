@@ -84,7 +84,7 @@
                 <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href="../Consultas/Consultaaeropuertos.php">Aeropuertos</a>
+                    <a class="collapse-item" href="../Consultas/Consultaaeropuertos.php">Aeropuertos</a>
                         <a class="collapse-item" href="../Consultas/Consultaseronaves.php">Aeronaves</a>
                         <a class="collapse-item" href="../Consultas/Consultapaises.php">Paises</a>
                         <a class="collapse-item" href="../Consultas/Consultaboletos.php">Boleto</a>
@@ -100,7 +100,9 @@
                         <a class="collapse-item" href="../Consultas/Consultamoneda.php">Moneda</a>
                         <a class="collapse-item" href="../Consultas/Consultaclase.php">Clase</a>
                         <a class="collapse-item" href="../Consultas/Consultafactura.php">Factura</a>
-                        <a class="collapse-item" href="../Consultas/Consultaequipaje.php">Equipaje</a>
+                        <a class="collapse-item" href="../Consultas/Consultafactura.php">Equipaje</a>
+                        <a class="collapse-item" href="../Consultas/Consultadetalles.php">Detalles</a>
+                        <a class="collapse-item" href="../Consultas/Consultaparametro.php">Parámetros</a>
                         
                        
                     </div>

@@ -119,6 +119,9 @@ if(isset($_POST['estado4'])) {
                         <a class="collapse-item" href="../Consultas/Consultamoneda.php">Moneda</a>
                         <a class="collapse-item" href="../Consultas/Consultaclase.php">Clase</a>
                         <a class="collapse-item" href="../Consultas/Consultafactura.php">Factura</a>
+                        <a class="collapse-item" href="../Consultas/Consultafactura.php">Equipaje</a>
+                        <a class="collapse-item" href="../Consultas/Consultadetalles.php">Detalles</a>
+                        <a class="collapse-item" href="../Consultas/Consultaparametro.php">Parámetros</a>
                         
                        
                     </div>
