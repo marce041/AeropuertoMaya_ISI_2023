@@ -157,7 +157,7 @@
                                                             
                                                             <td><input type='hidden' value='$data[Id_Reserva]'name='id' ></td>
                                                             <td><input type='text'  value='$data[Codigo]'   name='codigo' ></td>
-                                                            <td><input type='text'  value='$data[Id_Vuelo]' name='estado'></td>
+                                                            <td><input type='text'  value='$data[Pasajero]' name='estado'></td>
                                                             <td> <button class='btn btn-success' type='submit' ><i class='fas fa-save'></i></button>
                                                            
                                                             </td>
