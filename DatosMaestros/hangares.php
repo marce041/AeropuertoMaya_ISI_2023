@@ -75,7 +75,7 @@
                         <a class="collapse-item" href="hangares.php">Hangar</a>
                         <a class="collapse-item" href="reserva.php">Reserva</a>
                         <a class="collapse-item" href="clase.php">Clase</a>
-                        <a class="collapse-item" href="conversion.php">Conversion</a>
+                        
                         <a class="collapse-item" href="checkin.php">Check-In</a>
                         <a class="collapse-item" href="equipaje.php">Equipaje</a>
                         <a class="collapse-item" href="detallefactura.php">Detalles</a>
@@ -178,7 +178,7 @@
                             <div class="mb-3">
                                     <label for="rol">Aeronave</label>
                                     <select class="form-select" name="estado" id="aeronave">
-                                    <option option value="opcion">--- Escoja una opcion ---</option>
+                                    <option option value="opcion">--- Escoja una opción ---</option>
                                     <?php 
                                         while($datos = mysqli_fetch_array($query))
                                         {
@@ -192,7 +192,7 @@
                                 <div class="mb-3">
                                     <label for="rol">Aeropuerto</label>
                                     <select class="form-select" name="estado2" id="pasajero">
-                                    <option option value="opcion">--- Escoja una opcion ---</option>
+                                    <option option value="opcion">--- Escoja una opción ---</option>
                                     <?php 
                                         while($datos = mysqli_fetch_array($query2))
                                         {

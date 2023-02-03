@@ -83,7 +83,7 @@
                         <a class="collapse-item" href="hangares.php">Hangar</a>
                         <a class="collapse-item" href="reserva.php">Reserva</a>
                         <a class="collapse-item" href="clase.php">Clase</a>
-                        <a class="collapse-item" href="conversion.php">Conversion</a>
+                        
                         <a class="collapse-item" href="checkin.php">Check-In</a>
                         <a class="collapse-item" href="equipaje.php">Equipaje</a>
                         <a class="collapse-item" href="detallefactura.php">Detalles</a>

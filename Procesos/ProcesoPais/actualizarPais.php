@@ -144,7 +144,7 @@
                                             <table class='table table-hover'>
                                             <thead>
                                             <tr>
-                                            <th scope='col'>Id_Pais</th>
+                                            <th scope='col'>Id de País</th>
                                             <th scope='col'>Nombre</th>
                                             <th scope='col'>Región</th>
                                             <th scope='col'>Acciones</th>

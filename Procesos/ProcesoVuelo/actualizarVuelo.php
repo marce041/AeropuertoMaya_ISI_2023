@@ -15,7 +15,7 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -156,15 +156,15 @@
                                             <table class='table table-hover'>
                                             <thead>
                                             <tr>
-                                            <th scope='col'>Id_Vuelo</th>
-                                            <th scope='col'>Codigo</th>
-                                            <th scope='col'>Lugar_Salida</th>
-                                            <th scope='col'>Lugar_LLegada</th>
-                                            <th scope='col'>Hora_Salida</th>
-                                            <th scope='col'>Hora_LLegada</th>
+                                            <th scope='col'>Id de Vuelo</th>
+                                            <th scope='col'>Código</th>
+                                            <th scope='col'>Lugar de Salida</th>
+                                            <th scope='col'>Lugar de LLegada</th>
+                                            <th scope='col'>Hora de Salida</th>
+                                            <th scope='col'>Hora de LLegada</th>
                                             <th scope='col'>Fecha</th>
                                             <th scope='col'>Precio</th>
-                                            <th scope='col'>Id_Aeronave</th>
+                                            <th scope='col'>Id de Aeronave</th>
                                         </tr>
                                             </thead>
                                         <tbody class='text-center'>

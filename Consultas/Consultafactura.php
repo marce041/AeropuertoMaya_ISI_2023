@@ -59,7 +59,7 @@
                         <a class="collapse-item" href="../DatosMaestros/reserva.php">Reserva</a>
                         <a class="collapse-item" href="../DatosMaestros/clase.php">Clase</a>
                         <a class="collapse-item" href="../DatosMaestros/moneda.php">Moneda</a>
-                        <a class="collapse-item" href="../DatosMaestros/conversion.php">Conversion</a>
+                        
                         <a class="collapse-item" href="../DatosMaestros/checkin.php">Check-In</a>
                         <a class="collapse-item" href="../DatosMaestros/equipaje.php">Equipaje</a>
                         <a class="collapse-item" href="../DatosMaestros/detallefactura.php">Detalles</a>

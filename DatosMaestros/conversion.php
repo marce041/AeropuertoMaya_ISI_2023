@@ -69,7 +69,7 @@
                         <a class="collapse-item" href="hangares.php">Hangar</a>
                         <a class="collapse-item" href="reserva.php">Reserva</a>
                         <a class="collapse-item" href="clase.php">Clase</a>
-                        <a class="collapse-item" href="conversion.php">Conversion</a>
+                       
                         <a class="collapse-item" href="checkin.php">Check-In</a>
                         <a class="collapse-item" href="equipaje.php">Equipaje</a>
                         <a class="collapse-item" href="detallefactura.php">Detalles</a>
@@ -165,7 +165,7 @@
                         <div class="card-body">
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/ciudadAdd.php" method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" required>
+                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" required pattern="[a-zA-ZÀ-ÿ\u00f1\u00d1]+ (\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$">
                                 </div>
                                 <div class="mb-3">
                                   <input class="form-control" name="codigo" type="text" placeholder="Precio de Venta" onkeypress="return event.charCode>=48 && event.charCode<=57"  minlength="5" maxlength="5" required>
@@ -177,7 +177,7 @@
                                 <div class="mb-3">
                                     <label for="rol">País</label>
                                     <select class="form-select" name="estado" id="pais">
-                                    <option option value="opcion">--- Escoja una opcion ---</option>
+                                    <option option value="opcion">--- Escoja una opción ---</option>
                                     <?php 
                                         while($datos = mysqli_fetch_array($query))
                                         {

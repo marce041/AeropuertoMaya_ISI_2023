@@ -79,7 +79,7 @@
                         <a class="collapse-item" href="hangares.php">Hangar</a>
                         <a class="collapse-item" href="reserva.php">Reserva</a>
                         <a class="collapse-item" href="clase.php">Clase</a>
-                        <a class="collapse-item" href="conversion.php">Conversion</a>
+                        
                         <a class="collapse-item" href="checkin.php">Check-In</a>
                         <a class="collapse-item" href="equipaje.php">Equipaje</a>
                         <a class="collapse-item" href="detallefactura.php">Detalles</a>
@@ -182,10 +182,10 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                  <input class="form-control" name="descripcion" type="text" placeholder="Descripcion" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.charCode===32"  minlength="4" maxlength="50" required>
+                                  <input class="form-control" name="descripcion" type="text" placeholder="Descripción" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.charCode===32"  minlength="4" maxlength="50" required>
                                 </div>
                                 <div class="mb-3">
-                                  <input class="form-control" name="multiplicadorprecio" type="text" placeholder="Multiplicador Precio" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode===46"  minlength="1" maxlength="4" required>
+                                  <input class="form-control" name="multiplicadorprecio" type="text" placeholder="Multiplicador de Precio" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode===46"  minlength="1" maxlength="4" required>
                                 </div>
                               <div class="col-md-12  mt-5 text-center">
                                    <button class="btn btn-primary" name="btnnombre" type="submit">Guardar</button>
