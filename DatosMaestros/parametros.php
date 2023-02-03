@@ -51,7 +51,7 @@
                 </a>
                 <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="tripulacion.php">Tripulación</a>
+                    <a class="collapse-item" href="tripulacion.php">Tripulación</a>
                         <a class="collapse-item" href="personaltierra.php">Personal de tierra</a>
                         <a class="collapse-item" href="aeronave.php">Aeronave</a>
                         <a class="collapse-item" href="aeropuerto.php">Aeropuerto</a>
@@ -68,6 +68,8 @@
                         <a class="collapse-item" href="conversion.php">Conversion</a>
                         <a class="collapse-item" href="checkin.php">Check-In</a>
                         <a class="collapse-item" href="equipaje.php">Equipaje</a>
+                        <a class="collapse-item" href="detalle.php">Detalles</a>
+                        <a class="collapse-item" href="parametros.php">Parámetros</a>
                     </div>
                 </div>
             </li>

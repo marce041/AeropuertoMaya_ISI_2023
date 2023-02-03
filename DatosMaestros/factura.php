@@ -70,7 +70,7 @@ if(isset($_POST['estado4'])) {
                 </a>
                 <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="tripulacion.php">Tripulación</a>
+                    <a class="collapse-item" href="tripulacion.php">Tripulación</a>
                         <a class="collapse-item" href="personaltierra.php">Personal de tierra</a>
                         <a class="collapse-item" href="aeronave.php">Aeronave</a>
                         <a class="collapse-item" href="aeropuerto.php">Aeropuerto</a>
@@ -81,10 +81,14 @@ if(isset($_POST['estado4'])) {
                         <a class="collapse-item" href="paseabordar.php">Pase de abordar</a>
                         <a class="collapse-item" href="vuelo.php">Vuelo</a>
                         <a class="collapse-item" href="factura.php">Factura</a>
+                        <a class="collapse-item" href="hangares.php">Hangar</a>
                         <a class="collapse-item" href="reserva.php">Reserva</a>
                         <a class="collapse-item" href="clase.php">Clase</a>
                         <a class="collapse-item" href="conversion.php">Conversion</a>
                         <a class="collapse-item" href="checkin.php">Check-In</a>
+                        <a class="collapse-item" href="equipaje.php">Equipaje</a>
+                        <a class="collapse-item" href="detalle.php">Detalles</a>
+                        <a class="collapse-item" href="parametros.php">Parámetros</a>
                     </div>
                 </div>
             </li>
