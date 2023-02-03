@@ -179,7 +179,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="rol">Lugar de salida</label>
-                                    <select class="form-select" name="estado" id="lsalida">
+                                    <select class="form-select" name="estado" id="lsalida" for="lsalida">
                                     
                                     <?php 
                                         while($datos = mysqli_fetch_array($query))
@@ -190,21 +190,19 @@
                                         }
                                     ?> 
                                     </select>
+                                    
                                 </div>
                                 <div class="mb-3">
                                     <label for="rol">Lugar de llegada</label>
-                                    <select class="form-select" name="estado2" id="llegada">
+                                    <select class="form-select" name="estado2" id="llegada" for="llegada">
                                     
-                                    <?php 
-                                        while($datos = mysqli_fetch_array($query2))
-                                        {
-                                    ?>
-                                            <option value="<?php echo $datos['Nombre']?>"><?php echo $datos['Nombre']?></option>
-                                    <?php
-                                        }
-                                    ?> 
-                                    </select>
+                                    
+                                    <option value="Goloson IA">Goloson IA</option>
+                                    <option value="Ramón Villeda Morales IA">Ramón Villeda Morales IA</option>
+                                    <option value="Miami IA">Miami IA</option>
+                                    <option value="Tocumen-Panamá IA">Tocumen-Panamá IA</option> 
                                 </div>
+                                
                                 <div class="mb-3">
                                 <label for="rol">Hora salida</label>
                                   <input class="form-control" name="horasal" type="time" placeholder="Hora salida" required>
@@ -236,7 +234,7 @@
                                     </select>
                                 </div>
                               <div class="col-md-12  mt-5 text-center">
-                                   <button class="btn btn-primary" name="btnnombre" type="submit">Guardar</button>
+                                   <button class="btn btn-primary" name="btnnombre" type="submit" onclick="validateLocations">Guardar</button>
                               </div>
                       </form>
                         </div>
@@ -276,6 +274,45 @@
             </div>
         </div>
     </div>
+    <script>
+     function validateLocations(lsalida, llegada) {
+        if (lsalida === llegada) {
+            return false;
+        }
+        return true;
+        }
+
+        let lsalida = "Toncontin IA";
+        let llegada = "Toncontin IA";
+
+        if (!validateLocations(lsalida, llegada)) {
+        console.log("Input location and output location cannot be the same.");
+        }
+
+        const validar = (e) =>{
+            switch (e.target.name){
+                case "lsalida":
+                    validarlugar(expresiones.salida, e.target, 'lsalida');
+                    break;
+                case "llegada":
+                    validarlugar(expresiones.llegada, e.target, 'llegada');
+                    break;
+            }
+        }
+        const validarlugar = () =>{
+            const inputlsalida = document.getElementById("lsalida");
+            const inputllegada = document.getElementById("llegada");
+
+            if(inputsalida.value === inputllegada.value){
+                alert('No puede salir y llegar al mismo lugar, intenta con una diferente');
+                window.location = '../../DatosMaestros/vuelo.php';
+            }
+        }
+        inputs.foreach((input) =>{
+            input.addEventListener('click', validar);
+            input.addEventListener('blur', validar);
+        })
+    </script>                               
 
     <script src="../style/Dashboard/jquery/jquery.min.js"></script>
     <script src="../style/Dashboard/bootstrap/js/bootstrap.bundle.min.js"></script>
