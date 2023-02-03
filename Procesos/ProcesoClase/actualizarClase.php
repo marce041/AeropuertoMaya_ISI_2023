@@ -164,7 +164,7 @@
                                                             <option value='Economico premium'>Económico Premium</option>
                                                             <option value='Economico'>Económico</option> 
                                                             </select></td>
-                                                            <td><input type='text'  value=' $data[Descripcion]' name='descripcion' pattern=^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$ maxlength=30></td>
+                                                            <td><input type='text'  value=' $data[Descripcion]' name='descripcion' required pattern='^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$' minlength='6' maxlength='50'></td>
                                                             <td><input type='text'  value=' $data[MultiplicadorPrecio]'   name='precio'></td>
                                                             <td> <button class='btn btn-success' type='submit' ><i class='fas fa-save'></i></button>
                                                            
