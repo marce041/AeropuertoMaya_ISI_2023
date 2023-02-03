@@ -34,7 +34,7 @@
                         <form action='formEditCheckin.php?id=$data[Id_Checkin]' method='POST' name='form2'>
                             <th scope='row'>$data[Id_Checkin]</th>
                             <td>$data[Id_Reserva]</td>
-                            <td>$data[Id_Pasajero]</td>
+                            <td>$data[Pasajero]</td>
 
                            <!--BOTON EDITAR-->
 
