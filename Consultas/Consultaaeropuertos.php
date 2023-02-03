@@ -63,6 +63,7 @@
                         <a class="collapse-item" href="../DatosMaestros/checkin.php">Check-In</a>
                         <a class="collapse-item" href="../DatosMaestros/equipaje.php">Equipaje</a>
                         <a class="collapse-item" href="../DatosMaestros/detallefactura.php">Detalles</a>
+                        <a class="collapse-item" href="../DatosMaestros/parametros.php">Parámetros</a>
                     </div>
                 </div>
             </li>
@@ -95,6 +96,7 @@
                         <a class="collapse-item" href="Consultafactura.php">Factura</a>
                         <a class="collapse-item" href="Consultaequipaje.php">Equipaje</a>
                         <a class="collapse-item" href="Consultadetalles.php">Detalles</a>
+                        <a class="collapse-item" href="Consultaparametro.php">Parámetros</a>
                         
                        
                     </div>

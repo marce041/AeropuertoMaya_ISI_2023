@@ -44,7 +44,7 @@
                 </a>
                 <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../DatosMaestros/tripulacion.php">Tripulación</a>
+                    <a class="collapse-item" href="../DatosMaestros/tripulacion.php">Tripulación</a>
                         <a class="collapse-item" href="../DatosMaestros/personaltierra.php">Personal de tierra</a>
                         <a class="collapse-item" href="../DatosMaestros/aeronave.php">Aeronave</a>
                         <a class="collapse-item" href="../DatosMaestros/aeropuerto.php">Aeropuerto</a>
@@ -62,6 +62,8 @@
                         <a class="collapse-item" href="../DatosMaestros/conversion.php">Conversion</a>
                         <a class="collapse-item" href="../DatosMaestros/checkin.php">Check-In</a>
                         <a class="collapse-item" href="../DatosMaestros/equipaje.php">Equipaje</a>
+                        <a class="collapse-item" href="../DatosMaestros/detallefactura.php">Detalles</a>
+                        <a class="collapse-item" href="../DatosMaestros/parametros.php">Parámetros</a>
                     </div>
                 </div>
             </li>
@@ -93,6 +95,8 @@
                         <a class="collapse-item" href="Consultaclase.php">Clase</a>
                         <a class="collapse-item" href="Consultafactura.php">Factura</a>
                         <a class="collapse-item" href="Consultaequipaje.php">Equipaje</a>
+                        <a class="collapse-item" href="Consultadetalles.php">Detalles</a>
+                        <a class="collapse-item" href="Consultaparametro.php">Parámetros</a>
                       
 
                        
