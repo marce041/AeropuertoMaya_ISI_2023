@@ -6,8 +6,8 @@
     
    
 
-    $insertar="INSERT INTO `reserva` (`Id_Reserva`, `Codigo`, `Id_Vuelo`) 
-    VALUES (NULL, '$codigo', '$estado');";
+    $insertar="INSERT INTO `reserva` (`Id_Reserva`, `Codigo`, `Pasajero`,`Estado`) 
+    VALUES (NULL, '$codigo', '$estado', '1');";
 
     $resultado=mysqli_query($conn, $insertar);
 

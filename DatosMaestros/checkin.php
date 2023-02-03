@@ -1,7 +1,7 @@
 <?php
     include ("../conexion.php");
-    $query=mysqli_query($conn, "SELECT Id_Reserva, Codigo FROM reserva");
-    $query2=mysqli_query($conn, "SELECT Id_Pasajero, Nombre FROM pasajero ");
+    $query=mysqli_query($conn, "SELECT Id_Reserva, Codigo, Pasajero FROM reserva WHERE Estado='1'" );
+    $query2=mysqli_query($conn, "SELECT Id_Pasajero, Nombre FROM pasajero");
 
     // $buscar="SELECT `IDProveedor`, `RTN` FROM proveedores;";
     // $resultado=mysqli_query($conn, $buscar);
@@ -178,34 +178,49 @@
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/checkinAdd.php" method="POST" enctype="multipart/form-data">
                             <div class="mb-3">
                                     <label for="rol">Codigo de Reserva</label>
-                                    <select class="form-select" name="estado" id="pais">
+                                    <select class="form-select" name="estado" id="estado" onchange="setdatos();">
                                     <option option value="opcion">--- Escoja una opcion ---</option>
                                     <?php 
                                         while($datos = mysqli_fetch_array($query))
                                         {
                                     ?>
-                                            <option value="<?php echo $datos['Id_Reserva']?>"><?php echo $datos['Codigo']?> </option>
+                                            <option value="<?php echo $datos['Id_Reserva']?>" data-voo="<?php echo $datos['Pasajero']?>"><?php echo $datos['Codigo']?> </option>
                                     <?php
                                         }
                                     ?> 
                                     </select>
                                 </div>
+                                <script>
+
+function setdatos(){
+    var sel = document.getElementById('estado');
+    var nombre = document.getElementById('voo');
+    sel.onchange = function() {
+                                                                            
+    var selected = sel.options[sel.selectedIndex];
+                                     
+    var cadenainicio = selected.getAttribute('data-voo');
+                                            
+    $("#pasajero").prop('value',cadenainicio);
+  
+
+    }
+}
+</script>
+                                <div class="mb-3">
+                                  <input class="form-control" id="pasajero" name="pasajero" type="text" placeholder="Pasajero" onkeypress="return event.charCode===0128" required>
+                            </div>
                             <div class="mb-3">
-                                    <label for="rol">Pasajero</label>
-                                    <select class="form-select" name="estado2" id="pasajero">
-                                    <option option value="opcion">--- Escoja una opcion ---</option>
-                                    <?php 
-                                        while($datos = mysqli_fetch_array($query2))
-                                        {
-                                    ?>
-                                            <option value="<?php echo $datos['Id_Pasajero']?>"><?php echo $datos['Nombre']?></option>
-                                    <?php
-                                        }
-                                    ?> 
-                                    </select>
+                            <label for="rol">Fecha de Emisión</label>
+                                  <input class="form-control" name="fecha" id="fecha" type="text" onclick="setfecha();" placeholder="Fecha de vuelo" onkeypress="return event.charCode>=0128" maxlength="20" required>
                                 </div>
-                               
-                               
+                                <script>
+                                    function setfecha(){
+                                        var today = new Date();
+                                        var now = today.toLocaleString();
+                                        document.getElementById('fecha').value=now;
+                                    }
+                                </script>                              
                               <div class="col-md-12  mt-5 text-center">
                                    <button class="btn btn-primary" name="btnnombre" type="submit">Guardar</button>
                               </div>

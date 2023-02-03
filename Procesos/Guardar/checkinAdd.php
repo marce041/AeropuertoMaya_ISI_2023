@@ -1,23 +1,24 @@
 <?php
     include ("../../conexion.php");
 
-    $codigo=$_POST['codigo'];
+   
     $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
-    $estado2 = filter_input(INPUT_POST, 'estado2', FILTER_SANITIZE_STRING);
+    $pasajero=$_POST['pasajero'];
+    $fecha=$_POST['fecha'];
    
 
-
-    $insertar="INSERT INTO `checkin` (`Id_Checkin`,`Id_Reserva`,`Id_Pasajero`) 
-    VALUES (NULL,'$estado', '$estado2');";
+    $actualizar="UPDATE reserva SET Estado='0' WHERE Id_Reserva='$estado'";
+    $insertar="INSERT INTO `checkin` (`Id_Checkin`,`Id_Reserva`,`Pasajero`,`Fecha_Hora`) 
+    VALUES (NULL,'$estado', '$pasajero','$fecha');";
 
     $resultado=mysqli_query($conn, $insertar);
-
+    $res2=mysqli_query($conn, $actualizar);
     // echo "<script> alert('".$nombre."'); </script>";
 
     if($resultado) {
         echo  "<script>
         alert('Se ha insertado correctamente los datos');
-        window.location = '../../DatosMaestros/aeronave.php';
+        window.location = '../../DatosMaestros/checkin.php';
         </script>";
     
     } else {

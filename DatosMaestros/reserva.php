@@ -1,6 +1,6 @@
 <?php
     include ("../conexion.php");
-    $query=mysqli_query($conn, "SELECT Id_Vuelo, Codigo FROM vuelo");
+    $query=mysqli_query($conn, "SELECT Id_Pasajero, Nombre FROM pasajero");
 
     // $buscar="SELECT `IDProveedor`, `RTN` FROM proveedores;";
     // $resultado=mysqli_query($conn, $buscar);
@@ -167,14 +167,14 @@
                                   <input class="form-control" name="codigo" type="text" placeholder="Código de Reserva" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="6" maxlength="6" required>
                             </div>
                                 <div class="mb-3">
-                                    <label for="rol">Vuelo</label>
+                                    <label for="rol">Pasajero</label>
                                     <select class="form-select" name="estado" id="pasajero">
                                     <option option value="opcion">--- Escoja una opción ---</option>
                                     <?php 
                                         while($datos = mysqli_fetch_array($query))
                                         {
                                     ?>
-                                            <option value="<?php echo $datos['Id_Vuelo']?>"><?php echo $datos['Codigo']?> </option>
+                                            <option value="<?php echo $datos['Nombre']?>"><?php echo $datos['Nombre']?> </option>
                                     <?php
                                         }
                                     ?> 
