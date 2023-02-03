@@ -9,6 +9,16 @@
         $estado=$_POST['estado'];
         echo $estado;
     }
+
+    session_start();
+    if (!isset($_SESSION['idUser'])) {
+        header('location: ../index.php');
+    }
+
+    if(isset($_POST['estado'])) {
+        $estado=$_POST['estado'];
+        echo $estado;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -216,7 +226,7 @@
                 <div class="modal-body">Seleccione "Salir" Si asi lo desea.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="../index.php">Salir</a>
+                    <a class="btn btn-primary" href="cerrarsesion.php">Salir</a>
                 </div>
             </div>
         </div>
