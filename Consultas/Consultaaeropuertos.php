@@ -19,7 +19,7 @@
         require("../Procesos/ProcesoAeropuerto/TablaAeropuerto.php"); 
     ?>
 <body id="page-top">
-    <div id="wrapper">
+    <div id="wrapper" class="card-body">
         <!--Empieza Lista -->
         <ul class="navbar-nav color sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../principaladmin.php">
