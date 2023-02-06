@@ -16,8 +16,8 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Personal</th>
-                            <th scope='col'>Carga_Academica</th>
+                            <th scope='col'>Id del personal</th>
+                            <th scope='col'>Carga académica</th>
                             <th scope='col'>Cargo</th>
                             
                             <th scope='col'>Acciones</th>
