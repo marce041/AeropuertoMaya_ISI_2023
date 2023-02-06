@@ -13,7 +13,7 @@
 
             echo 
             "
-                <table class='table table-lg table-dark table-responsive-lg table-bordered' style='width: 180%;'>
+                <table class='table table-xl table-dark table-responsive-xl table-bordered'>
                     <thead>
                         <tr class='text-center'>
                             <th scope='col'>Id del aeropuerto</th>
