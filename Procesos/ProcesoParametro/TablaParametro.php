@@ -20,7 +20,7 @@
                             <th scope='col'>CAI</th>
                             <th scope='col'>Fecha de vencimiento</th>
                             <th scope='col'>Fecha de emisión</th>
-                            <th scope='col'>Rango inial</th>
+                            <th scope='col'>Rango inicial</th>
                             <th scope='col'>Rango final</th>
                             <th scope='col'>Consecutivo</th>
                             
