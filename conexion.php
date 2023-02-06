@@ -2,7 +2,7 @@
 //codigo de conexion
 $servername="localhost";
 $username="root";
-$password="root";
+$password="";
 $database="aeropuertomaya";
 
 
