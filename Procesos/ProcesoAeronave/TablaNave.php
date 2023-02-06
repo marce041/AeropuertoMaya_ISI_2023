@@ -16,7 +16,7 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Aeronave</th>
+                            <th scope='col'>Id de la aeronave</th>
                             <th scope='col'>Matricula</th>
                             <th scope='col'>Modelo</th>
                             <th scope='col'>Capacidad</th>
