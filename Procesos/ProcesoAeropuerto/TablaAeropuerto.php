@@ -13,7 +13,7 @@
 
             echo 
             "
-                <table class='table table-md table-dark table-responsive-sm table-bordered'>
+                <table class='table table-lg table-dark table-responsive-lg table-bordered'>
                     <thead>
                         <tr class='text-center'>
                             <th scope='col'>Id del aeropuerto</th>
