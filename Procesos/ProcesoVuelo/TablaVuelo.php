@@ -16,15 +16,15 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id de Vuelo</th>
+                            <th scope='col'>Id de vuelo</th>
                             <th scope='col'>Código</th>
-                            <th scope='col'>Lugar de Salida</th>
-                            <th scope='col'>Lugar de LLegada</th>
-                            <th scope='col'>Hora de Salida</th>
-                            <th scope='col'>Hora de LLegada</th>
+                            <th scope='col'>Lugar de salida</th>
+                            <th scope='col'>Lugar de llegada</th>
+                            <th scope='col'>Hora de salida</th>
+                            <th scope='col'>Hora de llegada</th>
                             <th scope='col'>Fecha</th>
                             <th scope='col'>Precio</th>
-                            <th scope='col'>Id de Aeronave</th>
+                            <th scope='col'>Id de aeronave</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>

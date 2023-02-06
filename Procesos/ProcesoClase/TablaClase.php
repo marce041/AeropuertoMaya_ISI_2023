@@ -16,10 +16,10 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Clase</th>
-                            <th scope='col'>Tipo_Clase</th>
-                            <th scope='col'>Descripcion</th>
-                            <th scope='col'>Multiplicador Precio</th>
+                            <th scope='col'>Id de clase</th>
+                            <th scope='col'>Tipo de clase</th>
+                            <th scope='col'>Descripción</th>
+                            <th scope='col'>Multiplicador de precio</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>

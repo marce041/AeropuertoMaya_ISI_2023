@@ -16,9 +16,9 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Moneda</th>
+                            <th scope='col'>Id de la moneda</th>
                             <th scope='col'>Nombre</th>
-                            <th scope='col'>Conversion a Dolares</th>
+                            <th scope='col'>Conversión a dólares</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>

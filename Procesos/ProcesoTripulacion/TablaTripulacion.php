@@ -16,10 +16,10 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Tripulacion</th>
+                            <th scope='col'>Id de tripulación</th>
                             <th scope='col'>Cargo</th>
-                            <th scope='col'>Horas_Vuelo</th>
-                            <th scope='col'>Tipo_Licencia</th>
+                            <th scope='col'>Horas de vuelo</th>
+                            <th scope='col'>Tipo de licencia</th>
                             <th scope='col'>Academia</th>
                             <th scope='col'>Acciones</th>
                         </tr>

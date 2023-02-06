@@ -16,10 +16,10 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Detalle</th>
-                            <th scope='col'>Id_Boleto</th>
+                            <th scope='col'>Id de detalle</th>
+                            <th scope='col'>Id del boleto</th>
                             <th scope='col'>Cantidad</th>
-                            <th scope='col'>Descripcion</th>
+                            <th scope='col'>Descripción</th>
                             <th scope='col'>Subtotal</th>
                             <th scope='col'>Descuentos</th>
                             <th scope='col'>Impuestos</th>

@@ -16,10 +16,10 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Equipaje</th>
+                            <th scope='col'>Id del equipaje</th>
                             <th scope='col'>Peso</th>
                             <th scope='col'>Cantidad</th>
-                            <th scope='col'>MultiplicadorPrecio</th>
+                            <th scope='col'>Multiplicador de precio</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>

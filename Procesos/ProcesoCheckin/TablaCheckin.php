@@ -16,9 +16,9 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Checkin</th>
-                            <th scope='col'>Id_Reserva</th>
-                            <th scope='col'>Id_Pasajero</th>
+                            <th scope='col'>Id de check-in</th>
+                            <th scope='col'>Id de la reserva</th>
+                            <th scope='col'>Id del pasajero</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>

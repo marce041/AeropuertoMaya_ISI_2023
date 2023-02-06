@@ -16,11 +16,11 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Hangar</th>
-                            <th scope='col'>Codigo</th>
+                            <th scope='col'>Id de hangar</th>
+                            <th scope='col'>Código</th>
                             <th scope='col'>Capacidad</th>
-                            <th scope='col'>Id_Aeronave</th>
-                            <th scope='col'>Id_Aeropuerto</th>
+                            <th scope='col'>Id de la aeronave</th>
+                            <th scope='col'>Id del eropuerto</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>

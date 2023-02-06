@@ -16,17 +16,17 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Factura</th>
-                            <th scope='col'>Codigo</th>
+                            <th scope='col'>Id de factura</th>
+                            <th scope='col'>Código</th>
                             <th scope='col'>RTN</th>
                             <th scope='col'>CAI</th>
-                            <th scope='col'>Id_Detalle</th>
+                            <th scope='col'>Id del detalle</th>
                             <th scope='col'>Fecha</th>
-                            <th scope='col'>Id_Moneda</th>
+                            <th scope='col'>Id de la moneda</th>
                             <th scope='col'>Monto</th>
-                            <th scope='col'>Metodo de Pago</th>
-                            <th scope='col'>Efectivo Recibido</th>
-                            <th scope='col'>Numero de Tarjeta</th>
+                            <th scope='col'>Método de pago</th>
+                            <th scope='col'>Efectivo recibido</th>
+                            <th scope='col'>Número de tarjeta</th>
                             <th scope='col'>Acciones</th>
                             <th scope='col'>Generar Factura</th>
                         </tr>

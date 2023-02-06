@@ -16,12 +16,12 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Parametro</th>
-                            <th scope='col'>Cai</th>
-                            <th scope='col'>Fecha_Ven</th>
-                            <th scope='col'>Fecha_Emi</th>
-                            <th scope='col'>Rango_Ini</th>
-                            <th scope='col'>Rango_Fin</th>
+                            <th scope='col'>Id del parámetro</th>
+                            <th scope='col'>CAI</th>
+                            <th scope='col'>Fecha de vencimiento</th>
+                            <th scope='col'>Fecha de emisión</th>
+                            <th scope='col'>Rango inial</th>
+                            <th scope='col'>Rango final</th>
                             <th scope='col'>Consecutivo</th>
                             
                             <th scope='col'>Acciones</th>
