@@ -16,7 +16,7 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id de País</th>
+                            <th scope='col'>Id de país</th>
                             <th scope='col'>Nombre</th>
                             <th scope='col'>Región</th>
                             <th scope='col'>Acciones</th>

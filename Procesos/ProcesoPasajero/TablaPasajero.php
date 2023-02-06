@@ -16,14 +16,14 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Pasajero</th>
+                            <th scope='col'>Id del pasajero</th>
                             <th scope='col'>Nombre</th>
-                            <th scope='col'>Tipo Documento</th>
-                            <th scope='col'>Numero Documento</th>
-                            <th scope='col'>Telefono</th>
+                            <th scope='col'>Tipo de documento</th>
+                            <th scope='col'>Número documento</th>
+                            <th scope='col'>Teléfono</th>
                             <th scope='col'>Correo</th>
-                            <th scope='col'>Id_Pais</th>
-                            <th scope='col'>Fecha_Nacimiento</th>
+                            <th scope='col'>Id del país</th>
+                            <th scope='col'>Fecha de nacimiento</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>
