@@ -16,12 +16,12 @@
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
-                            <th scope='col'>Id_Pase</th>
-                            <th scope='col'>Codigo</th>
+                            <th scope='col'>Id del pase</th>
+                            <th scope='col'>Código</th>
                             <th scope='col'>Fecha</th>
-                            <th scope='col'>Puerta_Embarque</th>
-                            <th scope='col'>Id_Boleto</th>
-                            <th scope='col'>Id_Pasajero</th>
+                            <th scope='col'>Puerta de embarque</th>
+                            <th scope='col'>Id del boleto</th>
+                            <th scope='col'>Id del pasajero</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>
