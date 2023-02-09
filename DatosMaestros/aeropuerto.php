@@ -1,4 +1,5 @@
 <?php
+
     include ("../conexion.php");
     $query=mysqli_query($conn, "SELECT Id_Ciudad, Nombre FROM ciudad");
 
@@ -248,8 +249,9 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 </body>
+
 <script type="text/javascript">
-    function validar letras{
+    function validarLetras{
     const expresiones = {       
         nombre: "/^[a-zA-ZÀ-ÿ\s]{4,15}$/", // Letras y espacios, pueden llevar acentos.       
     } 

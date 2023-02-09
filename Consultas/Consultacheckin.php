@@ -116,12 +116,12 @@
             </li>
         </ul>
         <!--Termina Lista -->
-        <div id="content">
+        <div id="content" style="width:150%;">
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-                <h2>Checkin</h2>
+                <h2>Entradas</h2>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -146,7 +146,7 @@
                 <div class="container-fluid">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Tabla Checkin</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Lista de los entradas</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

@@ -116,13 +116,16 @@
             </li>
         </ul>
         <!--Termina Lista -->
-        <div id="content">
+        <div id="content" style="width:150%;">
+        
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-6 static-top shadow">
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
                 <h2>Personal de tierra</h2>
+                
                     <ul class="navbar-nav ml-auto">
+                 
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -142,11 +145,13 @@
                         </li>
                     </ul>
                 </nav>
-
+                <br>
+                <br>
+               
                 <div class="container-fluid">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Tabla Personal de Tierra</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Lista del personal de tierra</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
