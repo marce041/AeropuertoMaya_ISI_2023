@@ -114,7 +114,7 @@
             </li>
         </ul>
         <!--Termina Lista -->
-        <div id="content">
+        <div id="content" style="width:150%;">
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
@@ -141,25 +141,25 @@
                 </nav>
 
                 <!-- Contenido -->
-                <div class="col-auto text-center">
+                <div class="col-auto ">
                     <!-- Tajeta y Contenido -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Insertar Datos
+                            <h6 class="m-0 font-weight-bold text-primary">Insertar datos
                             </h6>
                         </div>
                         <div class="card-body">
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/tripulacionAdd.php" method="POST" enctype="multipart/form-data">
-                                <div class="mb-3">
-                                  <input class="form-control" name="cargo" id="Cargo" type="text" placeholder="Cargo" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="50" required>
+                                <div class="col-md-6">
+                                  <input class="form-control" name="cargo" id="Cargo" type="text" placeholder="Cargo" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="50" pattern= "^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s[a-zA-ZÀ-ÿ\u00f1\u00d1]+)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
                                 </div>
-                                <div class="mb-3">
+                                <div class="col-md-6">
                                   <input class="form-control" name="Horas_Vuelo" type="text" placeholder="Horas de vuelo" onkeypress="return event.charCode>=48 && event.charCode<=57" minlength="1" maxlength="3" required>
                                 </div>
-                                <div class="mb-3">
+                                <div class="col-md-6">
                                   <input class="form-control" name="tipolicencia"  type="text" placeholder="Tipo de licencia" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" required>
                                 </div>
-                                <div class="mb-3">
+                                <div class="col-md-6">
                                   <input class="form-control" name="academia" type="text" placeholder="Academia" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" required>
                                 </div>
                               <div class="col-md-12  mt-5 text-center">
