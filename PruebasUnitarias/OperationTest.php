@@ -32,6 +32,7 @@ class OperationTest extends TestCase
         $this->assertTrue($validator->isValidName("Marcela Nuñéz"));
         
     }
+    
     public function testIsValid()
     {
         $validator = new ValidarString();
