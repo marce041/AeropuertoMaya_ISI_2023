@@ -170,7 +170,7 @@
                         <div class="card-body">
                             <form class="row g-3 needs-validation" id="formularioRegistro" action="../Procesos/Guardar/pasajeroAdd.php" method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre y Apellido" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.charCode>=160 && event.charCode<=165 || event.charCode===32 || event.keyCode"  minlength="10" maxlength="25" required pattern="[a-zA-ZÀ-ÿ\u00f1\u00d1]+ (\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" title="Ingrese Su Primer Nombre y Primer Apellido">
+                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre y apellido" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.charCode>=160 && event.charCode<=165 || event.charCode===32 || event.keyCode"  minlength="10" maxlength="25" required pattern="[a-zA-ZÀ-ÿ\u00f1\u00d1]+ (\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" title="Ingrese Su Primer Nombre y Primer Apellido">
                                 </div>
                                 <div class="mb-3">
                                 <label for="documentos">Documentación</label>

@@ -1,4 +1,5 @@
 <?php
+require_once 'C:\xampp\htdocs\AeropuertoMaya_ISI_2023\Procesos\Guardar\pasajeroAdd.php';
 use PHPUnit\Framework\TestCase;
 
 class ValidateLetters
@@ -19,6 +20,28 @@ class ValidarString
         return preg_match("/$pattern/", $string) === 1;
     }
 
+}
+
+class AgregarPasajero{
+    public function testPasajeroAdd()
+    {
+        // Arrange
+        $Id_Pasajero = '5';
+        $nombre = 'John Doe';
+        $Tipo_Documento = 'DNI';
+        $numerodoc = '0801200112269';
+        $telefono = '33607712';
+        $correo = 'johndoe@example.com';
+       
+        $pais ='1';
+        $fechaN = '01-01-2000';
+
+        // Act
+        $resultado = pasajeroAdd($Id_Pasajero,$nombre,$Tipo_Documento, $numerodoc, $telefono, $correo,$pais, $fechaN);
+
+        // Assert
+        $this->assertTrue($resultado);
+    }  
 }
 
 
@@ -66,12 +89,29 @@ class OperationTest extends TestCase
         return is_numeric($input);
     }
 
+   public function testPasajero($Id_Pasajero,$nombre,$Tipo_Documento, $numerodoc, $telefono, $correo,$pais, $fechaN)
+   {
+      $validator = new testPasajeroAdd();
+      include ("../../conexion.php");
+
+    $insertar = "INSERT INTO `pasajero` (`Id_Pasajero`, `Nombre`, `Tipo_Documento`, `Numero_Documento`, `Telefono`, `Correo`, `Id_Pais`, `Fecha_Nacimiento`)
+    VALUES (NULL, '$nombre', '$estado', '$numerodoc', '$telefono', '$correo', '$estado2', '$fechaN');";
+
+    return mysqli_query($conn, $insertar);
+
+   }
+ 
     
 
-    
-    
 
-   
+
+
+
+
+
+
+
+
 }
 
 
