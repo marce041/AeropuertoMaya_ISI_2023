@@ -89,29 +89,7 @@ class OperationTest extends TestCase
         return is_numeric($input);
     }
 
-   public function testPasajero($Id_Pasajero,$nombre,$Tipo_Documento, $numerodoc, $telefono, $correo,$pais, $fechaN)
-   {
-      $validator = new testPasajeroAdd();
-      include ("../../conexion.php");
-
-    $insertar = "INSERT INTO `pasajero` (`Id_Pasajero`, `Nombre`, `Tipo_Documento`, `Numero_Documento`, `Telefono`, `Correo`, `Id_Pais`, `Fecha_Nacimiento`)
-    VALUES (NULL, '$nombre', '$estado', '$numerodoc', '$telefono', '$correo', '$estado2', '$fechaN');";
-
-    return mysqli_query($conn, $insertar);
-
-   }
- 
-    
-
-
-
-
-
-
-
-
-
-
+  
 }
 
 
