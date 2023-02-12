@@ -1,5 +1,5 @@
 <?php
-require_once 'C:\xampp\htdocs\AeropuertoMaya_ISI_2023\Procesos\Guardar\pasajeroAdd.php';
+
 use PHPUnit\Framework\TestCase;
 
 class ValidateLetters
@@ -178,6 +178,7 @@ class OperationTest extends TestCase
     {
         return is_numeric($input);
     }
+    /* ------------------------------------------------------------------*/
     /*----------- TABLAS MARCELA --------------*/
     /*--------- Tabla de guardar pais ----------*/
 
@@ -266,12 +267,124 @@ public function testGuardarAeropuerto()
     $this->assertTrue($resultado);
     
 }
+/* FIN DEL METODO GUARDAR */
+/* ------------------------------------------------------------------*/
+/* INICIO DEL METODO ELIMINAR */
+
+/* ------------  METODO ELIMINAR PAIS --------------- */
+
+public function testEliminarPais()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+
+
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
+
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
+
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM pais WHERE Id_Pais='23'";
+  $resultado = $conn->query($eliminar);
+
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
+
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
+/* ------------------------------------------------------------------*/
+/* INICIO DEL METODO EDITAR O ACTUALIZAR */
+
+/* PRUEBA: EDITAR TABLA PAIS */
+
+public function testActualizarPais()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $nombre = 'Estados Unidos';
+    $region = 'América del Norte';
+    $id = '22';
+    $actualizar = "UPDATE pais SET Nombre='$nombre', Region='$region' WHERE Id_Pais='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(22, $resultado);
+}
+
+/* ------------------------------------------------------ */
+/* ----------------------- MÉTODO DE LISTAR -----------------------------*/
+/* --------------PRUEBAS MARCELA : TABLA LISTAR PAISES ---------------- */
+
+public function testSelectAllPais()
+    {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+        $conexion = new mysqli($servername, $username, $password, $database);
+
+        // Ejecutar el query
+        $resultado = mysqli_query($conexion, "SELECT * FROM pais");
+
+        // Verificar que el resultado es un objeto mysqli_result válido
+        $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+      
+        // Imprimir los resultados en una tabla HTML
+     echo '<table>';
+     echo '<tr><th>ID</th><th>Nombre</th><th>Region</th></tr>';
+     while ($fila = mysqli_fetch_assoc($resultado)) {
+    echo '<tr><td>' . $fila['Id_Pais'] . '</td><td>' . $fila['Nombre'] . '</td><td>' . $fila['Region'] . '</td></tr>';
+    }
+    echo '</table>';
+       
+        // Liberar los recursos
+        mysqli_free_result($resultado);
+        mysqli_close($conexion);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
   
 }
-
-
 
 ?>
