@@ -376,17 +376,32 @@ public function testEliminarMoneda()
 }
 
 
+/* ---------------- METODO ELIMINAR REGION -------------*/
 
 
+public function testEliminarRegion()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
 
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
 
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
 
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM region WHERE Id_Region='25'";
+  $resultado = $conn->query($eliminar);
 
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
 
-
-
-
-
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
 
 
 
@@ -418,6 +433,112 @@ public function testActualizarPais()
     $this->assertEquals(22, $resultado);
 }
 
+
+
+
+/*------------- EDITAR REGION --------------*/
+
+public function testActualizarRegion()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $nombre = 'los chinitos';
+    $id = '26';
+    $actualizar = "UPDATE region SET Nombre='$nombre' WHERE Id_Region='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(26, $resultado);
+}
+
+
+
+
+/*------------- EDITAR AEROPUERTO ----------- */
+public function testActualizarAeropuerto()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $nombre = 'quepedo que pex';
+    $hangar ='123';
+    $id_ciudad = '2';
+    $id = '4';
+    $actualizar = "UPDATE aeropuerto SET Nombre='$nombre',Hangar='$hangar',Id_Ciudad='$id_ciudad' WHERE Id_Aeropuerto='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(4, $resultado);
+}
+
+
+/*------------- EDITAR AERONAVE ----------- */
+
+public function testActualizarAeronave()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $matricula = 'HSS128';
+    $modelo ='todos';
+    $capacidad = '2';
+    $tamaño = '1234';
+    $tipo='hh';
+    $area= 'gg';
+    $id='19';
+    $actualizar = "UPDATE aeronave SET Matricula='$matricula', Modelo='$modelo',
+    Capacidad = '$capacidad',Tamaño = '$tamaño',Tipo = '$tipo', Area = '$area' WHERE Id_Aeronave='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(19, $resultado);
+}
+/*------------- EDITAR MONEDA ----------- */
+
+public function testActualizarMoneda()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $nombre = 'akndsjdb';
+    $conversion ='4.09';
+    $id='4';
+    $actualizar = "UPDATE moneda SET Nombre='$nombre', ConversionADolar='$conversion'
+    WHERE Id_Moneda='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(4, $resultado);
+}
 /* ------------------------------------------------------ */
 /* ----------------------- MÉTODO DE LISTAR -----------------------------*/
 /* --------------PRUEBAS MARCELA : TABLA LISTAR PAISES ---------------- */
@@ -448,16 +569,167 @@ public function testSelectAllPais()
         // Liberar los recursos
         mysqli_free_result($resultado);
         mysqli_close($conexion);
+}
+
+
+
+
+/* --------------PRUEBAS MARCELA : TABLA LISTAR Aeropuerto ---------------- */
+public function testListarAeropuerto()
+    {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+        $conexion = new mysqli($servername, $username, $password, $database);
+
+        // Ejecutar el query
+        $resultado = mysqli_query($conexion, "SELECT * FROM aeropuerto");
+
+        // Verificar que el resultado es un objeto mysqli_result válido
+        $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+      
+        // Imprimir los resultados en una tabla HTML
+     echo '<table>';
+     echo '<tr>
+       ------------------- AEROPUERTOS --------------
+     <th> ID AEROPUERTO </th> <th> NOMBRE </th> <th>HANGAR</th> <th> ID CIUDAD </th> 
+     </tr>';
+     while ($fila = mysqli_fetch_assoc($resultado)) {
+    echo '--' . $fila['Id_Aeropuerto'] . '--' 
+    . $fila['Nombre'] . '--' 
+    . $fila['Hangar'] . '--' 
+    . $fila['Id_Ciudad'] . '</td></tr>';
+    }
+    echo '</table>';
+       
+        // Liberar los recursos
+        mysqli_free_result($resultado);
+        mysqli_close($conexion);
     }
 
 
 
 
+/* --------------PRUEBAS MARCELA : TABLA LISTAR AERONAVE ---------------- */
+
+public function testListarAeronave()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+
+    // Ejecutar el query
+    $resultado = mysqli_query($conexion, "SELECT * FROM aeronave");
+
+    // Verificar que el resultado es un objeto mysqli_result válido
+    $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+    echo '<tr> -----------AERONAVES -------------</tr>';
+     while ($fila = mysqli_fetch_assoc($resultado))
+     {
+        
+        echo 
+        'Id de aeronave: ' . $fila['Id_Aeronave'] ."\n" .
+        'Matricula: '  . $fila['Matricula'] .  "\n" .
+        'Modelo: ' . $fila['Modelo'] . "\n" .
+        'Capacidad: '  . $fila['Capacidad'] ."\n" .
+        'Tamaño:'. $fila['Tamaño'] ."\n" .
+        'Tipo:' . $fila['Tipo'] ."\n" .
+        'Area: ' . $fila['Area'] . "\n" .
+        
+        
+        '</td></tr>';
+
+     }
+     echo '</table>';
+       
+     // Liberar los recursos
+     mysqli_free_result($resultado);
+     mysqli_close($conexion);
 
 
 
+}
+/* --------------PRUEBAS MARCELA : TABLA LISTAR MONEDA ---------------- */
+
+public function testListarMoneda()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+
+    // Ejecutar el query
+    $resultado = mysqli_query($conexion, "SELECT * FROM moneda");
+
+    // Verificar que el resultado es un objeto mysqli_result válido
+    $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+    echo '<tr> -----------MONEDAS -------------</tr>';
+     while ($fila = mysqli_fetch_assoc($resultado))
+     {
+        
+        echo 
+        'Id de moneda: ' . $fila['Id_Moneda'] ."\n" .
+        'Nombre: '  . $fila['Nombre'] .  "\n" .
+        'Conversion: ' . $fila['ConversionADolar'] . "\n" .
+        
+        '</td></tr>';
+
+     }
+     echo '</table>';
+       
+     // Liberar los recursos
+     mysqli_free_result($resultado);
+     mysqli_close($conexion);
 
 
+
+}
+/* --------------PRUEBAS MARCELA : TABLA LISTAR REGION ---------------- */
+
+
+
+public function testListarRegion()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+
+    // Ejecutar el query
+    $resultado = mysqli_query($conexion, "SELECT * FROM region");
+
+    // Verificar que el resultado es un objeto mysqli_result válido
+    $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+    echo '<tr> -----------REGIONES -------------</tr>';
+     while ($fila = mysqli_fetch_assoc($resultado))
+     {
+        
+        echo 
+        'Id de región: ' . $fila['Id_Region'] ."\n" .
+        'Nombre: '  . $fila['Nombre'] .  "\n" .
+       
+        
+        '</td></tr>';
+
+     }
+     echo '</table>';
+       
+     // Liberar los recursos
+     mysqli_free_result($resultado);
+     mysqli_close($conexion);
+
+
+
+}
 
 
 
