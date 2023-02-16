@@ -24,7 +24,7 @@ class ValidarString
    /*----------- TABLAS MARCELA --------------*/ 
 
  /* ------------ Método de guardar pais -----------*/
- /*
+
 class GuardarPais {
     public function guardarDatos($datos) {
         $servername="localhost";
@@ -41,9 +41,9 @@ class GuardarPais {
         $conexion->close();
         return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
     }
-}*/
+}
 /* ------------ Método de guardar region -----------*/
-/*
+
 class GuardarRegion{
     public function guardarDatos($datos) {
         $servername="localhost";
@@ -60,9 +60,9 @@ class GuardarRegion{
         $conexion->close();
         return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
     }
-}*/
+}
 /* ------------ Método de guardar moneda -----------*/
-/*
+
 class GuardarMoneda{
     public function guardarDatos($datos) {
         $servername="localhost";
@@ -80,9 +80,9 @@ class GuardarMoneda{
         $conexion->close();
         return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
     }
-}*/
+}
 
-/* ------------ Método de guardar aeronave -----------
+/* ------------ Método de guardar aeronave -----------*/
 class GuardarAeronave{
     public function guardarDatos($datos) {
         $servername="localhost";
@@ -105,9 +105,9 @@ class GuardarAeronave{
         $conexion->close();
         return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
     }
-}*/
+}
 
-/* ------------ Método de guardar aeropuerto -----------
+/* ------------ Método de guardar aeropuerto -----------*/
 class GuardarAeropuerto{
     public function guardarDatos($datos) {
         $servername="localhost";
@@ -128,7 +128,7 @@ class GuardarAeropuerto{
         $conexion->close();
         return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
     }
-}*/
+}
 
 
 class OperationTest extends TestCase
@@ -179,54 +179,94 @@ class OperationTest extends TestCase
     /*----------- TABLAS MARCELA --------------*/
     /*--------- Tabla de guardar pais ----------*/
 
-    /*public function testGuardarDatos()
+    public function testGuardarPais()
     {
     $datosPrueba = array(
         
-        'Nombre' => 'Perú',
+        'Nombre' => 'Argentina',
         'Region' => 'América del sur'
     );
+     // Validamos que no hayan simbolos en los datos
+ foreach($datosPrueba as $dato) {
+    if(!preg_match('/^[a-zA-Z0-9]+$/', $dato)) {
+        $this->fail('Uno o más campos contienen símbolos no permitidos.');
+    }
+}
+    // Validamos si algun campo esta vacio
+    foreach($datosPrueba as $dato) {
+        if(empty($dato)) {
+            $this->fail('Uno o más campos están vacíos.');
+        }
+    }
 
     $objeto = new GuardarPais();
     $resultado = $objeto->guardarDatos($datosPrueba);
 
     $this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
-}*/
+}
 
  /*--------- Tabla de guardar region ----------*/
- /*
+ 
 public function testGuardarRegion()
 {
 $datosPrueba = array(
     
-    'Nombre' => 'Asia',
+    'Nombre' => 'bebesita',
     
 );
 
+ // Validamos que no hayan simbolos en los datos
+ foreach($datosPrueba as $dato) {
+    if(!preg_match('/^[a-zA-Z0-9]+$/', $dato)) {
+        $this->fail('Uno o más campos contienen símbolos no permitidos.');
+    }
+}
+// Validamos si algun campo esta vacio
+foreach($datosPrueba as $dato) {
+    if(empty($dato)) {
+        $this->fail('Uno o más campos están vacíos.');
+    }
+}
 $objeto = new GuardarRegion();
 $resultado = $objeto->guardarDatos($datosPrueba);
 
 $this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
-}*/
+}
 /*--------- Tabla de guardar moneda ----------*/
-/*
+
 public function testGuardarMoneda()
 {
     $datosPrueba = array(
     
-        'Nombre' => 'Won',
-        'ConversionADolar'  => '34.60',
+        'Nombre' => 'ggg',
+        'ConversionADolar'  => '4.5',
         
     );
-    
+     
+    // Validamos si algun campo esta vacio
+foreach($datosPrueba as $dato) {
+    if(empty($dato)) {
+        $this->fail('Uno o más campos están vacíos.');
+    }
+}
+
+ // Validamos que el campo 'Nombre' no contenga símbolos ni números
+ if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Nombre'])) {
+    $this->fail('El campo "Nombre" no debe contener símbolos ni números.');
+}
+   // Validamos que el campo 'ConversionADolar' solo contenga números enteros y decimales
+   if(!preg_match('/^[0-9]+(\.[0-9]+)?$/', $datosPrueba['ConversionADolar'])) {
+    $this->fail('El campo "ConversionADolar" solo debe contener números enteros y decimales.');
+}
+
     $objeto = new GuardarMoneda();
     $resultado = $objeto->guardarDatos($datosPrueba);
     
     $this->assertTrue($resultado);
 }
-*/
+
 /*--------- Tabla de guardar aeronave ----------*/
-/*
+
 public function testGuardarAeronave()
 {
     $datosPrueba = array(
@@ -240,6 +280,12 @@ public function testGuardarAeronave()
         
     );
     
+    // Validamos si algun campo esta vacio
+foreach($datosPrueba as $dato) {
+    if(empty($dato)) {
+        $this->fail('Uno o más campos están vacíos.');
+    }
+}
     $objeto = new GuardarAeronave();
     $resultado = $objeto->guardarDatos($datosPrueba);
     
@@ -247,9 +293,9 @@ public function testGuardarAeronave()
     
 }
 
-*/
+
 /*--------- Tabla de guardar aeropuerto ----------*/
-/*
+
 public function testGuardarAeropuerto()
 {
     $datosPrueba = array(
@@ -259,12 +305,18 @@ public function testGuardarAeropuerto()
         'Id_Ciudad' => '1',   
     );
     
+    // Validamos si algun campo esta vacio
+foreach($datosPrueba as $dato) {
+    if(empty($dato)) {
+        $this->fail('Uno o más campos están vacíos.');
+    }
+}
     $objeto = new GuardarAeropuerto();
     $resultado = $objeto->guardarDatos($datosPrueba);
     
     $this->assertTrue($resultado);
     
-}*/
+}
 /* FIN DEL METODO GUARDAR */
 /* ------------------------------------------------------------------*/
 /* INICIO DEL METODO ELIMINAR */
@@ -284,9 +336,15 @@ public function testEliminarPais()
 
   // Obtener el ID del registro insertado.
   $id = $conn->insert_id;
+  // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM pais WHERE Id_Pais='56'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
 
   // Llamar al código de eliminación con el ID del registro insertado.
-  $eliminar = "DELETE FROM pais WHERE Id_Pais='66'";
+  $eliminar = "DELETE FROM pais WHERE Id_Pais='56'";
   $resultado = $conn->query($eliminar);
 
   // Comprobar que el registro ha sido eliminado correctamente.
@@ -309,8 +367,15 @@ public function testEliminarAeronave()
   // Obtener el ID del registro insertado.
   $id = $conn->insert_id;
 
+   // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM aeronave WHERE Id_Aeronave='74'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
+
   // Llamar al código de eliminación con el ID del registro insertado.
-  $eliminar = "DELETE FROM aeronave WHERE Id_Aeronave='12'";
+  $eliminar = "DELETE FROM aeronave WHERE Id_Aeronave='74'";
   $resultado = $conn->query($eliminar);
 
   // Comprobar que el registro ha sido eliminado correctamente.
@@ -336,9 +401,15 @@ public function testEliminarAeropuerto()
 
   // Obtener el ID del registro insertado.
   $id = $conn->insert_id;
+   // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM aeropuerto WHERE Id_Aeropuerto='53'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
 
   // Llamar al código de eliminación con el ID del registro insertado.
-  $eliminar = "DELETE FROM aeropuerto WHERE Id_Aeropuerto='25'";
+  $eliminar = "DELETE FROM aeropuerto WHERE Id_Aeropuerto='53'";
   $resultado = $conn->query($eliminar);
 
   // Comprobar que el registro ha sido eliminado correctamente.
@@ -364,8 +435,14 @@ public function testEliminarMoneda()
   // Obtener el ID del registro insertado.
   $id = $conn->insert_id;
 
+   // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM moneda WHERE Id_Moneda='62'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
   // Llamar al código de eliminación con el ID del registro insertado.
-  $eliminar = "DELETE FROM moneda WHERE Id_Moneda='25'";
+  $eliminar = "DELETE FROM moneda WHERE Id_Moneda='62'";
   $resultado = $conn->query($eliminar);
 
   // Comprobar que el registro ha sido eliminado correctamente.
@@ -391,9 +468,15 @@ public function testEliminarRegion()
 
   // Obtener el ID del registro insertado.
   $id = $conn->insert_id;
+   // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM region WHERE Id_Region='18'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
 
   // Llamar al código de eliminación con el ID del registro insertado.
-  $eliminar = "DELETE FROM region WHERE Id_Region='25'";
+  $eliminar = "DELETE FROM region WHERE Id_Region='18'";
   $resultado = $conn->query($eliminar);
 
   // Comprobar que el registro ha sido eliminado correctamente.
@@ -421,9 +504,10 @@ public function testActualizarPais()
     $conexion = new mysqli($servername, $username, $password, $database);
     
     // Crear objeto de la consulta SQL a probar
-    $nombre = 'Estados Unidos';
+    $nombre = 'Estados@@ Unidos';
     $region = 'América del Norte';
     $id = '66';
+ 
     $actualizar = "UPDATE pais SET Nombre='$nombre', Region='$region' WHERE Id_Pais='$id'";
     
     // Ejecutar la consulta
