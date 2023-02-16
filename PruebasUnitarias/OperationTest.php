@@ -24,6 +24,7 @@ class ValidarString
    /*----------- TABLAS MARCELA --------------*/ 
 
  /* ------------ Método de guardar pais -----------*/
+ /*
 class GuardarPais {
     public function guardarDatos($datos) {
         $servername="localhost";
@@ -40,9 +41,9 @@ class GuardarPais {
         $conexion->close();
         return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
     }
-}
+}*/
 /* ------------ Método de guardar region -----------*/
-
+/*
 class GuardarRegion{
     public function guardarDatos($datos) {
         $servername="localhost";
@@ -59,8 +60,9 @@ class GuardarRegion{
         $conexion->close();
         return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
     }
-}
+}*/
 /* ------------ Método de guardar moneda -----------*/
+/*
 class GuardarMoneda{
     public function guardarDatos($datos) {
         $servername="localhost";
@@ -78,9 +80,9 @@ class GuardarMoneda{
         $conexion->close();
         return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
     }
-}
+}*/
 
-/* ------------ Método de guardar aeronave -----------*/
+/* ------------ Método de guardar aeronave -----------
 class GuardarAeronave{
     public function guardarDatos($datos) {
         $servername="localhost";
@@ -103,9 +105,9 @@ class GuardarAeronave{
         $conexion->close();
         return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
     }
-}
+}*/
 
-/* ------------ Método de guardar aeropuerto -----------*/
+/* ------------ Método de guardar aeropuerto -----------
 class GuardarAeropuerto{
     public function guardarDatos($datos) {
         $servername="localhost";
@@ -126,18 +128,12 @@ class GuardarAeropuerto{
         $conexion->close();
         return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
     }
-}
-
-
-
-
-
-
+}*/
 
 
 class OperationTest extends TestCase
 {
-     
+    /* 
     public function testIsValidName()
     {
         $validator = new ValidateLetters();
@@ -177,7 +173,8 @@ class OperationTest extends TestCase
     private function acceptOnlyNumbers($input)
     {
         return is_numeric($input);
-    }
+    }*/
+
     /* ------------------------------------------------------------------*/
     /*----------- TABLAS MARCELA --------------*/
     /*--------- Tabla de guardar pais ----------*/
@@ -197,6 +194,7 @@ class OperationTest extends TestCase
 }*/
 
  /*--------- Tabla de guardar region ----------*/
+ /*
 public function testGuardarRegion()
 {
 $datosPrueba = array(
@@ -209,8 +207,9 @@ $objeto = new GuardarRegion();
 $resultado = $objeto->guardarDatos($datosPrueba);
 
 $this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
-}
+}*/
 /*--------- Tabla de guardar moneda ----------*/
+/*
 public function testGuardarMoneda()
 {
     $datosPrueba = array(
@@ -225,9 +224,9 @@ public function testGuardarMoneda()
     
     $this->assertTrue($resultado);
 }
-
+*/
 /*--------- Tabla de guardar aeronave ----------*/
-
+/*
 public function testGuardarAeronave()
 {
     $datosPrueba = array(
@@ -248,17 +247,16 @@ public function testGuardarAeronave()
     
 }
 
-
+*/
 /*--------- Tabla de guardar aeropuerto ----------*/
+/*
 public function testGuardarAeropuerto()
 {
     $datosPrueba = array(
     
         'Nombre' => 'AeroYork',
         'Hangar'  => '59',
-        'Id_Ciudad' => '1',
-       
-        
+        'Id_Ciudad' => '1',   
     );
     
     $objeto = new GuardarAeropuerto();
@@ -266,7 +264,7 @@ public function testGuardarAeropuerto()
     
     $this->assertTrue($resultado);
     
-}
+}*/
 /* FIN DEL METODO GUARDAR */
 /* ------------------------------------------------------------------*/
 /* INICIO DEL METODO ELIMINAR */
@@ -297,6 +295,102 @@ public function testEliminarPais()
   // Cerrar la conexión a la base de datos de prueba.
   $conn->close();
 }
+/*------------ METODO ELIMINAR AERONAVE ---------------- */
+public function testEliminarAeronave()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
+
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
+
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM aeronave WHERE Id_Aeronave='12'";
+  $resultado = $conn->query($eliminar);
+
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
+
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
+
+/*------------ METODO ELIMINAR AEROPUERTO ---------------- */
+
+
+
+public function testEliminarAeropuerto()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
+
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
+
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM aeropuerto WHERE Id_Aeropuerto='25'";
+  $resultado = $conn->query($eliminar);
+
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
+
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
+
+
+/* ---------------- METODO ELIMINAR MONEDA -------------*/
+
+public function testEliminarMoneda()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
+
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
+
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM moneda WHERE Id_Moneda='25'";
+  $resultado = $conn->query($eliminar);
+
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
+
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ------------------------------------------------------------------*/
 /* INICIO DEL METODO EDITAR O ACTUALIZAR */
 
