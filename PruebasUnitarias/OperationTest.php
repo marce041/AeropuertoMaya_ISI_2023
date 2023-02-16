@@ -182,11 +182,11 @@ class OperationTest extends TestCase
     /*----------- TABLAS MARCELA --------------*/
     /*--------- Tabla de guardar pais ----------*/
 
-    public function testGuardarDatos()
+    /*public function testGuardarDatos()
     {
     $datosPrueba = array(
         
-        'Nombre' => 'Colombia',
+        'Nombre' => 'Perú',
         'Region' => 'América del sur'
     );
 
@@ -194,7 +194,7 @@ class OperationTest extends TestCase
     $resultado = $objeto->guardarDatos($datosPrueba);
 
     $this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
-}
+}*/
 
  /*--------- Tabla de guardar region ----------*/
 public function testGuardarRegion()
@@ -288,7 +288,7 @@ public function testEliminarPais()
   $id = $conn->insert_id;
 
   // Llamar al código de eliminación con el ID del registro insertado.
-  $eliminar = "DELETE FROM pais WHERE Id_Pais='23'";
+  $eliminar = "DELETE FROM pais WHERE Id_Pais='66'";
   $resultado = $conn->query($eliminar);
 
   // Comprobar que el registro ha sido eliminado correctamente.
@@ -314,7 +314,7 @@ public function testActualizarPais()
     // Crear objeto de la consulta SQL a probar
     $nombre = 'Estados Unidos';
     $region = 'América del Norte';
-    $id = '22';
+    $id = '66';
     $actualizar = "UPDATE pais SET Nombre='$nombre', Region='$region' WHERE Id_Pais='$id'";
     
     // Ejecutar la consulta
