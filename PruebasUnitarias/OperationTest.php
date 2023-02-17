@@ -272,20 +272,47 @@ public function testGuardarAeronave()
     $datosPrueba = array(
     
         'Matricula' => 'RRH123',
-        'Modelo'  => 'Dassault Falcon',
+        'Modelo'  => 'Dassault',
         'Capacidad' => '700',
         'Tamaño'  => '1300',
         'Tipo' => 'Comercial',
-        'Area'  => 'Personal',
+        'Area'  => 'Pers',
         
     );
-    
+
+
+
     // Validamos si algun campo esta vacio
-foreach($datosPrueba as $dato) {
+    foreach($datosPrueba as $dato) {
     if(empty($dato)) {
         $this->fail('Uno o más campos están vacíos.');
     }
+   } 
+   // Validamos que el campo 'Modelo' no contenga símbolos ni números
+ if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Modelo'])) {
+    $this->fail('El campo "Modelo" no debe contener símbolos ni números.');
+ }
+
+ // Validamos que el campo 'Capacidad' solo contenga números enteros y decimales
+ if(!preg_match('/^[0-9]+(\.[0-9]+)?$/', $datosPrueba['Capacidad'])) {
+    $this->fail('El campo "Capacidad" solo debe contener números enteros y decimales.');
+ }
+ // Validamos que el campo 'Tamaño' solo contenga números enteros y decimales
+ if(!preg_match('/^[0-9]+(\.[0-9]+)?$/', $datosPrueba['Tamaño'])) {
+    $this->fail('El campo "Tamaño" solo debe contener números enteros y decimales.');
 }
+  // Validamos que el campo 'Tipo' no contenga símbolos ni números
+  if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Tipo'])) {
+    $this->fail('El campo "Tipo" no debe contener símbolos ni números.');
+}
+
+// Validamos que el campo 'Area' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Area'])) {
+    $this->fail('El campo "Area" no debe contener símbolos ni números.');
+}
+
+
+
     $objeto = new GuardarAeronave();
     $resultado = $objeto->guardarDatos($datosPrueba);
     
@@ -311,6 +338,17 @@ foreach($datosPrueba as $dato) {
         $this->fail('Uno o más campos están vacíos.');
     }
 }
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Nombre'])) {
+    $this->fail('El campo "Nombre" no debe contener símbolos ni números.');
+ }
+ // Validamos que el campo 'Area' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Hangar'])) {
+    $this->fail('El campo "Hangar" no debe contener símbolos ni números.');
+}
+
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Id_Ciudad'])) {
+    $this->fail('El campo "Id_Ciudad" no debe contener símbolos ni números.');
+}
     $objeto = new GuardarAeropuerto();
     $resultado = $objeto->guardarDatos($datosPrueba);
     
@@ -330,18 +368,18 @@ public function testEliminarPais()
     $password="";
     $database="aeropuertomaya";
 
-
   // Conectar a la base de datos de prueba.
   $conn = new mysqli($servername, $username, $password, $database);
 
   // Obtener el ID del registro insertado.
   $id = $conn->insert_id;
+
   // Validar que existe un registro con el ID proporcionado.
-$validacion = "SELECT * FROM pais WHERE Id_Pais='56'";
-$resultadoValidacion = $conn->query($validacion);
-if ($resultadoValidacion->num_rows === 0) {
+ $validacion = "SELECT * FROM pais WHERE Id_Pais='56'";
+ $resultadoValidacion = $conn->query($validacion);
+ if ($resultadoValidacion->num_rows === 0) {
     throw new Exception("No se encontró ningún registro con el ID proporcionado.");
-}
+ }
 
   // Llamar al código de eliminación con el ID del registro insertado.
   $eliminar = "DELETE FROM pais WHERE Id_Pais='56'";
@@ -368,9 +406,10 @@ public function testEliminarAeronave()
   $id = $conn->insert_id;
 
    // Validar que existe un registro con el ID proporcionado.
-$validacion = "SELECT * FROM aeronave WHERE Id_Aeronave='74'";
-$resultadoValidacion = $conn->query($validacion);
-if ($resultadoValidacion->num_rows === 0) {
+  $validacion = "SELECT * FROM aeronave WHERE Id_Aeronave='74'";
+  $resultadoValidacion = $conn->query($validacion);
+
+  if ($resultadoValidacion->num_rows === 0) {
     throw new Exception("No se encontró ningún registro con el ID proporcionado.");
 }
 
@@ -401,12 +440,13 @@ public function testEliminarAeropuerto()
 
   // Obtener el ID del registro insertado.
   $id = $conn->insert_id;
+
    // Validar que existe un registro con el ID proporcionado.
-$validacion = "SELECT * FROM aeropuerto WHERE Id_Aeropuerto='53'";
-$resultadoValidacion = $conn->query($validacion);
-if ($resultadoValidacion->num_rows === 0) {
+  $validacion = "SELECT * FROM aeropuerto WHERE Id_Aeropuerto='53'";
+  $resultadoValidacion = $conn->query($validacion);
+  if ($resultadoValidacion->num_rows === 0) {
     throw new Exception("No se encontró ningún registro con el ID proporcionado.");
-}
+  }
 
   // Llamar al código de eliminación con el ID del registro insertado.
   $eliminar = "DELETE FROM aeropuerto WHERE Id_Aeropuerto='53'";
@@ -438,6 +478,7 @@ public function testEliminarMoneda()
    // Validar que existe un registro con el ID proporcionado.
 $validacion = "SELECT * FROM moneda WHERE Id_Moneda='62'";
 $resultadoValidacion = $conn->query($validacion);
+ 
 if ($resultadoValidacion->num_rows === 0) {
     throw new Exception("No se encontró ningún registro con el ID proporcionado.");
 }
@@ -469,11 +510,11 @@ public function testEliminarRegion()
   // Obtener el ID del registro insertado.
   $id = $conn->insert_id;
    // Validar que existe un registro con el ID proporcionado.
-$validacion = "SELECT * FROM region WHERE Id_Region='18'";
-$resultadoValidacion = $conn->query($validacion);
-if ($resultadoValidacion->num_rows === 0) {
+ $validacion = "SELECT * FROM region WHERE Id_Region='18'";
+ $resultadoValidacion = $conn->query($validacion);
+  if ($resultadoValidacion->num_rows === 0) {
     throw new Exception("No se encontró ningún registro con el ID proporcionado.");
-}
+ }
 
   // Llamar al código de eliminación con el ID del registro insertado.
   $eliminar = "DELETE FROM region WHERE Id_Region='18'";
@@ -614,6 +655,7 @@ public function testActualizarMoneda()
     $nombre = 'akndsjdb';
     $conversion ='4.09';
     $id='4';
+    
     $actualizar = "UPDATE moneda SET Nombre='$nombre', ConversionADolar='$conversion'
     WHERE Id_Moneda='$id'";
     
@@ -735,9 +777,8 @@ public function testListarAeronave()
      mysqli_free_result($resultado);
      mysqli_close($conexion);
 
-
-
 }
+
 /* --------------PRUEBAS MARCELA : TABLA LISTAR MONEDA ---------------- */
 
 public function testListarMoneda()
