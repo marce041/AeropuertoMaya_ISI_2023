@@ -129,8 +129,99 @@ class GuardarAeropuerto{
         return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
     }
 }
+/*----------- TABLAS EDUARDO --------------*/ 
 
+ /* ------------ Método de guardar boleto -----------*/
 
+ class GuardarBoleto {
+    public function guardarDatos($datos) {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+
+        $conexion = new mysqli($servername, $username, $password, $database);
+       
+        $Codigo = $conexion->real_escape_string($datos['Codigo']);
+        $Id_Asiento = $conexion->real_escape_string($datos['Id_Asiento']);
+        $Id_Pasajero = $conexion->real_escape_string($datos['Id_Pasajero']);
+        $Id_Vuelo = $conexion->real_escape_string($datos['Id_Vuelo']);
+        $Id_Equipaje = $conexion->real_escape_string($datos['Id_Equipaje']);
+        $Id_Clase = $conexion->real_escape_string($datos['Id_Clase']);
+        $Precio = $conexion->real_escape_string($datos['Precio']);
+        $query = "INSERT INTO `boleto` ( `Codigo`, `Id_Asiento`, `Id_Pasajero`, `Id_Vuelo`, `Id_Equipaje`, `Id_Clase`, `Precio`)  VALUES ('$Codigo','$Id_Asiento', '$Id_Pasajero', '$Id_Vuelo', '$Id_Equipaje', '$Id_Clase', '$Precio')";
+        $resultado = $conexion->query($query);
+        $conexion->close();
+        return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
+    }
+}
+/* ------------ Método de guardar ciudad -----------*/
+
+class GuardarCiudad {
+    public function guardarDatos($datos) {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+
+        $conexion = new mysqli($servername, $username, $password, $database);
+       
+        $Nombre = $conexion->real_escape_string($datos['Nombre']);
+        $Codigo = $conexion->real_escape_string($datos['Codigo']);
+        $Terminal = $conexion->real_escape_string($datos['Terminal']);
+        $Id_Pais = $conexion->real_escape_string($datos['Id_Pais']);
+        $query = "INSERT INTO `ciudad` (`Nombre`, `Codigo`, `Terminal`, `Id_Pais`)  VALUES ('$Nombre','$Codigo','$Terminal', '$Id_Pais')";
+        $resultado = $conexion->query($query);
+        $conexion->close();
+        return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
+    }
+}
+/* ------------ Método de guardar equipaje -----------*/
+
+class GuardarEquipaje {
+    public function guardarDatos($datos) {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+
+        $conexion = new mysqli($servername, $username, $password, $database);
+       
+        $Peso = $conexion->real_escape_string($datos['Peso']);
+        $Cantidad = $conexion->real_escape_string($datos['Cantidad']);
+        $MultiplicadorPrecio = $conexion->real_escape_string($datos['MultiplicadorPrecio']);
+        $query = "INSERT INTO `equipaje` (`Peso`, `Cantidad`, `MultiplicadorPrecio`)  VALUES ('$Peso','$Cantidad','$MultiplicadorPrecio')";
+        $resultado = $conexion->query($query);
+        $conexion->close();
+        return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
+    }
+}
+/* ------------ Método de guardar vuelo -----------*/
+
+class GuardarVuelo {
+    public function guardarDatos($datos) {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+
+        $conexion = new mysqli($servername, $username, $password, $database);
+       
+        $Codigo = $conexion->real_escape_string($datos['Codigo']);
+        $Lugar_Salida = $conexion->real_escape_string($datos['Lugar_Salida']);
+        $Lugar_LLegada = $conexion->real_escape_string($datos['Lugar_LLegada']);
+        $Hora_Salida = $conexion->real_escape_string($datos['Hora_Salida']);
+        $Hora_LLegada = $conexion->real_escape_string($datos['Hora_LLegada']);
+        $Fecha = $conexion->real_escape_string($datos['Fecha']);
+        $Precio = $conexion->real_escape_string($datos['Precio']);
+        $Id_Aeronave = $conexion->real_escape_string($datos['Id_Aeronave']);
+        $query = "INSERT INTO `vuelo` (`Codigo`, `Lugar_Salida`, `Lugar_LLegada`, `Hora_Salida`, `Hora_LLegada`, `Fecha`, `Precio`, `Id_Aeronave`)  VALUES ('$Codigo','$Lugar_Salida','$Lugar_LLegada', '$Hora_Salida', '$Hora_LLegada', '$Fecha', '$Precio', '$Id_Aeronave')";
+        $resultado = $conexion->query($query);
+        $conexion->close();
+        return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
+    }
+}
+boleto, ciudad, equipaje, vuelo, parametro, paseabordar, reserva, usuario
 class OperationTest extends TestCase
 {
     /* 
@@ -316,6 +407,129 @@ foreach($datosPrueba as $dato) {
     
     $this->assertTrue($resultado);
     
+}
+/*----------- TABLAS EDUARDO --------------*/
+    /*--------- Tabla de guardar boleto ----------*/
+
+    public function testGuardarBoleto()
+    {
+    $datosPrueba = array(
+        
+        'Codigo' => '20HOLA',
+        'Id_Asiento' => '1',
+        'Id_Pasajero' => '4',
+        'Id_Vuelo' => '1',
+        'Id_Equipaje' => '2',
+        'Id_Clase' => '1',
+        'Precio' => '200'
+    );
+     // Validamos que no hayan simbolos en los datos
+ foreach($datosPrueba as $dato) {
+    if(!preg_match('/^[a-zA-Z0-9]+$/', $dato)) {
+        $this->fail('Uno o más campos contienen símbolos no permitidos.');
+    }
+}
+    // Validamos si algun campo esta vacio
+    foreach($datosPrueba as $dato) {
+        if(empty($dato)) {
+            $this->fail('Uno o más campos están vacíos.');
+        }
+    }
+
+    $objeto = new GuardarBoleto();
+    $resultado = $objeto->guardarDatos($datosPrueba);
+
+    $this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
+}
+/*--------- Tabla de guardar ciudad ----------*/
+
+public function testGuardarCiudad()
+{
+$datosPrueba = array(
+    
+    'Nombre' => 'Roatan',
+    'Codigo' => '20234',
+    'Terminal' => '13',
+    'Id_Pais' => '1'
+   );
+ // Validamos que no hayan simbolos en los datos
+foreach($datosPrueba as $dato) {
+if(!preg_match('/^[a-zA-Z0-9]+$/', $dato)) {
+    $this->fail('Uno o más campos contienen símbolos no permitidos.');
+}
+}
+// Validamos si algun campo esta vacio
+foreach($datosPrueba as $dato) {
+    if(empty($dato)) {
+        $this->fail('Uno o más campos están vacíos.');
+    }
+}
+
+$objeto = new GuardarCiudad();
+$resultado = $objeto->guardarDatos($datosPrueba);
+
+$this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
+}
+/*--------- Tabla de guardar equipaje ----------*/
+
+public function testGuardarEquipaje()
+{
+$datosPrueba = array(
+    
+    'Peso' => '40',
+    'Cantidad' => '3',
+    'MultiplicadorPrecio' => '1.5'
+);
+ // Validamos que no hayan simbolos en los datos
+foreach($datosPrueba as $dato) {
+if(!preg_match('/^[0-9.]+$/', $dato)) {
+    $this->fail('Uno o más campos contienen símbolos no permitidos.');
+}
+}
+// Validamos si algun campo esta vacio
+foreach($datosPrueba as $dato) {
+    if(empty($dato)) {
+        $this->fail('Uno o más campos están vacíos.');
+    }
+}
+
+$objeto = new GuardarEquipaje();
+$resultado = $objeto->guardarDatos($datosPrueba);
+
+$this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
+}
+ /*--------- Tabla de guardar vuelo ----------*/
+
+ public function testGuardarVuelo()
+ {
+ $datosPrueba = array(
+     
+     'Codigo' => '20HOLA',
+     'Lugar_Salida' => 'Tocontin IA',
+     'Lugar_LLegada' => 'Goloson IA',
+     'Hora_Salida' => '03:40:00',
+     'Hora_LLegada' => '05:45:00',
+     'Fecha' => '2023-02-17',
+     'Precio' => '200',
+     'Id_Aeronave' => '18'
+ );
+  // Validamos que no hayan simbolos en los datos
+foreach($datosPrueba as $dato) {
+ if(!preg_match('/^[a-zA-Z0-9: -]+$/', $dato)) {
+     $this->fail('Uno o más campos contienen símbolos no permitidos.');
+ }
+}
+ // Validamos si algun campo esta vacio
+ foreach($datosPrueba as $dato) {
+     if(empty($dato)) {
+         $this->fail('Uno o más campos están vacíos.');
+     }
+ }
+
+ $objeto = new GuardarVuelo();
+ $resultado = $objeto->guardarDatos($datosPrueba);
+
+ $this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
 }
 /* FIN DEL METODO GUARDAR */
 /* ------------------------------------------------------------------*/
