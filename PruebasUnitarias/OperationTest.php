@@ -143,10 +143,161 @@ class GuardarAeropuerto{
 
         $conexion = new mysqli($servername, $username, $password, $database);
 
-        
         $Id_Reserva = $conexion->real_escape_string($datos['Id_Reserva']);
         $Id_Pasajero = $conexion->real_escape_string($datos['Id_Pasajero']);
         $query = "INSERT INTO `checkin` (`Id_Reserva`,'Id_Pasajero')  VALUES ('$Id_Reserva','$Id_Pasajero')";
+        $resultado = $conexion->query($query);
+        $conexion->close();
+        return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
+    }
+}
+
+class Guardarclase {
+    public function guardarDatos($datos) {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+
+        $conexion = new mysqli($servername, $username, $password, $database);
+
+        $Tipo_Clase = $conexion->real_escape_string($datos['Tipo_Clase']);
+        $Descripcion = $conexion->real_escape_string($datos['Descripcion']);
+        $MultiplicadorPrecio = $conexion->real_escape_string($datos['MultiplicadorPrecio']);
+        $query = "INSERT INTO `clase` (`Tipo_Clase`,'Descripcion','MultiplicadorPrecio')  VALUES ('$Tipo_Clase','$Descripcion','$MultiplicadorPrecio')";
+        $resultado = $conexion->query($query);
+        $conexion->close();
+        return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
+    }
+}
+
+class Guardardetallefactura {
+    public function guardarDatos($datos) {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+
+        $conexion = new mysqli($servername, $username, $password, $database);
+
+        $Id_Detalle = $conexion->real_escape_string($datos['Id_Detalle']);
+        $Id_Boleto = $conexion->real_escape_string($datos['Id_Boleto']);
+        $Cantidad = $conexion->real_escape_string($datos['Cantidad']);
+        $Descripcion = $conexion->real_escape_string($datos['Descripcion']);
+        $Subtotal = $conexion->real_escape_string($datos['Subtotal']);
+        $Total_Descuento = $conexion->real_escape_string($datos['Total_Descuento']);
+        $Total_Impuesto = $conexion->real_escape_string($datos['Total_Impuesto']);
+        $Total = $conexion->real_escape_string($datos['Total']);
+        $Estado = $conexion->real_escape_string($datos['Estado']);
+        $query = "INSERT INTO `detallefactura` (`Id_Detalle`,'Id_Boleto','Cantidad','Descripcion','Subtotal','Total_Descuento','Total_Impuesto','Total','Estado')  VALUES ('$Id_Detalle','$Id_Boleto','$Cantidad','$Descripcion','$Subtotal','$Total_Descuento','$Total_Impuesto','$Total','$Estado')";
+        $resultado = $conexion->query($query);
+        $conexion->close();
+        return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
+    }
+}
+
+class Guardarfactura {
+    public function guardarDatos($datos) {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+
+        $conexion = new mysqli($servername, $username, $password, $database);
+
+        $Id_Parametro = $conexion->real_escape_string($datos['Id_Parametro']);
+        $Codigo = $conexion->real_escape_string($datos['Codigo']);
+        $RTN = $conexion->real_escape_string($datos['RTN']);
+        $CAI = $conexion->real_escape_string($datos['CAI']);
+        $Id_Detalle = $conexion->real_escape_string($datos['Id_Detalle']);
+        $Fecha = $conexion->real_escape_string($datos['Fecha']);
+        $Id_Moneda = $conexion->real_escape_string($datos['Id_Moneda']);
+        $Monto = $conexion->real_escape_string($datos['Monto']);
+        $Metodo_Pago = $conexion->real_escape_string($datos['Metodo_Pago']);
+        $Cantidad_Efectivo = $conexion->real_escape_string($datos['Cantidad_Efectivo']);
+        $Numero_Tarjeta = $conexion->real_escape_string($datos['Numero_Tarjeta']);
+        $query = "INSERT INTO `factura` (`Id_Parametro`,'Codigo','RTN','CAI','Id_Detalle','Fecha','Id_Moneda','Monto','Metodo_Pago','Cantidad_Efectvio','Numero_Tarjeta')  VALUES (`$Id_Parametro`,'$Codigo','$RTN','$CAI','$Id_Detalle','$Fecha','$Id_Moneda','$Monto','$Metodo_Pago','$Cantidad_Efectivo','$Numero_Tarjeta')";
+        $resultado = $conexion->query($query);
+        $conexion->close();
+        return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
+    }
+}
+
+class Guardarhangar {
+    public function guardarDatos($datos) {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+
+        $conexion = new mysqli($servername, $username, $password, $database);
+
+        $Codigo = $conexion->real_escape_string($datos['Codigo']);
+        $Capacidad = $conexion->real_escape_string($datos['Capacidad']);
+        $Id_Aeronave = $conexion->real_escape_string($datos['Id_Aeronave']);
+        $Id_Aeropuerto = $conexion->real_escape_string($datos['Id_Aeropuerto']);
+        $query = "INSERT INTO `hangar` (`Codigo`,'Capacidad','Id_Aeronave','Id_Aeropuerto')  VALUES (`$Codigo`,'$Capacidad','$Id_Aeronave','$Id_Aeropuerto')";
+        $resultado = $conexion->query($query);
+        $conexion->close();
+        return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
+    }
+}
+
+class Guardarpasajero {
+    public function guardarDatos($datos) {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+
+        $conexion = new mysqli($servername, $username, $password, $database);
+
+        $Nombre = $conexion->real_escape_string($datos['Nombre']);
+        $Tipo_Documento = $conexion->real_escape_string($datos['Tipo_Documento']);
+        $Numero_Documento = $conexion->real_escape_string($datos['Numero_Documento']);
+        $Telefono = $conexion->real_escape_string($datos['Telefono']);
+        $Correo = $conexion->real_escape_string($datos['Correo']);
+        $Id_Pais = $conexion->real_escape_string($datos['Id_Pais']);
+        $Fecha_Nacimiento = $conexion->real_escape_string($datos['Fecha_Nacimiento']);
+        $query = "INSERT INTO `pasajero` (`Nombre`,'Tipo_Documento','Numero_Documento','Telefono','Correo','Id_Pais','Fecha_Nacimiento')  VALUES (`$Nombre`,'$Tipo_Documento','$Numero_Documento','$Telefono','$Correo','$Id_Pais','$Fecha_Nacimiento')";
+        $resultado = $conexion->query($query);
+        $conexion->close();
+        return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
+    }
+}
+
+class Guardarpersonaltierra {
+    public function guardarDatos($datos) {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+
+        $conexion = new mysqli($servername, $username, $password, $database);
+
+        $Carga_Academica = $conexion->real_escape_string($datos['Carga_Academica']);
+        $Cargo = $conexion->real_escape_string($datos['Cargo']);
+        $query = "INSERT INTO `personaltierra` (`Carga_Academica`,'Cargo')  VALUES (`$Carga_Academica`,'$Cargo')";
+        $resultado = $conexion->query($query);
+        $conexion->close();
+        return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
+    }
+}
+
+class Guardartripulacion {
+    public function guardarDatos($datos) {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+
+        $conexion = new mysqli($servername, $username, $password, $database);
+
+        $Cargo = $conexion->real_escape_string($datos['Cargo']);
+        $Horas_Vuelo = $conexion->real_escape_string($datos['Horas_Vuelo']);
+        $Tipo_Licencia = $conexion->real_escape_string($datos['Tipo_Licencia']);
+        $Academia = $conexion->real_escape_string($datos['Academia']);
+        $query = "INSERT INTO `tripulacion` ('Cargo','Horas_Vuelo','Tipo_Licencia','Academia')  VALUES ('$Cargo','$Horas_Vuelo','$Tipo_Licencia','$Academia')";
         $resultado = $conexion->query($query);
         $conexion->close();
         return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
@@ -358,10 +509,191 @@ foreach($datosPrueba as $dato) {
         }
     }
 
-    $objeto = new Guardarcheckin();
+    $objeto = new GuardarCheckin();
     $resultado = $objeto->guardarDatos($datosPrueba);
 
     $this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
+}
+
+ /*--------- Tabla de guardar clase ----------*/
+
+ public function testGuardarclase()
+ {
+ $datosPrueba = array(
+     
+     'Tipo_Clase' => 'Economico',
+     'Descripcion' => 'Gran Bistek',
+     'MultiplicadorPrecio' => 'si'
+ );
+
+ // Validamos si algun campo esta vacio
+ foreach($datosPrueba as $dato) {
+     if(empty($dato)) {
+         $this->fail('Uno o más campos están vacíos.');
+     }
+ }
+
+ $objeto = new GuardarClase();
+ $resultado = $objeto->guardarDatos($datosPrueba);
+
+ $this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
+}
+
+/*--------- Tabla de guardar detallefactura ----------*/
+public function testGuardardetallefactura()
+{
+$datosPrueba = array(
+    
+    `Id_Detalle` =>'',
+    'Id_Boleto' =>'',
+    'Cantidad' =>'',
+    'Descripcion' =>'',
+    'Subtotal' =>'',
+    'Total_Descuento' =>'',
+    'Total_Impuesto' =>'',
+    'Total' =>'',
+    'Estado' =>''
+);
+
+// Validamos si algun campo esta vacio
+foreach($datosPrueba as $dato) {
+    if(empty($dato)) {
+        $this->fail('Uno o más campos están vacíos.');
+    }
+}
+
+$objeto = new GuardarDetallefactura();
+$resultado = $objeto->guardarDatos($datosPrueba);
+
+$this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
+}
+
+/*--------- Tabla de guardar factura ----------*/
+public function testGuardarfactura()
+{
+$datosPrueba = array(
+    
+    `Id_Parametro` =>'',
+    'Codigo' =>'',
+    'RTN' =>'',
+    'CAI' =>'',
+    'Id_Detalle' =>'',
+    'Fecha' =>'',
+    'Id_Moneda' =>'',
+    'Monto' =>'',
+    'Metodo_Pago' =>'',
+    'Cantidad_Efectvio' =>'',
+    'Numero_Tarjeta' =>''
+);
+
+// Validamos si algun campo esta vacio
+foreach($datosPrueba as $dato) {
+    if(empty($dato)) {
+        $this->fail('Uno o más campos están vacíos.');
+    }
+}
+
+$objeto = new Guardarfactura();
+$resultado = $objeto->guardarDatos($datosPrueba);
+
+$this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
+}
+
+/*--------- Tabla de guardar hangar ----------*/
+public function testGuardarhangar()
+{
+$datosPrueba = array(
+    
+    `Codigo` =>'',
+    'Capacidad' =>'',
+    'Id_Aeronave' =>'',
+    'Id_Aeropuerto' =>''
+);
+
+// Validamos si algun campo esta vacio
+foreach($datosPrueba as $dato) {
+    if(empty($dato)) {
+        $this->fail('Uno o más campos están vacíos.');
+    }
+}
+
+$objeto = new Guardarhangar();
+$resultado = $objeto->guardarDatos($datosPrueba);
+
+$this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
+}
+
+/*--------- Tabla de guardar pasajero ----------*/
+public function testGuardarpasajero()
+{
+$datosPrueba = array(
+    `Nombre` =>'',
+    'Tipo_Documento' =>'',
+    'Numero_Documento' =>'',
+    'Telefono' =>'',
+    'Correo' =>'',
+    'Id_Pais' =>'',
+    'Fecha_Nacimiento' =>''
+    
+);
+
+// Validamos si algun campo esta vacio
+foreach($datosPrueba as $dato) {
+    if(empty($dato)) {
+        $this->fail('Uno o más campos están vacíos.');
+    }
+}
+
+$objeto = new Guardarpasajero();
+$resultado = $objeto->guardarDatos($datosPrueba);
+
+$this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
+}
+
+/*--------- Tabla de guardar personaltierra ----------*/
+public function testGuardarpersonaltierra()
+{
+$datosPrueba = array(
+    `Carga_Academica` =>'',
+    'Cargo' =>''
+
+);
+
+// Validamos si algun campo esta vacio
+foreach($datosPrueba as $dato) {
+    if(empty($dato)) {
+        $this->fail('Uno o más campos están vacíos.');
+    }
+}
+
+$objeto = new Guardarpersonaltierra();
+$resultado = $objeto->guardarDatos($datosPrueba);
+
+$this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
+}
+
+/*--------- Tabla de guardar tripulacion ----------*/
+public function testGuardartripulacion()
+{
+$datosPrueba = array(
+    'Cargo' =>'',
+    'Horas_Vuelo' =>'',
+    'Tipo_Licencia' =>'',
+    'Academia' =>''
+   
+);
+
+// Validamos si algun campo esta vacio
+foreach($datosPrueba as $dato) {
+    if(empty($dato)) {
+        $this->fail('Uno o más campos están vacíos.');
+    }
+}
+
+$objeto = new Guardartripulacion();
+$resultado = $objeto->guardarDatos($datosPrueba);
+
+$this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
 }
 /* FIN DEL METODO GUARDAR */
 /* ------------------------------------------------------------------*/
@@ -532,7 +864,263 @@ if ($resultadoValidacion->num_rows === 0) {
   $conn->close();
 }
 
+/* INICIO DE TABLAS PEDRO DEL METODO ELIMINAR */
 
+/* ------------  METODO ELIMINAR CHECKIN --------------- */
+
+public function testEliminarcheckin()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
+
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
+   // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM checkin WHERE Id_Checkin='2'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
+
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM checkin WHERE Id_Checkin='2'";
+  $resultado = $conn->query($eliminar);
+
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
+
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
+
+/* ------------  METODO ELIMINAR CLASE --------------- */
+
+public function testEliminarclase()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
+
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
+   // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM clase WHERE Id_Clase='2'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
+
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM clase WHERE Id_Clase='2'";
+  $resultado = $conn->query($eliminar);
+
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
+
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
+
+/* ------------  METODO ELIMINAR DETALLEFACTURA --------------- */
+
+public function testEliminardetallefactura()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
+
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
+   // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM detallefactura WHERE Id_Detalle='15'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
+
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM detallefactura WHERE Id_Detalle='15'";
+  $resultado = $conn->query($eliminar);
+
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
+
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
+
+/* ------------  METODO ELIMINAR FACTURA --------------- */
+
+public function testEliminarfactura()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
+
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
+   // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM factura WHERE Id_Factura='19'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
+
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM factura WHERE Id_Factura='19'";
+  $resultado = $conn->query($eliminar);
+
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
+
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
+
+/* ------------  METODO ELIMINAR HANGAR --------------- */
+
+public function testEliminarhangar()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
+
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
+   // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM hangar WHERE Id_hangar='2'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
+
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM hangar WHERE Id_hangar='2'";
+  $resultado = $conn->query($eliminar);
+
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
+
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
+
+/* ------------  METODO ELIMINAR PASAJERO --------------- */
+
+public function testEliminarpasajero()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
+
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
+   // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM pasajero WHERE Id_Pasajero='1'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
+
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM pasajero WHERE Id_Pasajero='1'";
+  $resultado = $conn->query($eliminar);
+
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
+
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
+
+/* ------------  METODO ELIMINAR PERSONALTIERRA --------------- */
+
+public function testEliminarpersonaltierra()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
+
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
+   // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM personaltierra WHERE Id_Personal='1'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
+
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM personaltierra WHERE Id_Personal='1'";
+  $resultado = $conn->query($eliminar);
+
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
+
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
+
+/* ------------  METODO ELIMINAR TRIPULACION --------------- */
+
+public function testEliminartripulacion()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+
+  // Conectar a la base de datos de prueba.
+  $conn = new mysqli($servername, $username, $password, $database);
+
+  // Obtener el ID del registro insertado.
+  $id = $conn->insert_id;
+   // Validar que existe un registro con el ID proporcionado.
+$validacion = "SELECT * FROM tripulacion WHERE Id_Tripulacion='2'";
+$resultadoValidacion = $conn->query($validacion);
+if ($resultadoValidacion->num_rows === 0) {
+    throw new Exception("No se encontró ningún registro con el ID proporcionado.");
+}
+
+  // Llamar al código de eliminación con el ID del registro insertado.
+  $eliminar = "DELETE FROM tripulacion WHERE Id_Tripulacion='2'";
+  $resultado = $conn->query($eliminar);
+
+  // Comprobar que el registro ha sido eliminado correctamente.
+  $this->assertTrue($resultado, "No se pudo eliminar el registro");
+
+  // Cerrar la conexión a la base de datos de prueba.
+  $conn->close();
+}
 
 
 /* ------------------------------------------------------------------*/
@@ -669,6 +1257,235 @@ public function testActualizarMoneda()
     // Verificar que la consulta se ha ejecutado correctamente
     $this->assertEquals(4, $resultado);
 }
+
+/* INICIO DE TABLAS DE PEDRO DEL METODO EDITAR O ACTUALIZAR */
+
+/* PRUEBA: EDITAR TABLA CHECKIN */
+
+public function testActualizarcheckin()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $Id_Reserva = '4';
+    $Id_Pasajero ='1';
+    $id='2';
+    $actualizar = "UPDATE checkin SET Id_Reserva='$Id_Reserva', Id_Pasajero='$Id_Pasajero'
+    WHERE Id_Checkin='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(4, $resultado);
+}
+
+/* PRUEBA: EDITAR TABLA CLASE */
+
+public function testActualizarclase()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $Tipo_Clase = 'Turista';
+    $Descripcion ='Sandwich';
+    $MultiplicadorPrecio ='1';
+    $id='1';
+    $actualizar = "UPDATE clase SET Tipo_Clase='$Tipo_Clase', Descripcion='$Descripcion',MultiplicadorPrecio='$MultiplicadorPrecio'
+    WHERE Id_Clase='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(4, $resultado);
+}
+
+/* PRUEBA: EDITAR TABLA DETALLEFACTURA */
+
+public function testActualizardetallefactura()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $Id_Boleto = '4';
+    $Cantidad ='2';
+    $Descripcion ='Detalle de boletos con codigo PAP2594';
+    $Subtotal ='400.0';
+    $Total_Descuento ='40.0';
+    $Total_Impuesto ='60.75';
+    $Total ='430.75';
+    $Estado ='2';
+    $id='13';
+    $actualizar = "UPDATE detallefactura SET Id_Boleto='$Id_Boleto', Cantidad='$Cantidad',Descripcion='$Descripcion',Subtotal='$Subtotal',Total_Descuento='$Total_Descuento',Total_Impuesto='$Total_Impuesto',Total='$Total',Estado='$Estado'
+    WHERE Id_Detalle='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(4, $resultado);
+}
+
+/* PRUEBA: EDITAR TABLA FACTURA */
+
+public function testActualizarfactura()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $Id_Parametro = '6';
+    $Codigo = '001-001-01-00000200';
+    $RTN = '08011994110749';
+    $CAI = '123456789';
+    $Id_Detalle = '13';
+    $Fecha = '11/02/23';
+    $Id_Moneda = '1';
+    $Monto = '430.75';
+    $Metodo_Pago = 'Tarjeta';
+    $Cantidad_Efectivo = '0';
+    $Numero_Tarjeta ='3344-3757-1820';
+    $id='19';
+    $actualizar = "UPDATE factura SET Id_Parametro='$Id_Parametro', Codigo='$Codigo',RTN='$RTN',CAI='$CAI',iD_Detalle='$Id_Detalle',Fecha='$Fecha',Id_Moneda='$Id_Moneda',Monto='$Monto',Metodo_Pago='$Metodo_Pago',Cantidad_Efectivo='$Cantidad_Efectivo',Numero_Tarjeta='$Numero_Tarjeta'
+    WHERE Id_Factura='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(4, $resultado);
+}
+
+/* PRUEBA: EDITAR TABLA HANGAR */
+
+public function testActualizarhangar()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $Codigo = 'A001';
+    $Capacidad ='5';
+    $Id_Aeronave ='18';
+    $Id_Aeropuerto ='2';
+    $id='1';
+    $actualizar = "UPDATE hangar SET Codigo='$Codigo', Capacidad='$Capacidad',Id_Aeronave='$Id_Aeronave',Id_Aeropuerto='$Id_Aeropuerto'
+    WHERE Id_hangar='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(4, $resultado);
+}
+
+/* PRUEBA: EDITAR TABLA PASAJERO */
+
+public function testActualizarpasajero()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $Nombre = 'Calvito ';
+    $Tipo_Documento = 'DNI';
+    $Numero_Documento = '0801200073000';
+    $Telefono = '96551821';
+    $Correo = 'estoyharto@deesto.hn';
+    $Id_Pais = '1';
+    $Fecha_Nacimiento ='29/02/2000';
+    $id='1';
+    $actualizar = "UPDATE pasajero SET Nombre='$Nombre', Tipo_Documento='$Tipo_Documento',Numero_Documento='$Numero_Documento',Telefono='$Telefono',Correo='$Correo',Id_Pais='$Id_Pais',Fecha_Nacimiento='$Fecha_Nacimiento'
+    WHERE Id_Pasajero='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(4, $resultado);
+}
+
+/* PRUEBA: EDITAR TABLA PERSONALTIERRA */
+
+public function testActualizarpersonaltierra()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $Carga_Academica = 'akndsjdb';
+    $Cargo ='4.09';
+    $id='1';
+    $actualizar = "UPDATE personaltierra SET Carga_Academica='$Carga_Academica', Cargo='$Cargo'
+    WHERE Id_Personal='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(4, $resultado);
+}
+
+/* PRUEBA: EDITAR TABLA TRIPULACION */
+
+public function testActualizartripulacion()
+{
+    // Crear objeto de conexión a la base de datos
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+    
+    // Crear objeto de la consulta SQL a probar
+    $Cargo = 'Piloto';
+    $Horas_Vuelo ='500';
+    $Tipo_Licencia ='Superior';
+    $Academia ='A.C.A';
+    $id='2';
+    $actualizar = "UPDATE tripulacion SET Cargo='$Cargo', Horas_Vuelo='$Horas_Vuelo',Tipo_Licencia='$Tipo_Licencia',Academia='$Academia'
+    WHERE Id_Tripulacion='$id'";
+    
+    // Ejecutar la consulta
+    $resultado = $conexion->query($actualizar);
+    
+    // Verificar que la consulta se ha ejecutado correctamente
+    $this->assertEquals(4, $resultado);
+}
+
+
 /* ------------------------------------------------------ */
 /* ----------------------- MÉTODO DE LISTAR -----------------------------*/
 /* --------------PRUEBAS MARCELA : TABLA LISTAR PAISES ---------------- */
@@ -857,11 +1674,322 @@ public function testListarRegion()
      mysqli_free_result($resultado);
      mysqli_close($conexion);
 
+}
+/* ----------------------- MÉTODO DE LISTAR -----------------------------*/
+/* --------------PRUEBAS PEDRO : TABLA LISTAR CHECKIN ---------------- */
+public function testListarcheckin()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
 
+    // Ejecutar el query
+    $resultado = mysqli_query($conexion, "SELECT * FROM checkin");
+
+    // Verificar que el resultado es un objeto mysqli_result válido
+    $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+    echo '<tr> -----------CHECKIN -------------</tr>';
+     while ($fila = mysqli_fetch_assoc($resultado))
+     {
+        
+        echo 
+        'Id de Checkin: ' . $fila['Id_Checkin'] ."\n" .
+        'Id de Reserva: ' . $fila['Id_Reserva'] ."\n" .
+        'Id de Pasajero: '  . $fila['Id_Pasajero'] .  "\n" .
+       
+        
+        '</td></tr>';
+
+     }
+     echo '</table>';
+       
+     // Liberar los recursos
+     mysqli_free_result($resultado);
+     mysqli_close($conexion);
 
 }
 
+/* --------------PRUEBAS PEDRO : TABLA LISTAR CLASE ---------------- */
+public function testListarclase()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
 
+    // Ejecutar el query
+    $resultado = mysqli_query($conexion, "SELECT * FROM clase");
+
+    // Verificar que el resultado es un objeto mysqli_result válido
+    $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+    echo '<tr> -----------CLASE -------------</tr>';
+     while ($fila = mysqli_fetch_assoc($resultado))
+     {
+        
+        echo 
+        'Id de Clase: ' . $fila['Id_Clase'] ."\n" .
+        'Tipo de Clase: ' . $fila['Tipo_Clase'] ."\n" .
+        'Descripcion :'  . $fila['Descripcion'] .  "\n" .
+        'Multiplicador de Precio: '  . $fila['MultiplicadorPrecio'] .  "\n" .
+       
+        
+        '</td></tr>';
+
+     }
+     echo '</table>';
+       
+     // Liberar los recursos
+     mysqli_free_result($resultado);
+     mysqli_close($conexion);
+
+}
+
+/* --------------PRUEBAS PEDRO : TABLA LISTAR DETALLEFACTURA ---------------- */
+public function testListardetallefactura()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+
+    // Ejecutar el query
+    $resultado = mysqli_query($conexion, "SELECT * FROM detallefactura");
+
+    // Verificar que el resultado es un objeto mysqli_result válido
+    $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+    echo '<tr> -----------DETALLES DE FACTURA -------------</tr>';
+     while ($fila = mysqli_fetch_assoc($resultado))
+     {
+        
+        echo 
+        'Id de detalle: ' . $fila['Id_Detalle'] ."\n" .
+        'Id de Boleto: ' . $fila['Id_Boleto'] ."\n" .
+        'Cantidad: '  . $fila['Cantidad'] .  "\n" .
+        'Descripcion: ' . $fila['Descripcion'] ."\n" .
+        'SubTotal: ' . $fila['Subtotal'] ."\n" .
+        'Total de Descuento: '  . $fila['Total_Descuento'] .  "\n" .
+        'Total de Impuesto: ' . $fila['Total_Impuesto'] ."\n" .
+        'Total: ' . $fila['Total'] ."\n" .
+        'Estado: '  . $fila['Estado'] .  "\n" .
+       
+        
+        '</td></tr>';
+
+     }
+     echo '</table>';
+       
+     // Liberar los recursos
+     mysqli_free_result($resultado);
+     mysqli_close($conexion);
+
+}
+
+/* --------------PRUEBAS PEDRO : TABLA LISTAR FACTURA ---------------- */
+public function testListarfactura()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+
+    // Ejecutar el query
+    $resultado = mysqli_query($conexion, "SELECT * FROM factura");
+
+    // Verificar que el resultado es un objeto mysqli_result válido
+    $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+    echo '<tr> -----------FACTURA -------------</tr>';
+     while ($fila = mysqli_fetch_assoc($resultado))
+     {
+        
+        echo 
+        'Id de Factura: ' . $fila['Id_Factura'] ."\n" .
+        'Id de Parametro: ' . $fila['Id_Parametro'] ."\n" .
+        'Codigo: '  . $fila['Codigo'] .  "\n" .
+        'RTN: ' . $fila['RTN'] ."\n" .
+        'CAI: ' . $fila['CAI'] ."\n" .
+        'Id de Detalle: '  . $fila['Id_Detalle'] .  "\n" .
+        'Fecha: ' . $fila['Fecha'] ."\n" .
+        'Id de Moneda: ' . $fila['Id_Moneda'] ."\n" .
+        'Monto: '  . $fila['Monto'] .  "\n" .
+        'Metodo de Pago: ' . $fila['Metodo_Pago'] ."\n" .
+        'Cantidad de Efectivo: ' . $fila['Cantidad_Efectivo'] ."\n" .
+        'Numero de Tarjeta: '  . $fila['Numero_Tarjeta'] .  "\n" .
+       
+       
+        
+        '</td></tr>';
+
+     }
+     echo '</table>';
+       
+     // Liberar los recursos
+     mysqli_free_result($resultado);
+     mysqli_close($conexion);
+
+}
+
+/* --------------PRUEBAS PEDRO : TABLA LISTAR HANGAR---------------- */
+public function testListarhangar()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+
+    // Ejecutar el query
+    $resultado = mysqli_query($conexion, "SELECT * FROM hangar");
+
+    // Verificar que el resultado es un objeto mysqli_result válido
+    $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+    echo '<tr> -----------HANGAR -------------</tr>';
+     while ($fila = mysqli_fetch_assoc($resultado))
+     {
+        
+        echo 
+        'Id de Hangar: ' . $fila['Id_hangar'] ."\n" .
+        'Codigo: ' . $fila['Codigo'] ."\n" .
+        'Capacidad: '  . $fila['Capacidad'] .  "\n" .
+        'Id de Aeronave: ' . $fila['Id_Aeronave'] ."\n" .
+        'Id de Aeropuerto: '  . $fila['Id_Aeropuerto'] .  "\n" .
+       
+        
+        '</td></tr>';
+
+     }
+     echo '</table>';
+       
+     // Liberar los recursos
+     mysqli_free_result($resultado);
+     mysqli_close($conexion);
+
+}
+
+/* --------------PRUEBAS PEDRO : TABLA LISTAR PASAJERO ---------------- */
+public function testListarpasajero()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+
+    // Ejecutar el query
+    $resultado = mysqli_query($conexion, "SELECT * FROM pasajero");
+
+    // Verificar que el resultado es un objeto mysqli_result válido
+    $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+    echo '<tr> -----------PASAJERO -------------</tr>';
+     while ($fila = mysqli_fetch_assoc($resultado))
+     {
+        
+        echo 
+        'Id de Pasajero: ' . $fila['Id_Pasajero'] ."\n" .
+        'Nombre: ' . $fila['Nombre'] ."\n" .
+        'Tipo de Documento: '  . $fila['Tipo_Documento'] .  "\n" .
+        'Numero de Documento: '  . $fila['Numero_Documento'] .  "\n" .
+        'Telefono: '  . $fila['Telefono'] .  "\n" .
+        'Correo: '  . $fila['Correo'] .  "\n" .
+        'Id de Pais: '  . $fila['Id_Pais'] .  "\n" .
+        'Fecha de Nacimiento: '  . $fila['Fecha_Nacimiento'] .  "\n" .
+        
+       
+        
+        '</td></tr>';
+
+     }
+     echo '</table>';
+       
+     // Liberar los recursos
+     mysqli_free_result($resultado);
+     mysqli_close($conexion);
+
+}
+
+/* --------------PRUEBAS PEDRO : TABLA LISTAR PERSONALTIERRA ---------------- */
+public function testListarpersonaltierra()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+
+    // Ejecutar el query
+    $resultado = mysqli_query($conexion, "SELECT * FROM personaltierra");
+
+    // Verificar que el resultado es un objeto mysqli_result válido
+    $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+    echo '<tr> -----------PERSONAL DE TIERRA-------------</tr>';
+     while ($fila = mysqli_fetch_assoc($resultado))
+     {
+        
+        echo 
+        'Id de Personal: ' . $fila['Id_Personal'] ."\n" .
+        'Carga Academica: ' . $fila['Carga_Academica'] ."\n" .
+        'Cargo: '  . $fila['Cargo'] .  "\n" .
+       
+        
+        '</td></tr>';
+
+     }
+     echo '</table>';
+       
+     // Liberar los recursos
+     mysqli_free_result($resultado);
+     mysqli_close($conexion);
+
+}
+
+/* --------------PRUEBAS PEDRO : TABLA LISTAR TRIPULACION ---------------- */
+public function testListartripulacion()
+{
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="aeropuertomaya";
+    $conexion = new mysqli($servername, $username, $password, $database);
+
+    // Ejecutar el query
+    $resultado = mysqli_query($conexion, "SELECT * FROM tripulacion");
+
+    // Verificar que el resultado es un objeto mysqli_result válido
+    $this->assertInstanceOf(mysqli_result::class, $resultado);
+
+    echo '<tr> -----------TRIPULACION -------------</tr>';
+     while ($fila = mysqli_fetch_assoc($resultado))
+     {
+        
+        echo 
+        'Id de Tripulacion: ' . $fila['Id_Tripulacion'] ."\n" .
+        'Cargo: ' . $fila['Cargo'] ."\n" .
+        'Horas de vuelo: '  . $fila['Horas_Vuelo'] .  "\n" .
+        'Tipo de Licencia: ' . $fila['Tipo_Licencia'] ."\n" .
+        'Academia: '  . $fila['Academia'] .  "\n" .
+       
+        
+        '</td></tr>';
+
+     }
+     echo '</table>';
+       
+     // Liberar los recursos
+     mysqli_free_result($resultado);
+     mysqli_close($conexion);
+
+}
 
 
 
