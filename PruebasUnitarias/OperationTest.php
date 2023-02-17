@@ -187,7 +187,7 @@ class OperationTest extends TestCase
         'Region' => 'América del sur'
     );
      // Validamos que no hayan simbolos en los datos
- foreach($datosPrueba as $dato) {
+   foreach($datosPrueba as $dato) {
     if(!preg_match('/^[a-zA-Z0-9]+$/', $dato)) {
         $this->fail('Uno o más campos contienen símbolos no permitidos.');
     }
@@ -814,23 +814,6 @@ public function testListarRegion()
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
