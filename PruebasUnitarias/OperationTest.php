@@ -130,6 +130,28 @@ class GuardarAeropuerto{
     }
 }
 
+ /*----------- TABLAS PEDRO --------------*/ 
+
+ /* ------------ Método de guardar checkin -----------*/
+
+ class Guardarcheckin {
+    public function guardarDatos($datos) {
+        $servername="localhost";
+        $username="root";
+        $password="";
+        $database="aeropuertomaya";
+
+        $conexion = new mysqli($servername, $username, $password, $database);
+
+        
+        $Id_Reserva = $conexion->real_escape_string($datos['Id_Reserva']);
+        $Id_Pasajero = $conexion->real_escape_string($datos['Id_Pasajero']);
+        $query = "INSERT INTO `checkin` (`Id_Reserva`,'Id_Pasajero')  VALUES ('$Id_Reserva','$Id_Pasajero')";
+        $resultado = $conexion->query($query);
+        $conexion->close();
+        return $resultado; // Devuelve verdadero si se ha guardado correctamente, falso si no
+    }
+}
 
 class OperationTest extends TestCase
 {
@@ -316,6 +338,30 @@ foreach($datosPrueba as $dato) {
     
     $this->assertTrue($resultado);
     
+}
+
+ /*----------- TABLAS PEDRO --------------*/
+    /*--------- Tabla de guardar checkin ----------*/
+
+    public function testGuardarcheckin()
+    {
+    $datosPrueba = array(
+        
+        'Id_Reserva' => '1',
+        'Id_Pasajero' => '1'
+    );
+
+    // Validamos si algun campo esta vacio
+    foreach($datosPrueba as $dato) {
+        if(empty($dato)) {
+            $this->fail('Uno o más campos están vacíos.');
+        }
+    }
+
+    $objeto = new Guardarcheckin();
+    $resultado = $objeto->guardarDatos($datosPrueba);
+
+    $this->assertTrue($resultado); // Comprobamos que el método ha guardado los datos correctamente
 }
 /* FIN DEL METODO GUARDAR */
 /* ------------------------------------------------------------------*/
