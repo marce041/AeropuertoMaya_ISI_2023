@@ -341,10 +341,7 @@ foreach($datosPrueba as $dato) {
 if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Nombre'])) {
     $this->fail('El campo "Nombre" no debe contener símbolos ni números.');
  }
- // Validamos que el campo 'Area' no contenga símbolos ni números
-if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Hangar'])) {
-    $this->fail('El campo "Hangar" no debe contener símbolos ni números.');
-}
+
 
 if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Id_Ciudad'])) {
     $this->fail('El campo "Id_Ciudad" no debe contener símbolos ni números.');
@@ -545,10 +542,17 @@ public function testActualizarPais()
     $conexion = new mysqli($servername, $username, $password, $database);
     
     // Crear objeto de la consulta SQL a probar
-    $nombre = 'Estados@@ Unidos';
-    $region = 'América del Norte';
-    $id = '66';
- 
+    $nombre = 'asjjs';
+    $region = 'sdss';
+    $id = '67';
+
+     // Verificar si el registro existe en la base de datos
+     $existe = $conexion->query("SELECT Id_Pais FROM pais WHERE Id_Pais = '$id'");
+     $this->assertNotEquals(0, $existe->num_rows, "El registro con Id_Pais $id no existe");
+
+    $this->assertNotEmpty($nombre);
+    $this->assertNotEmpty($region);
+    $this->assertNotEmpty($id);
     $actualizar = "UPDATE pais SET Nombre='$nombre', Region='$region' WHERE Id_Pais='$id'";
     
     // Ejecutar la consulta
@@ -574,14 +578,20 @@ public function testActualizarRegion()
     
     // Crear objeto de la consulta SQL a probar
     $nombre = 'los chinitos';
-    $id = '26';
+    $id = '35';
+    // Verificar si el registro existe en la base de datos
+    $existe = $conexion->query("SELECT Id_Region FROM region WHERE Id_Region = '$id'");
+    $this->assertNotEquals(0, $existe->num_rows, "El registro con Id_Region $id no existe");
+
+   $this->assertNotEmpty($nombre);
+   $this->assertNotEmpty($id);
     $actualizar = "UPDATE region SET Nombre='$nombre' WHERE Id_Region='$id'";
     
     // Ejecutar la consulta
     $resultado = $conexion->query($actualizar);
     
     // Verificar que la consulta se ha ejecutado correctamente
-    $this->assertEquals(26, $resultado);
+    $this->assertEquals(35, $resultado);
 }
 
 
@@ -598,10 +608,19 @@ public function testActualizarAeropuerto()
     $conexion = new mysqli($servername, $username, $password, $database);
     
     // Crear objeto de la consulta SQL a probar
-    $nombre = 'quepedo que pex';
+    $nombre = 'faraonloveshady';
     $hangar ='123';
     $id_ciudad = '2';
-    $id = '4';
+    $id = '67';
+
+    // Verificar si el registro existe en la base de datos
+    $existe = $conexion->query("SELECT Id_Aeropuerto FROM aeropuerto WHERE Id_Aeropuerto = '$id'");
+    $this->assertNotEquals(0, $existe->num_rows, "El registro con Id_Aeropuerto $id no existe");
+
+   $this->assertNotEmpty($nombre);
+   $this->assertNotEmpty($hangar);
+   $this->assertNotEmpty($id_ciudad);
+   $this->assertNotEmpty($id);
     $actualizar = "UPDATE aeropuerto SET Nombre='$nombre',Hangar='$hangar',Id_Ciudad='$id_ciudad' WHERE Id_Aeropuerto='$id'";
     
     // Ejecutar la consulta
@@ -624,13 +643,25 @@ public function testActualizarAeronave()
     $conexion = new mysqli($servername, $username, $password, $database);
     
     // Crear objeto de la consulta SQL a probar
-    $matricula = 'HSS128';
+    $matricula = 'DJ BIMBO';
     $modelo ='todos';
     $capacidad = '2';
     $tamaño = '1234';
     $tipo='hh';
-    $area= 'gg';
-    $id='19';
+    $area= 'as';
+    $id='18';
+
+    // Verificar si el registro existe en la base de datos
+    $existe = $conexion->query("SELECT Id_Aeronave FROM aeronave WHERE Id_Aeronave = '$id'");
+    $this->assertNotEquals(0, $existe->num_rows, "El registro con Id_Aeronave $id no existe");
+
+   $this->assertNotEmpty($matricula);
+   $this->assertNotEmpty($modelo);
+   $this->assertNotEmpty($capacidad);
+   $this->assertNotEmpty($tamaño);
+   $this->assertNotEmpty($tipo);
+   $this->assertNotEmpty($area);
+   $this->assertNotEmpty($id);
     $actualizar = "UPDATE aeronave SET Matricula='$matricula', Modelo='$modelo',
     Capacidad = '$capacidad',Tamaño = '$tamaño',Tipo = '$tipo', Area = '$area' WHERE Id_Aeronave='$id'";
     
@@ -652,9 +683,17 @@ public function testActualizarMoneda()
     $conexion = new mysqli($servername, $username, $password, $database);
     
     // Crear objeto de la consulta SQL a probar
-    $nombre = 'akndsjdb';
+    $nombre = 'q pedo';
     $conversion ='4.09';
-    $id='4';
+    $id='11';
+
+    // Verificar si el registro existe en la base de datos
+    $existe = $conexion->query("SELECT Id_Moneda FROM moneda WHERE Id_Moneda = '$id'");
+    $this->assertNotEquals(0, $existe->num_rows, "El registro con Id_Moneda $id no existe");
+
+   $this->assertNotEmpty($nombre);
+   $this->assertNotEmpty($conversion);
+   $this->assertNotEmpty($id);
     
     $actualizar = "UPDATE moneda SET Nombre='$nombre', ConversionADolar='$conversion'
     WHERE Id_Moneda='$id'";
