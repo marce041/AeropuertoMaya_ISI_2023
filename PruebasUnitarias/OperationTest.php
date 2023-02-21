@@ -549,6 +549,14 @@ class OperationTest extends TestCase
         }
     }
 
+    // Validamos que el campo 'Nombre' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Nombre'])) {
+    $this->fail('El campo "Nombre" no debe contener símbolos ni números.');
+}
+ // Validamos que el campo 'Region' no contenga símbolos ni números
+ if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Region'])) {
+    $this->fail('El campo "Region" no debe contener símbolos ni números.');
+}
     $objeto = new GuardarPais();
     $resultado = $objeto->guardarDatos($datosPrueba);
 
@@ -570,6 +578,10 @@ $datosPrueba = array(
     if(!preg_match('/^[a-zA-Z0-9]+$/', $dato)) {
         $this->fail('Uno o más campos contienen símbolos no permitidos.');
     }
+}
+// Validamos que el campo 'Nombre' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Nombre'])) {
+    $this->fail('El campo "Nombre" no debe contener símbolos ni números.');
 }
 // Validamos si algun campo esta vacio
 foreach($datosPrueba as $dato) {
@@ -636,6 +648,26 @@ foreach($datosPrueba as $dato) {
         $this->fail('Uno o más campos están vacíos.');
     }
 }
+// Validamos que el campo 'Matricula' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z0-9]+$/', $datosPrueba['Matricula'])) {
+    $this->fail('El campo "Matricula" no debe contener símbolos no permitidos.');
+}
+   // Validamos que el campo 'Modelo' solo contenga números enteros y decimales
+   if(!preg_match('/^[a-zA-Z0-9]+$/', $datosPrueba['Modelo'])) {
+    $this->fail('El campo "Modelo" solo debe contener números enteros y letras.');
+}
+// Validamos que el campo 'Capacidad' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Capacidad'])) {
+    $this->fail('El campo "Capacidad" solo debe contener números enteros.');
+}
+// Validamos que el campo 'Tipo' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Tipo'])) {
+    $this->fail('El campo "Tipo" no debe contener símbolos no permitidos.');
+}
+// Validamos que el campo 'Area' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Area'])) {
+    $this->fail('El campo "Area" no debe contener símbolos no permitidos.');
+}
     $objeto = new GuardarAeronave();
     $resultado = $objeto->guardarDatos($datosPrueba);
     
@@ -660,6 +692,18 @@ foreach($datosPrueba as $dato) {
     if(empty($dato)) {
         $this->fail('Uno o más campos están vacíos.');
     }
+}
+// Validamos que el campo 'Nombre' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Nombre'])) {
+    $this->fail('El campo "Nombre" no debe contener símbolos no permitidos.');
+}
+// Validamos que el campo 'Hangar' solo contenga números enteros y decimales
+if(!preg_match('/^[a-zA-Z0-9]+$/', $datosPrueba['Hangar'])) {
+    $this->fail('El campo "Hangar" solo debe contener números enteros y letras.');
+}
+// Validamos que el campo 'Id de ciudad' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Ciudad'])) {
+    $this->fail('El campo "Id_Ciudad" solo debe contener números enteros.');
 }
     $objeto = new GuardarAeropuerto();
     $resultado = $objeto->guardarDatos($datosPrueba);
@@ -687,6 +731,34 @@ foreach($datosPrueba as $dato) {
     if(!preg_match('/^[a-zA-Z0-9]+$/', $dato)) {
         $this->fail('Uno o más campos contienen símbolos no permitidos.');
     }
+}
+// Validamos que el campo 'Codigo' solo contenga números enteros y decimales
+if(!preg_match('/^[a-zA-Z0-9]+$/', $datosPrueba['Codigo'])) {
+    $this->fail('El campo "Codigo" solo debe contener números enteros y letras.');
+}
+// Validamos que el campo 'Id de Asiento' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Asiento'])) {
+    $this->fail('El campo "Id_Asiento" solo debe contener números enteros.');
+}
+// Validamos que el campo 'Id de Pasajero' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Pasajero'])) {
+    $this->fail('El campo "Id_Pasajero" solo debe contener números enteros.');
+}
+// Validamos que el campo 'Id de Vuelo' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Vuelo'])) {
+    $this->fail('El campo "Id_Vuelo" solo debe contener números enteros.');
+}
+// Validamos que el campo 'Id de Equipaje' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Equipaje'])) {
+    $this->fail('El campo "Id_Equipaje" solo debe contener números enteros.');
+}
+// Validamos que el campo 'Id de Clase' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Clase'])) {
+    $this->fail('El campo "Id_Clase" solo debe contener números enteros.');
+}
+// Validamos que el campo 'Precio' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+(\.[0-9]+)?$/', $datosPrueba['Precio'])) {
+    $this->fail('El campo "Precio" solo debe contener números enteros y decimales.');
 }
     // Validamos si algun campo esta vacio
     foreach($datosPrueba as $dato) {
@@ -716,6 +788,22 @@ foreach($datosPrueba as $dato) {
 if(!preg_match('/^[a-zA-Z0-9]+$/', $dato)) {
     $this->fail('Uno o más campos contienen símbolos no permitidos.');
 }
+}
+// Validamos que el campo 'Nombre' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Nombre'])) {
+    $this->fail('El campo "Nombre" no debe contener símbolos no permitidos.');
+}
+// Validamos que el campo 'Codigo' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Codigo'])) {
+    $this->fail('El campo "Codigo" solo debe contener números enteros y letras.');
+}
+// Validamos que el campo 'Terminal' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Terminal'])) {
+    $this->fail('El campo "Terminal" solo debe contener números enteros y letras.');
+}
+// Validamos que el campo 'Id de pais' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Pais'])) {
+    $this->fail('El campo "Id_Pais" solo debe contener números enteros y letras.');
 }
 // Validamos si algun campo esta vacio
 foreach($datosPrueba as $dato) {
@@ -860,13 +948,25 @@ $datosPrueba = array(
     
     'Codigo' => '20HOLA',
     'Id_Vuelo' => '1',
-    'Precio' => '400'
+    'Precio' => '200'
 );
  // Validamos que no hayan simbolos en los datos
 foreach($datosPrueba as $dato) {
 if(!preg_match('/^[a-zA-Z0-9]+$/', $dato)) {
     $this->fail('Uno o más campos contienen símbolos no permitidos.');
 }
+}
+// Validamos que el campo 'Codigo' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Codigo'])) {
+    $this->fail('El campo "Codigo" no debe contener símbolos ni números.');
+}
+   // Validamos que el campo 'Id de vuelo' solo contenga números enteros y decimales
+   if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Vuelo'])) {
+    $this->fail('El campo "Id_Vuelo" solo debe contener números enteros y decimales.');
+}
+// Validamos que el campo 'Precio' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+(\.[0-9]+)?$/', $datosPrueba['Precio'])) {
+    $this->fail('El campo "Precio" solo debe contener números enteros y decimales.');
 }
 // Validamos si algun campo esta vacio
 foreach($datosPrueba as $dato) {
@@ -991,17 +1091,17 @@ public function testGuardarfactura()
 {
 $datosPrueba = array(
     
-    `Id_Parametro` =>'',
-    'Codigo' =>'',
-    'RTN' =>'',
-    'CAI' =>'',
-    'Id_Detalle' =>'',
-    'Fecha' =>'',
-    'Id_Moneda' =>'',
-    'Monto' =>'',
-    'Metodo_Pago' =>'',
-    'Cantidad_Efectvio' =>'',
-    'Numero_Tarjeta' =>''
+    `Id_Parametro` =>'a',
+    'Codigo' =>'a',
+    'RTN' =>'a',
+    'CAI' =>'a',
+    'Id_Detalle' =>'A',
+    'Fecha' =>'hola',
+    'Id_Moneda' =>'a',
+    'Monto' =>'a',
+    'Metodo_Pago' =>'a',
+    'Cantidad_Efectvio' =>'a',
+    'Numero_Tarjeta' =>'a'
 );
 
 // Validamos si algun campo esta vacio
