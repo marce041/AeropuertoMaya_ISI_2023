@@ -1083,6 +1083,7 @@ foreach($datosPrueba as $dato) {
 if(!preg_match('/^[a-zA-Z0-9]+$/', $dato)) {
     $this->fail('Uno o más campos contienen símbolos no permitidos.');
 }
+}
 // Validamos que el campo 'Usuario' no contenga símbolos ni números
 if(!preg_match('/^[a-zA-Z0-9]+$/', $datosPrueba['Usuario'])) {
     $this->fail('El campo "Usuario" no debe contener símbolos ni números.');
@@ -1094,7 +1095,6 @@ if(!preg_match('/^[a-zA-Z0-9]+$/', $datosPrueba['Pass'])) {
 // Validamos que el campo 'Estado' solo contenga números enteros y decimales
 if(!preg_match('/^[0-9]+$/', $datosPrueba['Estado'])) {
     $this->fail('El campo "Estado" solo debe contener números enteros y decimales.');
-}
 }
 // Validamos si algun campo esta vacio
 foreach($datosPrueba as $dato) {
@@ -1127,6 +1127,14 @@ $this->assertTrue($resultado); // Comprobamos que el método ha guardado los dat
         }
     }
 
+    // Validamos que el campo 'Id reserva' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Reserva'])) {
+    $this->fail('El campo "Id_Reserva" solo debe contener números enteros y decimales.');
+}
+// Validamos que el campo 'Id pasajero' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Pasajero'])) {
+    $this->fail('El campo "Id_Pasajero" solo debe contener números enteros y decimales.');
+}
     $objeto = new GuardarCheckin();
     $resultado = $objeto->guardarDatos($datosPrueba);
 
@@ -1141,7 +1149,7 @@ $this->assertTrue($resultado); // Comprobamos que el método ha guardado los dat
      
      'Tipo_Clase' => 'Economico',
      'Descripcion' => 'Gran Bistek',
-     'MultiplicadorPrecio' => 'si'
+     'MultiplicadorPrecio' => '2.5'
  );
 
  // Validamos si algun campo esta vacio
@@ -1151,6 +1159,18 @@ $this->assertTrue($resultado); // Comprobamos que el método ha guardado los dat
      }
  }
 
+ // Validamos que el campo 'Tipo de clase' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Tipo_Clase'])) {
+    $this->fail('El campo "Tipo_Clase" no debe contener símbolos ni números.');
+}
+// Validamos que el campo 'Descripcion' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Descripcion'])) {
+    $this->fail('El campo "Descripcion" no debe contener símbolos ni números.');
+}
+// Validamos que el campo 'Multiplicador de Precio' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+(\.[0-9]+)?$/', $datosPrueba['MultiplicadorPrecio'])) {
+    $this->fail('El campo "MultiplicadorPrecio" solo debe contener números enteros y decimales.');
+}
  $objeto = new GuardarClase();
  $resultado = $objeto->guardarDatos($datosPrueba);
 
@@ -1180,6 +1200,42 @@ foreach($datosPrueba as $dato) {
     }
 }
 
+// Validamos que el campo 'Id detalle' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Detalle'])) {
+    $this->fail('El campo "Id_Detalle" solo debe contener números enteros y decimales.');
+}
+// Validamos que el campo 'Id boleto' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Boleto'])) {
+    $this->fail('El campo "Id_Boleto" solo debe contener números enteros y decimales.');
+}
+// Validamos que el campo 'Cantidad' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Cantidad'])) {
+    $this->fail('El campo "Cantidad" solo debe contener números enteros y decimales.');
+}
+// Validamos que el campo 'Descripcion' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Descripcion'])) {
+    $this->fail('El campo "Descripcion" no debe contener símbolos ni números.');
+}
+// Validamos que el campo 'Sub total' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+(\.[0-9]+)?$/', $datosPrueba['SubTotal'])) {
+    $this->fail('El campo "SubTotal" solo debe contener números enteros y decimales.');
+}
+// Validamos que el campo 'Total descuento' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+(\.[0-9]+)?$/', $datosPrueba['Total_Descuento'])) {
+    $this->fail('El campo "Total_Descuento" solo debe contener números enteros y decimales.');
+}
+// Validamos que el campo 'Total impuesto' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+(\.[0-9]+)?$/', $datosPrueba['Total_Impuesto'])) {
+    $this->fail('El campo "Total_Impuesto" solo debe contener números enteros y decimales.');
+}
+// Validamos que el campo 'Total' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+(\.[0-9]+)?$/', $datosPrueba['Total'])) {
+    $this->fail('El campo "Total" solo debe contener números enteros y decimales.');
+}
+// Validamos que el campo 'Estado' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Estado'])) {
+    $this->fail('El campo "Estado" solo debe contener números enteros y decimales.');
+}
 $objeto = new GuardarDetallefactura();
 $resultado = $objeto->guardarDatos($datosPrueba);
 
@@ -1210,7 +1266,18 @@ foreach($datosPrueba as $dato) {
         $this->fail('Uno o más campos están vacíos.');
     }
 }
-
+// Validamos que el campo 'Id parametro' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Parametro'])) {
+    $this->fail('El campo "Id_Parametro" solo debe contener números enteros y decimales.');
+}
+// Validamos que el campo 'Codigo' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['Codigo'])) {
+    $this->fail('El campo "Id_Parametro" solo debe contener números enteros y decimales.');
+}
+// Validamos que el campo 'RTN' solo contenga números enteros y decimales
+if(!preg_match('/^[0-9]+$/', $datosPrueba['RTN'])) {
+    $this->fail('El campo "RTN" solo debe contener números enteros y decimales.');
+}
 $objeto = new Guardarfactura();
 $resultado = $objeto->guardarDatos($datosPrueba);
 
