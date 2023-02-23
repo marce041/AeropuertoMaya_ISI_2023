@@ -1,6 +1,8 @@
 <?php
 
-    session_start();
+
+     session_start();
+  
 
     class elementosMenu
     {
@@ -10,9 +12,10 @@
 
             $query = mysqli_query($conn,"SELECT * FROM aeronave")
             or die ('error: '.mysqli_error($conn));
-
+            
             echo 
             "
+       
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>

@@ -14,9 +14,16 @@
     <link href="../style/cuerpo/dashboard.css" rel="stylesheet">
     <link href="../style/Dashboard/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
+   
+
+
 </head>
 <?php
         require("../Procesos/ProcesoAeropuerto/TablaAeropuerto.php"); 
+        
+
+
+
     ?>
 <body id="page-top">
     <div id="wrapper">
@@ -144,15 +151,18 @@
                         </li>
                     </ul>
                 </nav>
-
+   
                 <div class="container">
+                    
                     <div class="card shadow mb-4" >
                         <div class="card-header py-3" >
                             <h6 class="m-0 font-weight-bold text-primary">Lista de aeropuertos</h6>
                         </div>
+                       
+
                         <div class="card-body" >
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="table" width="100%" cellspacing="0">
                                     <?php
                                         $objetoTabla = new elementosMenu();
                                         echo $objetoTabla->mostarTablaAero();
@@ -198,6 +208,9 @@
             </div>
         </div>
     </div>
+  
+  
+
 
     <script src="../style/Dashboard/jquery/jquery.min.js"></script>
     <script src="../style/Dashboard/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -209,6 +222,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+
+       
+        
 </body>
 
 </html>

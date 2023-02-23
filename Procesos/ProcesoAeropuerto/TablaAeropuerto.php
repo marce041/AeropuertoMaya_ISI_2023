@@ -1,11 +1,16 @@
 <?php
 
     session_start();
+   
+
+    
 
     class elementosMenu
     {
         public function mostarTablaAero()
         {
+
+
             include "../conexion.php";
 
             $query = mysqli_query($conn,"SELECT * FROM aeropuerto")
