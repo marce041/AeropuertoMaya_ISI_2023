@@ -63,6 +63,15 @@
             "
                 </tbody>
                 </table>
+                <table>
+                <thead>
+                <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/aeronavepdf.php'>Generar PDF
+                </a></th>
+                            <th scope='col'>
+                            <a class='btn btn-info' href='../Procesos/Reportes/aeronavexlsx.php'>Generar XLS
+                            </a></th>
+                            </thead>
+                            </table>
 
             ";
         }
