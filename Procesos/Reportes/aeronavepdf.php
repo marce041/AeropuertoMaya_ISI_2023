@@ -1,8 +1,29 @@
 <?php
+
+session_start();
 require('fpdf.php');
+require "../../conexion.php";
+
+
+$user=$_SESSION['idUser'];
+$queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
+    
+    $rangini = array();
+  
+    while($datos = mysqli_fetch_array($queryparametro)) {
+        array_push($rangini, $datos['Usuario']);
+    }
+
+    $rangoinicial=$rangini[0];
+
+    date_default_timezone_set('America/Mexico_City');
+
+    $fechaActual = date("d-m-Y");
+    $horaActual = date("H:i:s");
 
 class PDF extends FPDF
 {
+    
 // Cabecera de página
 function Header()
 {
@@ -16,29 +37,61 @@ function Header()
     $this->Cell(60);
     // Título
     $this->Cell(70,10,'Reporte de Aeronaves',0,0,'C');
+    
+    $this->SetFont('Arial','',12);
+	$this->SetTextColor(39,39,51);
+	$this->Cell(150,9,utf8_decode(""),0,0,'L');
+
+	$this->Ln(10);
+    $this->Cell(150);
+	
+	$this->Cell(250,9,utf8_decode("Usuario: ".$GLOBALS["rangoinicial"]),0,0,'L');
+
+	$this->Ln(7);
+    $this->Cell(150);
+	$this->Cell(150,9,utf8_decode("Fecha: ".$GLOBALS["fechaActual"] ),0,0,'L');
+
+	$this->Ln(7);
+    $this->Cell(150);
+	$this->Cell(150,9,utf8_decode("Hora: ".$GLOBALS["horaActual"]),0,0,'L');
+	
+    $this->Ln(7);
+    $this->Cell(117,7,utf8_decode(''),'',0,'C');
+    $this->Cell(10,7,utf8_decode('_____________________________________________________________________________________________________________________________'),'',0,'C');
     // Salto de línea
-    $this->Ln(25);
+    $this->SetFont('Arial','B',18);
+     // Color de texto
+     $this->SetTextColor(66,92,90);
+    $this->Ln(15);
     $this->Cell(5);
     $this->cell(50,10,'Matricula',1,0,'C',0);
     $this->cell(42,10,'Modelo',1,0,'C',0);
     $this->cell(40,10,'Capacidad',1,0,'C',0);
     $this->cell(50,10,'Tipo',1,1,'C',0);
     
+
+
 }
 
 // Pie de página
 function Footer()
 {
     // Posición: a 1,5 cm del final
+    $this->SetFont('Arial','',12);
+	$this->SetTextColor(39,39,51);
+    $this->Ln(7);
+    $this->Cell(117,7,utf8_decode(''),'',0,'C');
+    $this->Cell(10,7,utf8_decode('_____________________________________________________________________________________________________________________________'),'',0,'C');
+    
     $this->SetY(-15);
     // Arial italic 8
     $this->SetFont('Arial','I',8);
     // Número de página
-    $this->Cell(0,10,utf8_decode('Pagina').$this->PageNo().'/{nb}',0,0,'C');
+    $this->Cell(0,10,utf8_decode('Pagina ').$this->PageNo().'/{nb}',0,0,'C');
 }
 }
 
-require "../../conexion.php";
+
 $consulta="SELECT * from aeronave";
 $resultado=$conn->query($consulta);
 
