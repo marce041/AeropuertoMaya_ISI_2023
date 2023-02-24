@@ -16,6 +16,12 @@
 
 </head>
 <?php
+session_start();
+if (!isset($_SESSION['idUser'])) {
+    echo "No está autorizado para ver esto";
+    header('location: ../index.php'); 
+    die();
+}
         require("../Procesos/ProcesoEquipaje/TablaEquipaje.php"); 
     ?>
 <body id="page-top">
