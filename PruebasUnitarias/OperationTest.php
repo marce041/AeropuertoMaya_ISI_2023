@@ -537,7 +537,7 @@ class OperationTest extends TestCase
         'Region' => 'América del sur'
     );
      // Validamos que no hayan simbolos en los datos
- foreach($datosPrueba as $dato) {
+   foreach($datosPrueba as $dato) {
     if(!preg_match('/^[a-zA-Z0-9]+$/', $dato)) {
         $this->fail('Uno o más campos contienen símbolos no permitidos.');
     }
@@ -634,20 +634,46 @@ public function testGuardarAeronave()
     $datosPrueba = array(
     
         'Matricula' => 'RRH123',
-        'Modelo'  => 'Dassault Falcon',
+        'Modelo'  => 'Dassault',
         'Capacidad' => '700',
         'Tamaño'  => '1300',
         'Tipo' => 'Comercial',
-        'Area'  => 'Personal',
+        'Area'  => 'Pers',
         
     );
-    
+
+
+
     // Validamos si algun campo esta vacio
-foreach($datosPrueba as $dato) {
+    foreach($datosPrueba as $dato) {
     if(empty($dato)) {
         $this->fail('Uno o más campos están vacíos.');
     }
+   } 
+   // Validamos que el campo 'Modelo' no contenga símbolos ni números
+ if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Modelo'])) {
+    $this->fail('El campo "Modelo" no debe contener símbolos ni números.');
+ }
+
+ // Validamos que el campo 'Capacidad' solo contenga números enteros y decimales
+ if(!preg_match('/^[0-9]+(\.[0-9]+)?$/', $datosPrueba['Capacidad'])) {
+    $this->fail('El campo "Capacidad" solo debe contener números enteros y decimales.');
+ }
+ // Validamos que el campo 'Tamaño' solo contenga números enteros y decimales
+ if(!preg_match('/^[0-9]+(\.[0-9]+)?$/', $datosPrueba['Tamaño'])) {
+    $this->fail('El campo "Tamaño" solo debe contener números enteros y decimales.');
 }
+
+  // Validamos que el campo 'Tipo' no contenga símbolos ni números
+  if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Tipo'])) {
+    $this->fail('El campo "Tipo" no debe contener símbolos ni números.');
+}
+
+// Validamos que el campo 'Area' no contenga símbolos ni números
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Area'])) {
+    $this->fail('El campo "Area" no debe contener símbolos ni números.');
+}
+
 // Validamos que el campo 'Matricula' no contenga símbolos ni números
 if(!preg_match('/^[a-zA-Z0-9]+$/', $datosPrueba['Matricula'])) {
     $this->fail('El campo "Matricula" no debe contener símbolos no permitidos.');
@@ -668,6 +694,7 @@ if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Tipo'])) {
 if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Area'])) {
     $this->fail('El campo "Area" no debe contener símbolos no permitidos.');
 }
+
     $objeto = new GuardarAeronave();
     $resultado = $objeto->guardarDatos($datosPrueba);
     
@@ -693,6 +720,15 @@ foreach($datosPrueba as $dato) {
         $this->fail('Uno o más campos están vacíos.');
     }
 }
+
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Nombre'])) {
+    $this->fail('El campo "Nombre" no debe contener símbolos ni números.');
+ }
+
+
+if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Id_Ciudad'])) {
+    $this->fail('El campo "Id_Ciudad" no debe contener símbolos ni números.');
+}
 // Validamos que el campo 'Nombre' no contenga símbolos ni números
 if(!preg_match('/^[a-zA-Z]+$/', $datosPrueba['Nombre'])) {
     $this->fail('El campo "Nombre" no debe contener símbolos no permitidos.');
@@ -704,6 +740,7 @@ if(!preg_match('/^[a-zA-Z0-9]+$/', $datosPrueba['Hangar'])) {
 // Validamos que el campo 'Id de ciudad' solo contenga números enteros y decimales
 if(!preg_match('/^[0-9]+$/', $datosPrueba['Id_Ciudad'])) {
     $this->fail('El campo "Id_Ciudad" solo debe contener números enteros.');
+
 }
     $objeto = new GuardarAeropuerto();
     $resultado = $objeto->guardarDatos($datosPrueba);
@@ -1394,18 +1431,18 @@ public function testEliminarPais()
     $password="";
     $database="aeropuertomaya";
 
-
   // Conectar a la base de datos de prueba.
   $conn = new mysqli($servername, $username, $password, $database);
 
   // Obtener el ID del registro insertado.
   $id = $conn->insert_id;
+
   // Validar que existe un registro con el ID proporcionado.
-$validacion = "SELECT * FROM pais WHERE Id_Pais='56'";
-$resultadoValidacion = $conn->query($validacion);
-if ($resultadoValidacion->num_rows === 0) {
+ $validacion = "SELECT * FROM pais WHERE Id_Pais='56'";
+ $resultadoValidacion = $conn->query($validacion);
+ if ($resultadoValidacion->num_rows === 0) {
     throw new Exception("No se encontró ningún registro con el ID proporcionado.");
-}
+ }
 
   // Llamar al código de eliminación con el ID del registro insertado.
   $eliminar = "DELETE FROM pais WHERE Id_Pais='56'";
@@ -1432,9 +1469,10 @@ public function testEliminarAeronave()
   $id = $conn->insert_id;
 
    // Validar que existe un registro con el ID proporcionado.
-$validacion = "SELECT * FROM aeronave WHERE Id_Aeronave='74'";
-$resultadoValidacion = $conn->query($validacion);
-if ($resultadoValidacion->num_rows === 0) {
+  $validacion = "SELECT * FROM aeronave WHERE Id_Aeronave='74'";
+  $resultadoValidacion = $conn->query($validacion);
+
+  if ($resultadoValidacion->num_rows === 0) {
     throw new Exception("No se encontró ningún registro con el ID proporcionado.");
 }
 
@@ -1465,12 +1503,13 @@ public function testEliminarAeropuerto()
 
   // Obtener el ID del registro insertado.
   $id = $conn->insert_id;
+
    // Validar que existe un registro con el ID proporcionado.
-$validacion = "SELECT * FROM aeropuerto WHERE Id_Aeropuerto='53'";
-$resultadoValidacion = $conn->query($validacion);
-if ($resultadoValidacion->num_rows === 0) {
+  $validacion = "SELECT * FROM aeropuerto WHERE Id_Aeropuerto='53'";
+  $resultadoValidacion = $conn->query($validacion);
+  if ($resultadoValidacion->num_rows === 0) {
     throw new Exception("No se encontró ningún registro con el ID proporcionado.");
-}
+  }
 
   // Llamar al código de eliminación con el ID del registro insertado.
   $eliminar = "DELETE FROM aeropuerto WHERE Id_Aeropuerto='53'";
@@ -1502,6 +1541,7 @@ public function testEliminarMoneda()
    // Validar que existe un registro con el ID proporcionado.
 $validacion = "SELECT * FROM moneda WHERE Id_Moneda='62'";
 $resultadoValidacion = $conn->query($validacion);
+ 
 if ($resultadoValidacion->num_rows === 0) {
     throw new Exception("No se encontró ningún registro con el ID proporcionado.");
 }
@@ -1533,11 +1573,11 @@ public function testEliminarRegion()
   // Obtener el ID del registro insertado.
   $id = $conn->insert_id;
    // Validar que existe un registro con el ID proporcionado.
-$validacion = "SELECT * FROM region WHERE Id_Region='18'";
-$resultadoValidacion = $conn->query($validacion);
-if ($resultadoValidacion->num_rows === 0) {
+ $validacion = "SELECT * FROM region WHERE Id_Region='18'";
+ $resultadoValidacion = $conn->query($validacion);
+  if ($resultadoValidacion->num_rows === 0) {
     throw new Exception("No se encontró ningún registro con el ID proporcionado.");
-}
+ }
 
   // Llamar al código de eliminación con el ID del registro insertado.
   $eliminar = "DELETE FROM region WHERE Id_Region='18'";
@@ -2086,10 +2126,17 @@ public function testActualizarPais()
     $conexion = new mysqli($servername, $username, $password, $database);
     
     // Crear objeto de la consulta SQL a probar
-    $nombre = 'Estados@@ Unidos';
-    $region = 'América del Norte';
-    $id = '66';
- 
+    $nombre = 'asjjs';
+    $region = 'sdss';
+    $id = '67';
+
+     // Verificar si el registro existe en la base de datos
+     $existe = $conexion->query("SELECT Id_Pais FROM pais WHERE Id_Pais = '$id'");
+     $this->assertNotEquals(0, $existe->num_rows, "El registro con Id_Pais $id no existe");
+
+    $this->assertNotEmpty($nombre);
+    $this->assertNotEmpty($region);
+    $this->assertNotEmpty($id);
     $actualizar = "UPDATE pais SET Nombre='$nombre', Region='$region' WHERE Id_Pais='$id'";
     
     // Ejecutar la consulta
@@ -2115,14 +2162,20 @@ public function testActualizarRegion()
     
     // Crear objeto de la consulta SQL a probar
     $nombre = 'los chinitos';
-    $id = '26';
+    $id = '35';
+    // Verificar si el registro existe en la base de datos
+    $existe = $conexion->query("SELECT Id_Region FROM region WHERE Id_Region = '$id'");
+    $this->assertNotEquals(0, $existe->num_rows, "El registro con Id_Region $id no existe");
+
+   $this->assertNotEmpty($nombre);
+   $this->assertNotEmpty($id);
     $actualizar = "UPDATE region SET Nombre='$nombre' WHERE Id_Region='$id'";
     
     // Ejecutar la consulta
     $resultado = $conexion->query($actualizar);
     
     // Verificar que la consulta se ha ejecutado correctamente
-    $this->assertEquals(26, $resultado);
+    $this->assertEquals(35, $resultado);
 }
 
 
@@ -2139,10 +2192,19 @@ public function testActualizarAeropuerto()
     $conexion = new mysqli($servername, $username, $password, $database);
     
     // Crear objeto de la consulta SQL a probar
-    $nombre = 'quepedo que pex';
+    $nombre = 'faraonloveshady';
     $hangar ='123';
     $id_ciudad = '2';
-    $id = '4';
+    $id = '67';
+
+    // Verificar si el registro existe en la base de datos
+    $existe = $conexion->query("SELECT Id_Aeropuerto FROM aeropuerto WHERE Id_Aeropuerto = '$id'");
+    $this->assertNotEquals(0, $existe->num_rows, "El registro con Id_Aeropuerto $id no existe");
+
+   $this->assertNotEmpty($nombre);
+   $this->assertNotEmpty($hangar);
+   $this->assertNotEmpty($id_ciudad);
+   $this->assertNotEmpty($id);
     $actualizar = "UPDATE aeropuerto SET Nombre='$nombre',Hangar='$hangar',Id_Ciudad='$id_ciudad' WHERE Id_Aeropuerto='$id'";
     
     // Ejecutar la consulta
@@ -2165,13 +2227,25 @@ public function testActualizarAeronave()
     $conexion = new mysqli($servername, $username, $password, $database);
     
     // Crear objeto de la consulta SQL a probar
-    $matricula = 'HSS128';
+    $matricula = 'DJ BIMBO';
     $modelo ='todos';
     $capacidad = '2';
     $tamaño = '1234';
     $tipo='hh';
-    $area= 'gg';
-    $id='19';
+    $area= 'as';
+    $id='18';
+
+    // Verificar si el registro existe en la base de datos
+    $existe = $conexion->query("SELECT Id_Aeronave FROM aeronave WHERE Id_Aeronave = '$id'");
+    $this->assertNotEquals(0, $existe->num_rows, "El registro con Id_Aeronave $id no existe");
+
+   $this->assertNotEmpty($matricula);
+   $this->assertNotEmpty($modelo);
+   $this->assertNotEmpty($capacidad);
+   $this->assertNotEmpty($tamaño);
+   $this->assertNotEmpty($tipo);
+   $this->assertNotEmpty($area);
+   $this->assertNotEmpty($id);
     $actualizar = "UPDATE aeronave SET Matricula='$matricula', Modelo='$modelo',
     Capacidad = '$capacidad',Tamaño = '$tamaño',Tipo = '$tipo', Area = '$area' WHERE Id_Aeronave='$id'";
     
@@ -2193,9 +2267,18 @@ public function testActualizarMoneda()
     $conexion = new mysqli($servername, $username, $password, $database);
     
     // Crear objeto de la consulta SQL a probar
-    $nombre = 'akndsjdb';
+    $nombre = 'q pedo';
     $conversion ='4.09';
-    $id='4';
+    $id='11';
+
+    // Verificar si el registro existe en la base de datos
+    $existe = $conexion->query("SELECT Id_Moneda FROM moneda WHERE Id_Moneda = '$id'");
+    $this->assertNotEquals(0, $existe->num_rows, "El registro con Id_Moneda $id no existe");
+
+   $this->assertNotEmpty($nombre);
+   $this->assertNotEmpty($conversion);
+   $this->assertNotEmpty($id);
+    
     $actualizar = "UPDATE moneda SET Nombre='$nombre', ConversionADolar='$conversion'
     WHERE Id_Moneda='$id'";
     
@@ -2763,9 +2846,8 @@ public function testListarAeronave()
      mysqli_free_result($resultado);
      mysqli_close($conexion);
 
-
-
 }
+
 /* --------------PRUEBAS MARCELA : TABLA LISTAR MONEDA ---------------- */
 
 public function testListarMoneda()
@@ -3174,7 +3256,6 @@ public function testListarcheckin()
 
     // Ejecutar el query
     $resultado = mysqli_query($conexion, "SELECT * FROM checkin");
-
     // Verificar que el resultado es un objeto mysqli_result válido
     $this->assertInstanceOf(mysqli_result::class, $resultado);
 
@@ -3477,22 +3558,6 @@ public function testListartripulacion()
      mysqli_close($conexion);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
 }
 
