@@ -59,6 +59,17 @@
             "
                 </tbody>
                 </table>
+                <table>
+                <thead>
+                <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/ciudadpdf.php'>Generar PDF
+                </a></th>
+                            <th scope='col'>
+                            <a class='btn btn-info' href='../Procesos/Reportes/ciudadxlsx.php'>Generar XLS
+                            </a></th>
+                            </thead>
+                            </table>
+
+            
 
             ";
         }
