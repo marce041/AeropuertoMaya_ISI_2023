@@ -58,7 +58,7 @@
                 <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/paispdf.php'>Generar PDF
                 </a></th>
                             <th scope='col'>
-                            <a class='btn btn-info' href='../Procesos/Reportes/paisxlsx.php'>Generar XLS
+                            <a class='btn btn-info' href='../Procesos/Reportes/paisxlsx.php'>Generar XLSX
                             </a></th>
                             </thead>
                             </table>

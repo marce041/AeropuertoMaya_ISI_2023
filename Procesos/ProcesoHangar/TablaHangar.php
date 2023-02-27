@@ -1,6 +1,5 @@
 <?php
 
-    session_start();
 
     class elementosMenu
     {
@@ -59,6 +58,15 @@
             "
                 </tbody>
                 </table>
+                <table>
+                <thead>
+                <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/hangarpdf.php'>Generar PDF
+                </a></th>
+                            <th scope='col'>
+                            <a class='btn btn-info' href='../Procesos/Reportes/hangarxlsx.php'>Generar XLSX
+                            </a></th>
+                            </thead>
+                            </table>
 
             ";
         }
