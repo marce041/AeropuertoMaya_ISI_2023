@@ -19,7 +19,7 @@
                             <th scope='col'>Código</th>
                             <th scope='col'>Capacidad</th>
                             <th scope='col'>Id de la aeronave</th>
-                            <th scope='col'>Id del eropuerto</th>
+                            <th scope='col'>Id del aeropuerto</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>

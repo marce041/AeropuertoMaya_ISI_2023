@@ -1,6 +1,6 @@
 <?php
 header('Content-type:application/xls');
-header('Content-Disposition: attachment; filename=Aeropuerto.xls');
+header('Content-Disposition: attachment; filename=Moneda.xls');
 require "../../conexion.php";
 session_start();
 
@@ -25,7 +25,7 @@ $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=
 
 <table border="1">
 <tr>
-    <th colspan=9>Reporte de Aeropuerto</th>
+    <th colspan=9>Reporte de Moneda</th>
 <?php
 echo "
 
@@ -37,20 +37,20 @@ echo "
     ?>
     </tr>
     <tr>
+    <th colspan=3>Codigo</th>
     <th colspan=3>Nombre</th>
-    <th colspan=3>Hangar</th>
-    <th colspan=3>Id_Ciudad</th>
+    <th colspan=3>Conversion a Dolar</th>
     <th colspan=3></th>
 </tr>
 <?php require "../../conexion.php";
-$consulta="SELECT * from aeropuerto";
+$consulta="SELECT * from moneda";
 $resultado=$conn->query($consulta);
 
 while($row=$resultado->fetch_assoc()){
    echo "<tr>
+    <td colspan=3>$row[Id_Moneda]</td>
     <td colspan=3>$row[Nombre]</td>
-    <td colspan=3>$row[Hangar]</td>
-    <td colspan=3>$row[Id_Ciudad]</td>
+    <td colspan=3>$row[ConversionADolar]</td>
     <td colspan=3></td>
     </tr>
     ";

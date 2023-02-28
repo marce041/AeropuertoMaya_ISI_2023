@@ -55,6 +55,15 @@
             "
                 </tbody>
                 </table>
+                <table>
+                <thead>
+                <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/reservapdf.php'>Generar PDF
+                </a></th>
+                            <th scope='col'>
+                            <a class='btn btn-info' href='../Procesos/Reportes/reservaxlsx.php'>Generar XLS
+                            </a></th>
+                            </thead>
+                            </table>
 
             ";
         }
