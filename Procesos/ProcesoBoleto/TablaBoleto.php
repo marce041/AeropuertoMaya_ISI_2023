@@ -13,6 +13,7 @@
 
             echo 
             "
+
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
@@ -34,6 +35,7 @@
             {
                 echo 
                 "
+               
                     <tr>
 
                         <form action='formEditBoleto.php?id=$data[Id_Boleto]' method='POST' name='form2'>
@@ -65,6 +67,14 @@
             "
                 </tbody>
                 </table>
+                <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/boletopdf.php'>Generar PDF
+                </a></th>
+                            <th scope='col'>
+                            <a class='btn btn-info' href='../Procesos/Reportes/boletoxlsx.php'>Generar XLS
+                            </a></th>
+                            </thead>
+                            </table>
+                
 
             ";
         }

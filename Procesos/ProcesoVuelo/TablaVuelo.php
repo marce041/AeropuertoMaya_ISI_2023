@@ -13,6 +13,13 @@
 
             echo 
             "
+            <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/vuelopdf.php'>Generar PDF
+            </a></th>
+                        <th scope='col'>
+                        <a class='btn btn-info' href='../Procesos/Reportes/vueloxlsx.php'>Generar Excel
+                         </a></th>
+                        </thead>
+                        </table>
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>

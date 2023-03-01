@@ -13,6 +13,7 @@
 
             echo 
             "
+            
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>

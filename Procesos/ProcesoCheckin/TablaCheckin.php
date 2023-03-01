@@ -13,6 +13,15 @@
 
             echo 
             "
+            <table>
+            <thead>
+            <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/chechinpdf.php'>Generar PDF
+            </a></th>
+                        <th scope='col'>
+                        <a class='btn btn-info' href='../Procesos/Reportes/checkinxlsx.php'>Generar Excel
+                         </a></th>
+                        </thead>
+                        </table>
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
@@ -34,7 +43,7 @@
                         <form action='formEditCheckin.php?id=$data[Id_Checkin]' method='POST' name='form2'>
                             <th scope='row'>$data[Id_Checkin]</th>
                             <td>$data[Id_Reserva]</td>
-                            <td>$data[Pasajero]</td>
+                            <td>$data[Id_Pasajero]</td>
 
                            <!--BOTON EDITAR-->
 
