@@ -25,7 +25,11 @@ $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=
 
 <table border="1">
 <tr>
+
     <th colspan=15>Reporte de vuelos</th>
+
+    <th colspan=12>Reporte de Vuelo</th>
+
 <?php
 echo "
 
@@ -37,6 +41,7 @@ echo "
     ?>
     </tr>
     <tr>
+
     <th colspan=3>Vuelo</th>
     <th colspan=3>Codigo</th>
     <th colspan=3>Salida</th>
@@ -46,6 +51,12 @@ echo "
     <th colspan=3>Fecha</th>
     <th colspan=3>Precio</th>
     <th colspan=3>Aeronave</th>
+
+    <th colspan=3>Codigo</th>
+    <th colspan=3>Lugar de Salida</th>
+    <th colspan=3>Lugar de Llegada</th>
+    <th colspan=3>Fecha</th>
+
     <th colspan=3></th>
 
 </tr>
@@ -55,6 +66,7 @@ $resultado=$conn->query($consulta);
 
 while($row=$resultado->fetch_assoc()){
    echo "<tr>
+
     <td colspan=3>$row[Id_Vuelo]</td>
     <td colspan=3>$row[Codigo]</td>
     <td colspan=3>$row[Lugar_Salida]</td>
@@ -64,6 +76,12 @@ while($row=$resultado->fetch_assoc()){
     <td colspan=3>$row[Fecha]</td>
     <td colspan=3>$row[Precio]</td>
     <td colspan=3>$row[Id_Aeronave]</td>
+
+    <td colspan=3>$row[Codigo]</td>
+    <td colspan=3>$row[Lugar_Salida]</td>
+    <td colspan=3>$row[Lugar_LLegada]</td>
+    <td colspan=3>$row[Fecha]</td>
+
     <td colspan=3></td>
     
     </tr>

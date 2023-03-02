@@ -16,6 +16,12 @@
 
 </head>
 <?php
+session_start();
+if (!isset($_SESSION['idUser'])) {
+    echo "No está autorizado para ver esto";
+    header('location: ../index.php'); 
+    die();
+}
         require("../Procesos/ProcesoParametro/TablaParametro.php"); 
     ?>
 <body id="page-top">

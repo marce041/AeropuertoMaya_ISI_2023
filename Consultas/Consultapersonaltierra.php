@@ -16,6 +16,12 @@
 
 </head>
 <?php
+session_start();
+if (!isset($_SESSION['idUser'])) {
+    echo "No está autorizado para ver esto";
+    header('location: ../index.php'); 
+    die();
+}
         require("../Procesos/ProcesoPersonalTierra/TablaPersonalTierra.php"); 
     ?>
 <body id="page-top">

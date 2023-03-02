@@ -1,7 +1,5 @@
 <?php
 
-    session_start();
-
     class elementosMenu
     {
         public function mostarTablaEquipaje()
@@ -57,6 +55,15 @@
             "
                 </tbody>
                 </table>
+                <table>
+                <thead>
+                <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/equipajepdf.php'>Generar PDF
+                </a></th>
+                            <th scope='col'>
+                            <a class='btn btn-info' href='../Procesos/Reportes/equipajexlsx.php'>Generar XLSX
+                            </a></th>
+                            </thead>
+                            </table>
 
             ";
         }

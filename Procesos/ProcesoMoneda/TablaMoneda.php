@@ -1,7 +1,4 @@
 <?php
-
-    session_start();
-
     class elementosMenu
     {
         public function mostarTablaMoneda()
@@ -72,6 +69,16 @@
             "
                 </tbody>
                 </table>
+                
+                <table>
+                <thead>
+                <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/monedapdf.php'>Generar PDF
+                </a></th>
+                            <th scope='col'>
+                            <a class='btn btn-info' href='../Procesos/Reportes/monedaxlsx.php'>Generar XLS
+                            </a></th>
+                            </thead>
+                            </table>
 
             ";
         }

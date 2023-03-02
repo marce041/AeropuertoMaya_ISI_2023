@@ -25,7 +25,11 @@ $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=
 
 <table border="1">
 <tr>
+
     <th colspan=15>Reporte de check-in</th>
+
+    
+
 <?php
 echo "
 
@@ -37,11 +41,13 @@ echo "
     ?>
     </tr>
     <tr>
+
     <th colspan=3>Id de check-in</th>
     <th colspan=3>Id de reserva</th>
     <th colspan=3>Id de pasajero</th>
    
     <th colspan=3></th>
+
 
 </tr>
 <?php require "../../conexion.php";
@@ -52,10 +58,7 @@ while($row=$resultado->fetch_assoc()){
    echo "<tr>
     <td colspan=3>$row[Id_Checkin]</td>
     <td colspan=3>$row[Id_Reserva]</td>
-    <td colspan=3>$row[Id_Pasajero]</td>
-    <td colspan=3></td>
-    
-    </tr>
+
     ";
 }
 ?>  

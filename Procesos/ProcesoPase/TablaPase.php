@@ -60,6 +60,15 @@
             "
                 </tbody>
                 </table>
+                <table>
+                <thead>
+                <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/pasepdf.php'>Generar PDF
+                </a></th>
+                            <th scope='col'>
+                            <a class='btn btn-info' href='../Procesos/Reportes/pasexlsx.php'>Generar XLS
+                            </a></th>
+                            </thead>
+                            </table>
 
             ";
         }

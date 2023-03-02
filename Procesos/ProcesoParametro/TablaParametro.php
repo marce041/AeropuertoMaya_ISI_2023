@@ -1,7 +1,5 @@
 <?php
 
-    session_start();
-
     class elementosMenu
     {
         public function mostarTablaParametro()
@@ -65,6 +63,15 @@
             "
                 </tbody>
                 </table>
+                <table>
+                <thead>
+                <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/parametropdf.php'>Generar PDF
+                </a></th>
+                            <th scope='col'>
+                            <a class='btn btn-info' href='../Procesos/Reportes/parametroxlsx.php'>Generar XLS
+                            </a></th>
+                            </thead>
+                            </table>
 
             ";
         }

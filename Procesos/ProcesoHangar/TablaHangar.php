@@ -1,6 +1,5 @@
 <?php
 
-    session_start();
 
     class elementosMenu
     {
@@ -20,7 +19,7 @@
                             <th scope='col'>Código</th>
                             <th scope='col'>Capacidad</th>
                             <th scope='col'>Id de la aeronave</th>
-                            <th scope='col'>Id del eropuerto</th>
+                            <th scope='col'>Id del aeropuerto</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>
@@ -59,6 +58,15 @@
             "
                 </tbody>
                 </table>
+                <table>
+                <thead>
+                <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/hangarpdf.php'>Generar PDF
+                </a></th>
+                            <th scope='col'>
+                            <a class='btn btn-info' href='../Procesos/Reportes/hangarxlsx.php'>Generar XLSX
+                            </a></th>
+                            </thead>
+                            </table>
 
             ";
         }
