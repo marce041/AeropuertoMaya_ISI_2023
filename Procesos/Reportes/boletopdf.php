@@ -102,7 +102,6 @@ $pdf->AddPage();
 $pdf->SetFont('Arial','',14);
 while($row=$resultado->fetch_assoc()){
     $pdf->Cell(5);
-    $pdf->Ln(5);
     $pdf->cell(50,10,$row['Codigo'],1,0,'C',0);
     $pdf->cell(42,10,$row['Id_Asiento'],1,0,'C',0);
 
