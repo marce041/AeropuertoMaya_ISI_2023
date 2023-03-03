@@ -69,7 +69,7 @@
                 <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/detallepdf.php'>Generar PDF
                 </a></th>
                             <th scope='col'>
-                            <a class='btn btn-info' href='../Procesos/Reportes/detallexlsx.php'>Generar XLSX
+                            <a class='btn btn-info' href='../Procesos/Reportes/detallexlsx.php'>Generar EXCEL
                             </a></th>
                             </thead>
                             </table>

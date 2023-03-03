@@ -50,7 +50,7 @@ $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=
     $spreadsheet->getDefaultStyle()->getFont()->setBold(true);
     $spreadsheet->getDefaultStyle()->getFont()->setName('Arial');
     $spreadsheet->getDefaultStyle()->getFont()->setSize(12);
-    $spreadsheet->getActiveSheet()->getDefaultColumnDimension()->setWidth(70, 'pt');
+    $spreadsheet->getActiveSheet()->getDefaultColumnDimension()->setWidth(190, 'pt');
 
 $hojaActiva->mergeCells('A1:D1');
 $hojaActiva->getStyle('A1:G2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);

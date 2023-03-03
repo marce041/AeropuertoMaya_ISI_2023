@@ -91,7 +91,7 @@ $fila= 3;
 
 while($row=$resultado->fetch_assoc()){
 
-$hojaActiva->setCellValue('A'. $fila, $row['Id_Vuelo ']);
+$hojaActiva->setCellValue('A'. $fila, $row['Id_Vuelo']);
 $hojaActiva->setCellValue('B'. $fila, $row['Codigo']);
 $hojaActiva->setCellValue('C'. $fila, $row['Lugar_Salida']);
 $hojaActiva->setCellValue('D'. $fila, $row['Lugar_LLegada']);
