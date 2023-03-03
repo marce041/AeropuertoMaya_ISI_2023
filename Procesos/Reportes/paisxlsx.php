@@ -1,10 +1,24 @@
 <?php
-header('Content-type:application/xls');
-header('Content-Disposition: attachment; filename=Pais.xls');
+
 require "../../conexion.php";
+
+require '../../vendor/autoload.php';
+
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment;filename="Pais.xlsx"');
+header('Cache-Control: max-age=0');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
+$spreadsheet = new Spreadsheet();
+$spreadsheet ->getProperties()->setTitle("Pais");
+
+$spreadsheet->setActiveSheetIndex(0);
+$hojaActiva = $spreadsheet->getActiveSheet();
+$hojaActiva->setTitle("Pais");
+
 session_start();
-
-
 
 $user=$_SESSION['idUser'];
 $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
@@ -20,42 +34,68 @@ $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=
     date_default_timezone_set('America/Mexico_City');
 
     $fechaActual = date("d-m-Y");
+
     $horaActual = date("H:i:s");
-?>
 
-<table border="1">
-<tr>
-    <th colspan=6>Reporte de Paises</th>
-<?php
-echo "
+    $styleArray = [
+        'borders' => [
+            'allBorders' => [
+                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                'color' => ['argb' => '00000000'],
+            ],
+        ],
+    ];
+    
+    
+    $spreadsheet->getDefaultStyle()->getFont()->setBold(true);
+    $spreadsheet->getDefaultStyle()->getFont()->setName('Arial');
+    $spreadsheet->getDefaultStyle()->getFont()->setSize(12);
+    $spreadsheet->getActiveSheet()->getDefaultColumnDimension()->setWidth(70, 'pt');
 
-    <th>Usuario: $rangoinicial</th>
-    <th>Fecha: $fechaActual</th>
-    <th>Hora: $horaActual</th>
-  
-    ";
-    ?>
-    </tr>
-    <tr>
-    <th colspan=2>Id</th>
-    <th colspan=2>Nombre</th>
-    <th colspan=2>Region</th>
-    <th colspan=3></th>
+$hojaActiva->mergeCells('A1:C1');
+$hojaActiva->getStyle('A1:F2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+$hojaActiva->setCellValue('A1','Reporte de Paises');
+$hojaActiva->setCellValue('E1', 'Usuario:');
+$hojaActiva->setCellValue('F1', $rangoinicial);
+$hojaActiva->getStyle('E3:F3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
-</tr>
-<?php require "../../conexion.php";
+$hojaActiva->setCellValue('E2', 'Fecha:');
+$hojaActiva->setCellValue('F2', $fechaActual);
+$hojaActiva->setCellValue('E3', 'Hora:');
+$hojaActiva->setCellValue('F3', $horaActual);
+
+
+$hojaActiva->setCellValue('A2','Id');
+$hojaActiva->setCellValue('B2','Nombre');
+$hojaActiva->setCellValue('C2','Region');
+
+$hojaActiva->getStyle('A1:C2')->applyFromArray($styleArray);
+$hojaActiva->getStyle('E1:F3')->applyFromArray($styleArray);
+$spreadsheet->getDefaultStyle()->getFont()->setBold(false);
+
+$hojaActiva->getStyle('A3:C100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+
+
 $consulta="SELECT * from pais";
 $resultado=$conn->query($consulta);
 
+$fila= 3;
+
 while($row=$resultado->fetch_assoc()){
-   echo "<tr>
-    <td colspan=2>$row[Id_Pais]</td>
-    <td colspan=2>$row[Nombre]</td>
-    <td colspan=2>$row[Region]</td>
-    <td colspan=3></td>
-    
-    </tr>
-    ";
+
+$hojaActiva->setCellValue('A'. $fila, $row['Id_Pais']);
+$hojaActiva->setCellValue('B'. $fila, $row['Nombre']);
+$hojaActiva->setCellValue('C'. $fila, $row['Region']);
+$fila++;
 }
-?>  
-</table>
+
+$hojaActiva->getStyle('A3:C50')->applyFromArray($styleArray);
+$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+$writer->save('php://output');
+exit;
+
+
+
+
+
+?>
