@@ -83,6 +83,7 @@ $fila= 3;
 
 while($row=$resultado->fetch_assoc()){
 
+
 $hojaActiva->setCellValue('A'. $fila, $row['Id_Checkin']);
 $hojaActiva->setCellValue('B'. $fila, $row['Id_Reserva']);
 $hojaActiva->setCellValue('C'. $fila, $row['Id_Pasajero']);
