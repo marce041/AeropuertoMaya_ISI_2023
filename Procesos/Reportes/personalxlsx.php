@@ -1,17 +1,30 @@
 <?php
-header('Content-type:application/xls');
-header('Content-Disposition: attachment; filename=Personal.xls');
+
 require "../../conexion.php";
+
+require '../../vendor/autoload.php';
+
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment;filename="Personal.xlsx"');
+header('Cache-Control: max-age=0');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
+$spreadsheet = new Spreadsheet();
+$spreadsheet ->getProperties()->setTitle("Personal");
+
+$spreadsheet->setActiveSheetIndex(0);
+$hojaActiva = $spreadsheet->getActiveSheet();
+$hojaActiva->setTitle("Personal");
+
 session_start();
-
-
 
 $user=$_SESSION['idUser'];
 $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
     
     $rangini = array();
-  
-    while($datos = mysqli_fetch_array($queryparametro)) {
+while($datos = mysqli_fetch_array($queryparametro)) {
         array_push($rangini, $datos['Usuario']);
     }
 
@@ -20,40 +33,64 @@ $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=
     date_default_timezone_set('America/Mexico_City');
 
     $fechaActual = date("d-m-Y");
+
     $horaActual = date("H:i:s");
-?>
 
-<table border="1">
-<tr>
-    <th colspan=9>Reporte de Personal</th>
-<?php
-echo "
+    $styleArray = [
+        'borders' => [
+            'allBorders' => [
+                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                'color' => ['argb' => '00000000'],
+            ],
+        ],
+    ];
+    
+    
+    $spreadsheet->getDefaultStyle()->getFont()->setBold(true);
+    $spreadsheet->getDefaultStyle()->getFont()->setName('Arial');
+    $spreadsheet->getDefaultStyle()->getFont()->setSize(12);
+    $spreadsheet->getActiveSheet()->getDefaultColumnDimension()->setWidth(70, 'pt');
 
-    <th>Usuario: $rangoinicial</th>
-    <th>Fecha: $fechaActual</th>
-    <th>Hora: $horaActual</th>
-  
-    ";
-    ?>
-    </tr>
-    <tr>
-    <th colspan=3>Codigo</th>
-    <th colspan=3>Carga Academica</th>
-    <th colspan=3>Cargo</th>
-    <th colspan=3></th>
-</tr>
-<?php require "../../conexion.php";
+$hojaActiva->mergeCells('A1:B1');
+$hojaActiva->getStyle('A1:E2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+$hojaActiva->setCellValue('A1','Reporte de Personal');
+$hojaActiva->setCellValue('D1', 'Usuario:');
+$hojaActiva->setCellValue('E1', $rangoinicial);
+$hojaActiva->getStyle('D3:E3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+
+$hojaActiva->setCellValue('D2', 'Fecha:');
+$hojaActiva->setCellValue('E2', $fechaActual);
+$hojaActiva->setCellValue('D3', 'Hora:');
+$hojaActiva->setCellValue('E3', $horaActual);
+
+
+$hojaActiva->setCellValue('A2','Carga Academica');
+$hojaActiva->setCellValue('B2','Cargo');
+
+
+$hojaActiva->getStyle('A1:B2')->applyFromArray($styleArray);
+$hojaActiva->getStyle('D1:E3')->applyFromArray($styleArray);
+$spreadsheet->getDefaultStyle()->getFont()->setBold(false);
+
+$hojaActiva->getStyle('A3:B100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+
+
 $consulta="SELECT * from personaltierra";
 $resultado=$conn->query($consulta);
 
+$fila= 3;
+
 while($row=$resultado->fetch_assoc()){
-   echo "<tr>
-    <td colspan=3>$row[Id_Personal]</td>
-    <td colspan=3>$row[Carga_Academica]</td>
-    <td colspan=3>$row[Cargo]</td>
-    <td colspan=3></td>
-    </tr>
-    ";
+
+$hojaActiva->setCellValue('A'. $fila, $row['Carga Academica']);
+$hojaActiva->setCellValue('B'. $fila, $row['Cargo']);
+$fila++;
 }
-?>  
-</table>
+
+$hojaActiva->getStyle('A3:C50')->applyFromArray($styleArray);
+$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+$writer->save('php://output');
+exit;
+
+
+?>
