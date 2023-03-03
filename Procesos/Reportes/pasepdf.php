@@ -10,7 +10,8 @@ $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=
     
     $rangini = array();
   
-    while($datos = mysqli_fetch_array($queryparametro)) {
+    while($datos = mysqli_fetch_array($queryparametro)) 
+    {
         array_push($rangini, $datos['Usuario']);
     }
 
@@ -24,7 +25,7 @@ $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=
 class PDF extends FPDF
 {
     
-// Cabecera de página
+    // Cabecera de página
     function Header()
     {   
         // Logo
@@ -92,15 +93,16 @@ class PDF extends FPDF
         // Número de página
 
         $this->Cell(0,10,utf8_decode('Página ').$this->PageNo().'/{nb}',0,0,'C');
+    }
 
         
 
-    }
+
 
 
 $consulta="SELECT * from paseabordar";
 $resultado=$conn->query($consulta);
-
+    
 
 $pdf = new PDF();
 $pdf->AliasNbPages();
@@ -119,8 +121,8 @@ while($row=$resultado->fetch_assoc()){
     $pdf->Ln(10);
    
 }
-
+    
     
 $pdf->Output();
-
+}
 ?>

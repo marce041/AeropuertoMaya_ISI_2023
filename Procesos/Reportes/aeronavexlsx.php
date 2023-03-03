@@ -1,10 +1,24 @@
 <?php
-header('Content-type:application/xls');
-header('Content-Disposition: attachment; filename=Aeronave.xls');
+
 require "../../conexion.php";
+
+require '../../vendor/autoload.php';
+
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment;filename="Aeronave.xlsx"');
+header('Cache-Control: max-age=0');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
+$spreadsheet = new Spreadsheet();
+$spreadsheet ->getProperties()->setTitle("Aeronave");
+
+$spreadsheet->setActiveSheetIndex(0);
+$hojaActiva = $spreadsheet->getActiveSheet();
+$hojaActiva->setTitle("Aeronaves");
+
 session_start();
-
-
 
 $user=$_SESSION['idUser'];
 $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
@@ -20,44 +34,67 @@ $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=
     date_default_timezone_set('America/Mexico_City');
 
     $fechaActual = date("d-m-Y");
+
     $horaActual = date("H:i:s");
-?>
 
-<table border="1">
-<tr>
-    <th colspan=8>Reporte de Aeronaves</th>
-<?php
-echo "
+    $styleArray = [
+        'borders' => [
+            'allBorders' => [
+                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                'color' => ['argb' => '00000000'],
+            ],
+        ],
+    ];
+    
+    
+    $spreadsheet->getDefaultStyle()->getFont()->setBold(true);
+    $spreadsheet->getDefaultStyle()->getFont()->setName('Arial');
+    $spreadsheet->getDefaultStyle()->getFont()->setSize(12);
+    $spreadsheet->getActiveSheet()->getDefaultColumnDimension()->setWidth(70, 'pt');
 
-    <th>Usuario: $rangoinicial</th>
-    <th>Fecha: $fechaActual</th>
-    <th>Hora: $horaActual</th>
-  
-    ";
-    ?>
-    </tr>
-    <tr>
-    <th colspan=2>Matricula</th>
-    <th colspan=2>Modelo</th>
-    <th colspan=2>Capacidad</th>
-    <th colspan=2>Tipo</th>
-    <th colspan=3></th>
+$hojaActiva->mergeCells('A1:D1');
+$hojaActiva->getStyle('A1:G2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+$hojaActiva->setCellValue('A1','Reporte de Aeronave');
+$hojaActiva->setCellValue('F1', 'Usuario:');
+$hojaActiva->setCellValue('G1', $rangoinicial);
+$hojaActiva->getStyle('F3:G3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
-</tr>
-<?php require "../../conexion.php";
+$hojaActiva->setCellValue('F2', 'Fecha:');
+$hojaActiva->setCellValue('G2', $fechaActual);
+$hojaActiva->setCellValue('F3', 'Hora:');
+$hojaActiva->setCellValue('G3', $horaActual);
+
+
+$hojaActiva->setCellValue('A2','Matricula');
+$hojaActiva->setCellValue('B2','Modelo');
+$hojaActiva->setCellValue('C2','Capacidad');
+$hojaActiva->setCellValue('D2','Tipo');
+
+$hojaActiva->getStyle('A1:D2')->applyFromArray($styleArray);
+$hojaActiva->getStyle('F1:G3')->applyFromArray($styleArray);
+$spreadsheet->getDefaultStyle()->getFont()->setBold(false);
+
+$hojaActiva->getStyle('A3:D100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+
+
 $consulta="SELECT * from aeronave";
 $resultado=$conn->query($consulta);
 
+$fila= 3;
+
 while($row=$resultado->fetch_assoc()){
-   echo "<tr>
-    <td colspan=2>$row[Matricula]</td>
-    <td colspan=2>$row[Modelo]</td>
-    <td colspan=2>$row[Capacidad]</td>
-    <td colspan=2>$row[Tipo]</td>
-    <td colspan=3></td>
-    
-    </tr>
-    ";
+
+$hojaActiva->setCellValue('A'. $fila, $row['Matricula']);
+$hojaActiva->setCellValue('B'. $fila, $row['Modelo']);
+$hojaActiva->setCellValue('C'. $fila, $row['Capacidad']);
+$hojaActiva->setCellValue('D'. $fila, $row['Tipo']);
+$fila++;
 }
-?>  
-</table>
+
+$hojaActiva->getStyle('A3:D50')->applyFromArray($styleArray);
+$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+$writer->save('php://output');
+exit;
+
+
+?>
