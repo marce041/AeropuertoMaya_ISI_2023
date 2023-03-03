@@ -17,7 +17,7 @@
             <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/chechinpdf.php'>Generar PDF
             </a></th>
                         <th scope='col'>
-                        <a class='btn btn-info' href='../Procesos/Reportes/checkinxlsx.php'>Generar Excel
+                        <a class='btn btn-info' href='../Procesos/Reportes/checkinxlsx.php'>Generar EXCEL
                          </a></th>
                         </thead>
                         </table>
