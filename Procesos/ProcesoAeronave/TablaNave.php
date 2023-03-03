@@ -67,7 +67,7 @@
                 <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/aeronavepdf.php'>Generar PDF
                 </a></th>
                             <th scope='col'>
-                            <a class='btn btn-info' href='../Procesos/Reportes/aeronavexlsx.php'>Generar XLS
+                            <a class='btn btn-info' href='../Procesos/Reportes/aeronavexlsx.php'>Generar EXCEL
                             </a></th>
                             </thead>
                             </table>
