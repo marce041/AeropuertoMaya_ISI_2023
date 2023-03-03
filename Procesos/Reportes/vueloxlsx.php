@@ -1,17 +1,30 @@
 <?php
-header('Content-type:application/xls');
-header('Content-Disposition: attachment; filename=Vuelo.xls');
+
 require "../../conexion.php";
+
+require '../../vendor/autoload.php';
+
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment;filename="Vuelos.xlsx"');
+header('Cache-Control: max-age=0');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
+$spreadsheet = new Spreadsheet();
+$spreadsheet ->getProperties()->setTitle("Vuelos");
+
+$spreadsheet->setActiveSheetIndex(0);
+$hojaActiva = $spreadsheet->getActiveSheet();
+$hojaActiva->setTitle("Vuelos");
+
 session_start();
-
-
 
 $user=$_SESSION['idUser'];
 $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
     
     $rangini = array();
-  
-    while($datos = mysqli_fetch_array($queryparametro)) {
+while($datos = mysqli_fetch_array($queryparametro)) {
         array_push($rangini, $datos['Usuario']);
     }
 
@@ -20,72 +33,80 @@ $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=
     date_default_timezone_set('America/Mexico_City');
 
     $fechaActual = date("d-m-Y");
+
     $horaActual = date("H:i:s");
-?>
 
-<table border="1">
-<tr>
+    $styleArray = [
+        'borders' => [
+            'allBorders' => [
+                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                'color' => ['argb' => '00000000'],
+            ],
+        ],
+    ];
+    
+    
+    $spreadsheet->getDefaultStyle()->getFont()->setBold(true);
+    $spreadsheet->getDefaultStyle()->getFont()->setName('Arial');
+    $spreadsheet->getDefaultStyle()->getFont()->setSize(12);
+    $spreadsheet->getActiveSheet()->getDefaultColumnDimension()->setWidth(70, 'pt');
 
-    <th colspan=15>Reporte de vuelos</th>
+$hojaActiva->mergeCells('A1:I1');
+//ESPACIADO A LA TABLA DE USUARIO
+$hojaActiva->getStyle('A1:K3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+$hojaActiva->setCellValue('A1','Reporte de vuelos');
+$hojaActiva->setCellValue('K1', 'Usuario:');
+$hojaActiva->setCellValue('L1', $rangoinicial);
+//NEGRITA DE LOS DATOS DEL USUARIO
+$hojaActiva->getStyle('K1:L3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
-    <th colspan=12>Reporte de Vuelo</th>
+$hojaActiva->setCellValue('k2', 'Fecha:');
+$hojaActiva->setCellValue('L2', $fechaActual);
+$hojaActiva->setCellValue('K3', 'Hora:');
+$hojaActiva->setCellValue('L3', $horaActual);
 
-<?php
-echo "
 
-    <th>Usuario: $rangoinicial</th>
-    <th>Fecha: $fechaActual</th>
-    <th>Hora: $horaActual</th>
-  
-    ";
-    ?>
-    </tr>
-    <tr>
+$hojaActiva->setCellValue('A2','Id del vuelo');
+$hojaActiva->setCellValue('B2','Codigo');
+$hojaActiva->setCellValue('C2','Lugar de salida');
+$hojaActiva->setCellValue('D2','Lugar de llegada');
+$hojaActiva->setCellValue('E2','Hora de salida');
+$hojaActiva->setCellValue('F2','Hora de llegada');
+$hojaActiva->setCellValue('G2','Fecha');
+$hojaActiva->setCellValue('H2','Precio');
+$hojaActiva->setCellValue('I2','Id de aeronave');
 
-    <th colspan=3>Vuelo</th>
-    <th colspan=3>Codigo</th>
-    <th colspan=3>Salida</th>
-    <th colspan=3>Llegada</th>
-    <th colspan=3>Hr salida</th>
-    <th colspan=3>Hr llegada</th>
-    <th colspan=3>Fecha</th>
-    <th colspan=3>Precio</th>
-    <th colspan=3>Aeronave</th>
 
-    <th colspan=3>Codigo</th>
-    <th colspan=3>Lugar de Salida</th>
-    <th colspan=3>Lugar de Llegada</th>
-    <th colspan=3>Fecha</th>
+$hojaActiva->getStyle('A1:I2')->applyFromArray($styleArray);
+$hojaActiva->getStyle('K1:L3')->applyFromArray($styleArray);
+$spreadsheet->getDefaultStyle()->getFont()->setBold(false);
 
-    <th colspan=3></th>
+$hojaActiva->getStyle('A3:D100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
-</tr>
-<?php require "../../conexion.php";
+
 $consulta="SELECT * from vuelo";
 $resultado=$conn->query($consulta);
 
+$fila= 3;
+
 while($row=$resultado->fetch_assoc()){
-   echo "<tr>
 
-    <td colspan=3>$row[Id_Vuelo]</td>
-    <td colspan=3>$row[Codigo]</td>
-    <td colspan=3>$row[Lugar_Salida]</td>
-    <td colspan=3>$row[Lugar_LLegada]</td>
-    <td colspan=3>$row[Hora_Salida]</td>
-    <td colspan=3>$row[Hora_LLegada]</td>
-    <td colspan=3>$row[Fecha]</td>
-    <td colspan=3>$row[Precio]</td>
-    <td colspan=3>$row[Id_Aeronave]</td>
-
-    <td colspan=3>$row[Codigo]</td>
-    <td colspan=3>$row[Lugar_Salida]</td>
-    <td colspan=3>$row[Lugar_LLegada]</td>
-    <td colspan=3>$row[Fecha]</td>
-
-    <td colspan=3></td>
-    
-    </tr>
-    ";
+$hojaActiva->setCellValue('A'. $fila, $row['Id_Vuelo ']);
+$hojaActiva->setCellValue('B'. $fila, $row['Codigo']);
+$hojaActiva->setCellValue('C'. $fila, $row['Lugar_Salida']);
+$hojaActiva->setCellValue('D'. $fila, $row['Lugar_LLegada']);
+$hojaActiva->setCellValue('E'. $fila, $row['Hora_Salida']);
+$hojaActiva->setCellValue('F'. $fila, $row['Hora_LLegada']);
+$hojaActiva->setCellValue('G'. $fila, $row['Fecha']);
+$hojaActiva->setCellValue('H'. $fila, $row['Precio']);
+$hojaActiva->setCellValue('I'. $fila, $row['Id_Aeronave']);
+$fila++;
 }
-?>  
-</table>
+
+$hojaActiva->getStyle('A3:I50')->applyFromArray($styleArray);
+$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+$writer->save('php://output');
+exit;
+
+
+?>
