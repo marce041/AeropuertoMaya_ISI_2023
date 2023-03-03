@@ -39,7 +39,7 @@ class PDF extends FPDF
 
         $this->Cell(70,10,'Reporte de vuelos',0,0,'C');
 
-        $this->Cell(70,10,'Reporte de Vuelo',0,0,'C');
+       
 
         
         $this->SetFont('Arial','',12);
@@ -79,15 +79,7 @@ class PDF extends FPDF
         $this->cell(15,10,'Precio',1,0,'C',0);
         $this->cell(15,10,'Aeronave',1,1,'C',0);
 
-        $this->SetFont('Arial','B',15);
-        // Color de texto
-        $this->SetTextColor(66,92,90);
-        $this->Ln(15);
-        $this->Cell(5);
-        $this->cell(40,10,'Codigo',1,0,'C',0);
-        $this->cell(42,10,'Lugar de Salida',1,0,'C',0);
-        $this->cell(50,10,'Lugar de Llegada',1,0,'C',0);
-        $this->cell(50,10,'Fecha',1,1,'C',0);
+      
 
     }
 
@@ -134,17 +126,11 @@ while($row=$resultado->fetch_assoc()){
     $pdf->cell(15,10,$row['Precio'],1,0,'C',0);
     $pdf->cell(15,10,$row['Id_Aeronave'],1,0,'C',0);
 
-$pdf->SetFont('Arial','',14);
-while($row=$resultado->fetch_assoc()){
-    $pdf->Cell(5);
-    $pdf->cell(40,10,$row['Codigo'],1,0,'C',0);
-    $pdf->cell(42,10,$row['Lugar_Salida'],1,0,'C',0); 
-    $pdf->cell(50,10,$row['Lugar_LLegada'],1,0,'C',0);
-    $pdf->cell(50,10,$row['Fecha'],1,0,'C',0);
+
 
     $pdf->Ln(10);
 
 }
 $pdf->Output();
-}
+
 ?>
