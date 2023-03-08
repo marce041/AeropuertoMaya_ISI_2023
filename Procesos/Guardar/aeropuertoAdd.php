@@ -10,7 +10,20 @@
     $insertar="INSERT INTO `aeropuerto` (`Id_Aeropuerto`, `Nombre`, `Hangar`, `Id_Ciudad`) 
     VALUES (NULL, '$nombre', '$hangar', '$estado');";
 
-    $resultado=mysqli_query($conn, $insertar);
+    
+    
+    try {
+        $resultado=mysqli_query($conn, $insertar);
+     }catch(Exception $e) {
+    
+        $path = "logGuardarAeronave.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
+
+
+
+
+
 
     // echo "<script> alert('".$nombre."'); </script>";
 

@@ -1,0 +1,2 @@
+
+07/03/2023 23:34:10 Unknown column 'Mtricula' in 'field list'

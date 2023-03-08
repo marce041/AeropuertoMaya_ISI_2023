@@ -12,8 +12,16 @@
 
     $actualizar="UPDATE aeronave SET Matricula='$matricula', Modelo='$modelo', Capacidad='$capacidad', Tamaño='$tamanio', Tipo='$tipo', Area='$area' WHERE Id_Aeronave='$id'";
 
-    $resultado=mysqli_query($conn,$actualizar);
-
+    
+    try {
+        $resultado=mysqli_query($conn,$actualizar);
+     }catch(Exception $e) {
+    
+        $path = "logActualizarAeronave.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
+ 
+     
     if($resultado)
     {
         echo  "<script>

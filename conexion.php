@@ -11,9 +11,8 @@ try {
     $conn = mysqli_connect($servername, $username, $password, $database);
  }catch(Exception $e) {
 
-    $path = "logsAero.txt";
+    $path = "logConexion.txt";
     error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
  }   
-
 
 ?>
