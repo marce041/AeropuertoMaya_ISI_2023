@@ -3,8 +3,15 @@ include("../../conexion.php");
 
     $id=$_GET['id'];
     $eliminar="DELETE FROM reserva WHERE Id_Reserva='$id'";
-    $resultado=mysqli_query($conn,$eliminar);
-
+    
+    try {
+        $resultado=mysqli_query($conn,$eliminar);
+     }catch(Exception $e) {
+    
+        $path = "logEliminarReserva.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
+     
 
     if($resultado)
     {
