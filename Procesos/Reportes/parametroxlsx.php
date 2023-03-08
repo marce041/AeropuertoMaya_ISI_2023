@@ -1,10 +1,24 @@
 <?php
-header('Content-type:application/xls');
-header('Content-Disposition: attachment; filename=Parametros.xls');
+
 require "../../conexion.php";
+
+require '../../vendor/autoload.php';
+
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment;filename="Parametro.xlsx"');
+header('Cache-Control: max-age=0');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
+$spreadsheet = new Spreadsheet();
+$spreadsheet ->getProperties()->setTitle("Parametro");
+
+$spreadsheet->setActiveSheetIndex(0);
+$hojaActiva = $spreadsheet->getActiveSheet();
+$hojaActiva->setTitle("Parametro");
+
 session_start();
-
-
 
 $user=$_SESSION['idUser'];
 $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
@@ -20,42 +34,78 @@ $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=
     date_default_timezone_set('America/Mexico_City');
 
     $fechaActual = date("d-m-Y");
+
     $horaActual = date("H:i:s");
-?>
 
-<table border="1">
-<tr>
-    <th colspan=12>Reporte de Parametro</th>
-<?php
-echo "
+    $styleArray = [
+        'borders' => [
+            'allBorders' => [
+                'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                'color' => ['argb' => '00000000'],
+            ],
+        ],
+    ];
+    
+    
+    $spreadsheet->getDefaultStyle()->getFont()->setBold(true);
+    $spreadsheet->getDefaultStyle()->getFont()->setName('Arial');
+    $spreadsheet->getDefaultStyle()->getFont()->setSize(12);
+    $spreadsheet->getActiveSheet()->getDefaultColumnDimension()->setWidth(190, 'pt');
 
-    <th>Usuario: $rangoinicial</th>
-    <th>Fecha: $fechaActual</th>
-    <th>Hora: $horaActual</th>
-  
-    ";
-    ?>
-    </tr>
-    <tr>
-    <th colspan=3>CAI</th>
-    <th colspan=3>Rango Inicial</th>
-    <th colspan=3>Rango Final</th>
-    <th colspan=3>Fecha Vencimiento</th>
-    <th colspan=3></th>
-</tr>
-<?php require "../../conexion.php";
+$hojaActiva->mergeCells('A1:H1');
+$hojaActiva->getStyle('A1:K2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+$hojaActiva->setCellValue('A1','Reporte de Parametro');
+$hojaActiva->setCellValue('J1', 'Usuario:');
+$hojaActiva->setCellValue('K1', $rangoinicial);
+$hojaActiva->getStyle('J3:K3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+
+$hojaActiva->setCellValue('J2', 'Fecha:');
+$hojaActiva->setCellValue('K2', $fechaActual);
+$hojaActiva->setCellValue('J3', 'Hora:');
+$hojaActiva->setCellValue('K3', $horaActual);
+
+
+$hojaActiva->setCellValue('A2','Id');
+$hojaActiva->setCellValue('B2','CAI');
+$hojaActiva->setCellValue('C2','Fecha Vencimiento');
+$hojaActiva->setCellValue('D2','Fecha Emision');
+$hojaActiva->setCellValue('E2','Rango Inicio');
+$hojaActiva->setCellValue('F2','Rango Final');
+$hojaActiva->setCellValue('G2','Consecutivo');
+$hojaActiva->setCellValue('H2','Estado');
+
+$hojaActiva->getStyle('A1:H2')->applyFromArray($styleArray);
+$hojaActiva->getStyle('J1:K3')->applyFromArray($styleArray);
+$spreadsheet->getDefaultStyle()->getFont()->setBold(false);
+
+$hojaActiva->getStyle('A3:H100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+
+
 $consulta="SELECT * from parametro";
 $resultado=$conn->query($consulta);
 
+$fila= 3;
+
 while($row=$resultado->fetch_assoc()){
-   echo "<tr>
-    <td colspan=3>$row[Cai]</td>
-    <td colspan=3>$row[Rango_Ini]</td>
-    <td colspan=3>$row[Rango_Fin]</td>
-    <td colspan=3>$row[Fecha_Ven]</td>
-    <td colspan=3></td>
-    </tr>
-    ";
+
+$hojaActiva->setCellValue('A'. $fila, $row['Id_Parametro']);
+$hojaActiva->setCellValue('B'. $fila, $row['Cai']);
+$hojaActiva->setCellValue('C'. $fila, $row['Fecha_Ven']);
+$hojaActiva->setCellValue('D'. $fila, $row['Fecha_Emi']);
+$hojaActiva->setCellValue('E'. $fila, $row['Rango_Ini']);
+$hojaActiva->setCellValue('F'. $fila, $row['Rango_Fin']);
+$hojaActiva->setCellValue('G'. $fila, $row['Consecutivo']);
+$hojaActiva->setCellValue('H'. $fila, $row['Estado']);
+$fila++;
 }
-?>  
-</table>
+
+$hojaActiva->getStyle('A3:H50')->applyFromArray($styleArray);
+$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+$writer->save('php://output');
+exit;
+
+
+
+
+
+?>
