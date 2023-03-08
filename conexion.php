@@ -5,9 +5,15 @@ $username="root";
 $password="";
 $database="aeropuertomaya";
 
+date_default_timezone_set('America/Mexico_City');
 
-$conn = mysqli_connect($servername, $username, $password, $database);
-    if(!$conn){
-        die("conexion fallida: ".mysqli_connect_error());
-    }
+try {
+    $conn = mysqli_connect($servername, $username, $password, $database);
+ }catch(Exception $e) {
+
+    $path = "logsAero.txt";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+ }   
+
+
 ?>
