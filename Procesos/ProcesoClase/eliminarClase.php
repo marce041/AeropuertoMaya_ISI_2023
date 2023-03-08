@@ -2,7 +2,7 @@
 include("../../conexion.php");
 
     $id=$_GET['id'];
-    $eliminar="DELETE FROM clase WHERE Id_Clase='$id'";
+    $eliminar="DELETE FROM clse WHERE Id_Clase='$id'";
 
     try {
         $resultado=mysqli_query($conn,$eliminar);
