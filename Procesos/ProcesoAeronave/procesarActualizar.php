@@ -21,7 +21,7 @@
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
      }   
  
-     
+
     if($resultado)
     {
         echo  "<script>

@@ -17,13 +17,13 @@
     // echo "<script> alert('".$nombre."'); </script>";
     date_default_timezone_set('America/Mexico_City');
 
- try {
+    try {
     $resultado=mysqli_query($conn, $insertar);
- }catch(Exception $e) {
+    }catch(Exception $e) {
 
     $path = "logGuardarAeronave.txt";
     error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
- }   
+    }   
 
 
     if($resultado) {
