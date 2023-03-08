@@ -16,7 +16,7 @@
         $resultado=mysqli_query($conn,$actualizar);
      }catch(Exception $e) {
     
-        $path = "logActualizarPaseAbordar.txt";
+        $path = "temp/logActualizarPaseAbordar.txt";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
      }   
  
@@ -32,7 +32,7 @@
     {
         echo  "<script>
         alert('NO SE PUDO actualizar datos');
-        window.location = 'actualizarPaseAbordar.php';
+        window.location = '../../Consultas/Consultapaseabordar.php';
         </script>";
     }
 ?>
