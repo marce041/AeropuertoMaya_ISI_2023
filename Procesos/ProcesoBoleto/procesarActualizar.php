@@ -86,7 +86,7 @@ $monto=$costo_vuelo + $costo_clase + $costo_equipaje;
     {
         echo  "<script>
         alert('NO SE PUDO actualizar datos');
-        window.location = 'actualizarBoleto.php';
+        window.location = '../../Consultas/Consultaboletos.php';
         </script>";
     }
 ?>

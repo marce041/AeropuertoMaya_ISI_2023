@@ -18,7 +18,7 @@
         $resultado=mysqli_query($conn, $insertar);
         }catch(Exception $e) {
     
-        $path = "logGuardarCiudad.txt";
+        $path = "temp/logGuardarCiudad.txt";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
         }   
 
@@ -31,7 +31,7 @@
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../principaladmin.php';
+        window.location = '../../DatosMaestros/ciudad.php';
         </script>";
     }
 ?>
