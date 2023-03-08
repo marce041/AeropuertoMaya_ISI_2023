@@ -26,7 +26,7 @@
                         <tr class='text-center'>
                             <th scope='col'>Id de check-in</th>
                             <th scope='col'>Id de la reserva</th>
-                            <th scope='col'>Id del pasajero</th>
+                            <th scope='col'>Nombre del pasajero</th>
                             <th scope='col'>Acciones</th>
                         </tr>
                     </thead>

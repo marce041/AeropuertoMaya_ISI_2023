@@ -7,7 +7,7 @@
 
   
 
-    $actualizar="UPDATE checkin SET Id_Reserva='$estado', Id_Pasajero='$estado2' WHERE Id_Checkin='$id'";
+    $actualizar="UPDATE checkin SET Id_Reserva='$estado', Pasajero='$estado2' WHERE Id_Checkin='$id'";
 
     
 
@@ -31,7 +31,7 @@
     {
         echo  "<script>
         alert('NO SE PUDO actualizar datos');
-        window.location = 'actualizarCheckin.php';
+        window.location = '../../Consultas/Consultacheckin.php';
         </script>";
     }
 ?>

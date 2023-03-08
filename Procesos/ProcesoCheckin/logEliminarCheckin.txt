@@ -1,0 +1,2 @@
+
+08/03/2023 16:03:42 Table 'aeropuertomaya.checki' doesn't exist
