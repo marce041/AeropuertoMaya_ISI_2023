@@ -9,7 +9,15 @@
 
     $actualizar="UPDATE aeropuerto SET Nombre='$nombre', Hangar='$hangar', Id_Ciudad='$ciudad' WHERE Id_Aeropuerto='$id'";
 
-    $resultado=mysqli_query($conn,$actualizar);
+    
+    try {
+        $resultado=mysqli_query($conn,$actualizar);
+     }catch(Exception $e) {
+    
+        $path = "logActualizarAeropuerto.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
+
 
     if($resultado)
     {
