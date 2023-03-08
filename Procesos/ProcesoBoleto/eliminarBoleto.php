@@ -17,7 +17,7 @@ $pruebafecha=$date[0];
     $eliminar="DELETE FROM boleto WHERE Id_Boleto='$id'";
     
 
-    $resultado2=mysqli_query($conn,$actualizar3);
+    
 
     try {
         $resultado=mysqli_query($conn,$eliminar);
