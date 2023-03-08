@@ -1,0 +1,2 @@
+
+08/03/2023 03:06:10 Table 'aeropuertomaya.clas' doesn't exist

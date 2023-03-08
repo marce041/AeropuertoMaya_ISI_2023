@@ -89,17 +89,29 @@ $actualizar="UPDATE boleto SET Estado='0' WHERE `boleto`.`Codigo`= '$pruebabolco
 $insertar="INSERT INTO `detallefactura` (`Id_Detalle`, `Id_Boleto`, `Cantidad`, `Descripcion`, `Subtotal`, `Total_Descuento`, `Total_Impuesto`, `Total`, `Estado`) 
     VALUES (NULL, '$estado', '$cantidad','Detalle de boleto con codigo: $codigo', '$subtotal', '$desc','$impuesto', '$total', '1');";
 
-$resultado=mysqli_query($conn, $insertar);
-$res2=mysqli_query($conn, $actualizar);
 
+try {
+    $resultado=mysqli_query($conn, $insertar);
+    $res2=mysqli_query($conn, $actualizar);
+    }catch(Exception $e) {
+
+    $path = "temp/logGuardarDetalle.txt";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+    }
 }else{
 
 $actualizar="UPDATE boleto SET Estado='0' WHERE `boleto`.`Codigo`= '$pruebabolcod' AND `boleto`.`Id_Pasajero`=$pruebapas AND `boleto`.`Id_Vuelo`=$pruebavuelo AND `boleto`.`Id_Clase`=$pruebaclase AND `boleto`.`Id_Equipaje`=$pruebaequipaje;";
 $insertar="INSERT INTO `detallefactura` (`Id_Detalle`, `Id_Boleto`, `Cantidad`, `Descripcion`, `Subtotal`, `Total_Descuento`, `Total_Impuesto`, `Total`, `Estado`) 
     VALUES (NULL, '$estado', '$cantidad','Detalle de boletos con codigo: $codigo', '$subtotal', '$desc','$impuesto', '$total', '1');";
 
-$resultado=mysqli_query($conn, $insertar);
-$res2=mysqli_query($conn, $actualizar);
+try {
+    $resultado=mysqli_query($conn, $insertar);
+    $res2=mysqli_query($conn, $actualizar);
+    }catch(Exception $e) {
+
+    $path = "temp/logGuardarDetalle.txt";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+    }
 }
 
     // echo "<script> alert('".$nombre."'); </script>";

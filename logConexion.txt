@@ -1,2 +1,4 @@
 
 08/03/2023 00:06:52 No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+08/03/2023 05:01:31 No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+08/03/2023 05:01:38 No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
