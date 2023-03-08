@@ -64,7 +64,16 @@ $monto=$costo_vuelo + $costo_clase + $costo_equipaje;
 
     $actualizar="UPDATE boleto SET Codigo='$codigo', Id_Asiento='$estado', Id_Pasajero='$estado2', Id_Vuelo='$estado3', Id_Equipaje='$estado5', Id_Clase='$estado6',Precio='$monto' WHERE Id_Boleto='$id'";
 
-    $resultado=mysqli_query($conn,$actualizar);
+    
+
+    try {
+        $resultado=mysqli_query($conn,$actualizar);
+     }catch(Exception $e) {
+    
+        $path = "logActualizarBoleto.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
+ 
 
     if($resultado)
     {

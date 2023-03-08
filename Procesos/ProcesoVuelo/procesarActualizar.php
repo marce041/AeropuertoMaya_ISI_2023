@@ -14,7 +14,15 @@
 
     $actualizar="UPDATE vuelo SET Codigo='$codigo', Lugar_Salida='$estado', Lugar_LLegada='$estado2', Hora_Salida='$horasal', Hora_LLegada='$horall', Fecha='$fecha', Precio='$precio', Id_Aeronave='$estado3' WHERE Id_Vuelo='$id'";
 
-    $resultado=mysqli_query($conn,$actualizar);
+    
+    try {
+        $resultado=mysqli_query($conn,$actualizar);
+     }catch(Exception $e) {
+    
+        $path = "logActualizarVuelo.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
+ 
 
     if($resultado)
     {

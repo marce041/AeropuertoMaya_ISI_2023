@@ -3,7 +3,15 @@ include("../../conexion.php");
 
     $id=$_GET['id'];
     $eliminar="DELETE FROM paseabordar WHERE Id_Pase='$id'";
-    $resultado=mysqli_query($conn,$eliminar);
+    
+
+    try {
+        $resultado=mysqli_query($conn,$eliminar);
+     }catch(Exception $e) {
+    
+        $path = "logEliminarPaseAbordar.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
 
 
     if($resultado)

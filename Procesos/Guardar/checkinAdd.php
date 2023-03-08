@@ -11,9 +11,16 @@
     $insertar="INSERT INTO `checkin` (`Id_Checkin`,`Id_Reserva`,`Pasajero`,`Fecha_Hora`) 
     VALUES (NULL,'$estado', '$pasajero','$fecha');";
 
-    $resultado=mysqli_query($conn, $insertar);
+    
     $res2=mysqli_query($conn, $actualizar);
     // echo "<script> alert('".$nombre."'); </script>";
+    try {
+        $resultado=mysqli_query($conn, $insertar);
+        }catch(Exception $e) {
+    
+        $path = "logGuardarCheckin.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+        }   
 
     if($resultado) {
         echo  "<script>

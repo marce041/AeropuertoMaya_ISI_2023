@@ -3,7 +3,15 @@ include("../../conexion.php");
 
     $id=$_GET['id'];
     $eliminar="DELETE FROM ciudad WHERE Id_Ciudad='$id'";
-    $resultado=mysqli_query($conn,$eliminar);
+    
+
+    try {
+        $resultado=mysqli_query($conn,$eliminar);
+     }catch(Exception $e) {
+    
+        $path = "logEliminarCiudad.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
 
 
     if($resultado)

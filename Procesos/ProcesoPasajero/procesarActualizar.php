@@ -15,7 +15,15 @@
 
     $actualizar="UPDATE pasajero SET Nombre='$nombre', Tipo_Documento='$estado', Numero_Documento='$numerodoc', Telefono='$telefono', Correo='$correo', Id_Pais='$Id_Pais', Fecha_Nacimiento='$fechaN' WHERE Id_Pasajero='$id'";
 
-    $resultado=mysqli_query($conn,$actualizar);
+   
+    try {
+        $resultado=mysqli_query($conn,$actualizar);
+     }catch(Exception $e) {
+    
+        $path = "logActualizarPasajero.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
+ 
 
     if($resultado)
     {
