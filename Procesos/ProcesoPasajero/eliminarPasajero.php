@@ -9,7 +9,7 @@ include("../../conexion.php");
         $resultado=mysqli_query($conn,$eliminar);
      }catch(Exception $e) {
     
-        $path = "logEliminarPasajero.txt";
+        $path = "temp/logEliminarPasajero.txt";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
      }   
 

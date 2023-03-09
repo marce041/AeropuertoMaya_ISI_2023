@@ -20,7 +20,7 @@
         $resultado=mysqli_query($conn, $insertar);
         }catch(Exception $e) {
     
-        $path = "logGuardarPasajero.txt";
+        $path = "temp/logGuardarPasajero.txt";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
         }   
     
