@@ -9,7 +9,14 @@
 
     $actualizar="UPDATE usuario SET Usuario='$user', Pass='$password_encriptada', Estado='$estado' WHERE idUser='$id'";
 
-    $resultado=mysqli_query($conn,$actualizar);
+    
+    try {
+        $resultado=mysqli_query($conn,$actualizar);
+     }catch(Exception $e) {
+    
+        $path = "temp/logEliminarAeronave.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
 
     if($resultado)
     {
