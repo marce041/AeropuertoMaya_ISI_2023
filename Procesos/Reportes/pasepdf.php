@@ -4,7 +4,6 @@ session_start();
 require('fpdf.php');
 require "../../conexion.php";
 
-
 $user=$_SESSION['idUser'];
 $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
     
@@ -62,21 +61,21 @@ class PDF extends FPDF
         $this->Cell(10,7,utf8_decode('_____________________________________________________________________________________________________________________________'),'',0,'C');
         // Salto de línea
 
-        $this->SetFont('Arial','B',17);
+        $this->SetFont('Arial','B',12);
 
         // Color de texto
         $this->SetTextColor(66,92,90);
         $this->Ln(15);
         $this->Cell(5);
 
-        $this->cell(30,10,'Pase de abordar',1,0,'C',0);
+        $this->cell(38,10,'Pase de abordar',1,0,'C',0);
         $this->cell(30,10,'Codigo',1,0,'C',0);
         $this->cell(30,10,'Fecha',1,0,'C',0);
-        $this->cell(37,10,'Puerta de embarque',1,0,'C',0);
-        $this->cell(30,10,'Boleto',1,0,'C',0);
-        $this->cell(30,10,'Terminal',1,1,'C',0);
+        $this->cell(42,10,'Puerta de embarque',1,0,'C',0);
+        $this->cell(25,10,'Boleto',1,0,'C',0);
+        $this->cell(27,10,'Terminal',1,1,'C',0);
     
-
+    }
     // Pie de página
     function Footer()
     {
@@ -94,11 +93,8 @@ class PDF extends FPDF
 
         $this->Cell(0,10,utf8_decode('Página ').$this->PageNo().'/{nb}',0,0,'C');
     }
-
-        
-
-
-
+}
+require "../../conexion.php";
 
 $consulta="SELECT * from paseabordar";
 $resultado=$conn->query($consulta);
@@ -111,18 +107,16 @@ $pdf->AddPage();
 $pdf->SetFont('Arial','',12);
 while($row=$resultado->fetch_assoc()){
     $pdf->Cell(5);
-    $pdf->cell(30,10,$row['Id_Pase'],1,0,'C',0);
+    $pdf->cell(38,10,$row['Id_Pase'],1,0,'C',0);
     $pdf->cell(30,10,$row['Codigo'],1,0,'C',0); 
     $pdf->cell(30,10,$row['Fecha'],1,0,'C',0);
-    $pdf->cell(37,10,$row['Puerta_Embarque'],1,0,'C',0);
-    $pdf->cell(30,10,$row['Id_Boleto'],1,0,'C',0);
-    $pdf->cell(30,10,$row['Id_Pasajero'],1,0,'C',0);
+    $pdf->cell(42,10,$row['Puerta_Embarque'],1,0,'C',0);
+    $pdf->cell(25,10,$row['Id_Boleto'],1,0,'C',0);
+    $pdf->cell(27,10,$row['Id_Pasajero'],1,0,'C',0);
 
     $pdf->Ln(10);
    
-}
-    
-    
+} 
 $pdf->Output();
-}
+
 ?>

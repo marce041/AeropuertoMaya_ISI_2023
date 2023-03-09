@@ -59,15 +59,15 @@ function Header()
     $this->Cell(117,7,utf8_decode(''),'',0,'C');
     $this->Cell(10,7,utf8_decode('_____________________________________________________________________________________________________________________________'),'',0,'C');
     // Salto de línea
-    $this->SetFont('Arial','B',18);
+    $this->SetFont('Arial','B',12);
      // Color de texto
      $this->SetTextColor(66,92,90);
     $this->Ln(15);
     $this->Cell(5);
-    $this->cell(50,10,'Id',1,0,'C',0);
-    $this->cell(42,10,'Tipo de Clase',1,0,'C',0);
-    $this->cell(40,10,'Descripcion',1,0,'C',0);
-    $this->cell(50,10,'Multiplicador',1,1,'C',0);
+    $this->cell(20,10,'Id',1,0,'C',0);
+    $this->cell(30,10,'Tipo de Clase',1,0,'C',0);
+    $this->cell(80,10,'Descripcion',1,0,'C',0);
+    $this->cell(32,10,'Multiplicador',1,1,'C',0);
     
 
 
@@ -99,13 +99,13 @@ $resultado=$conn->query($consulta);
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->SetFont('Arial','',14);
+$pdf->SetFont('Arial','',12);
 while($row=$resultado->fetch_assoc()){
     $pdf->Cell(5);
-    $pdf->cell(50,10,$row['Id_Clase'],1,0,'C',0);
-    $pdf->cell(42,10,$row['Tipo_Clase'],1,0,'C',0); 
-    $pdf->cell(40,10,$row['Descripcion'],1,0,'C',0);
-    $pdf->cell(50,10,$row['MultiplicadorPrecio'],1,0,'C',0);
+    $pdf->cell(20,10,$row['Id_Clase'],1,0,'C',0);
+    $pdf->cell(30,10,$row['Tipo_Clase'],1,0,'C',0); 
+    $pdf->cell(80,10,$row['Descripcion'],1,0,'C',0);
+    $pdf->cell(32,10,$row['MultiplicadorPrecio'],1,0,'C',0);
     $pdf->Ln(10);
    
 

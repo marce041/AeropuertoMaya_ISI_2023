@@ -59,12 +59,12 @@ function Header()
     $this->Cell(117,7,utf8_decode(''),'',0,'C');
     $this->Cell(10,7,utf8_decode('_____________________________________________________________________________________________________________________________'),'',0,'C');
     // Salto de línea
-    $this->SetFont('Arial','B',15);
+    $this->SetFont('Arial','B',12);
      // Color de texto
      $this->SetTextColor(66,92,90);
     $this->Ln(15);
     $this->Cell(5);
-    $this->cell(50,10,'CAI',1,0,'C',0);
+    $this->cell(60,10,'CAI',1,0,'C',0);
     $this->cell(42,10,'Rango Inicial',1,0,'C',0);
     $this->cell(40,10,'Rango Final',1,0,'C',0);
     $this->cell(50,10,'Fecha Vencimiento',1,1,'C',0);
@@ -102,8 +102,8 @@ $pdf->AddPage();
 
 while($row=$resultado->fetch_assoc()){
     $pdf->Cell(5);
-    $pdf->SetFont('Arial','',6);
-    $pdf->cell(50,10,$row['Cai'],1,0,'C',0);
+    $pdf->SetFont('Arial','',8);
+    $pdf->cell(60,10,$row['Cai'],1,0,'C',0);
     $pdf->SetFont('Arial','',10);
     $pdf->cell(42,10,$row['Rango_Ini'],1,0,'C',0);
     $pdf->cell(40,10,$row['Rango_Fin'],1,0,'C',0);
