@@ -1,4 +1,7 @@
 <?php
+
+ 
+ 
 function redondear_dos_decimal($valor) {
 	$float_redondeado=round($valor * 100) / 100;
 	return $float_redondeado;
@@ -48,6 +51,9 @@ $costo_vuelo=$pruebafecha;
 
 
 $monto=$costo_vuelo + $costo_clase + $costo_equipaje;
+
+
+
 
 $sql2 = "SELECT Id_Boleto FROM boleto
     WHERE Codigo = '$codigo'";
@@ -122,4 +128,5 @@ if(($codigo!=$pruebacodg) || ($estado2!=$pruebaidpas) || ($estado3!=$pruebaidvue
         </script>";
     }
 }
+
 ?>

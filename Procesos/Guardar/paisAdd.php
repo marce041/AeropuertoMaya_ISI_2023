@@ -1,12 +1,13 @@
 <?php
+
     include ("../../conexion.php");
     
     $nombre=$_POST['nombre'];
-    $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
+    $estad = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
 
 
 
-    $insertar="INSERT INTO `pais` (`Id_Pais`, `Nombre`, `Region`) 
+    $insertar="INSERT INTO `pais` (`Ipp`, `Nombre`, `Region`) 
     VALUES (NULL, '$nombre', '$estado');";
 
     $resultado=mysqli_query($conn, $insertar);
@@ -25,4 +26,10 @@
         window.location = '../../principaladmin.php';
         </script>";
     }
+
 ?>
+
+
+
+
+
