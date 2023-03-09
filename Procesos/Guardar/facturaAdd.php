@@ -117,7 +117,7 @@ try {
     $resul3=mysqli_query($conn, $actuali2);
  }catch(Exception $e) {
 
-    $path = "temp/logDetalleFactura.txt";
+    $path = "temp/logADetalleFactura.txt";
     error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
  } 
         /*
