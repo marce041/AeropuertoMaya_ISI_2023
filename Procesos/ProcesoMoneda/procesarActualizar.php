@@ -13,7 +13,7 @@
         $resultado=mysqli_query($conn,$actualizar);
      }catch(Exception $e) {
     
-        $path = "logActualizarAeropuerto.txt";
+        $path = "logActualizarMoneda.txt";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
      }   
 

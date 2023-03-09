@@ -93,11 +93,33 @@ if($codigo>$rangofinal){
     $insertar="INSERT INTO `factura` (`Id_Factura`, `Id_Parametro`, `Codigo`, `RTN`,`CAI`, `Id_Detalle`, `Fecha`, `Id_Moneda`, `Monto`, `Metodo_Pago`, `Cantidad_Efectivo`, `Numero_Tarjeta`) 
     VALUES (NULL, '$estado4', '$codigo', '$rtn','$cai', '$estado2', '$fecha','$estado3', '$monto', '$metodo', '$efectivo', '$tarjeta');";
 
-    $resultado=mysqli_query($conn, $insertar);
-    $res2=mysqli_query($conn, $actualizar);
-    $resul3=mysqli_query($conn, $actuali2);
+     
 
 }
+
+
+try {
+    $resultado=mysqli_query($conn, $insertar);
+ }catch(Exception $e) {
+
+    $path = "temp/logInsertarFactura.txt";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+ }   
+
+ try {
+    $res2=mysqli_query($conn, $actualizar);
+ }catch(Exception $e) {
+
+    $path = "temp/logAParametroFactura.txt";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+ } 
+ try {
+    $resul3=mysqli_query($conn, $actuali2);
+ }catch(Exception $e) {
+
+    $path = "temp/logDetalleFactura.txt";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+ } 
         /*
 
     }*/
