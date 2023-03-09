@@ -116,12 +116,18 @@ if($cantidad==1){
     }
 
 
-    $actualizar="UPDATE detallefactur SET Id_Boleto='$estado', Cantidad='$cantidad', Descripcion='Detalle de boleto con codigo: $codigo', Subtotal='$subtotal', Total_Descuento='$desc', Total_Impuesto= '$impuesto', Total='$total' WHERE Id_Detalle='$id'";    
+    $actualizar="UPDATE detallefactura SET Id_Boleto='$estado', Cantidad='$cantidad', Descripcion='Detalle de boleto con codigo: $codigo', Subtotal='$subtotal', Total_Descuento='$desc', Total_Impuesto= '$impuesto', Total='$total' WHERE Id_Detalle='$id'";    
     try {
         $resultado=mysqli_query($conn,$actualizar);
      }catch(Exception $e) {
     
-        $path = "temp/logActualizarDetalle.txt";
+        $datos = date('H:i:s');
+        $hora=explode(":", $datos);
+        $datos2 = date('d/m/Y');
+    
+        $fecha=explode("/", $datos2);
+      
+        $path = "temp/logActualizarDetalleFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
      }
     
@@ -136,13 +142,19 @@ if($estado!=$boletoanterior){
     $resul3=mysqli_query($conn, $actu3);   
 }
     
-    $actualizar="UPDATE detallefactur SET Id_Boleto='$estado', Cantidad='$cantidad', Descripcion='$codigo', Subtotal='$subtotal', Total_Descuento='$desc', Total_Impuesto='$impuesto', Total='$total' WHERE Id_Detalle='$id'";
+    $actualizar="UPDATE detallefactura SET Id_Boleto='$estado', Cantidad='$cantidad', Descripcion='$codigo', Subtotal='$subtotal', Total_Descuento='$desc', Total_Impuesto='$impuesto', Total='$total' WHERE Id_Detalle='$id'";
     
     try {
         $resultado=mysqli_query($conn,$actualizar);
      }catch(Exception $e) {
     
-        $path = "temp/logActualizarDetalle.txt";
+        $datos = date('H:i:s');
+        $hora=explode(":", $datos);
+        $datos2 = date('d/m/Y');
+    
+        $fecha=explode("/", $datos2);
+      
+        $path = "temp/logActualizarDetalleFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
      }
     

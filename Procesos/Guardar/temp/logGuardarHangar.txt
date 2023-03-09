@@ -1,4 +1,0 @@
-
-08/03/2023 00:56:27 Table 'aeropuertomaya.hanga' doesn't exist
-08/03/2023 00:59:02 Table 'aeropuertomaya.hanga' doesn't exist
-08/03/2023 00:59:47 Table 'aeropuertomaya.hanga' doesn't exist
