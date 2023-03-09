@@ -8,7 +8,14 @@
     $insertar="INSERT INTO `moneda` (`Id_Moneda`, `Nombre`, `ConversionADolar`) 
     VALUES (NULL, '$nombre', '$conversionadolar');";
 
-    $resultado=mysqli_query($conn, $insertar);
+    
+    try {
+        $resultado=mysqli_query($conn, $insertar);
+     }catch(Exception $e) {
+    
+        $path = "logGuardarParametro.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     } 
 
     // echo "<script> alert('".$nombre."'); </script>";
 
