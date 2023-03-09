@@ -124,5 +124,6 @@ while($row=$resultado->fetch_assoc()){
     
     
 $pdf->Output();
-}
+} ;
+
 ?>
