@@ -22,7 +22,14 @@ if (!isset($_SESSION['idUser'])) {
     header('location: ../index.php'); 
     die();
 }
-        require("../Procesos/ProcesoEquipaje/TablaEquipaje.php"); 
+         
+        try {
+            require("../Procesos/ProcesoEquipaje/TablaEquipaje.php");
+         }catch(Exception $e) {
+        
+            $path = "temp/logConsultaEquipaje.txt";
+            error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+         }
     ?>
 <body id="page-top">
     <div id="wrapper">

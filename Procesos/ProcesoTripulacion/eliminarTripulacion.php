@@ -3,9 +3,16 @@ include("../../conexion.php");
 
     $id=$_GET['id'];
     $eliminar="DELETE FROM tripulacion WHERE Id_Tripulacion='$id'";
-    $resultado=mysqli_query($conn,$eliminar);
+    
 
-
+    try {
+        $resultado=mysqli_query($conn,$eliminar);
+     }catch(Exception $e) {
+    
+        $path = "temp/logEliminarTripulacion.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
+     
     if($resultado)
     {
         echo  "<script>

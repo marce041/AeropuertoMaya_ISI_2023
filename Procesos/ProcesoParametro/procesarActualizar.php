@@ -13,7 +13,14 @@
 
     $actualizar="UPDATE parametro SET Cai='$cai', Fecha_Ven='$fecha_ven', Fecha_Emi='$fecha_emi', Rango_Ini='$rango_ini', Rango_Fin='$rango_fin', Consecutivo='$consecutivo' WHERE Id_Parametro='$id'";
 
-    $resultado=mysqli_query($conn,$actualizar);
+    
+    try {
+        $resultado=mysqli_query($conn,$actualizar);
+     }catch(Exception $e) {
+    
+        $path = "logActualizarParametro.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
 
     if($resultado)
     {

@@ -9,9 +9,17 @@
     $insertar="INSERT INTO `personaltierra` (`Id_Personal`, `Carga_Academica`, `Cargo`) 
     VALUES (NULL, '$cargaacademica', '$cargo');";
 
-    $resultado=mysqli_query($conn, $insertar);
+    
 
     // echo "<script> alert('".$cargaacademica."'); </script>";
+    try {
+        $resultado=mysqli_query($conn, $insertar);
+        }catch(Exception $e) {
+    
+        $path = "temp/logGuardarPersonalTierra.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+        }   
+    
 
     if($resultado) {
         echo  "<script>
@@ -22,7 +30,7 @@
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../principaladmin.php';
+        window.location = '../../DatosMaestros/personaltierra.php';
         </script>";
     }
 ?>

@@ -11,7 +11,15 @@
 
     $actualizar="UPDATE paseabordar SET Codigo='$codigo', Fecha='$fecha', Puerta_Embarque='$puertaembarque', Id_Boleto='$estado', Id_Pasajero='$estado2' WHERE Id_Pase='$id'";
 
-    $resultado=mysqli_query($conn,$actualizar);
+    
+    try {
+        $resultado=mysqli_query($conn,$actualizar);
+     }catch(Exception $e) {
+    
+        $path = "temp/logActualizarPaseAbordar.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
+ 
 
     if($resultado)
     {
@@ -24,7 +32,7 @@
     {
         echo  "<script>
         alert('NO SE PUDO actualizar datos');
-        window.location = 'actualizarPaseAbordar.php';
+        window.location = '../../Consultas/Consultapaseabordar.php';
         </script>";
     }
 ?>

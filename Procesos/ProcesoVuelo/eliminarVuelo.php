@@ -3,7 +3,15 @@ include("../../conexion.php");
 
     $id=$_GET['id'];
     $eliminar="DELETE FROM vuelo WHERE Id_Vuelo='$id'";
-    $resultado=mysqli_query($conn,$eliminar);
+    
+
+    try {
+        $resultado=mysqli_query($conn,$eliminar);
+     }catch(Exception $e) {
+    
+        $path = "temp/logEliminarVuelo.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
 
 
     if($resultado)

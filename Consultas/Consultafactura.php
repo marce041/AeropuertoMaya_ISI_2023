@@ -16,7 +16,14 @@
 
 </head>
 <?php
-        require("../Procesos/ProcesoFactura/Tabla.php"); 
+        
+        try {
+            require("../Procesos/ProcesoFactura/Tabla.php"); 
+         }catch(Exception $e) {
+        
+            $path = "temp/logConsultaFactura.txt";
+            error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+         }
     ?>
 <body id="page-top">
     <div id="wrapper">

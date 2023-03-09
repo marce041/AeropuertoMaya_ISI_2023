@@ -66,7 +66,7 @@ $hojaActiva->setCellValue('G3', $horaActual);
 
 $hojaActiva->setCellValue('A2','Id de check-in');
 $hojaActiva->setCellValue('B2','Id de reserva');
-$hojaActiva->setCellValue('C2','Id de pasajero');
+$hojaActiva->setCellValue('C2','Pasajero');
 
 
 $hojaActiva->getStyle('A1:C2')->applyFromArray($styleArray);
@@ -83,9 +83,10 @@ $fila= 3;
 
 while($row=$resultado->fetch_assoc()){
 
+
 $hojaActiva->setCellValue('A'. $fila, $row['Id_Checkin']);
 $hojaActiva->setCellValue('B'. $fila, $row['Id_Reserva']);
-$hojaActiva->setCellValue('C'. $fila, $row['Id_Pasajero']);
+$hojaActiva->setCellValue('C'. $fila, $row['Pasajero']);
 
 $fila++;
 }

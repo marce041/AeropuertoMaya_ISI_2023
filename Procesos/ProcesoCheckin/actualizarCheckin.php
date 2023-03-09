@@ -139,7 +139,7 @@
                                             <tr>
                                             <th scope='col'>Id_Checkin</th>
                                             <th scope='col'>Id_Reserva</th>
-                                            <th scope='col'>Id_Pasajero</th>
+                                            <th scope='col'>Pasajero</th>
                                             <th scope='col'>Acciones</th>
                                         </tr>
                                             </thead>
@@ -156,7 +156,7 @@
                                                             
                                                             <td><input type='hidden' value=' $data[Id_Checkin]'name='id' ></td>
                                                             <td><input type='text'  value=' $data[Id_Reserva]'   name='estado' ></td>
-                                                            <td><input type='text'  value=' $data[Id_Pasajero]' name='estado2'></td>
+                                                            <td><input type='text'  value=' $data[Pasajero]' name='estado2'></td>
                                                             <td> <button class='btn btn-success' type='submit' ><i class='fas fa-save'></i></button>
                                                            
                                                             </td>

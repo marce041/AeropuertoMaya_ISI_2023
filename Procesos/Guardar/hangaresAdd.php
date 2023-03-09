@@ -10,7 +10,15 @@
     $insertar="INSERT INTO `hangar` (`Id_hangar`, `Codigo`,`Capacidad`, `Id_Aeronave`,`Id_Aeropuerto`) 
     VALUES (NULL, '$codigo','$capacidad', '$estado','$estado2');";
 
+    date_default_timezone_set('America/Mexico_City');
+
+    try {
     $resultado=mysqli_query($conn, $insertar);
+    }catch(Exception $e) {
+
+    $path = "temp/logGuardarHangar.txt";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+    }
 
     // echo "<script> alert('".$nombre."'); </script>";
 
@@ -23,7 +31,7 @@
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../principaladmin.php';
+        window.location = '../../DatosMaestros/hangares.php';
         </script>";
     }
 ?>

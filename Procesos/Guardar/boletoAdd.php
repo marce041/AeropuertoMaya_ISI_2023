@@ -88,10 +88,17 @@ if(($codigo!=$pruebacodg) || ($estado2!=$pruebaidpas) || ($estado3!=$pruebaidvue
     $actualizar="UPDATE listaasientos SET Estado='0' WHERE Id_Lista='$estado'";
     $insertar="INSERT INTO `boleto` (`Id_Boleto`, `Codigo`, `Id_Asiento`, `Id_Pasajero`, `Id_Vuelo`, `Id_Equipaje`,`Id_Clase`,`Precio`,`Estado`) 
     VALUES (NULL, '$codigo', '$estado', '$estado2','$estado3','$estado4','$estado5','$monto','1');";
-    $resultado=mysqli_query($conn, $insertar);
+    
     $res2=mysqli_query($conn, $actualizar);
 
     // echo "<script> alert('".$nombre."'); </script>";
+    try {
+        $resultado=mysqli_query($conn, $insertar);
+        }catch(Exception $e) {
+    
+        $path = "temp/logGuardarBoleto.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+        }   
 
     if($resultado) {
         echo  "<script>
@@ -102,7 +109,7 @@ if(($codigo!=$pruebacodg) || ($estado2!=$pruebaidpas) || ($estado3!=$pruebaidvue
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../principaladmin.php';
+        window.location = '../../DatosMaestros/boleto.php';
         </script>";
     }   
 }

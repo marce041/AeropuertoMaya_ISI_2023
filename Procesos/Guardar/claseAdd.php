@@ -24,7 +24,15 @@ if($rows2 > 0){
     $insertar="INSERT INTO `clase` (`Id_Clase`, `Tipo_Clase`, `Descripcion`, `MultiplicadorPrecio`) 
     VALUES (NULL, '$estado2','$descripcion', '$multiplicadorprecio');";
 
+    date_default_timezone_set('America/Mexico_City');
+
+    try {
     $resultado=mysqli_query($conn, $insertar);
+    }catch(Exception $e) {
+
+    $path = "temp/logGuardarClase.txt";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+    }
 
     // echo "<script> alert('".$nombre."'); </script>";
 
@@ -37,7 +45,7 @@ if($rows2 > 0){
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../principaladmin.php';
+        window.location = '../../DatosMaestros/clase.php';
         </script>";
     }
 }

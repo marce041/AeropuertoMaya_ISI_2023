@@ -3,8 +3,14 @@ include("../../conexion.php");
 
     $id=$_GET['id'];
     $eliminar="DELETE FROM hangar WHERE Id_Hangar='$id'";
-    $resultado=mysqli_query($conn,$eliminar);
 
+    try {
+        $resultado=mysqli_query($conn,$eliminar);
+     }catch(Exception $e) {
+    
+        $path = "temp/logEliminarHangar.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
 
     if($resultado)
     {
@@ -19,7 +25,6 @@ include("../../conexion.php");
         alert('ERROR');
         window.location = '../../Consultas/Consultahangar.php';
         </script>";
-    
     }
 
 ?>

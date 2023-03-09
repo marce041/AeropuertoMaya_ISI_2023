@@ -120,7 +120,13 @@ if($estado3==1){
 
     $actualizar="UPDATE factura SET Codigo='$codigo',RTN='$rtn' ,CAI='$cai', Id_Detalle='$estado2', Fecha='$fecha', Id_Moneda='$estado3', Monto='$monto', Metodo_Pago='$metodo', Cantidad_Efectivo='$efectivo', Numero_Tarjeta='$tarjeta'  WHERE Id_Factura='$id'";
 
-    $resultado=mysqli_query($conn,$actualizar);
+    try {
+        $resultado=mysqli_query($conn,$actualizar);
+     }catch(Exception $e) {
+    
+        $path = "temp/logActualizarFactura.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     } 
 
 
 }
@@ -138,7 +144,7 @@ if($estado3==1){
     {
         echo  "<script>
         alert('NO SE PUDO actualizar datos');
-        window.location = 'actualizarFactura.php';
+        window.location = '../../Consultas/Consultafactura.php';
         </script>";
     }
 ?>

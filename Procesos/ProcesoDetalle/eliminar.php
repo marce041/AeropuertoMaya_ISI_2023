@@ -37,10 +37,15 @@ $pruebafecha=$date[0];
     
         $actualizar3="UPDATE boleto SET Estado='1' WHERE `boleto`.`Codigo`= '$pruebabolcod' AND `boleto`.`Id_Pasajero`=$pruebapas AND `boleto`.`Id_Vuelo`=$pruebavuelo AND `boleto`.`Id_Clase`=$pruebaclase AND `boleto`.`Id_Equipaje`=$pruebaequipaje;";
     $eliminar="DELETE FROM detallefactura WHERE Id_Detalle='$id'";
-    $resultado=mysqli_query($conn,$eliminar);
 
-    $resultado2=mysqli_query($conn,$actualizar3);
-
+    try {
+        $resultado=mysqli_query($conn,$eliminar);
+        $resultado2=mysqli_query($conn,$actualizar3);
+     }catch(Exception $e) {
+    
+        $path = "temp/logEliminarDetalle.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }
     if($resultado)
     {
         echo  "<script>

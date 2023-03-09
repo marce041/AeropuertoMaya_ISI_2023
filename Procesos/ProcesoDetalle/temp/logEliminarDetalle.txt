@@ -1,0 +1,2 @@
+
+08/03/2023 04:33:22 Table 'aeropuertomaya.detallefactur' doesn't exist

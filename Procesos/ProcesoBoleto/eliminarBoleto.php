@@ -15,9 +15,17 @@ $pruebafecha=$date[0];
     
     $actualizar3="UPDATE listaasientos SET Estado='1' WHERE Id_Lista='$pruebafecha'";
     $eliminar="DELETE FROM boleto WHERE Id_Boleto='$id'";
-    $resultado=mysqli_query($conn,$eliminar);
+    
 
-    $resultado2=mysqli_query($conn,$actualizar3);
+    
+
+    try {
+        $resultado=mysqli_query($conn,$eliminar);
+     }catch(Exception $e) {
+    
+        $path = "temp/logEliminarBoleto.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
 
     if($resultado)
     {

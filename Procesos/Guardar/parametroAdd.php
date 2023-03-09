@@ -21,11 +21,17 @@ if($rows2 > 0){
 
 }else{
     $insertar="INSERT INTO `parametro` (`Id_Parametro`, `Cai`, `Fecha_Ven`, `Fecha_Emi`, `Rango_Ini`, `Rango_Fin`, `Consecutivo`) 
-    VALUES (NULL, '$cai', '$fecha_ven', '$fecha_emi', '$rango_ini', '$rango_fin', '$consecutivo');";
+    VALUES (NULL, '$cai', '$fecha_ven', '$fecha_emi', '$rango_ini', '$rango_fin', '$consecutivo');";  
 
-    $resultado=mysqli_query($conn, $insertar);
 }
     // echo "<script> alert('".$nombre."'); </script>";
+    try {
+        $resultado=mysqli_query($conn, $insertar);
+     }catch(Exception $e) {
+    
+        $path = "logGuardarParametro.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     } 
 
     if($resultado) {
         echo  "<script>

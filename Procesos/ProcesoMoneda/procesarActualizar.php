@@ -8,7 +8,14 @@
 
     $actualizar="UPDATE moneda SET Nombre='$nombre',ConversionADolar='$conversionadolar' WHERE Id_Moneda='$id'";
 
-    $resultado=mysqli_query($conn,$actualizar);
+    
+    try {
+        $resultado=mysqli_query($conn,$actualizar);
+     }catch(Exception $e) {
+    
+        $path = "logActualizarMoneda.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
 
     if($resultado)
     {

@@ -22,7 +22,14 @@ if (!isset($_SESSION['idUser'])) {
     header('location: ../index.php'); 
     die();
 }
-        require("../Procesos/ProcesoDetalle/Tabla.php"); 
+        
+        try {
+            require("../Procesos/ProcesoDetalle/Tabla.php"); 
+         }catch(Exception $e) {
+        
+            $path = "temp/logConsultaDetalle.txt";
+            error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+         }
     ?>
 <body id="page-top">
     <div id="wrapper">

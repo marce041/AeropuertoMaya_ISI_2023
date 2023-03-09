@@ -11,7 +11,13 @@
       
         $actualizar="UPDATE usuario SET Estado='1' WHERE idUser='$id'";
 
-        $resultado=mysqli_query($conn,$actualizar);
+        try {
+            $resultado=mysqli_query($conn,$actualizar);
+         }catch(Exception $e) {
+        
+            $path = "temp/logHabilitarUsuario.txt";
+            error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+         }   
     
         if($resultado)
         {

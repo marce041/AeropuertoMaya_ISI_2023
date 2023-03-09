@@ -9,7 +9,15 @@
 
     $actualizar="UPDATE personaltierra SET Carga_Academica='$cargaacademica', Cargo='$cargo' WHERE Id_Personal='$id'";
 
-    $resultado=mysqli_query($conn,$actualizar);
+    
+    try {
+        $resultado=mysqli_query($conn,$actualizar);
+     }catch(Exception $e) {
+    
+        $path = "temp/logActualizarPersonalTierra.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
+ 
 
     if($resultado)
     {
@@ -22,7 +30,7 @@
     {
         echo  "<script>
         alert('NO SE PUDO actualizar datos');
-        window.location = 'actualizarPersonalTierra.php';
+        window.location = '../../Consultas/Consultapersonaltierra.php';
         </script>";
     }
 ?>

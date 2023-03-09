@@ -13,7 +13,16 @@
 
     $actualizar="UPDATE ciudad SET Nombre='$nombre', Codigo='$codigo', Terminal='$terminal', Id_Pais='$estado' WHERE Id_Ciudad='$id'";
 
-    $resultado=mysqli_query($conn,$actualizar);
+    
+
+    try {
+        $resultado=mysqli_query($conn,$actualizar);
+     }catch(Exception $e) {
+    
+        $path = "temp/logActualizarCiudad.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }   
+ 
 
     if($resultado)
     {
@@ -26,7 +35,7 @@
     {
         echo  "<script>
         alert('NO SE PUDO actualizar datos');
-        window.location = 'actualizarCiudad.php';
+        window.location = '../../Consultas/Consultaciudades.php';
         </script>";
     }
 ?>

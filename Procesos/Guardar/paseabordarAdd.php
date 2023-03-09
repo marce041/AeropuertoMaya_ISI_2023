@@ -12,9 +12,16 @@
     $insertar="INSERT INTO `paseabordar` (`Id_Pase`, `Codigo`, `Fecha`, `Puerta_Embarque`, `Id_Boleto`, `Id_Pasajero`) 
     VALUES (NULL, '$codigo', '$fecha', '$puertaembarque', '$estado', '$estado2');";
 
-    $resultado=mysqli_query($conn, $insertar);
+    
 
     // echo "<script> alert('".$codigo."'); </script>";
+    try {
+        $resultado=mysqli_query($conn, $insertar);
+        }catch(Exception $e) {
+    
+        $path = "temp/logGuardarPaseAbordar.txt";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+        }   
 
     if($resultado) {
         echo  "<script>
@@ -25,7 +32,7 @@
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../principaladmin.php';
+        window.location = '../../DatosMaestros/paseabordar.php';
         </script>";
     }
 ?>
