@@ -15,7 +15,7 @@
         $resultado=mysqli_query($conn,$actualizar);
      }catch(Exception $e) {
     
-        $path = "logActualizarCheckin.txt";
+        $path = "temp/logActualizarCheckin.txt";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
      }   
  

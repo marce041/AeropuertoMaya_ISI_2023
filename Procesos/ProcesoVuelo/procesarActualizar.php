@@ -19,7 +19,7 @@
         $resultado=mysqli_query($conn,$actualizar);
      }catch(Exception $e) {
     
-        $path = "logActualizarVuelo.txt";
+        $path = "temp/logActualizarVuelo.txt";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
      }   
  
@@ -35,7 +35,7 @@
     {
         echo  "<script>
         alert('NO SE PUDO actualizar datos');
-        window.location = 'actualizarvuelo.php';
+        window.location = '../../Consultas/Consultavuelo.php';
         </script>";
     }
 ?>

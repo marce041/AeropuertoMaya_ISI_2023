@@ -1,0 +1,3 @@
+
+08/03/2023 16:22:33 Table 'aeropuertomaya.bolet' doesn't exist
+08/03/2023 16:23:40 Table 'aeropuertomaya.bolet' doesn't exist

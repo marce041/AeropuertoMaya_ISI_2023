@@ -15,7 +15,7 @@
         $resultado=mysqli_query($conn,$actualizar);
      }catch(Exception $e) {
     
-        $path = "logActualizarTripulacion.txt";
+        $path = "temp/logActualizarTripulacion.txt";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
      }   
  
@@ -31,7 +31,7 @@
     {
         echo  "<script>
         alert('NO SE PUDO actualizar datos');
-        window.location = 'actualizarTripulacion.php';
+        window.location = '../../Consultas/Consultatripulacion.php';
         </script>";
     }
 ?>

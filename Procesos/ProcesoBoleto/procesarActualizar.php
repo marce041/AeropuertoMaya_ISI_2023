@@ -70,7 +70,7 @@ $monto=$costo_vuelo + $costo_clase + $costo_equipaje;
         $resultado=mysqli_query($conn,$actualizar);
      }catch(Exception $e) {
     
-        $path = "logActualizarBoleto.txt";
+        $path = "temp/logActualizarBoleto.txt";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
      }   
  
@@ -86,7 +86,7 @@ $monto=$costo_vuelo + $costo_clase + $costo_equipaje;
     {
         echo  "<script>
         alert('NO SE PUDO actualizar datos');
-        window.location = 'actualizarBoleto.php';
+        window.location = '../../Consultas/Consultaboletos.php';
         </script>";
     }
 ?>

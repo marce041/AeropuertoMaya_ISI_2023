@@ -16,7 +16,7 @@
         $resultado=mysqli_query($conn, $insertar);
      }catch(Exception $e) {
     
-        $path = "logGuardarAeronave.txt";
+        $path = "temp/logGuardarAeronave.txt";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
      }   
 
@@ -36,7 +36,7 @@
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../principaladmin.php';
+        window.location = '../../DatosMaestros/aeropuerto.php';
         </script>";
     }
 ?>

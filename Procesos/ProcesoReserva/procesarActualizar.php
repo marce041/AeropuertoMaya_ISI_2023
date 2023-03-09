@@ -14,7 +14,7 @@
         $resultado=mysqli_query($conn,$actualizar);
      }catch(Exception $e) {
     
-        $path = "logActualizarReserva.txt";
+        $path = "temp/logActualizarReserva.txt";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
      }   
  
@@ -30,7 +30,7 @@
     {
         echo  "<script>
         alert('NO SE PUDO actualizar datos');
-        window.location = 'actualizarReserva.php';
+        window.location = '../../Consultas/Consultareserva.php';
         </script>";
     }
 ?>
