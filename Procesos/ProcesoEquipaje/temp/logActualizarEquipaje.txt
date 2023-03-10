@@ -1,2 +1,0 @@
-
-08/03/2023 03:17:06 Table 'aeropuertomaya.equipaj' doesn't exist

@@ -95,8 +95,14 @@ try {
     $res2=mysqli_query($conn, $actualizar);
     }catch(Exception $e) {
 
-    $path = "temp/logGuardarDetalle.txt";
-    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+        $datos = date('H:i:s');
+        $hora=explode(":", $datos);
+        $datos2 = date('d/m/Y');
+    
+        $fecha=explode("/", $datos2);
+      
+        $path = "temp/logGuardarDetalleFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
     }
 }else{
 
@@ -109,8 +115,14 @@ try {
     $res2=mysqli_query($conn, $actualizar);
     }catch(Exception $e) {
 
-    $path = "temp/logGuardarDetalle.txt";
-    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+        $datos = date('H:i:s');
+        $hora=explode(":", $datos);
+        $datos2 = date('d/m/Y');
+    
+        $fecha=explode("/", $datos2);
+      
+        $path = "temp/logGuardarDetalleFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
     }
 }
 
@@ -126,7 +138,7 @@ try {
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../principaladmin.php';
+        window.location = '../../DatosMaestros/detallefactura.php';
         </script>";
     }
 ?>

@@ -1,2 +1,0 @@
-
-08/03/2023 00:37:33 Table 'aeropuertomaya.hanga' doesn't exist
