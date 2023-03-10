@@ -1,13 +1,33 @@
 <?php
 
-session_start();
-require('fpdf.php');
 require "../../conexion.php";
+session_start();
+if (!isset($_SESSION['idUser'])) {
+    echo "No está autorizado para ver esto";
+    header('location: index.php'); 
+    die();
+}
+require('fpdf.php');
+date_default_timezone_set('America/Mexico_City');
+
 
 
 $user=$_SESSION['idUser'];
-$queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
-    
+
+try {
+    $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
+}catch(Exception $e) {
+   $datos = date('H:i:s');
+   $hora=explode(":", $datos);
+   $datos2 = date('d/m/Y');
+
+   $fecha=explode("/", $datos2);
+   
+    $path = "AeroPdfSelectUser-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    header("Location: ../../Consultas/Consultaseronaves.php");
+}
+     
     $rangini = array();
   
     while($datos = mysqli_fetch_array($queryparametro)) {
@@ -92,25 +112,36 @@ function Footer()
 }
 
 
-$consulta="SELECT * from aeronave";
-$resultado=$conn->query($consulta);
 
+try {
+    $consulta="SELECT * from aeronave";
+    $resultado=$conn->query($consulta);
+ }catch(Exception $e) {
+   $datos = date('H:i:s');
+   $hora=explode(":", $datos);
+   $datos2 = date('d/m/Y');
+
+   $fecha=explode("/", $datos2);
+   
+    $path = "AeroPdfSelectAeronave-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    header("Location: ../../Consultas/Consultaseronaves.php");
+}
 
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Arial','',14);
 while($row=$resultado->fetch_assoc()){
-    $pdf->Cell(5);
-    $pdf->cell(50,10,$row['Matricula'],1,0,'C',0);
-    $pdf->cell(42,10,$row['Modelo'],1,0,'C',0); 
-    $pdf->cell(40,10,$row['Capacidad'],1,0,'C',0);
-    $pdf->cell(50,10,$row['Tipo'],1,0,'C',0);
-    $pdf->Ln(10);
-   
+$pdf->Cell(5);
+$pdf->cell(50,10,$row['Matricula'],1,0,'C',0);
+$pdf->cell(42,10,$row['Modelo'],1,0,'C',0); 
+$pdf->cell(40,10,$row['Capacidad'],1,0,'C',0);
+$pdf->cell(50,10,$row['Tipo'],1,0,'C',0);
+$pdf->Ln(10);
+  }
 
-}
-
+    
 $pdf->Output();
 
 

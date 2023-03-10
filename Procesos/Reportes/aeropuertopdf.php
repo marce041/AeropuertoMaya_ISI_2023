@@ -1,12 +1,30 @@
 <?php
 session_start();
+if (!isset($_SESSION['idUser'])) {
+    echo "No está autorizado para ver esto";
+    header('location: index.php'); 
+    die();
+}
 require('fpdf.php');
 require "../../conexion.php";
+date_default_timezone_set('America/Mexico_City');
 
 
 $user=$_SESSION['idUser'];
-$queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
-    
+try {
+    $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
+}catch(Exception $e) {
+   $datos = date('H:i:s');
+   $hora=explode(":", $datos);
+   $datos2 = date('d/m/Y');
+
+   $fecha=explode("/", $datos2);
+   
+    $path = "AeropuertoPdfSelectUser-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    header("Location: ../../Consultas/Consultaaeropuertos.php");
+}
+
     $rangini = array();
   
     while($datos = mysqli_fetch_array($queryparametro)) {
@@ -86,8 +104,21 @@ function Footer()
 }
 
 require "../../conexion.php";
-$consulta="SELECT * from aeropuerto";
-$resultado=$conn->query($consulta);
+try {
+    $consulta="SELECT * from aeropuerto";
+    $resultado=$conn->query($consulta);
+}catch(Exception $e) {
+   $datos = date('H:i:s');
+   $hora=explode(":", $datos);
+   $datos2 = date('d/m/Y');
+
+   $fecha=explode("/", $datos2);
+   
+    $path = "AeropuertoPDFSelectAeropuerto-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    header("Location: ../../Consultas/Consultaseropuertos.php");
+}
+
 
 
 $pdf = new PDF();
