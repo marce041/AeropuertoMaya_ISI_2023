@@ -3,6 +3,7 @@
 require "../../conexion.php";
 
 require '../../vendor/autoload.php';
+date_default_timezone_set('America/Mexico_City');
 
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header('Content-Disposition: attachment;filename="Aeropuerto.xlsx"');
@@ -21,7 +22,20 @@ $hojaActiva->setTitle("Aeropuertos");
 session_start();
 
 $user=$_SESSION['idUser'];
-$queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
+
+try {
+    $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
+}catch(Exception $e) {
+   $datos = date('H:i:s');
+   $hora=explode(":", $datos);
+   $datos2 = date('d/m/Y');
+
+   $fecha=explode("/", $datos2);
+   
+    $path = "AeropuertoXLSXSelectUser-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    header("Location: ../../Consultas/Consultaaeropuertos.php");
+}
     
     $rangini = array();
   
@@ -76,8 +90,22 @@ $spreadsheet->getDefaultStyle()->getFont()->setBold(false);
 $hojaActiva->getStyle('A3:C100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
 
-$consulta="SELECT * from aeropuerto";
-$resultado=$conn->query($consulta);
+
+try {
+    $consulta="SELECT * from aeropueto";
+    $resultado=$conn->query($consulta);
+}catch(Exception $e) {
+   $datos = date('H:i:s');
+   $hora=explode(":", $datos);
+   $datos2 = date('d/m/Y');
+
+   $fecha=explode("/", $datos2);
+   
+    $path = "AeropuertoXLSXSelectAeropuerto-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    header("Location: ../../Consultas/Consultaaeropuertos.php");
+}
+
 
 $fila= 3;
 
