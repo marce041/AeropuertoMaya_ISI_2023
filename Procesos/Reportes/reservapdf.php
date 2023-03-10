@@ -36,7 +36,7 @@ function Header()
     // Movernos a la derecha
     $this->Cell(60);
     // Título
-    $this->Cell(70,10,'Reporte de Personal',0,0,'C');
+    $this->Cell(70,10,'Reporte de Reserva',0,0,'C');
     
     $this->SetFont('Arial','',12);
 	$this->SetTextColor(39,39,51);

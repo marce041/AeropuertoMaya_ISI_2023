@@ -66,7 +66,7 @@ class PDF extends FPDF
         // Color de texto
         $this->SetTextColor(66,92,90);
         $this->Ln(15);
-        $this->Cell(5);
+        $this->Cell(-1);
 
         $this->cell(38,10,'Pase de abordar',1,0,'C',0);
         $this->cell(30,10,'Codigo',1,0,'C',0);
@@ -106,7 +106,7 @@ $pdf->AddPage();
 
 $pdf->SetFont('Arial','',12);
 while($row=$resultado->fetch_assoc()){
-    $pdf->Cell(5);
+    $pdf->Cell(-1);
     $pdf->cell(38,10,$row['Id_Pase'],1,0,'C',0);
     $pdf->cell(30,10,$row['Codigo'],1,0,'C',0); 
     $pdf->cell(30,10,$row['Fecha'],1,0,'C',0);

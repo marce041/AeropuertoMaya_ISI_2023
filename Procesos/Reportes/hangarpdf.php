@@ -64,7 +64,7 @@ function Header()
      $this->SetTextColor(66,92,90);
     $this->Ln(15);
     $this->Cell(6);
-    $this->cell(10,10,'Id',1,0,'C',0);
+    $this->cell(20,10,'Id',1,0,'C',0);
     $this->cell(30,10,'Codigo',1,0,'C',0);
     $this->cell(40,10,'Capacidad',1,0,'C',0);
     $this->cell(45,10,'Id Aeronave',1,0,'C',0);
@@ -102,7 +102,7 @@ $pdf->AddPage();
 $pdf->SetFont('Arial','',14);
 while($row=$resultado->fetch_assoc()){
     $pdf->Cell(6);
-    $pdf->cell(10,10,$row['Id_hangar'],1,0,'C',0);
+    $pdf->cell(20,10,$row['Id_hangar'],1,0,'C',0);
     $pdf->cell(30,10,$row['Codigo'],1,0,'C',0); 
     $pdf->cell(40,10,$row['Capacidad'],1,0,'C',0);
     $pdf->cell(45,10,$row['Id_Aeronave'],1,0,'C',0);
