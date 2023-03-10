@@ -6,8 +6,11 @@ require "../../conexion.php";
 
 
 $user=$_SESSION['idUser'];
+try{
+
+
 $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
-    
+
     $rangini = array();
   
     while($datos = mysqli_fetch_array($queryparametro)) {
@@ -120,5 +123,15 @@ while($row=$resultado->fetch_assoc()){
    
 }
     $pdf->Output();
-
+}catch(Exception $e) {
+    $datos = date('H:i:s');
+    $hora=explode(":", $datos);
+    $datos2 = date('d/m/Y');
+ 
+    $fecha=explode("/", $datos2);
+    
+     $path = "BoletoPdfSelectUser-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."".$hora[0]."".$hora[1]."_".$hora[2].".log";
+     error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+     header("Location: ../../Consultas/Consultaboletos.php");
+ }
 ?>    
