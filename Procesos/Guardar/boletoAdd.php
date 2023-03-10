@@ -94,11 +94,17 @@ if(($codigo!=$pruebacodg) || ($estado2!=$pruebaidpas) || ($estado3!=$pruebaidvue
     // echo "<script> alert('".$nombre."'); </script>";
     try {
         $resultado=mysqli_query($conn, $insertar);
-        }catch(Exception $e) {
+     }catch(Exception $e) {
+       $datos = date('H:i:s');
+       $hora=explode(":", $datos);
+       $datos2 = date('d/m/Y');
     
-        $path = "temp/logGuardarBoleto.txt";
-        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
-        }   
+       $fecha=explode("/", $datos2);
+       
+        $path = "GuardarBoleto-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+     }
+    
 
     if($resultado) {
         echo  "<script>
