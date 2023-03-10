@@ -63,7 +63,7 @@ function Header()
      // Color de texto
      $this->SetTextColor(66,92,90);
     $this->Ln(15);
-    $this->Cell(4);
+    $this->Cell(25);
     $this->cell(50,10,'Id',1,0,'C',0);
     $this->cell(42,10,'Nombre',1,0,'C',0);
     $this->cell(50,10,'Region',1,1,'C',0);
@@ -100,7 +100,7 @@ $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Arial','',14);
 while($row=$resultado->fetch_assoc()){
-    $pdf->Cell(4);
+    $pdf->Cell(25);
     $pdf->cell(50,10,$row['Id_Pais'],1,0,'C',0);
     $pdf->cell(42,10,$row['Nombre'],1,0,'C',0); 
     $pdf->cell(50,10,$row['Region'],1,0,'C',0);

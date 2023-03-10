@@ -17,8 +17,6 @@ $pruebafecha=$date[0];
     $eliminar="DELETE FROM boleto WHERE Id_Boleto='$id'";
     
 
-    
-
     try {
         $resultado=mysqli_query($conn,$eliminar);
      }catch(Exception $e) {
@@ -29,8 +27,8 @@ $pruebafecha=$date[0];
        $fecha=explode("/", $datos2);
        
         $path = "EliminarBoleto-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
-        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
-     }
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    }
 
     if($resultado)
     {

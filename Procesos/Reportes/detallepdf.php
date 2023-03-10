@@ -63,12 +63,12 @@ function Header()
      // Color de texto
      $this->SetTextColor(66,92,90);
     $this->Ln(15);
-    $this->Cell(1);
-    $this->cell(6,10,'Id',1,0,'C',0);
+    $this->Cell(3);
+    $this->cell(10,10,'Id',1,0,'C',0);
     $this->cell(17,10,'Id Boleto',1,0,'C',0);
     $this->cell(17,10,'Cantidad',1,0,'C',0);
     $this->cell(50,10,'Descripcion',1,0,'C',0);
-    $this->cell(15,10,'Subtotal',1,0,'C',0);
+    $this->cell(17,10,'Subtotal',1,0,'C',0);
     $this->cell(19,10,'Descuento',1,0,'C',0);
     $this->cell(19,10,'Impuesto',1,0,'C',0);
     $this->cell(17,10,'Total',1,0,'C',0);
@@ -103,14 +103,16 @@ $resultado=$conn->query($consulta);
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->SetFont('Arial','',7);
+$pdf->SetFont('Arial','',10);
 while($row=$resultado->fetch_assoc()){
-    $pdf->Cell(1);
-    $pdf->cell(6,10,$row['Id_Detalle'],1,0,'C',0);
+    $pdf->Cell(3);
+    $pdf->cell(10,10,$row['Id_Detalle'],1,0,'C',0);
     $pdf->cell(17,10,$row['Id_Boleto'],1,0,'C',0); 
     $pdf->cell(17,10,$row['Cantidad'],1,0,'C',0);
+    $pdf->SetFont('Arial','',8);
     $pdf->cell(50,10,$row['Descripcion'],1,0,'C',0);
-    $pdf->cell(15,10,$row['Subtotal'],1,0,'C',0);
+    $pdf->SetFont('Arial','',10);
+    $pdf->cell(17,10,$row['Subtotal'],1,0,'C',0);
     $pdf->cell(19,10,$row['Total_Descuento'],1,0,'C',0);
     $pdf->cell(19,10,$row['Total_Impuesto'],1,0,'C',0);
     $pdf->cell(17,10,$row['Total'],1,0,'C',0);

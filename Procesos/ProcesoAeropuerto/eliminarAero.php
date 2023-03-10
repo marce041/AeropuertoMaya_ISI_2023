@@ -14,8 +14,9 @@ include("../../conexion.php");
        $fecha=explode("/", $datos2);
        
         $path = "EliminarAeropuerto-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
-        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
-     }
+        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    }
+    
     if($resultado)
     {
         echo  "<script>
