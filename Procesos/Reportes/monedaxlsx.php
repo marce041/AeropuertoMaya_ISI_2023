@@ -4,11 +4,23 @@ header('Content-Disposition: attachment; filename=Moneda.xls');
 require "../../conexion.php";
 session_start();
 
-
+date_default_timezone_set('America/Mexico_City');
 
 $user=$_SESSION['idUser'];
-$queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
-    
+try {
+    $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
+}catch(Exception $e) {
+   $datos = date('H:i:s');
+   $hora=explode(":", $datos);
+   $datos2 = date('d/m/Y');
+
+   $fecha=explode("/", $datos2);
+   
+    $path = "MonedaXLSXSelectUser-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    header("Location: ../../Consultas/Consultamoneda.php");
+}
+  
     $rangini = array();
   
     while($datos = mysqli_fetch_array($queryparametro)) {
@@ -43,9 +55,23 @@ echo "
     <th colspan=3></th>
 </tr>
 <?php require "../../conexion.php";
-$consulta="SELECT * from moneda";
-$resultado=$conn->query($consulta);
 
+
+try {
+    $consulta="SELECT * from moneda";
+    $resultado=$conn->query($consulta);
+    
+}catch(Exception $e) {
+   $datos = date('H:i:s');
+   $hora=explode(":", $datos);
+   $datos2 = date('d/m/Y');
+
+   $fecha=explode("/", $datos2);
+   
+    $path = "MonedaXLSXSelectMoneda-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    header("Location: ../../Consultas/Consultamoneda.php");
+}
 while($row=$resultado->fetch_assoc()){
    echo "<tr>
     <td colspan=3>$row[Id_Moneda]</td>

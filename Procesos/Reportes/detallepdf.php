@@ -1,12 +1,30 @@
 <?php
-
-session_start();
-require('fpdf.php');
 require "../../conexion.php";
+session_start();
+if (!isset($_SESSION['idUser'])) {
+    echo "No está autorizado para ver esto";
+    header('location: index.php'); 
+    die();
+}
+require('fpdf.php');
 
+date_default_timezone_set('America/Mexico_City');
 
 $user=$_SESSION['idUser'];
-$queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
+try {
+    $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
+}catch(Exception $e) {
+   $datos = date('H:i:s');
+   $hora=explode(":", $datos);
+   $datos2 = date('d/m/Y');
+
+   $fecha=explode("/", $datos2);
+   
+    $path = "DetallePdfSelectUser-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    header("Location: ../../Consultas/Consultadetalles.php");
+}
+
     
     $rangini = array();
   
@@ -95,9 +113,23 @@ function Footer()
 }
 }
 
+try {
+    $consulta="SELECT * from detallefactura";
+    $resultado=$conn->query($consulta);
+ }catch(Exception $e) {
+   $datos = date('H:i:s');
+   $hora=explode(":", $datos);
+   $datos2 = date('d/m/Y');
 
-$consulta="SELECT * from detallefactura";
-$resultado=$conn->query($consulta);
+   $fecha=explode("/", $datos2);
+   
+    $path = "DetallePdfSelectDetalle-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    header("Location: ../../Consultas/Consultadetalles.php");
+}
+
+
+
 
 
 $pdf = new PDF();
