@@ -1,5 +1,6 @@
 <?php
 include("../../conexion.php");
+date_default_timezone_set('America/Mexico_City');
 
     $id=$_GET['id'];
 
@@ -51,7 +52,9 @@ $pruebafecha=$date[0];
       
         $path = "temp/logEliminarDetalleFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+        header("Location: ../../Consultas/Consultadetalles.php");
      }
+
     if($resultado)
     {
         echo  "<script>

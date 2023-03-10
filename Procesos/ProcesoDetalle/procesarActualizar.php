@@ -5,6 +5,7 @@ function redondear_dos_decimal($valor) {
 	return $float_redondeado;
 	}
     include ("../../conexion.php");
+    date_default_timezone_set('America/Mexico_City');
 
     $estado= filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
     $boletoanterior=$_POST['boletoanterior'];
@@ -156,6 +157,7 @@ if($estado!=$boletoanterior){
       
         $path = "temp/logActualizarDetalleFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
+        header("Location: ../../Consultas/Consultadetalles.php");
      }
     
 

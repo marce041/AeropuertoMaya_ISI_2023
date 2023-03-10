@@ -8,6 +8,7 @@ if (!isset($_SESSION['idUser'])) {
 }
 require('fpdf.php');
 require "../../conexion.php";
+date_default_timezone_set('America/Mexico_City');
 
 
 $user=$_SESSION['idUser'];

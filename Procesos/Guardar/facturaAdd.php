@@ -5,6 +5,7 @@ function redondear_dos_decimal($valor) {
 	return $float_redondeado;
 	}
     include ("../../conexion.php");
+    date_default_timezone_set('America/Mexico_City');
 
     $monto=$_POST['montof2'];
     $codigo=$_POST['cod'];
@@ -107,8 +108,10 @@ try {
 
   $fecha=explode("/", $datos2);
   
-   $path = "InsertarFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
+   $path = "InsertarFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+   header("Location: ../../Consultas/Consultafactura.php");
+   
 }
 
 try {
@@ -120,8 +123,9 @@ try {
 
   $fecha=explode("/", $datos2);
   
-   $path = "ParametroFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
+   $path = "ParametroFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+   header("Location: ../../Consultas/Consultafactura.php");
 }
 
 try {
@@ -133,8 +137,9 @@ try {
 
   $fecha=explode("/", $datos2);
   
-   $path = "DetalleFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
+   $path = "DetalleFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+   header("Location: ../../Consultas/Consultafactura.php");
 }
         /*
 

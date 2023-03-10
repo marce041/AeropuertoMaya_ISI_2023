@@ -8,6 +8,7 @@ function redondear_dos_decimal($valor) {
 	}
     
     include ("../../conexion.php");
+    date_default_timezone_set('America/Mexico_City');
 
     $codigo=$_POST['codigo'];
     $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
@@ -101,8 +102,9 @@ if(($codigo!=$pruebacodg) || ($estado2!=$pruebaidpas) || ($estado3!=$pruebaidvue
     
        $fecha=explode("/", $datos2);
        
-        $path = "GuardarBoleto-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
+        $path = "GuardarBoleto-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
         error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+        header("Location: ../../Consultas/Consultaboletos.php");
     }
     
 

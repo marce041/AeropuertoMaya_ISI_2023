@@ -3,6 +3,7 @@
 require "../../conexion.php";
 
 require '../../vendor/autoload.php';
+date_default_timezone_set('America/Mexico_City');
 
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header('Content-Disposition: attachment;filename="pase.xlsx"');
@@ -21,8 +22,20 @@ $hojaActiva->setTitle("Pase de abordar");
 session_start();
 
 $user=$_SESSION['idUser'];
-$queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
-    
+try {
+    $queryparametro=mysqli_query($conn, "SELECT Usuario FROM usuario WHERE `idUser`=$user;");
+}catch(Exception $e) {
+   $datos = date('H:i:s');
+   $hora=explode(":", $datos);
+   $datos2 = date('d/m/Y');
+
+   $fecha=explode("/", $datos2);
+   
+    $path = "PaseXLSXSelectUser-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    header("Location: ../../Consultas/Consultapaseabordar.php");
+}
+
     $rangini = array();
 while($datos = mysqli_fetch_array($queryparametro)) {
         array_push($rangini, $datos['Usuario']);
@@ -80,8 +93,21 @@ $spreadsheet->getDefaultStyle()->getFont()->setBold(false);
 $hojaActiva->getStyle('A3:F100')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
 
-$consulta="SELECT * from paseabordar";
-$resultado=$conn->query($consulta);
+try {
+    $consulta="SELECT * from 	pase";
+    $resultado=$conn->query($consulta);
+}catch(Exception $e) {
+   $datos = date('H:i:s');
+   $hora=explode(":", $datos);
+   $datos2 = date('d/m/Y');
+
+   $fecha=explode("/", $datos2);
+   
+    $path = "PaseXLSXSelectPase-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+    header("Location: ../../Consultas/Consultapaseabordar.php");
+}
+
 
 $fila= 3;
 
