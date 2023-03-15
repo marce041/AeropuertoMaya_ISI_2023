@@ -18,6 +18,7 @@
                             <th scope='col'>Id_Usuario</th>
                             <th scope='col'>Nombre Usuario</th>
                             <th scope='col'>Contraseña Encriptada</th>
+                            <th scope='col'>Categoria</th>
                             <th scope='col'>Estado</th>
                             <th scope='col'>Acciones</th>
                             <th scope='col'>Habilitar<br>Deshabilitar</th>
@@ -37,6 +38,7 @@
                             <th scope='row'>$data[idUser]</th>
                             <td>$data[Usuario]</td>
                             <td>$data[Pass]</td>
+                            <td>$data[Categoria]</td>
                             <td>$data[Estado]</td>
 
                             <!--BOTON EDITAR-->

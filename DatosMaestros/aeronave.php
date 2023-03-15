@@ -25,7 +25,7 @@ $queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser
     
     if($rangoinicial != 'admin'){
         echo  "<script>
-        alert('No tiene permisos para acceder a esta ventana.');
+        alert('El usuario no tiene permisos para acceder a esta ventana.');
         window.location = '../principaladmin.php';
         </script>";
        
