@@ -5,9 +5,34 @@
     // $buscar="SELECT `IDProveedor`, `RTN` FROM proveedores;";
     // $resultado=mysqli_query($conn, $buscar);
     session_start();
+
     if (!isset($_SESSION['idUser'])) {
         header('location: ../index.php');
     }
+
+    $user=$_SESSION['idUser'];
+
+
+$queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser`=$user;");
+    
+    $rangini = array();
+  
+    while($datos = mysqli_fetch_array($queryparametro)) {
+        array_push($rangini, $datos['Categoria']);
+    }
+
+    $rangoinicial=$rangini[0];
+    
+    if($rangoinicial != 'admin'){
+        echo  "<script>
+        alert('No tiene permisos para acceder a esta ventana.');
+        window.location = '../principaladmin.php';
+        </script>";
+       
+    }
+
+
+
 
     if(isset($_POST['estado'])) {
         $estado=$_POST['estado'];

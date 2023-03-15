@@ -3,13 +3,13 @@
 
     $id=$_GET['id'];
 
-    $sql2 = "SELECT Estado FROM usuario
-    WHERE idUser = '$id' AND Estado = '0'";
+    $sql2 = "SELECT Categoria FROM usuario
+    WHERE idUser = '$id' AND Categoria = 'user'";
     $resultado2 = $conn->query($sql2);
     $rows2 = $resultado2->num_rows;
 	if($rows2 > 0){
       
-        $actualizar="UPDATE usuario SET Estado='1' WHERE idUser='$id'";
+        $actualizar="UPDATE usuario SET Categoria='admin' WHERE idUser='$id'";
 
         try {
             $resultado=mysqli_query($conn,$actualizar);
@@ -27,14 +27,14 @@
         if($resultado)
         {
             echo  "<script>
-            alert('Se ha habilitado este usuario');
+            alert('Se ha ascendido este usuario');
             window.location = '../../Seguridad/Consultausuarios.php';
             </script>";
         }
         else
         {
             echo  "<script>
-            alert('Se ha deshabilitado este usuario');
+            alert('No se ha podido ascender este usuario');
             window.location = 'actualizarUsuario.php';
             </script>";
         }  
@@ -42,21 +42,21 @@
 
     }else{
 
-        $actualizar="UPDATE usuario SET Estado='0' WHERE idUser='$id'";
+        $actualizar="UPDATE usuario SET Categoria='user' WHERE idUser='$id'";
 
         $resultado=mysqli_query($conn,$actualizar);
     
         if($resultado)
         {
             echo  "<script>
-            alert('Se ha deshabilitado este usuario');
+            alert('Se ha descendido este usuario');
             window.location = '../../Seguridad/Consultausuarios.php';
             </script>";
         }
         else
         {
             echo  "<script>
-            alert('Se ha habilitado este usuario');
+            alert('Se ha deshabilitado este usuario');
             window.location = 'actualizarUsuario.php';
             </script>";
         }

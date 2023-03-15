@@ -16,6 +16,8 @@
 
 </head>
 <?php
+
+require "../conexion.php";
 session_start();
 if (!isset($_SESSION['idUser'])) {
     echo "No está autorizado para ver esto";
@@ -23,8 +25,26 @@ if (!isset($_SESSION['idUser'])) {
     die();
 }
         
+
+$user=$_SESSION['idUser'];
+
+
+$queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser`=$user;");
+
+$rangini = array();
+
+while($datos = mysqli_fetch_array($queryparametro)) {
+    array_push($rangini, $datos['Categoria']);
+}
+
+$rangoinicial=$rangini[0];
+
         try {
-            require("../Procesos/ProcesoAeronave/TablaNave.php"); 
+            if($rangoinicial !='admin'){
+            require("../Procesos/ProcesoAeronave/TablaNaveLector.php"); 
+            }else{
+                require("../Procesos/ProcesoAeronave/TablaNave.php");   
+            }
          }catch(Exception $e) {
         
             $path = "logConsultaAeronave.txt";

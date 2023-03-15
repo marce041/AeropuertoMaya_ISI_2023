@@ -16,7 +16,48 @@
 
 </head>
 <?php
-        require("../Procesos/ProcesoUsuario/TablaUsuario.php"); 
+     require "../conexion.php";
+     session_start();
+     if (!isset($_SESSION['idUser'])) {
+         echo "No está autorizado para ver esto";
+         header('location: ../index.php'); 
+         die();
+     }
+             
+     
+     $user=$_SESSION['idUser'];
+     
+
+     $queryestado=mysqli_query($conn, "SELECT Estado FROM usuario WHERE `idUser`=$user;");
+     
+     $estado = array();
+     
+     while($datos = mysqli_fetch_array($queryestado)) {
+         array_push($estado, $datos['Estado']);
+     }
+     
+     $habilitadono=$estado[0];
+
+     if($habilitadono !=1){
+        header('location: ../cerrarsesion.php'); 
+     }
+
+     
+     $queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser`=$user;");
+     
+     $rangini = array();
+     
+     while($datos = mysqli_fetch_array($queryparametro)) {
+         array_push($rangini, $datos['Categoria']);
+     }
+     
+     $rangoinicial=$rangini[0];
+     
+                 if($rangoinicial !='admin'){
+                 require("../Procesos/ProcesoUsuario/TablaUsuarioLector.php"); 
+                 }else{
+                     require("../Procesos/ProcesoUsuario/TablaUsuario.php");   
+                 } 
     ?>
 <body id="page-top">
     <div id="wrapper">

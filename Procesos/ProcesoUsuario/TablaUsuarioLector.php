@@ -18,10 +18,8 @@
                             <th scope='col'>Id_Usuario</th>
                             <th scope='col'>Nombre Usuario</th>
                             <th scope='col'>Contraseña Encriptada</th>
+                            <th scope='col'>Categoria</th>
                             <th scope='col'>Estado</th>
-                            <th scope='col'>Acciones</th>
-                            <th scope='col'>Habilitar<br>Deshabilitar</th>
-                            <th scope='col'>Ascender<br>Descender</th>
                         </tr>
                     </thead>
                 <tbody class='text-center'>
@@ -37,24 +35,9 @@
                             <th scope='row'>$data[idUser]</th>
                             <td>$data[Usuario]</td>
                             <td>$data[Pass]</td>
+                            <td>$data[Categoria]</td>
                             <td>$data[Estado]</td>
 
-                            <!--BOTON EDITAR-->
-
-                            <td class='text-center'> 
-                            <!--BOTON EDITAR-->
-                            <a class='btn btn-info' href='../Procesos/ProcesoUsuario/actualizarUsuario.php?id=$data[idUser]' >
-                            <i class='fas fa-edit'></i>
-                            </a>
-
-                            <!--BOTON ELIMINAR-->
-                            <a href='../Procesos/ProcesoUsuario/eliminarUsuario.php?id=$data[idUser]' name='btneliminar' class='item_tabla btn btn-danger' onclick='return confirm(\"¿Continuar con $data[Usuario]\"); '><i class='fas fa-trash-alt'></i></a> </td>
-                        
-                            <td class='text-center'> <a class='btn btn-info' href='../Procesos/ProcesoUsuario/HabilitarUsuario.php?id=$data[idUser]'>
-                            <i class='fas fa-power-off'></i></td> 
-
-                            <td class='text-center'> <a class='btn btn-info' href='../Procesos/ProcesoUsuario/AscenderUsuario.php?id=$data[idUser]'>
-                            <i class='fas fa-arrows-alt-v'></i></td> 
                             </form>
                         
                         </tr>
