@@ -103,6 +103,7 @@ $queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser
                         <a class="collapse-item" href="equipaje.php">Equipaje</a>
                         <a class="collapse-item" href="detallefactura.php">Detalles</a>
                         <a class="collapse-item" href="parametros.php">Parámetros</a>
+                        <a class="collapse-item" href="rol.php">Rol</a>
                     </div>
                 </div>
             </li>

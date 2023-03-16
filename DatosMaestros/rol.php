@@ -1,28 +1,35 @@
 <?php
     include ("../conexion.php");
-    $query=mysqli_query($conn, "SELECT Id_Reserva, Codigo, Pasajero FROM reserva WHERE Estado='1'" );
-    $query2=mysqli_query($conn, "SELECT Id_Pasajero, Nombre FROM pasajero");
 
     // $buscar="SELECT `IDProveedor`, `RTN` FROM proveedores;";
     // $resultado=mysqli_query($conn, $buscar);
-    
-    if(isset($_POST['estado'])) {
-        $estado=$_POST['estado'];
-        echo $estado;
-    }
-    if(isset($_POST['estado2'])) {
-        $estado2=$_POST['estado2'];
-        echo $estado2;
-    }
     session_start();
+
     if (!isset($_SESSION['idUser'])) {
         header('location: ../index.php');
     }
 
-    if(isset($_POST['estado'])) {
-        $estado=$_POST['estado'];
-        echo $estado;
+    $user=$_SESSION['idUser'];
+
+
+$queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser`=$user;");
+    
+    $rangini = array();
+  
+    while($datos = mysqli_fetch_array($queryparametro)) {
+        array_push($rangini, $datos['Categoria']);
     }
+
+    $rangoinicial=$rangini[0];
+    
+    if($rangoinicial != 'admin'){
+        echo  "<script>
+        alert('El usuario no tiene permisos para acceder a esta ventana.');
+        window.location = '../principaladmin.php';
+        </script>";
+       
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +40,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Ciudad</title>
+    <title>Rol</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -69,7 +76,7 @@
                 </a>
                 <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="tripulacion.php">Tripulación</a>
+                        <a class="collapse-item" href="tripulacion.php">Tripulación</a>
                         <a class="collapse-item" href="personaltierra.php">Personal de tierra</a>
                         <a class="collapse-item" href="aeronave.php">Aeronave</a>
                         <a class="collapse-item" href="aeropuerto.php">Aeropuerto</a>
@@ -103,7 +110,7 @@
                 <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                    <a class="collapse-item" href="../Consultas/Consultaaeropuertos.php">Aeropuertos</a>
+                        <a class="collapse-item" href="../Consultas/Consultaaeropuertos.php">Aeropuertos</a>
                         <a class="collapse-item" href="../Consultas/Consultaseronaves.php">Aeronaves</a>
                         <a class="collapse-item" href="../Consultas/Consultapaises.php">Paises</a>
                         <a class="collapse-item" href="../Consultas/Consultaboletos.php">Boleto</a>
@@ -122,6 +129,9 @@
                         <a class="collapse-item" href="../Consultas/Consultafactura.php">Equipaje</a>
                         <a class="collapse-item" href="../Consultas/Consultadetalles.php">Detalles</a>
                         <a class="collapse-item" href="../Consultas/Consultaparametro.php">Parámetros</a>
+                        <a class="collapse-item" href="../Consultas/Consultarol.php">Rol</a>
+                        
+                       
                     </div>
                 </div>
             </li>
@@ -145,19 +155,18 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-                <h2>Check-In</h2>
+                <h2>Rol</h2>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/Icono/Usuario.png"></img>
+                                    src="img/Icono/Usuario.png">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="perfil.php">
-                                
+                
                                 <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Salir
@@ -172,56 +181,21 @@
                     <!-- Tajeta y Contenido -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Insertar Datos
+                            <h6 class="m-0 font-weight-bold text-primary">Insertar datos
                             </h6>
                         </div>
                         <div class="card-body">
-                            <form class="row g-3 needs-validation" action="../Procesos/Guardar/checkinAdd.php" method="POST" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                    <label for="rol">Codigo de Reserva</label>
-                                    <select class="form-select" name="estado" id="estado" onchange="setdatos();">
-                                    <option option value="opcion">--- Escoja una opcion ---</option>
-                                    <?php 
-                                        while($datos = mysqli_fetch_array($query))
-                                        {
-                                    ?>
-                                            <option value="<?php echo $datos['Id_Reserva']?>" data-voo="<?php echo $datos['Pasajero']?>"><?php echo $datos['Codigo']?> </option>
-                                    <?php
-                                        }
-                                    ?> 
-                                    </select>
-                                </div>
-                                <script>
-
-function setdatos(){
-    var sel = document.getElementById('estado');
-    var nombre = document.getElementById('voo');
-    sel.onchange = function() {
-                                                                            
-    var selected = sel.options[sel.selectedIndex];
-                                     
-    var cadenainicio = selected.getAttribute('data-voo');
-                                            
-    $("#pasajero").prop('value',cadenainicio);
-  
-
-    }
-}
-</script>
+                            <form class="row g-3 needs-validation" action="../Procesos/Guardar/rolAdd.php"  method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                  <input class="form-control" id="pasajero" name="pasajero" type="text" placeholder="Pasajero" onkeypress="return event.charCode===0128" required>
-                            </div>
-                            <div class="mb-3">
-                            <label for="rol">Fecha de Emisión</label>
-                                  <input class="form-control" name="fecha" id="fecha" type="text" onclick="setfecha();" placeholder="Fecha de vuelo" onkeypress="return event.charCode>=0128" maxlength="20" required>
+                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre" onkeypress="event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" pattern="[A-Za-z]"required>
                                 </div>
-                                <script>
-                                    function setfecha(){
-                                        var today = new Date();
-                                        var now = today.toLocaleString();
-                                        document.getElementById('fecha').value=now;
-                                    }
-                                </script>                              
+                                <div class="mb-3">
+                                  <input class="form-control" name="descripcion" type="text" placeholder="Descripcion" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.keyCode" minlength="4" maxlength="100" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
+                                </div>
+                                <div class="mb-3">
+                                  <input class="form-control" name="activo"  type="int" placeholder="1 ó 0" onkeypress="return event.charCode>=48 && event.charCode<=57"   required pattern="[0]|[1]" title="Tiene que ser 0 ó 1" minlength="1" maxlength="1">
+                                </div>
+                                
                               <div class="col-md-12  mt-5 text-center">
                                    <button class="btn btn-primary" name="btnnombre" type="submit">Guardar</button>
                               </div>
@@ -236,7 +210,7 @@ function setdatos(){
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Aerolinea Maya 2022</span>
+                        <span>Copyright &copy; Emirates Airlanes 2022</span>
                     </div>
                 </div>
             </footer>
