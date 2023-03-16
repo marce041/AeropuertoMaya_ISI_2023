@@ -128,8 +128,23 @@
                                          include "../../conexion.php";
                                          $query2=mysqli_query($conn, "SELECT Id_Pais, Nombre FROM pais");
                                             $Id=$_GET['id'];
-                                            $query = mysqli_query($conn,"SELECT * FROM ciudad WHERE Id_Ciudad='$Id'")
-                                            or die ('error: '.mysqli_error($conn));
+                                            
+                                            date_default_timezone_set('America/Mexico_City');
+                                            try {
+                                                $query = mysqli_query($conn,"SELECT * FROM ciudad WHERE Id_Ciudad='$Id'")
+                                            ;}catch(Exception $e) {
+                                                $datos = date('H:i:s');
+                                                $hora=explode(":", $datos);
+                                                $datos2 = date('d/m/Y');
+                                             
+                                                $fecha=explode("/", $datos2);
+                                                
+                                                 $path = "ActualizarPase-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+                                                 error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+                                                 echo  "<script>
+                                                    window.location = '../../Consultas/Consultaciudades.php';
+                                                    </script>";
+                                             }
                                 
                                             echo 
                                             "

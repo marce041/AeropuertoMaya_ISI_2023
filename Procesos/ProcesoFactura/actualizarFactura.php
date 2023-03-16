@@ -129,8 +129,23 @@
                                             $query3=mysqli_query($conn, "SELECT Id_Detalle, Descripcion FROM detallefactura");
                                             $query4=mysqli_query($conn, "SELECT Id_Moneda, Nombre FROM moneda");
                                             $Id=$_GET['id'];
-                                            $query = mysqli_query($conn,"SELECT * FROM factura WHERE Id_Factura='$Id'")
-                                            or die ('error: '.mysqli_error($conn));
+                                            
+                                            date_default_timezone_set('America/Mexico_City');
+                                            try {
+                                                $query = mysqli_query($conn,"SELECT * FROM factura WHERE Id_Factura='$Id'")
+                                            ;}catch(Exception $e) {
+                                                $datos = date('H:i:s');
+                                                $hora=explode(":", $datos);
+                                                $datos2 = date('d/m/Y');
+                                             
+                                                $fecha=explode("/", $datos2);
+                                                
+                                                 $path = "ActualizarFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+                                                 error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+                                                 echo  "<script>
+                                                    window.location = '../../Consultas/Consultafactura.php';
+                                                    </script>";
+                                             }
                                 
                                             echo 
                                             "
