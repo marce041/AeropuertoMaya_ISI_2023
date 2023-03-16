@@ -101,6 +101,7 @@ if (!isset($_SESSION['idUser'])) {
                         <a class="collapse-item" href="DatosMaestros/equipaje.php">Equipaje</a>
                         <a class="collapse-item" href="DatosMaestros/detallefactura.php">Detalles</a>
                         <a class="collapse-item" href="DatosMaestros/parametros.php">Parametro</a>
+                        <a class="collapse-item" href="DatosMaestros/rol.php">Rol</a>
                     </div>
                 </div>
             </li>

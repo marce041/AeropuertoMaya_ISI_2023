@@ -187,13 +187,10 @@ $queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser
                         <div class="card-body">
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/rolAdd.php"  method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre" onkeypress="event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" pattern="[A-Za-z]"required>
+                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre" onkeypress="event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" pattern="[a-zA-Z]+"required>
                                 </div>
                                 <div class="mb-3">
                                   <input class="form-control" name="descripcion" type="text" placeholder="Descripcion" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.keyCode" minlength="4" maxlength="100" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
-                                </div>
-                                <div class="mb-3">
-                                  <input class="form-control" name="activo"  type="int" placeholder="1 ó 0" onkeypress="return event.charCode>=48 && event.charCode<=57"   required pattern="[0]|[1]" title="Tiene que ser 0 ó 1" minlength="1" maxlength="1">
                                 </div>
                                 
                               <div class="col-md-12  mt-5 text-center">

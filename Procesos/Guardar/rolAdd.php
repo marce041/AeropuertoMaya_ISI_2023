@@ -4,11 +4,10 @@
 
     $nombre=$_POST['nombre'];
     $descripcion=$_POST['descripcion'];
-    $activo=$_POST['activo'];
 
 
     $insertar="INSERT INTO `rol` (`Id_Rol`, `Nombre`, `Descripcion`, `Activo`) 
-    VALUES (NULL, '$nombre', '$descripcion', '$activo');";
+    VALUES (NULL, '$nombre', '$descripcion', '1');";
 
   
 
