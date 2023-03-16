@@ -132,8 +132,8 @@
                                             
                                             date_default_timezone_set('America/Mexico_City');
                                             try {
-                                                $query = mysqli_query($conn,"SELECT * FROM checkin WHERE Id_Checkin='$Id'")
-                                              }catch(Exception $e) {
+                                                $query = mysqli_query($conn,"SELECT * FROM checkin WHERE Id_Checkin='$Id'");}
+                                              catch(Exception $e) {
                                                 $datos = date('H:i:s');
                                                 $hora=explode(":", $datos);
                                                 $datos2 = date('d/m/Y');
