@@ -30,6 +30,17 @@ $queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser
        
     }
 
+    $query2=mysqli_query($conn, "SELECT Id_Rol FROM rol");
+    if(isset($_POST['estado'])) {
+        $estado=$_POST['estado'];
+        echo $estado;
+    }
+    $query3=mysqli_query($conn, "SELECT Id_PantallaAccion FROM pantallaacciones");
+    if(isset($_POST['estado2'])) {
+        $estado2=$_POST['estado2'];
+        echo $estado2;
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +51,7 @@ $queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Acciones</title>
+    <title>Roles_Pantallas_Acciones</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -97,6 +108,8 @@ $queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser
                         <a class="collapse-item" href="parametros.php">Parámetros</a>
                         <a class="collapse-item" href="rol.php">Rol</a>
                         <a class="collapse-item" href="acciones.php">Acciones</a>
+                        <a class="collapse-item" href="pantallaacciones.php">Pantalla Acciones</a>
+                        <a class="collapse-item" href="rolespantallasacciones.php">Roles Pantallas Acciones</a>
                     </div>
                 </div>
             </li>
@@ -132,6 +145,8 @@ $queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser
                         <a class="collapse-item" href="../Consultas/Consultaparametro.php">Parámetros</a>
                         <a class="collapse-item" href="../Consultas/Consultarol.php">Rol</a>
                         <a class="collapse-item" href="../Consultas/Consultaacciones.php">Acciones</a>
+                        <a class="collapse-item" href="../Consultas/Consultapantallaacciones.php">Pantalla Acciones</a>
+                        <a class="collapse-item" href="../Consultas/Consultarolespantallasacciones.php">Roles Pantallas Acciones</a>
                         
                        
                     </div>
@@ -157,7 +172,7 @@ $queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-                <h2>Acciones</h2>
+                <h2>Roles Pantallas Acciones</h2>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -187,12 +202,32 @@ $queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser
                             </h6>
                         </div>
                         <div class="card-body">
-                            <form class="row g-3 needs-validation" action="../Procesos/Guardar/accionesAdd.php"  method="POST" enctype="multipart/form-data">
+                            <form class="row g-3 needs-validation" action="../Procesos/Guardar/rolespantallasaccionesAdd.php"  method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre" onkeypress="event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" pattern="[a-zA-Z]+"required>
+                                    <label for="rolespantallasacciones">Id de Rol</label>
+                                    <select class="form-select" name="estado" id="rol">
+                                    <?php 
+                                        while($datos = mysqli_fetch_array($query2))
+                                        {
+                                    ?>
+                                            <option value="<?php echo $datos['Id_Rol']?>"><?php echo $datos['Id_Rol']?></option>
+                                    <?php
+                                        }
+                                    ?> 
+                                    </select>
                                 </div>
                                 <div class="mb-3">
-                                  <input class="form-control" name="descripcion" type="text" placeholder="Descripcion" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.keyCode" minlength="4" maxlength="100" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>
+                                    <label for="rolespantallasacciones">Id de Pantalla Acciones</label>
+                                    <select class="form-select" name="estado2" id="pantallaaccciones">
+                                    <?php 
+                                        while($datos = mysqli_fetch_array($query3))
+                                        {
+                                    ?>
+                                            <option value="<?php echo $datos['Id_PantallaAccion']?>"><?php echo $datos['Id_PantallaAccion']?></option>
+                                    <?php
+                                        }
+                                    ?> 
+                                    </select>
                                 </div>
                                 
                               <div class="col-md-12  mt-5 text-center">

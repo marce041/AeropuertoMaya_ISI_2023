@@ -103,6 +103,9 @@ if (!isset($_SESSION['idUser'])) {
                         <a class="collapse-item" href="DatosMaestros/parametros.php">Parametro</a>
                         <a class="collapse-item" href="DatosMaestros/rol.php">Rol</a>
                         <a class="collapse-item" href="DatosMaestros/acciones.php">Acciones</a>
+                        <a class="collapse-item" href="DatosMaestros/pantallas.php">Pantallas</a>
+                        <a class="collapse-item" href="DatosMaestros/pantallaacciones.php">Pantalla Acciones</a>
+                        <a class="collapse-item" href="DatosMaestros/rolespantallasacciones.php">Roles Pantallas Acciones</a>
                     </div>
                 </div>
             </li>
@@ -139,6 +142,9 @@ if (!isset($_SESSION['idUser'])) {
                         <a class="collapse-item" href="Consultas/Consultaparametro.php">Parametro</a>
                         <a class="collapse-item" href="Consultas/Consultarol.php">Rol</a>
                         <a class="collapse-item" href="Consultas/Consultaacciones.php">Acciones</a>
+                        <a class="collapse-item" href="Consultas/Consultapantallas.php">Pantallas</a>
+                        <a class="collapse-item" href="Consultas/Consultapantallaacciones.php">Pantalla Acciones</a>
+                        <a class="collapse-item" href="Consultas/Consultarolespantallasacciones.php">Roles Pantallas Acciones</a>
                        
                     </div>
                 </div>

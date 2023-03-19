@@ -4,7 +4,7 @@
     date_default_timezone_set('America/Mexico_City');
     
     $nombre=$_POST['nombre'];
-    $estad = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
+    $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
 
     $insertar="INSERT INTO `pais` (`Id_Pai`, `Nombre`, `Region`) 
     VALUES (NULL, '$nombre', '$estado');";

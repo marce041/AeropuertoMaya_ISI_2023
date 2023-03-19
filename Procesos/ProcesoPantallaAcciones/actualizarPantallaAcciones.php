@@ -4,6 +4,11 @@
         $estado=$_POST['estado'];
         echo $estado;
     }
+
+    if(isset($_POST['estado2'])) {
+        $estado2=$_POST['estado2'];
+        echo $estado2;
+    }
     
 ?>
 <!DOCTYPE html>
@@ -14,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Actualizar Roles</title>
+    <title>Actualizar Pantallas Acciones</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -61,6 +66,7 @@
                         <a class="collapse-item" href="../../DatosMaestros/paseabordar.php">Pase de abordar</a>
                         <a class="collapse-item" href="../../DatosMaestros/vuelo.php">Vuelo</a>
                         <a class="collapse-item" href="../../DatosMaestros/rol.php">Rol</a>
+                        <a class="collapse-item" href="../../DatosMaestros/pantallaacciones .php">Pantallas Acciones</a>
                     </div>
                 </div>
             </li>
@@ -79,6 +85,7 @@
                         <a class="collapse-item" href="../../Consultaseronaves.php">Aeronaves</a>
                         <a class="collapse-item" href="../../Consultapaises.php">Paises</a>
                         <a class="collapse-item" href="../../Consultarol.php">Rol</a>
+                        <a class="collapse-item" href="../../Consultapantallaacciones.php">Pantallas Acciones</a>
                        
                     </div>
                 </div>
@@ -102,7 +109,7 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-                <h2>Rol</h2>
+                <h2>Pantallas Acciones</h2>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -128,7 +135,7 @@
                     <h1 class="h3 mb-2 text-gray-800">Tablas</h1>
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary text-center">TABLA EDICION DE ROLES</h6>
+                            <h6 class="m-0 font-weight-bold text-primary text-center">TABLA EDICION DE PANTALLAS ACCIONES</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -140,7 +147,7 @@
                                             
                                             date_default_timezone_set('America/Mexico_City');
                                             try {
-                                                $query = mysqli_query($conn,"SELECT * FROM rol WHERE Id_Rol='$Id'")
+                                                $query = mysqli_query($conn,"SELECT * FROM pantallaacciones WHERE Id_PantallaAccion='$Id'")
                                             ;}catch(Exception $e) {
                                                 $datos = date('H:i:s');
                                                 $hora=explode(":", $datos);
@@ -148,21 +155,22 @@
                                              
                                                 $fecha=explode("/", $datos2);
                                                 
-                                                 $path = "ActualizarRol-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+                                                 $path = "ActualizarPantallaAcciones-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
                                                  error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
                                                  echo  "<script>
-                                                    window.location = '../../Consultas/Consultarol.php';
+                                                    window.location = '../../Consultas/Consultapantallaacciones.php';
                                                     </script>";
                                              }
-                                
+                                             $query2=mysqli_query($conn, "SELECT Id_Pantalla FROM pantallas");
+                                             $query3=mysqli_query($conn, "SELECT Id_Acciones FROM acciones");
                                             echo 
                                             "
                                             <table class='table table-hover'>
                                             <thead>
                                             <tr>
-                                            <th scope='col'>Id de Rol</th>
-                                            <th scope='col'>Nombre</th>
-                                            <th scope='col'>Descripcion</th>
+                                            <th scope='col'>Id de Pantalla Accion</th>
+                                            <th scope='col'>Id de Pantalla</th>
+                                            <th scope='col'>Id de Acciones</th>
                                             <th scope='col'>Activo</th>
                                             <th scope='col'>Acciones</th>
                                         </tr>
@@ -178,9 +186,21 @@
                                 
                                                         <form action='procesarActualizar.php' method='POST'>
                                                             
-                                                            <td><input type='text' value='$data[Id_Rol]'name='id' readonly></td>
-                                                            <td><input type='text'  value='$data[Nombre]' name='nombre' onkeypress='return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.keyCode' minlength='4' maxlength='50' pattern='^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$' required></td>
-                                                            <td><input type='text'  value='$data[Descripcion]' name='descripcion' onkeypress='return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.keyCode' minlength='4' maxlength='100' pattern='^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$' required></td>
+                                                            <td><input type='text' value='$data[Id_PantallaAccion]'name='id' readonly></td>
+                                                            <td><select value='$data[Id_Pantalla]' name='estado' required>";
+                                                            while ($data = mysqli_fetch_assoc($query2))
+                                                            {echo"
+                                                                <option value='$data[Id_Pantalla]'>$data[Id_Pantalla]</option>
+                                                            ";
+                                                            }echo"
+                                                            </select></td>
+                                                            <td><select value='$data[Id_Acciones]' name='estado2' required>";
+                                                            while ($data = mysqli_fetch_assoc($query3))
+                                                            {echo"
+                                                                <option value='$data[Id_Acciones]'>$data[Id_Acciones]</option>
+                                                            ";
+                                                            }echo"
+                                                            </select></td>
                                                             <td><input type='text'  value='$data[Activo]' name='activo' onkeypress='return event.charCode>=48 && event.charCode<=57' minlength='1' maxlength='1' pattern='[0]|[1]' required></td>
                                                             <td> <button class='btn btn-success' type='submit' ><i class='fas fa-save'></i></button>
                                                            
