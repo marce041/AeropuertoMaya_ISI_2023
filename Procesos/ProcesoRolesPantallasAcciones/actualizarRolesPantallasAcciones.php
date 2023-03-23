@@ -33,12 +33,12 @@
     <div id="wrapper">
         <!--Empieza Lista -->
         <ul class="navbar-nav color sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../principaladmin.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../principaladmin.php">
                 <div class="sidebar-brand-text mx-3">Administracion</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-                <a class="nav-link" href="../principaladmin.php">
+                <a class="nav-link" href="../../principaladmin.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Inicio</span>
                 </a>

@@ -144,7 +144,7 @@
                                                     window.location = '../../Seguridad/Consultausuarios.php';
                                                     </script>";
                                              }
-                                
+                                             $query2=mysqli_query($conn, "SELECT Id_Rol, Nombre FROM rol");
                                             echo 
                                             "
                                             <table class='table table-hover'>
@@ -153,6 +153,7 @@
                                             <th scope='col'>Id_Usuario</th>
                                             <th scope='col'>Nombre Usuario</th>
                                             <th scope='col'>Contraseña Encriptada</th>
+                                            <th scope='col'>Categoria</th>
                                             <th scope='col'>Estado</th>
                                             <th scope='col'>Acciones</th>
                                        
@@ -172,6 +173,12 @@
                                                             <td><input type='hidden' value=' $data[idUser]'name='id' ></td>
                                                             <td><input type='text'  value=' $data[Usuario]'   name='user' ></td>
                                                             <td><input type='text'  value=' $data[Pass]'   name='pass' ></td>
+                                                            <td><select value='$data[Id_Rol]' name='estado' required>";
+                                                            while ($data = mysqli_fetch_assoc($query2))
+                                                            {echo"
+                                                                <option value='$data[Id_Rol]'>$data[Nombre]</option>
+                                                            ";
+                                                            }echo"
                                                             <td><input type='hidden'  value=' $data[Estado]'   name='estado' ></td>
                                                             <td> <button class='btn btn-success' type='submit' ><i class='fas fa-save'></i></button>
                                                            

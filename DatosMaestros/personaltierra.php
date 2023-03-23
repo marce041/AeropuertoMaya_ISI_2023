@@ -4,15 +4,15 @@ session_start();
     if (!isset($_SESSION['idUser'])) {
         header('location: ../index.php');
     }
-    require_once '../Seguridad/Validate_Roles.php';
-    $pantallas_permitidas = ['PersonalTierra'];
+    $user=$_SESSION['idUser'];
 
-    if(!array_key_exists('nombre', $_SESSION) || !in_array($_SESSION['nombre'], $pantallas_permitidas)){
-        echo  "<script>
-        alert('El usuario no tiene permisos para acceder a esta pantalla.');
-        window.location = '../principaladmin.php';
-        </script>";
-    }
+    $queryparametro=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$user;");
+    $rangini = array();
+
+    require_once '../Seguridad/Validate_Roles.php';
+
+    require_once '../Seguridad/Validate_Pantallas.php';
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -30,8 +30,8 @@ $queryparametro=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$
         </script>";
        
     }
-
-
+    require_once '../Seguridad/Validate_Roles.php';
+    require_once '../Seguridad/Validate_Pantallas.php';
 
 
     if(isset($_POST['estado'])) {

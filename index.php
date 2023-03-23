@@ -18,8 +18,9 @@ if(!empty($_POST)){
 		</script>";
 	}else{
 
-$sql = "SELECT idUser, rol.Nombre as rolN, p.Nombre as nombre FROM usuario LEFT JOIN rol ON usuario.Id_Rol = rol.Id_Rol 
-INNER JOIN rolespantallasacciones rp ON rp.Id_Rol = rol.Id_Rol INNER JOIN pantallas p ON rp.Id_Pantalla = p.Id_Pantalla
+$sql = "SELECT idUser, rol.Nombre as rolN, p.Nombre as pantallaN FROM usuario LEFT JOIN rol ON usuario.Id_Rol = rol.Id_Rol 
+INNER JOIN rolespantallasacciones rp ON rp.Id_Rol = rol.Id_Rol 
+INNER JOIN pantallas p ON p.Id_Pantalla = rp.Id_Pantalla
     WHERE Usuario = '$usuario' AND Pass = '$password_encriptada'";
     $resultado = $conn->query($sql);
     $rows = $resultado->num_rows;
@@ -29,11 +30,7 @@ INNER JOIN rolespantallasacciones rp ON rp.Id_Rol = rol.Id_Rol INNER JOIN pantal
         $row = $resultado->fetch_assoc();
         $_SESSION['idUser'] = $row ['idUser'];
 		$_SESSION['rolN'] = $row ['rolN'];
-		$_SESSION['nombre'] = $row ['nombre'];
-		if (!$_SESSION['nombre']){
-			header("Location: principaladmin.php");
-        	$_SESSION['fails'] = 0;
-		}
+		$_SESSION['pantallaN'] = $row ['pantallaN'];
         header("Location: principaladmin.php");
         $_SESSION['fails'] = 0;
     }else{

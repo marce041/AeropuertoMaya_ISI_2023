@@ -3,13 +3,13 @@
 
     $id=$_GET['id'];
 
-    $sql2 = "SELECT Categoria FROM usuario
-    WHERE idUser = '$id' AND Categoria = 'user'";
+    $sql2 = "SELECT Id_Rol FROM usuario
+    WHERE idUser = '$id' AND Id_Rol = 'user'";
     $resultado2 = $conn->query($sql2);
     $rows2 = $resultado2->num_rows;
 	if($rows2 > 0){
       
-        $actualizar="UPDATE usuario SET Categoria='admin' WHERE idUser='$id'";
+        $actualizar="UPDATE usuario SET Id_Rol='1' WHERE idUser='$id'";
 
         try {
             $resultado=mysqli_query($conn,$actualizar);
@@ -42,10 +42,30 @@
 
     }else{
 
-        $actualizar="UPDATE usuario SET Categoria='user' WHERE idUser='$id'";
+        $actualizar="UPDATE usuario SET Id_Rol='2' WHERE idUser='$id'";
 
         $resultado=mysqli_query($conn,$actualizar);
     
+        if($resultado)
+        {
+            echo  "<script>
+            alert('Se ha descendido este usuario');
+            window.location = '../../Seguridad/Consultausuarios.php';
+            </script>";
+        }
+        else
+        {
+            echo  "<script>
+            alert('Se ha deshabilitado este usuario');
+            window.location = 'actualizarUsuario.php';
+            </script>";
+        }
+
+
+        $actualizar="UPDATE usuario SET Id_Rol='3' WHERE idUser='$id'";
+
+        $resultado=mysqli_query($conn,$actualizar);
+
         if($resultado)
         {
             echo  "<script>

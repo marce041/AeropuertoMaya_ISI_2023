@@ -5,9 +5,10 @@
     $user=$_POST['user'];
     $pass=$_POST['pass'];
     $estado=$_POST['estado'];
+    $estado2=$_POST['estado2'];
     $password_encriptada = sha1($pass);
 
-    $actualizar="UPDATE usuario SET Usuario='$user', Pass='$password_encriptada', Estado='$estado' WHERE idUser='$id'";
+    $actualizar="UPDATE usuario SET Usuario='$user', Pass='$password_encriptada' Id_Rol='$estado2', Estado='$estado' WHERE idUser='$id'";
 
     
     try {

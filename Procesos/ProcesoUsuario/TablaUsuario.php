@@ -9,7 +9,7 @@
 
             $query = mysqli_query($conn,"SELECT * FROM usuario")
             or die ('error: '.mysqli_error($conn));
-
+            $query2=mysqli_query($conn, "SELECT Id_Rol, Nombre FROM rol");
             echo 
             "
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
@@ -38,7 +38,7 @@
                             <th scope='row'>$data[idUser]</th>
                             <td>$data[Usuario]</td>
                             <td>$data[Pass]</td>
-                            <td>$data[Categoria]</td>
+                            <td>$data[Id_Rol]</td>             
                             <td>$data[Estado]</td>
 
                             <!--BOTON EDITAR-->

@@ -15,14 +15,7 @@
         header('location: ../index.php');
     }
     require_once '../Seguridad/Validate_Roles.php';
-    $pantallas_permitidas = ['Pasajero'];
-
-    if(!array_key_exists('nombre', $_SESSION) || !in_array($_SESSION['nombre'], $pantallas_permitidas)){
-        echo  "<script>
-        alert('El usuario no tiene permisos para acceder a esta pantalla.');
-        window.location = '../principaladmin.php';
-        </script>";
-    }
+    require_once '../Seguridad/Validate_Pantallas.php';
   
 ?>
 
