@@ -8,7 +8,7 @@
     $activo=$_POST['activo'];
   
 
-    $actualizar="UPDATE rolespantallasaccion SET Id_Rol='$estado', Id_PantallaAccion='$estado2', Activo='$activo' WHERE Id_RolesPA='$id'";
+    $actualizar="UPDATE rolespantallasaccion SET Id_Rol='$estado', Id_Pantalla='$estado2', Activo='$activo' WHERE Id_RolesPA='$id'";
 
     try {
         $resultado=mysqli_query($conn,$actualizar);

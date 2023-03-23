@@ -16,7 +16,7 @@
                         <tr class='text-center'>
                             <th scope='col'>Id de Roles Pantallas Acciones</th>
                             <th scope='col'>Id Roles</th>
-                            <th scope='col'>Id Pantalla Accion</th>
+                            <th scope='col'>Id Pantalla</th>
                             <th scope='col'>Activo</th>
                             <th scope='col'>Acciones</th>
                         </tr>
@@ -33,7 +33,7 @@
                         <form action='formEditRolesPantallasAcciones.php?id=$data[Id_RolesPA]' method='POST' name='form2'>
                             <th scope='row'>$data[Id_RolesPA]</th>
                             <td>$data[Id_Rol]</td>
-                            <td>$data[Id_PantallaAccion]</td>
+                            <td>$data[Id_Pantalla]</td>
                             <td>$data[Activo]</td>
 
                            <!--BOTON EDITAR-->

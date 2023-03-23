@@ -8,13 +8,21 @@
         header('location: ../index.php');
     }
     require_once '../Seguridad/Validate_Roles.php';
+    $pantallas_permitidas = ['RolesPantallasAccion'];
 
-    $query2=mysqli_query($conn, "SELECT Id_Rol FROM rol");
+    if(!array_key_exists('nombre', $_SESSION) || !in_array($_SESSION['nombre'], $pantallas_permitidas)){
+        echo  "<script>
+        alert('El usuario no tiene permisos para acceder a esta pantalla.');
+        window.location = '../principaladmin.php';
+        </script>";
+    }
+
+    $query2=mysqli_query($conn, "SELECT Id_Rol, Nombre FROM rol");
     if(isset($_POST['estado'])) {
         $estado=$_POST['estado'];
         echo $estado;
     }
-    $query3=mysqli_query($conn, "SELECT Id_PantallaAccion FROM pantallaacciones");
+    $query3=mysqli_query($conn, "SELECT Id_Pantalla, Nombre FROM pantallas");
     if(isset($_POST['estado2'])) {
         $estado2=$_POST['estado2'];
         echo $estado2;
@@ -189,20 +197,20 @@
                                         while($datos = mysqli_fetch_array($query2))
                                         {
                                     ?>
-                                            <option value="<?php echo $datos['Id_Rol']?>"><?php echo $datos['Id_Rol']?></option>
+                                            <option value="<?php echo $datos['Id_Rol']?>"><?php echo $datos['Nombre']?></option>
                                     <?php
                                         }
                                     ?> 
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="rolespantallasacciones">Id de Pantalla Acciones</label>
-                                    <select class="form-select" name="estado2" id="pantallaaccciones">
+                                    <label for="rolespantallasacciones">Id de Pantalla</label>
+                                    <select class="form-select" name="estado2" id="pantallas">
                                     <?php 
                                         while($datos = mysqli_fetch_array($query3))
                                         {
                                     ?>
-                                            <option value="<?php echo $datos['Id_PantallaAccion']?>"><?php echo $datos['Id_PantallaAccion']?></option>
+                                            <option value="<?php echo $datos['Id_Pantalla']?>"><?php echo $datos['Nombre']?> </option>
                                     <?php
                                         }
                                     ?> 

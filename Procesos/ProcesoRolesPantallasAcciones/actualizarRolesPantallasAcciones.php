@@ -163,8 +163,8 @@
                                                     window.location = '../../Consultas/Consultarolespantallasacciones.php';
                                                     </script>";
                                              }
-                                             $query2=mysqli_query($conn, "SELECT Id_Rol FROM rol");
-                                             $query3=mysqli_query($conn, "SELECT Id_PantallaAccion FROM pantallaacciones");
+                                             $query2=mysqli_query($conn, "SELECT Id_Rol, Nombre FROM rol");
+                                             $query3=mysqli_query($conn, "SELECT Id_Pantalla, Nombre FROM pantallas");
                                             echo 
                                             "
                                             <table class='table table-hover'>
@@ -172,7 +172,7 @@
                                             <tr>
                                             <th scope='col'>Id de Rol Pantalla Accion</th>
                                             <th scope='col'>Id de Rol</th>
-                                            <th scope='col'>Id de Pantalla Acciones</th>
+                                            <th scope='col'>Id de Pantallas</th>
                                             <th scope='col'>Activo</th>
                                             <th scope='col'>Acciones</th>
                                         </tr>
@@ -192,14 +192,14 @@
                                                             <td><select value='$data[Id_Rol]' name='estado' required>";
                                                             while ($data = mysqli_fetch_assoc($query2))
                                                             {echo"
-                                                                <option value='$data[Id_Rol]'>$data[Id_Rol]</option>
+                                                                <option value='$data[Id_Rol]'>$data[Nombre]</option>
                                                             ";
                                                             }echo"
                                                             </select></td>
-                                                            <td><select value='$data[Id_PantallaAccion]' name='estado2' required>";
+                                                            <td><select value='$data[Id_Pantalla]' name='estado2' required>";
                                                             while ($data = mysqli_fetch_assoc($query3))
                                                             {echo"
-                                                                <option value='$data[Id_PantallaAccion]'>$data[Id_PantallaAccion]</option>
+                                                                <option value='$data[Id_Pantalla]'>$data[Nombre]</option>
                                                             ";
                                                             }echo"
                                                             </select></td>

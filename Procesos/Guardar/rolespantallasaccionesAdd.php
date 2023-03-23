@@ -5,7 +5,7 @@
     $estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
     $estado2 = filter_input(INPUT_POST, 'estado2', FILTER_SANITIZE_STRING);
 
-    $insertar="INSERT INTO `rolespantallasacciones` (`Id_RolesPA`, `Id_Rol`, `Id_PantallaAccion`, `Activo`) 
+    $insertar="INSERT INTO `rolespantallasacciones` (`Id_RolesPA`, `Id_Rol`, `Id_Pantalla`, `Activo`) 
     VALUES (NULL, '$estado', '$estado2', '1');";
 
   
