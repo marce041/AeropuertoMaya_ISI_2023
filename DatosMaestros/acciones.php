@@ -12,17 +12,17 @@
     $user=$_SESSION['idUser'];
 
 
-$queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser`=$user;");
+$queryparametro=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$user;");
     
     $rangini = array();
   
     while($datos = mysqli_fetch_array($queryparametro)) {
-        array_push($rangini, $datos['Categoria']);
+        array_push($rangini, $datos['Id_Rol']);
     }
 
     $rangoinicial=$rangini[0];
     
-    if($rangoinicial != 'admin'){
+    if($rangoinicial != '1'){
         echo  "<script>
         alert('El usuario no tiene permisos para acceder a esta ventana.');
         window.location = '../principaladmin.php';

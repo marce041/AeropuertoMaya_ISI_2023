@@ -20,6 +20,8 @@
         $estado=$_POST['estado'];
         echo $estado;
     }
+    
+    require_once '../Seguridad/Validate_Roles.php';
 ?>
 
 <!DOCTYPE html>

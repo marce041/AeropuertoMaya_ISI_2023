@@ -15,6 +15,11 @@
         $estado2=$_POST['estado2'];
         echo $estado2;
     }
+    session_start();
+    if (!isset($_SESSION['idUser'])) {
+        header('location: ../index.php');
+    }
+    require_once '../Seguridad/Validate_Roles.php';
 ?>
 
 <!DOCTYPE html>

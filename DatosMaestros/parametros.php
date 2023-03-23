@@ -3,7 +3,11 @@
 
     // $buscar="SELECT `IDProveedor`, `RTN` FROM proveedores;";
     // $resultado=mysqli_query($conn, $buscar);
-    
+    session_start();
+    if (!isset($_SESSION['idUser'])) {
+        header('location: ../index.php');
+    }
+    require_once '../Seguridad/Validate_Roles.php';
    
 ?>
 

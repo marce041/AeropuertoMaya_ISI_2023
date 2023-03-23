@@ -8,6 +8,11 @@
         $estado=$_POST['estado'];
         echo $estado;
     }
+    session_start();
+    if (!isset($_SESSION['idUser'])) {
+        header('location: ../index.php');
+    }
+    require_once '../Seguridad/Validate_Roles.php';
 
 
 

@@ -24,6 +24,11 @@ if(isset($_POST['estado4'])) {
     $estado4=$_POST['estado34'];
     echo $estado4;
 }
+session_start();
+    if (!isset($_SESSION['idUser'])) {
+        header('location: ../index.php');
+    }
+    require_once '../Seguridad/Validate_Roles.php';
 ?>
 
 <!DOCTYPE html>

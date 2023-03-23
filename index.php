@@ -18,7 +18,7 @@ if(!empty($_POST)){
 		</script>";
 	}else{
 
-$sql = "SELECT idUser FROM usuario
+$sql = "SELECT idUser, rol.Nombre as rolN FROM usuario LEFT JOIN rol ON usuario.Id_Rol = rol.Id_Rol
     WHERE Usuario = '$usuario' AND Pass = '$password_encriptada'";
     $resultado = $conn->query($sql);
     $rows = $resultado->num_rows;
@@ -27,6 +27,7 @@ $sql = "SELECT idUser FROM usuario
     if($rows > 0){
         $row = $resultado->fetch_assoc();
         $_SESSION['idUser'] = $row ['idUser'];
+		$_SESSION['rolN'] = $row ['rolN'];
         header("Location: principaladmin.php");
         $_SESSION['fails'] = 0;
     }else{
