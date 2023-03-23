@@ -13,6 +13,24 @@
 
     require_once '../Seguridad/Validate_Pantallas.php';
 
+    $equipaje=mysqli_query($conn, "SELECT idUser, rol.Nombre as rolN, p.Nombre as pantallaN
+    FROM usuario LEFT JOIN rol ON usuario.Id_Rol = rol.Id_Rol 
+    INNER JOIN rolespantallasacciones rp ON rp.Id_Rol = rol.Id_Rol 
+    INNER JOIN pantallas p ON p.Id_Pantalla = rp.Id_Pantalla");
+
+    $rango = array();
+
+    while($datos = mysqli_fetch_array($equipaje)){
+        array_push($rango, $datos['pantallaN']);
+    }
+
+    if(!array_key_exists('pantallaN', $_SESSION) || !in_array($_SESSION['pantallaN'], $rango)){
+        echo  "<script>
+        alert('El usuario no tiene permisos para acceder a esta pantalla.');
+        window.location = '../principaladmin.php';
+        </script>";
+    }
+
     if(isset($_POST['estado'])) {
         $estado=$_POST['estado'];
         echo $estado;

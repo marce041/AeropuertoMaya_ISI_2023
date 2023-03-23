@@ -9,16 +9,39 @@
 
     require_once '../Seguridad/Validate_Roles.php';
 
-    require_once '../Seguridad/Validate_Pantallas.php';
-    
-    //$pantallas_permitidas = ['Equipaje'];
+    //require_once '../Seguridad/Validate_Pantallas.php';
 
-    //if(!array_key_exists('nombre', $_SESSION) || !in_array($_SESSION['nombre'], $pantallas_permitidas)){
+    $equipaje=mysqli_query($conn, "SELECT idUser, rol.Nombre as rolN, p.Nombre as pantallaN
+    FROM usuario LEFT JOIN rol ON usuario.Id_Rol = rol.Id_Rol 
+    INNER JOIN rolespantallasacciones rp ON rp.Id_Rol = rol.Id_Rol 
+    INNER JOIN pantallas p ON p.Id_Pantalla = rp.Id_Pantalla 
+    WHERE usuario.Id_Rol = 2 AND usuario.idUser =4");
+    $equipaje2=mysqli_query($conn, "SELECT rol.Nombre as rolN
+    FROM usuario LEFT JOIN rol ON usuario.Id_Rol = rol.Id_Rol 
+    WHERE usuario.Id_Rol = 2");
+    $rango = array();
+    $rang = array();
+
+    while($datos = mysqli_fetch_array($equipaje)){
+      echo $datos['pantallaN'];
+    }
+    while($datos = mysqli_fetch_array($equipaje2)){
+        array_push($rang, $datos['rolN']);
+    }
+    //echo $arr=$rang[3];
+
+    //if($arre != 'Equipaje'){
         //echo  "<script>
         //alert('El usuario no tiene permisos para acceder a esta pantalla.');
         //window.location = '../principaladmin.php';
         //</script>";
     //}
+    if($datos != 'Equipaje'){
+        echo  "<script>
+        alert('El usuario no tiene permisos para acceder a esta pantalla.');
+        window.location = '../principaladmin.php';
+        </script>";
+    }
     
 ?>
 <!DOCTYPE html>
