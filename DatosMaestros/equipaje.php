@@ -14,11 +14,9 @@
     $equipaje=mysqli_query($conn, "SELECT idUser, rol.Nombre as rolN, p.Nombre as pantallaN
     FROM usuario LEFT JOIN rol ON usuario.Id_Rol = rol.Id_Rol 
     INNER JOIN rolespantallasacciones rp ON rp.Id_Rol = rol.Id_Rol 
-    INNER JOIN pantallas p ON p.Id_Pantalla = rp.Id_Pantalla 
-    WHERE usuario.Id_Rol = 2 AND usuario.idUser =4");
+    INNER JOIN pantallas p ON p.Id_Pantalla = rp.Id_Pantalla");
     $equipaje2=mysqli_query($conn, "SELECT rol.Nombre as rolN
-    FROM usuario LEFT JOIN rol ON usuario.Id_Rol = rol.Id_Rol 
-    WHERE usuario.Id_Rol = 2");
+    FROM usuario LEFT JOIN rol ON usuario.Id_Rol = rol.Id_Rol");
     $rango = array();
     $rang = array();
 
@@ -36,12 +34,12 @@
         //window.location = '../principaladmin.php';
         //</script>";
     //}
-    if($datos != 'Equipaje'){
-        echo  "<script>
-        alert('El usuario no tiene permisos para acceder a esta pantalla.');
-        window.location = '../principaladmin.php';
-        </script>";
-    }
+    //if($datos != 'Equipaje'){
+        //echo  "<script>
+        //alert('El usuario no tiene permisos para acceder a esta pantalla.');
+        //window.location = '../principaladmin.php';
+        //</script>";
+    //}
     
 ?>
 <!DOCTYPE html>

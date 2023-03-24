@@ -24,13 +24,12 @@ INNER JOIN pantallas p ON p.Id_Pantalla = rp.Id_Pantalla
     WHERE Usuario = '$usuario' AND Pass = '$password_encriptada'";
     $resultado = $conn->query($sql);
     $rows = $resultado->num_rows;
-	$rango = array();
 
     if($rows > 0){
         $row = $resultado->fetch_assoc();
         $_SESSION['idUser'] = $row ['idUser'];
 		$_SESSION['rolN'] = $row ['rolN'];
-		$_SESSION['pantallaN'] = $rango ['pantallaN'];
+		$_SESSION['pantallaN'] = $row ['pantallaN'];
         header("Location: principaladmin.php");
         $_SESSION['fails'] = 0;
     }else{
