@@ -30,6 +30,68 @@ session_start();
     }
     require_once '../Seguridad/Validate_Roles.php';
     require_once '../Seguridad/Validate_Pantallas.php';
+
+      //Traer el rol del usuario
+   $user=$_SESSION['idUser'];
+
+   $queryllamar_id_rol=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$user;");
+
+   $id_rol = array();
+  
+    while($datos = mysqli_fetch_array($queryllamar_id_rol)) {
+        array_push($id_rol, $datos['Id_Rol']);
+    }
+
+    $id_rol_seleccionado=$id_rol[0];
+
+
+//Con el Rol traer las tablas a las que puede acceder dicho rol
+    $queryllamar_id_tabla=mysqli_query($conn, "SELECT Id_Pantalla FROM rolespantallasacciones WHERE `Id_Rol`=$id_rol_seleccionado;");
+
+    $llamar_id_tabla="SELECT Id_Pantalla FROM rolespantallasacciones WHERE `Id_Rol`=$id_rol_seleccionado";
+
+    $id_pantalla = array();
+
+    $resultado2 = $conn->query($llamar_id_tabla);
+
+    $rows2 = $resultado2->num_rows;
+	
+    $ids = "";
+    if($resultado2){
+       while($row=$resultado2->fetch_array()){
+       // Esto crea un string como 'id1','id2','id3',
+           $ids .= "'".$row['Id_Pantalla'] . "', ";
+       }
+       // Esto quita el ultimo espacio y coma del string generado con lo cual
+       // el string queda 'id1','id2','id3'
+    
+       $ids = substr($ids,0,-2);
+    }
+    $queryllamar_nombre_tabla=mysqli_query($conn, "SELECT Nombre FROM pantallas WHERE `Id_Pantalla`in (".$ids.")");
+
+    $nombre_tabla = array();
+  
+    while($datos = mysqli_fetch_array($queryllamar_nombre_tabla)) {
+        
+        array_push($nombre_tabla, $datos['Nombre']);
+    }
+$i=0;
+$j=0;
+
+while($i<$rows2){
+    if($nombre_tabla[$i]=='Factura'){
+        $j=1;
+    }
+    $i+=1;
+}
+
+if($j == 0){
+    echo  "<script>
+    alert('El usuario no tiene acceso a esta ventana.');
+    window.location = '../principaladmin.php';
+    </script>";
+
+}
 ?>
 
 <!DOCTYPE html>
