@@ -1,16 +1,16 @@
 <?php
 
-    class elementosMenu
+class elementosMenu
+{
+    public function mostarTablaPantallas()
     {
-        public function mostarTablaPantallas()
-        {
-            include "../conexion.php";
+        include "../conexion.php";
 
-            $query = mysqli_query($conn,"SELECT * FROM pantallas")
-            or die ('error: '.mysqli_error($conn));
+        $query = mysqli_query($conn, "SELECT * FROM pantallas")
+            or die('error: ' . mysqli_error($conn));
 
-            echo 
-            "
+        echo
+        "
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
                     <thead>
                         <tr class='text-center'>
@@ -24,6 +24,7 @@
                 <tbody class='text-center'>
             ";
             $user=$_SESSION['idUser'];
+
 
             $queryllamar_id_rol=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$user;");
          
@@ -79,6 +80,7 @@
             while ($data = mysqli_fetch_assoc($query))
             {
                 echo 
+
                 "
                     <tr>
 
@@ -97,12 +99,13 @@
                             </a>
 
                             <!--BOTON ELIMINAR-->
-                            <a href='../Procesos/ProcesoPantallas/eliminarPantallas.php?id=$data[Id_Pantalla]' name='btneliminar' class='item_tabla btn btn-danger' onclick='return confirm(\"¿Continuar con $data[Nombre]\"); '><i class='fas fa-trash-alt'></i></a> </td>
+                            <a href='../Procesos/ProcesoPantallas/eliminarPantallas.php?id=$data[Id_Pantalla]' name='btneliminar' class='item_tabla btn btn-danger' </a> </td>
                         </form>
                     </tr>
 
                 ";
             }
+
         }else{
             while ($data = mysqli_fetch_assoc($query))
             {
@@ -134,6 +137,8 @@
         }
             echo
             "
+
+   
                 </tbody>
                 </table>
                 <table>
@@ -147,7 +152,7 @@
                             </table>
 
             ";
+            }
         }
-    }
+    
 
-?>
