@@ -24,9 +24,9 @@ if (!isset($_SESSION['idUser'])) {
     header('location: ../index.php'); 
     die();
 }
-        
+require("../Procesos/ProcesoAeronave/TablaNave.php");   
 
-$user=$_SESSION['idUser'];
+/*$user=$_SESSION['idUser'];
 
 
 $queryparametro=mysqli_query($conn, "SELECT Categoria FROM usuario WHERE `idUser`=$user;");
@@ -49,7 +49,7 @@ $rangoinicial=$rangini[0];
         
             $path = "logConsultaAeronave.txt";
             error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
-         }   
+         } */  
     ?>
 <body id="page-top">
     <div id="wrapper">

@@ -53,10 +53,10 @@
      
      $rangoinicial=$rangini[0];
      
-                 if($rangoinicial !='1'){
-                 require("../Procesos/ProcesoUsuario/TablaUsuarioLector.php"); 
+                 if($rangoinicial =='1'){
+                 require("../Procesos/ProcesoUsuario/TablaUsuario.php"); 
                  }else{
-                     require("../Procesos/ProcesoUsuario/TablaUsuario.php");   
+                     require("../Procesos/ProcesoUsuario/TablaUsuarioLector.php");   
                  } 
     ?>
 <body id="page-top">
