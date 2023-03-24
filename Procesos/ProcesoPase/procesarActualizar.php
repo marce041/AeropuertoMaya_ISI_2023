@@ -26,7 +26,7 @@
     {
         echo  "<script>
         alert('Se ha actualizado datos');
-        window.location = '../../Consultas/Consultaciudades.php';
+        window.location = '../../Consultas/Consultapaseabordar.php';
         </script>";
     }
     else

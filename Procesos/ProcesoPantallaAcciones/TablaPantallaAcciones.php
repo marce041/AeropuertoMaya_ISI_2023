@@ -107,6 +107,32 @@
             }else{
                 while ($data = mysqli_fetch_assoc($query))
                 {
+                    echo 
+                    "
+                        <tr>
+    
+                            <form action='formEditNave.php?id=$data[Id_PantallaAccion]' method='POST' name='form2'>
+                            <th scope='row'>$data[Id_PantallaAccion]</th>
+                            <td>$data[Id_Pantalla]</td>
+                            <td>$data[Id_Acciones]</td>
+                            <td>$data[Activo]</td>
+    
+                               <!--BOTON EDITAR-->
+    
+                                <td class='text-center'> 
+                                <!--BOTON EDITAR-->
+                                <a class='btn btn-info' >
+                                <i class='fas fa-lock'></i>
+                                </a>
+    
+                                <!--BOTON ELIMINAR-->
+                                <a  name='btneliminar' class='item_tabla btn btn-danger' '><i class='fas fa-lock'></i></a> </td>
+                            </form>
+                        </tr>
+    
+                    ";  
+            }
+            }
             echo
             "
                 </tbody>
@@ -123,7 +149,7 @@
 
             ";
         }
-    } }
-}
+    } 
+
 
 ?>
