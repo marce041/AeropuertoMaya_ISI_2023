@@ -21,6 +21,8 @@
     <link href="../../style/cuerpo/dashboard.css" rel="stylesheet">
     <link href="../../style/Dashboard/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -126,7 +128,7 @@
                     <h1 class="h3 mb-2 text-gray-800">Tablas</h1>
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary text-center">TABLA EDICION DE USUARIO</h6>
+                            <h6 class="m-0 font-weight-bold text-primary text-center">EDICIÓN DE USUARIO</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -134,9 +136,11 @@
                                     <?php
                                          include "../../conexion.php";
                                             
-                                            $Id=$_GET['id'];
-                                            
+                                    
                                             date_default_timezone_set('America/Mexico_City');
+                                            
+                                                $Id = $_GET['id'];
+                                           
                                             try {
                                                 $query = mysqli_query($conn,"SELECT * FROM usuario WHERE IdUser='$Id'")
                                             ;}catch(Exception $e) {
@@ -152,6 +156,7 @@
                                                     window.location = '../../Seguridad/Consultausuarios.php';
                                                     </script>";
                                              }
+                                            
                                              $query2=mysqli_query($conn, "SELECT Id_Rol, Nombre FROM rol");
                                             
                                             echo 
@@ -179,9 +184,9 @@
                                 
                                                         <form action='procesarActualizar.php' method='POST'>
                                                             
-                                                            <td><input type='text' value=' $data[idUser]'name='id' readonly></td>
-                                                            <td><input type='text'  value=' $data[Usuario]'   name='user' required></td>
-                                                            <td><input type='text'  value=' $data[Pass]'   name='pass' required></td>
+                                                            <td><input type='text' value=' $data[idUser]' name='idUser' readonly></td>
+                                                            <td><input type='text'  value=' $data[Usuario]'name='Usuario' required></td>
+                                                            <td><input type='text'  value=' $data[Pass]'name='Pass' required></td>
                                                             <td><select value='$data[Id_Rol]' name='estado2' required>";
                                                             while ($data = mysqli_fetch_assoc($query2))
                                                             {echo"
@@ -190,7 +195,7 @@
                                                             }echo"
                                                             </select></td>
                                                             
-                                                            <td><input type='text'  value=' $data[Estado]'   name='estado'></td>
+                                                            <td><input type='text'  value=' $data[Estado]' name='Estado'></td>
                                                             <td> <button class='btn btn-success' type='submit' ><i class='fas fa-save'></i></button>
                                                            
                                                             </td>

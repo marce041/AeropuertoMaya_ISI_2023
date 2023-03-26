@@ -1,19 +1,25 @@
 <?php
     include ("../../conexion.php");
     date_default_timezone_set('America/Mexico_City');
-
-    $id=$_POST['id'];
-    $user=$_POST['user'];
-    $pass=$_POST['pass'];
-    $estado=$_POST['estado'];
+    //
+    
+    
+    $id=$_POST['idUser'];
+    if(!isset($id)) {
+        echo "El campo 'id' no está definido";
+        exit;
+    }
+    $user=$_POST['Usuario'];
+    $pass=$_POST['Pass'];
+    $estado=$_POST['Estado'];
     $estado2=$_POST['estado2'];
     $password_encriptada = sha1($pass);
 
-    $actualizar="UPDATE usuario SET Usuario='$user', Pass='$password_encriptada' Id_Rol='$estado2', Estado='$estado' WHERE idUser='$id'";
+    $actualizar="UPDATE usuario SET Usuario='$user', Pass='$password_encriptada', Id_Rol='$estado2', Estado='$estado' WHERE idUser='$id'";
 
-    
     try {
         $resultado=mysqli_query($conn,$actualizar);
+        var_dump($resultado);
       }catch(Exception $e) {
         $datos = date('H:i:s');
         $hora=explode(":", $datos);
