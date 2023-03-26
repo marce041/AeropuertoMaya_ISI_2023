@@ -73,7 +73,7 @@ $i=0;
 $j=0;
 
 while($i<$rows2){
-    if($nombre_tabla[$i]=='Hangar'){
+    if($nombre_tabla[$i]=='Hangares'){
         $j=1;
     }
     $i+=1;
