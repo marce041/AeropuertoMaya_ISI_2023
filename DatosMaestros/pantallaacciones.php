@@ -142,14 +142,16 @@ if($j == 0){
                         <a class="collapse-item" href="hangares.php">Hangar</a>
                         <a class="collapse-item" href="reserva.php">Reserva</a>
                         <a class="collapse-item" href="clase.php">Clase</a>
-                        
                         <a class="collapse-item" href="checkin.php">Check-In</a>
                         <a class="collapse-item" href="equipaje.php">Equipaje</a>
                         <a class="collapse-item" href="detallefactura.php">Detalles</a>
                         <a class="collapse-item" href="parametros.php">Parámetros</a>
+                        
                         <a class="collapse-item" href="rol.php">Rol</a>
                         <a class="collapse-item" href="acciones.php">Acciones</a>
+                        <a class="collapse-item" href="pantallas.php">Pantallas</a>
                         <a class="collapse-item" href="pantallaacciones.php">Pantalla Acciones</a>
+                        <a class="collapse-item" href="rolespantallasacciones.php">Roles Pantallas Acciones</a>
                     </div>
                 </div>
             </li>
@@ -163,6 +165,7 @@ if($j == 0){
                 </a>
                 <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+                        
                         
                         <a class="collapse-item" href="../Consultas/Consultaaeropuertos.php">Aeropuertos</a>
                         <a class="collapse-item" href="../Consultas/Consultaseronaves.php">Aeronaves</a>
@@ -183,9 +186,12 @@ if($j == 0){
                         <a class="collapse-item" href="../Consultas/Consultafactura.php">Equipaje</a>
                         <a class="collapse-item" href="../Consultas/Consultadetalles.php">Detalles</a>
                         <a class="collapse-item" href="../Consultas/Consultaparametro.php">Parámetros</a>
+                        
                         <a class="collapse-item" href="../Consultas/Consultarol.php">Rol</a>
                         <a class="collapse-item" href="../Consultas/Consultaacciones.php">Acciones</a>
+                        <a class="collapse-item" href="../Consultas/Consultapantallas.php">Pantallas</a>
                         <a class="collapse-item" href="../Consultas/Consultapantallaacciones.php">Pantalla Acciones</a>
+                        <a class="collapse-item" href="../Consultas/Consultarolespantallasacciones.php">Roles Pantallas Acciones</a>
                         
                        
                     </div>
