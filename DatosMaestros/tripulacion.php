@@ -4,8 +4,8 @@ session_start();
     if (!isset($_SESSION['idUser'])) {
         header('location: ../index.php');
     }
-    require_once '../Seguridad/Validate_Roles.php';
-    require_once '../Seguridad/Validate_Pantallas.php';
+    //require_once '../Seguridad/Validate_Roles.php';
+    //require_once '../Seguridad/Validate_Pantallas.php';
 
     //Traer el rol del usuario
   $user=$_SESSION['idUser'];

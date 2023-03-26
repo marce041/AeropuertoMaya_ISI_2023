@@ -7,8 +7,8 @@
     if (!isset($_SESSION['idUser'])) {
         header('location: ../index.php');
     }
-    require_once '../Seguridad/Validate_Roles.php';
-    require_once '../Seguridad/Validate_Pantallas.php';
+    //require_once '../Seguridad/Validate_Roles.php';
+    //require_once '../Seguridad/Validate_Pantallas.php';
 
     $query2=mysqli_query($conn, "SELECT Id_Rol, Nombre FROM rol");
     if(isset($_POST['estado'])) {

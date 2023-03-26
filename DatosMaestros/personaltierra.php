@@ -9,9 +9,9 @@ session_start();
     $queryparametro=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$user;");
     $rangini = array();
 
-    require_once '../Seguridad/Validate_Roles.php';
+    //require_once '../Seguridad/Validate_Roles.php';
 
-    require_once '../Seguridad/Validate_Pantallas.php';
+    //require_once '../Seguridad/Validate_Pantallas.php';
       //Traer el rol del usuario
    $user=$_SESSION['idUser'];
 
