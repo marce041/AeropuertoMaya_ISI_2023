@@ -1,5 +1,6 @@
 <?php
     include ("../../conexion.php");
+    date_default_timezone_set('America/Mexico_City');
 
     $id=$_POST['id'];
     $user=$_POST['user'];

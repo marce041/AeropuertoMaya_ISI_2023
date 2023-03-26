@@ -7,7 +7,7 @@
         {
             include "../conexion.php";
 
-            $query = mysqli_query($conn,"SELECT * FROM usuario")
+            $query = mysqli_query($conn,"SELECT r.Id_Rol, r.Nombre, u.idUser, u.Usuario, u.Pass, u.Estado FROM usuario u left join rol r on r.Id_Rol = u.Id_Rol")
             or die ('error: '.mysqli_error($conn));
 
             echo 
@@ -18,7 +18,7 @@
                             <th scope='col'>Id_Usuario</th>
                             <th scope='col'>Nombre Usuario</th>
                             <th scope='col'>Contraseña Encriptada</th>
-                            <th scope='col'>Categoria</th>
+                            <th scope='col'>Rol</th>
                             <th scope='col'>Estado</th>
                         </tr>
                     </thead>
@@ -35,7 +35,7 @@
                             <th scope='row'>$data[idUser]</th>
                             <td>$data[Usuario]</td>
                             <td>$data[Pass]</td>
-                            <td>$data[Categoria]</td>
+                            <td value='$data[Id_Rol]'>$data[Nombre]</td> 
                             <td>$data[Estado]</td>
 
                             </form>

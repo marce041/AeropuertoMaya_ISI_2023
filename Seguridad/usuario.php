@@ -1,6 +1,6 @@
 <?php
     include ("../conexion.php");
-    $query=mysqli_query($conn, "SELECT Id_Equipaje, Peso FROM equipaje");
+    $query2=mysqli_query($conn, "SELECT u.Id_Rol, r.Nombre FROM rol r left join usuario u on u.Id_Rol = r.Id_Rol");
 
     // $buscar="SELECT `IDProveedor`, `RTN` FROM proveedores;";
     // $resultado=mysqli_query($conn, $buscar);
@@ -30,8 +30,8 @@ $queryparametro=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$
         </script>";
        
     }
-    require_once '../Seguridad/Validate_Roles.php';
-    require_once '../Seguridad/Validate_Pantallas.php';
+    //require_once '../Seguridad/Validate_Roles.php';
+    //require_once '../Seguridad/Validate_Pantallas.php';
 
 
     if(isset($_POST['estado'])) {
@@ -178,6 +178,19 @@ $queryparametro=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$
                                 </div>
                                 <div class="mb-3">
                                   <input class="form-control" name="Pass" type="password" placeholder="Contraseña" minlength="4" maxlength="12" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="rol">Rol</label>
+                                    <select class="form-select" name="estado2" id="rol">
+                                    <?php 
+                                        while($datos = mysqli_fetch_array($query2))
+                                        {
+                                    ?>
+                                            <option value="<?php echo $datos['Id_Rol']?>"><?php echo $datos['Nombre']?></option>
+                                    <?php
+                                        }
+                                    ?> 
+                                    </select>
                                 </div>
                               
                               <div class="col-md-12  mt-5 text-center">

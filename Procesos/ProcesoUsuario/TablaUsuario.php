@@ -1,15 +1,15 @@
 <?php
 
 
+
     class elementosMenu
     {
         public function mostarTablaUsu()
         {
             include "../conexion.php";
 
-            $query = mysqli_query($conn,"SELECT * FROM usuario")
+            $query = mysqli_query($conn,"SELECT u.Id_Rol, r.Nombre, u.idUser, u.Usuario, u.Pass, u.Estado FROM usuario u left join rol r on u.Id_Rol = r.Id_Rol")
             or die ('error: '.mysqli_error($conn));
-            $query2=mysqli_query($conn, "SELECT Id_Rol, Nombre FROM rol");
             echo 
             "
                 <table class='table table-sm table-dark table-responsive-sm table-bordered'>
@@ -18,7 +18,7 @@
                             <th scope='col'>Id_Usuario</th>
                             <th scope='col'>Nombre Usuario</th>
                             <th scope='col'>Contraseña Encriptada</th>
-                            <th scope='col'>Categoria</th>
+                            <th scope='col'>Rol</th>
                             <th scope='col'>Estado</th>
                             <th scope='col'>Acciones</th>
                             <th scope='col'>Habilitar<br>Deshabilitar</th>
@@ -27,8 +27,6 @@
                     </thead>
                 <tbody class='text-center'>
             ";
-
-
 
             $user=$_SESSION['idUser'];
 
@@ -93,9 +91,8 @@
                             <th scope='row'>$data[idUser]</th>
                             <td>$data[Usuario]</td>
                             <td>$data[Pass]</td>
-                            <td>$data[Id_Rol]</td>             
+                            <td value='$data[Id_Rol]'>$data[Nombre]</td>     
                             <td>$data[Estado]</td>
-
                             <!--BOTON EDITAR-->
 
                             <td class='text-center'> 
@@ -112,10 +109,10 @@
 
                             <td class='text-center'> <a class='btn btn-info' href='../Procesos/ProcesoUsuario/AscenderUsuario.php?id=$data[idUser]'>
                             <i class='fas fa-arrows-alt-v'></i></td> 
-                            </form>
-                        
-                        </tr>
-                    
+                        </form>
+
+                    </tr>
+
                 ";
             }
         }else{
@@ -129,7 +126,7 @@
                             <th scope='row'>$data[idUser]</th>
                             <td>$data[Usuario]</td>
                             <td>$data[Pass]</td>
-                            <td>$data[Id_Rol]</td>             
+                            <td value='$data[Id_Rol]'>$data[Nombre]</td>       
                             <td>$data[Estado]</td>
     
                                <!--BOTON EDITAR-->

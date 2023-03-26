@@ -3,6 +3,7 @@ include("conexion.php");
 
 $Usuario= $_POST['Usuario'];
 $Pass= $_POST['Pass'];
+$estado2=  filter_input(INPUT_POST, 'estado2', FILTER_SANITIZE_STRING);
 
 	$sql2 = "SELECT idUser FROM usuario
     WHERE Usuario = '$Usuario'";
@@ -17,8 +18,8 @@ if($rows2 > 0){
 
 }else{
 
-$insertarUser= "INSERT INTO usuario (Usuario, Pass, Estado)
-VALUES('$Usuario', sha1('$Pass'), '1');";
+$insertarUser= "INSERT INTO usuario (idUser, Usuario, Pass, Id_Rol, Estado)
+VALUES(NULL,'$Usuario', sha1('$Pass'), '$estado2','1');";
 
 $resultado = mysqli_query($conn, $insertarUser);
 

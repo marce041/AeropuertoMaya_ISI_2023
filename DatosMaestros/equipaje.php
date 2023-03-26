@@ -7,7 +7,7 @@
         header('location: ../index.php');
     }
 
-    require_once '../Seguridad/Validate_Roles.php';
+    //require_once '../Seguridad/Validate_Roles.php';
 
     //require_once '../Seguridad/Validate_Pantallas.php';
 
@@ -21,7 +21,7 @@
     $rang = array();
 
     while($datos = mysqli_fetch_array($equipaje)){
-      echo $datos['pantallaN'];
+      $datos['pantallaN'];
     }
     while($datos = mysqli_fetch_array($equipaje2)){
         array_push($rang, $datos['rolN']);
