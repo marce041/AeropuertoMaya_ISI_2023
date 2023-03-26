@@ -1,6 +1,6 @@
 <?php
     include ("../conexion.php");
-    $query2=mysqli_query($conn, "SELECT u.Id_Rol, r.Nombre FROM rol r left join usuario u on u.Id_Rol = r.Id_Rol");
+    $query2=mysqli_query($conn, "SELECT r.Id_Rol, r.Nombre FROM rol r");
 
     // $buscar="SELECT `IDProveedor`, `RTN` FROM proveedores;";
     // $resultado=mysqli_query($conn, $buscar);

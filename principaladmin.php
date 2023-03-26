@@ -97,7 +97,6 @@ if (!isset($_SESSION['idUser'])) {
                         <a class="collapse-item" href="DatosMaestros/clase.php">Clase</a>
                         <a class="collapse-item" href="DatosMaestros/moneda.php">Moneda</a>
                         <a class="collapse-item" href="DatosMaestros/checkin.php">Check-In</a>
-                        <a class="collapse-item" href="DatosMaestros/conversion.php">Conversion</a>
                         <a class="collapse-item" href="DatosMaestros/equipaje.php">Equipaje</a>
                         <a class="collapse-item" href="DatosMaestros/detallefactura.php">Detalles</a>
                         <a class="collapse-item" href="DatosMaestros/parametros.php">Parametro</a>
@@ -136,7 +135,6 @@ if (!isset($_SESSION['idUser'])) {
                         <a class="collapse-item" href="Consultas/Consultamoneda.php">Moneda</a>
                         <a class="collapse-item" href="Consultas/Consultaclase.php">Clase</a>
                         <a class="collapse-item" href="Consultas/Consultafactura.php">Factura</a>
-                        <a class="collapse-item" href="Consultas/Consultaconversion.php">Conversion</a>
                         <a class="collapse-item" href="Consultas/Consultaequipaje.php">Equipaje</a>
                         <a class="collapse-item" href="Consultas/Consultadetalles.php">Detalle</a>
                         <a class="collapse-item" href="Consultas/Consultaparametro.php">Parametro</a>

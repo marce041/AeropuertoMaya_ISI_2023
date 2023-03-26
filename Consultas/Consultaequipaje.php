@@ -31,35 +31,6 @@ try {
     error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
  }
 
- 
- include ("../conexion.php");
-
- $user=$_SESSION['idUser'];
-
-
- $queryparametro=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$user;");
- $querypantalla=mysqli_query($conn, "SELECT Id_PantallaAccion FROM rolespantallasacciones");
- $rangini = array();
- $rango = array();
-
- while($datos = mysqli_fetch_array($queryparametro)) {
-     array_push($rangini, $datos['Id_Rol']);
- }
-
- while($datos = mysqli_fetch_array($querypantalla)) {
-     array_push($rango, $datos['Id_PantallaAccion']);
- }
-
- $rangoinicial=$rangini[0];
- $rangopantalla=$rango[0];
- 
- if($rangoinicial != '1' && $rangopantalla != '2'){
-     echo  "<script>
-     alert('El usuario no tiene permisos para acceder a esta ventana.');
-     window.location = '../principaladmin.php';
-     </script>";
-    
- }
      
 ?>
 <body id="page-top">
