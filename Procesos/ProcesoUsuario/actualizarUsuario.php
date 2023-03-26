@@ -194,8 +194,13 @@
                                                             ";
                                                             }echo"
                                                             </select></td>
-                                                            
-                                                            <td><input type='text'  value=' $data[Estado]' name='Estado'></td>
+                                                            <td>
+                                                            <input type='number'value='$data[Estado]' name='Estado' min='0' max='1' step='1'>
+
+
+
+                                                            </td>
+                                                                                                                 
                                                             <td> <button class='btn btn-success' type='submit' ><i class='fas fa-save'></i></button>
                                                            
                                                             </td>
