@@ -165,7 +165,7 @@ if(isset($_POST['estado'])) {
                         <a class="collapse-item" href="../Consultas/Consultaseronaves.php">Aeronaves</a>
                         <a class="collapse-item" href="../Consultas/Consultapaises.php">Paises</a>
                         <a class="collapse-item" href="../Consultas/Consultaboletos.php">Boleto</a>
-                        <a class="collapse-item" href="../Consultas/Consultacuidades.php">Cuidades</a>
+                        <a class="collapse-item" href="../Consultas/Consultaciudades.php">Ciudades</a>
                         <a class="collapse-item" href="../Consultas/Consultapasajeros.php">Pasajeros</a>
                         <a class="collapse-item" href="../Consultas/Consultapaseabordar.php">Pase de Abordar</a>
                         <a class="collapse-item" href="../Consultas/ConsultaPersonaltierra.php">Personal de Tierra</a>
@@ -177,7 +177,7 @@ if(isset($_POST['estado'])) {
                         <a class="collapse-item" href="../Consultas/Consultamoneda.php">Moneda</a>
                         <a class="collapse-item" href="../Consultas/Consultaclase.php">Clase</a>
                         <a class="collapse-item" href="../Consultas/Consultafactura.php">Factura</a>
-                        <a class="collapse-item" href="../Consultas/Consultafactura.php">Equipaje</a>
+                        <a class="collapse-item" href="../Consultas/Consultaequipaje.php">Equipaje</a>
                         <a class="collapse-item" href="../Consultas/Consultadetalles.php">Detalles</a>
                         <a class="collapse-item" href="../Consultas/Consultaparametro.php">Parámetros</a>
                         

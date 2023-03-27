@@ -33,7 +33,7 @@
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-                <a class="nav-link" href="../principaladmin.php">
+                <a class="nav-link" href="../../principaladmin.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Inicio</span>
                 </a>
@@ -50,6 +50,7 @@
                 </a>
                 <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+
                         <a class="collapse-item" href="../../DatosMaestros/tripulacion.php">Tripulación</a>
                         <a class="collapse-item" href="../../DatosMaestros/personaltierra.php">Personal de tierra</a>
                         <a class="collapse-item" href="../../DatosMaestros/aeronave.php">Aeronave</a>
@@ -60,8 +61,21 @@
                         <a class="collapse-item" href="../../DatosMaestros/pasajero.php">Pasajero</a>
                         <a class="collapse-item" href="../../DatosMaestros/paseabordar.php">Pase de abordar</a>
                         <a class="collapse-item" href="../../DatosMaestros/vuelo.php">Vuelo</a>
+                        <a class="collapse-item" href="../../DatosMaestros/factura.php">Factura</a>
+                        <a class="collapse-item" href="../../DatosMaestros/hangares.php">Hangar</a>
+                        <a class="collapse-item" href="../../DatosMaestros/reserva.php">Reserva</a>
+                        <a class="collapse-item" href="../../DatosMaestros/clase.php">Clase</a>
+                        <a class="collapse-item" href="../../DatosMaestros/moneda.php">Moneda</a>
+                        <a class="collapse-item" href="../../DatosMaestros/checkin.php">Check-In</a>
+                        <a class="collapse-item" href="../../DatosMaestros/equipaje.php">Equipaje</a>
+                        <a class="collapse-item" href="../../DatosMaestros/detallefactura.php">Detalles</a>
+                        <a class="collapse-item" href="../../DatosMaestros/parametros.php">Parámetros</a>
+
                         <a class="collapse-item" href="../../DatosMaestros/rol.php">Rol</a>
                         <a class="collapse-item" href="../../DatosMaestros/acciones.php">Acciones</a>
+                        <a class="collapse-item" href="../../DatosMaestros/pantallas.php">Pantallas</a>
+                        <a class="collapse-item" href="../../DatosMaestros/pantallaacciones.php">Pantalla Acciones</a>
+                        <a class="collapse-item" href="../../DatosMaestros/rolespantallasacciones.php">Roles Pantallas Acciones</a>
                     </div>
                 </div>
             </li>
@@ -75,12 +89,32 @@
                 </a>
                 <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+
+                        <a class="collapse-item" href="../../Consultas/Consultaaeropuertos.php">Aeropuertos</a>
+                        <a class="collapse-item" href="../../Consultas/Consultaseronaves.php">Aeronaves</a>
+                        <a class="collapse-item" href="../../Consultas/Consultapaises.php">Paises</a>
+                        <a class="collapse-item" href="../../Consultas/Consultaboletos.php">Boleto</a>
+                        <a class="collapse-item" href="../../Consultas/Consultaciudades.php">Ciudades</a>
+                        <a class="collapse-item" href="../../Consultas/Consultapasajeros.php">Pasajeros</a>
+                        <a class="collapse-item" href="../../Consultas/Consultapaseabordar.php">Pase de Abordar</a>
+                        <a class="collapse-item" href="../../Consultas/ConsultaPersonaltierra.php">Personal de Tierra</a>
+                        <a class="collapse-item" href="../../Consultas/Consultatripulacion.php">Tripulacion</a>
+                        <a class="collapse-item" href="../../Consultas/Consultavuelo.php">Vuelo</a>
+                        <a class="collapse-item" href="../../Consultas/Consultahangar.php">Hangar</a>
+                        <a class="collapse-item" href="../../Consultas/Consultacheckin.php">Check-In</a>
+                        <a class="collapse-item" href="../../Consultas/Consultareserva.php">Reserva</a>
+                        <a class="collapse-item" href="../../Consultas/Consultamoneda.php">Moneda</a>
+                        <a class="collapse-item" href="../../Consultas/Consultaclase.php">Clase</a>
+                        <a class="collapse-item" href="../../Consultas/Consultafactura.php">Factura</a>
+                        <a class="collapse-item" href="../../Consultas/Consultaequipaje.php">Equipaje</a>
+                        <a class="collapse-item" href="../../Consultas/Consultadetalles.php">Detalles</a>
+                        <a class="collapse-item" href="../../Consultas/Consultaparametro.php">Parámetros</a>
                         
-                        <a class="collapse-item" href="../../Consultaaeropuertos.php">Aeropuertos</a>
-                        <a class="collapse-item" href="../../Consultaseronaves.php">Aeronaves</a>
-                        <a class="collapse-item" href="../../Consultapaises.php">Paises</a>
-                        <a class="collapse-item" href="../../Consultarol.php">Rol</a>
-                        <a class="collapse-item" href="../../Consultaaaciones.php">Acciones</a>
+                        <a class="collapse-item" href="../../Consultas/Consultarol.php">Rol</a>
+                        <a class="collapse-item" href="../../Consultas/Consultaacciones.php">Acciones</a>
+                        <a class="collapse-item" href="../../Consultas/Consultapantallas.php">Pantallas</a>
+                        <a class="collapse-item" href="../../Consultas/Consultapantallaacciones.php">Pantalla Acciones</a>
+                        <a class="collapse-item" href="../../Consultas/Consultarolespantallasacciones.php">Roles Pantallas Acciones</a>
                        
                     </div>
                 </div>
