@@ -6,10 +6,8 @@
     $tipolicencia=$_POST['tipolicencia'];
     $academia=$_POST['academia'];
   
-
-
-    $insertar="INSERT INTO `tripulacion` (`Id_Tripulacion`, `Cargo`, `Horas_Vuelo`, `Tipo_Licencia`, `Academia`) 
-    VALUES (NULL, '$cargo', '$horasvuelo', '$tipolicencia', '$academia');";
+    $insertar="INSERT INTO `usuario` (`Id_Tripulacion`,`Cargo`,`Horas_Vuelo`,`Tipo_Licencia`,`Academia`) 
+    VALUES (NULL, '$cargo','$horasvuelo','$tipolicencia','$academia');";
 
   
 
@@ -25,6 +23,7 @@
       
        $path = "GuardarTripulacion-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_HH".$hora[0]."_mm".$hora[1]."_ss".$hora[2].".log";
        error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+      
    }
 
     if($resultado) {
@@ -32,11 +31,11 @@
         alert('Se ha insertado correctamente los datos');
         window.location = '../../DatosMaestros/tripulacion.php';
         </script>";
-    
+        exit();
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../DatosMaestros/tripulacion.php';
+        window.location = '../../Consultas/Consultatripulacion.php';
         </script>";
     }
 ?>
