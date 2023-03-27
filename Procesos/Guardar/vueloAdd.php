@@ -42,7 +42,7 @@
         echo "
         <script>
         alert('Esta hora de llegada ya esta registrada, intenta con una diferente');
-        window.location = '../../DatosMaestros/vuelo.php';
+        window.location = '../../principaladmin.php';
         </script>
         ";
         exit();

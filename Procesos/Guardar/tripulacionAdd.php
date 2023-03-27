@@ -6,7 +6,7 @@
     $tipolicencia=$_POST['tipolicencia'];
     $academia=$_POST['academia'];
   
-    $insertar="INSERT INTO `usuario` (`Id_Tripulacion`,`Cargo`,`Horas_Vuelo`,`Tipo_Licencia`,`Academia`) 
+    $insertar="INSERT INTO `tripulacion` (`Id_Tripulacion`,`Cargo`,`Horas_Vuelo`,`Tipo_Licencia`,`Academia`) 
     VALUES (NULL, '$cargo','$horasvuelo','$tipolicencia','$academia');";
 
   
@@ -35,7 +35,7 @@
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../Consultas/Consultatripulacion.php';
+        window.location = '../../principaladmin.php';
         </script>";
     }
 ?>

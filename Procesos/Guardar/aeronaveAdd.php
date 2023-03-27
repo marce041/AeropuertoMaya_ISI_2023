@@ -43,7 +43,7 @@
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../DatosMaestros/aeronave.php';
+        window.location = '../../principaladmin.php';
         </script>";
     }
 ?>

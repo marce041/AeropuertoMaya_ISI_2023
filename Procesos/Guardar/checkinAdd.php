@@ -39,7 +39,7 @@
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../DatosMaestros/checkin.php';
+        window.location = '../../principaladmin.php';
         </script>";
   
     }

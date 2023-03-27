@@ -35,7 +35,7 @@
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../DatosMaestros/reserva.php';
+        window.location = '../../principaladmin.php';
         </script>";
     }
 ?>

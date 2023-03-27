@@ -118,7 +118,7 @@ if(($codigo!=$pruebacodg) || ($estado2!=$pruebaidpas) || ($estado3!=$pruebaidvue
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../DatosMaestros/boleto.php';
+        window.location = '../../Consultas/Consultaboletos.php';
         </script>";
     }   
 }

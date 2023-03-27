@@ -53,7 +53,7 @@ if($rows2 > 0){
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../DatosMaestros/clase.php';
+        window.location = '../../principaladmin.php';
         </script>";
     }
 }

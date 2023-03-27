@@ -24,13 +24,7 @@ try {
   
    $path = "GuardarAeropuerto-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
    error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
-   header("Location: ../../Consultas/Consultapaises.php");
 }
-
-
-
-
-
 
 
     // echo "<script> alert('".$nombre."'); </script>";
@@ -44,7 +38,7 @@ try {
     } else {
         echo  "<script>
         alert('NO SE PUDO insertar los datos');
-        window.location = '../../DatosMaestros/aeropuerto.php';
+        window.location = '../../principaladmin.php';
         </script>";
     }
 ?>
