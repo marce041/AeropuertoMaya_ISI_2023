@@ -22,14 +22,22 @@ if (!isset($_SESSION['idUser'])) {
     header('location: ../index.php'); 
     die();
 }
-         
-        try {
-            require("../Procesos/ProcesoClase/TablaClase.php");
-         }catch(Exception $e) {
-        
-            $path = "temp/logConsultaClase.txt";
-            error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(), 3, $path);
-         }
+date_default_timezone_set('America/Mexico_City');
+try {
+    require("../Procesos/ProcesoClase/TablaClase.php");
+  }catch(Exception $e) {
+    $datos = date('H:i:s');
+    $hora=explode(":", $datos);
+    $datos2 = date('d/m/Y');
+ 
+    $fecha=explode("/", $datos2);
+    
+     $path = "temp/ConsultaClase-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
+     error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
+     echo  "<script>
+        window.location = '../../Consultas/Consultaclase.php';
+        </script>";
+ } 
     ?>
 <body id="page-top">
     <div id="wrapper">
@@ -72,11 +80,16 @@ if (!isset($_SESSION['idUser'])) {
                         <a class="collapse-item" href="../DatosMaestros/reserva.php">Reserva</a>
                         <a class="collapse-item" href="../DatosMaestros/clase.php">Clase</a>
                         <a class="collapse-item" href="../DatosMaestros/moneda.php">Moneda</a>
-                        
                         <a class="collapse-item" href="../DatosMaestros/checkin.php">Check-In</a>
                         <a class="collapse-item" href="../DatosMaestros/equipaje.php">Equipaje</a>
                         <a class="collapse-item" href="../DatosMaestros/detallefactura.php">Detalles</a>
                         <a class="collapse-item" href="../DatosMaestros/parametros.php">Parámetros</a>
+
+                        <a class="collapse-item" href="../DatosMaestros/rol.php">Rol</a>
+                        <a class="collapse-item" href="../DatosMaestros/acciones.php">Acciones</a>
+                        <a class="collapse-item" href="../DatosMaestros/pantallas.php">Pantallas</a>
+                        <a class="collapse-item" href="../DatosMaestros/pantallaacciones.php">Pantalla Acciones</a>
+                        <a class="collapse-item" href="../DatosMaestros/rolespantallasacciones.php">Roles Pantallas Acciones</a>
                     </div>
                 </div>
             </li>
@@ -110,6 +123,12 @@ if (!isset($_SESSION['idUser'])) {
                         <a class="collapse-item" href="Consultaequipaje.php">Equipaje</a>
                         <a class="collapse-item" href="Consultadetalles.php">Detalles</a>
                         <a class="collapse-item" href="Consultaparametro.php">Parámetros</a>
+
+                        <a class="collapse-item" href="Consultarol.php">Rol</a>
+                        <a class="collapse-item" href="Consultaacciones.php">Acciones</a>  
+                        <a class="collapse-item" href="Consultapantallas.php">Pantallas</a> 
+                        <a class="collapse-item" href="Consultapantallaacciones.php">Pantalla Acciones</a>  
+                        <a class="collapse-item" href="Consultarolespantallasacciones.php">Roles Pantalla Acciones</a>    
                        
                     </div>
                 </div>

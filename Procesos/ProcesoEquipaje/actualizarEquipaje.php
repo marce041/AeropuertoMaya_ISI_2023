@@ -25,7 +25,7 @@
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-                <a class="nav-link" href="../principaladmin.php">
+                <a class="nav-link" href="../../principaladmin.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Inicio</span>
                 </a>
@@ -42,7 +42,7 @@
                 </a>
                 <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../../DatosMaestros/tripulacion.php">Tripulación</a>
+                    <a class="collapse-item" href="../../DatosMaestros/tripulacion.php">Tripulación</a>
                         <a class="collapse-item" href="../../DatosMaestros/personaltierra.php">Personal de tierra</a>
                         <a class="collapse-item" href="../../DatosMaestros/aeronave.php">Aeronave</a>
                         <a class="collapse-item" href="../../DatosMaestros/aeropuerto.php">Aeropuerto</a>
@@ -52,7 +52,21 @@
                         <a class="collapse-item" href="../../DatosMaestros/pasajero.php">Pasajero</a>
                         <a class="collapse-item" href="../../DatosMaestros/paseabordar.php">Pase de abordar</a>
                         <a class="collapse-item" href="../../DatosMaestros/vuelo.php">Vuelo</a>
+                        <a class="collapse-item" href="../../DatosMaestros/factura.php">Factura</a>
+                        <a class="collapse-item" href="../../DatosMaestros/hangares.php">Hangar</a>
+                        <a class="collapse-item" href="../../DatosMaestros/reserva.php">Reserva</a>
+                        <a class="collapse-item" href="../../DatosMaestros/clase.php">Clase</a>
+                        <a class="collapse-item" href="../../DatosMaestros/moneda.php">Moneda</a>
+                        <a class="collapse-item" href="../../DatosMaestros/checkin.php">Check-In</a>
                         <a class="collapse-item" href="../../DatosMaestros/equipaje.php">Equipaje</a>
+                        <a class="collapse-item" href="../../DatosMaestros/detallefactura.php">Detalles</a>
+                        <a class="collapse-item" href="../../DatosMaestros/parametros.php">Parámetros</a>
+
+                        <a class="collapse-item" href="../../DatosMaestros/rol.php">Rol</a>
+                        <a class="collapse-item" href="../../DatosMaestros/acciones.php">Acciones</a>
+                        <a class="collapse-item" href="../../DatosMaestros/pantallas.php">Pantallas</a>
+                        <a class="collapse-item" href="../../DatosMaestros/pantallaacciones.php">Pantalla Acciones</a>
+                        <a class="collapse-item" href="../../DatosMaestros/rolespantallasacciones.php">Roles Pantallas Acciones</a>
                     </div>
                 </div>
             </li>

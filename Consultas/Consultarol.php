@@ -80,12 +80,16 @@ try {
                         <a class="collapse-item" href="../DatosMaestros/reserva.php">Reserva</a>
                         <a class="collapse-item" href="../DatosMaestros/clase.php">Clase</a>
                         <a class="collapse-item" href="../DatosMaestros/moneda.php">Moneda</a>
-                        
                         <a class="collapse-item" href="../DatosMaestros/checkin.php">Check-In</a>
                         <a class="collapse-item" href="../DatosMaestros/equipaje.php">Equipaje</a>
                         <a class="collapse-item" href="../DatosMaestros/detallefactura.php">Detalles</a>
                         <a class="collapse-item" href="../DatosMaestros/parametros.php">Parámetros</a>
+
                         <a class="collapse-item" href="../DatosMaestros/rol.php">Rol</a>
+                        <a class="collapse-item" href="../DatosMaestros/acciones.php">Acciones</a>
+                        <a class="collapse-item" href="../DatosMaestros/pantallas.php">Pantallas</a>
+                        <a class="collapse-item" href="../DatosMaestros/pantallaacciones.php">Pantalla Acciones</a>
+                        <a class="collapse-item" href="../DatosMaestros/rolespantallasacciones.php">Roles Pantallas Acciones</a>
                     </div>
                 </div>
             </li>
@@ -119,7 +123,12 @@ try {
                         <a class="collapse-item" href="Consultaequipaje.php">Equipaje</a>
                         <a class="collapse-item" href="Consultadetalles.php">Detalles</a>
                         <a class="collapse-item" href="Consultaparametro.php">Parámetros</a>
+
                         <a class="collapse-item" href="Consultarol.php">Rol</a>
+                        <a class="collapse-item" href="Consultaacciones.php">Acciones</a>  
+                        <a class="collapse-item" href="Consultapantallas.php">Pantallas</a> 
+                        <a class="collapse-item" href="Consultapantallaacciones.php">Pantalla Acciones</a>  
+                        <a class="collapse-item" href="Consultarolespantallasacciones.php">Roles Pantalla Acciones</a>    
                         
                        
                     </div>
