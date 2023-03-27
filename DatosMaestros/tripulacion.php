@@ -223,7 +223,7 @@ if($j == 0){
                         <div class="card-body">
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/tripulacionAdd.php" method="POST" enctype="multipart/form-data">
                                 <div class="col-md-6">
-                                  <input class="form-control" name="cargo" id="Cargo" type="text" placeholder="Cargo" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="50" pattern= "[a-zA-ZñÑÁáÉéÍíÓóÚúÜü]+\s[a-zA-ZñÑÁáÉéÍíÓóÚúÜü]+" required>
+                                  <input class="form-control" name="cargo" id="Cargo" type="text" placeholder="Cargo" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="50" pattern= "^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]*$" required>
                                 </div>
                                 <div class="col-md-6">
                                   <input class="form-control" name="Horas_Vuelo" type="text" placeholder="Horas de vuelo" onkeypress="return event.charCode>=48 && event.charCode<=57" minlength="1" maxlength="3" required>
