@@ -24,7 +24,7 @@
         
          $path = "ActualizarPaseAbordar-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_".$hora[2].".log";
          error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
-         header("Location: ../../Consultas/Consultapaseabordar.php");
+         header("Location: ../../principaladmin.php");
      }
 
     if($resultado)

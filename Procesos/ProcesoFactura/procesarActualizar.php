@@ -136,7 +136,7 @@ try {
     
      $path = "ActualizarFactura-".$fecha[2]."-".$fecha[1]."-".$fecha[0]."_".$hora[0]."_".$hora[1]."_ss".$hora[2].".log";
      error_log("\n" .date("d/m/Y H:i:s")." ". $e->getMessage(),3,$path);
-     header("Location: ../../Consultas/Consultafactura.php");
+     header("Location: ../../principaladmin.php");
  }
 
     if($resultado)
