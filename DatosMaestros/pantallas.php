@@ -237,7 +237,7 @@ if($j == 0){
                         <div class="card-body">
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/pantallasAdd.php"  method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
-                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre" onkeypress="event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="20" pattern="[a-zA-Z]+"required>
+                                  <input class="form-control" name="nombre" type="text" placeholder="Nombre" onkeypress="event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122"  minlength="4" maxlength="40" pattern="[a-zA-Z]+"required>
                                 </div>
                                 <div class="mb-3">
                                   <input class="form-control" name="descripcion" type="text" placeholder="Descripcion" onkeypress="return event.charCode>=65 && event.charCode<=90 || event.charCode>=97 && event.charCode<=122 || event.keyCode" minlength="4" maxlength="100" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" required>

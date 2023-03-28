@@ -86,7 +86,6 @@
                             <th scope='row'>$data[Id_Moneda]</th>
                             <td>$data[Nombre]</td>
                             <td>$data[ConversionADolar]</td>
-                            <td class='text-center'> </td>
 
                             <!--BOTON EDITAR-->
 
