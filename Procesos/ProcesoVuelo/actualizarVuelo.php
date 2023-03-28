@@ -227,7 +227,7 @@
                                                             <td><input type='time'  value=' $data[Hora_Salida]' name='horasal' required pattern='^ '</td>
                                                             <td><input type='time'  value=' $data[Hora_LLegada]' name='horall' required pattern='^ '</td>
                                                             <td><input type='date'  value=' $data[Fecha]' name='fecha' min='2023-02-01' max='2030-02-01' required></td>
-                                                            <td><input type='text'  value=' $data[Precio]' name='precio' onkeypress='return event.charCode>=48 && event.charCode<=57' minlength='1' maxlength='8' required pattern='[^0 ]+|[1-9]+[0-9]+' title='Su cantidad no debe ser 0'></td>
+                                                            <td><input type='text'  value=' $data[Precio]' name='precio' onkeypress='return event.charCode>=48 && event.charCode<=57' minlength='1' maxlength='8' required pattern='[^0]+|[1-9]+[0-9]+|[1-9]+' title='Su cantidad no debe ser 0'></td>
                                                             <td><select value=' $data[Id_Aeronave]' name='estado3' required>";
                                                             while ($data = mysqli_fetch_assoc($query3))
                                                             {echo"
