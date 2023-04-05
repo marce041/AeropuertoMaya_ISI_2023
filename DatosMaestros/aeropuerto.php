@@ -299,12 +299,11 @@ if($j == 0){
                 <div class="modal-body">Seleccione "Salir" Si asi lo desea.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="cerrarsesion.php">Salir</a>
+                    <a class="btn btn-primary" href="../index.php">Salir</a>
                 </div>
             </div>
         </div>
     </div>
-
     <script src="../style/Dashboard/jquery/jquery.min.js"></script>
     <script src="../style/Dashboard/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../style/Dashboard/jquery-easing/jquery.easing.min.js"></script>
