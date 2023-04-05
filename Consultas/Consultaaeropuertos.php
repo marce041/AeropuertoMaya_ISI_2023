@@ -195,6 +195,9 @@ try {
                         <div class="card-header py-3" style="background-color:#060724;" >
                         <h6 class="m-0 font-weight-bold" style="color:#ffff;"><i class="fa-solid fa-plane-departure"></i>  Lista de aeropuertos
                             </h6>
+                            <div style="margin-left:870px;margin-top:-1.5%; width: 700px; height:30%;">
+                                   <a class="btn btn-success" href="../DatosMaestros/aeropuerto.php" type="post" style="color:white;"> Agregar registro <i class="fa-solid fa-plus"></i></a>
+                              </div>
                         </div>
                        
 
