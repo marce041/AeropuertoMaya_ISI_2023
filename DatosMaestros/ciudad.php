@@ -241,8 +241,8 @@ if($j == 0){
                 <div class="col-auto">
                     <!-- Tajeta y Contenido -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold" style="color:#060724;"><i class="bi bi-textarea-t"></i> Insertar datos
+                        <div class="card-header py-3" style="background-color:#060724;">
+                        <h6 class="m-0 font-weight-bold" style="color:#ffff;"><i class="bi bi-textarea-t"></i> Insertar datos
                             </h6>
                         </div>
                         <div class="card-body">

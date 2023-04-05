@@ -212,7 +212,7 @@ if($j == 0){
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <h2 style="font-family:Luminari;text-color:white;"><i class="bi bi-airplane-engines-fill"></i> Aeropuerto</h2>
+                    <h2 style="font-family:Luminari;text-color:white;"><i class="fa-solid fa-plane-departure"></i> Aeropuerto</h2>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -236,8 +236,8 @@ if($j == 0){
                 <div class="col-auto">
                     <!-- Tajeta y Contenido -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold" style="color:#060724;"><i class="bi bi-textarea-t"></i> Insertar datos
+                        <div class="card-header py-3" style="background-color:#060724;">
+                        <h6 class="m-0 font-weight-bold" style="color:#ffff;"><i class="bi bi-textarea-t"></i> Insertar datos
                             </h6>
                         </div>
                         <div class="card-body">

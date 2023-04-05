@@ -238,17 +238,18 @@ if($j == 0){
                 </nav>
 
                 <!-- Contenido -->
-                <div class="col-auto text-center">
+                <div class="col-auto">
                     <!-- Tajeta y Contenido -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold" style="color:#060724;"><i class="bi bi-textarea-t"></i> Insertar datos
+                        <div class="card-header py-3" style="background-color:#060724;">
+                        <h6 class="m-0 font-weight-bold" style="color:#ffff;"><i class="bi bi-textarea-t"></i> Insertar datos
                             </h6>
                         </div>
                         <div class="card-body">
                             <form class="row g-3 needs-validation" action="../Procesos/Guardar/reservaAdd.php" method="POST" enctype="multipart/form-data">
                             <div class="mb-3">
-                                  <input class="form-control" name="codigo" type="text" placeholder="Código de Reserva" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="6" maxlength="6" required>
+                            <label for="rol">Código de reservación</label>
+                                  <input class="form-control" name="codigo" type="text" placeholder="Inserte el código" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode>=65 && event.charCode<=90"  minlength="6" maxlength="6" required>
                             </div>
                                 <div class="mb-3">
                                     <label for="rol">Pasajero</label>
