@@ -102,7 +102,7 @@ if($j == 0){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Boleto</title>
+    <title>Factura</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -110,6 +110,10 @@ if($j == 0){
     <link href="../style/cuerpo/dashboard.css" rel="stylesheet">
     <link href="../style/Dashboard/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-***" crossorigin="anonymous" />
+ <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body id="page-top">
@@ -117,7 +121,7 @@ if($j == 0){
         <!--Empieza Lista -->
         <ul class="navbar-nav color sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../principaladmin.php">
-                <div class="sidebar-brand-text mx-3">Administración</div>
+            <div class="sidebar-brand-text mx-3" style="font-family:Luminari;font-size:20px;"> <i class="fa-solid fa-mosque"></i> Emirates Airlines</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
@@ -223,18 +227,17 @@ if($j == 0){
         </ul>
         <!--Termina Lista -->
         <div id="content">
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand topbar mb-4 text-light shadow" style="background-color:#060724;text-color:white;">
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-                <h2>Factura</h2>
+                    <h2 style="font-family:Luminari;text-color:white;"><i class="fa-solid fa-file-invoice-dollar"></i> Factura</h2>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/Icono/Usuario.png">
+                                <i class="bi bi-box-arrow-left" style="color:white;font-size:32px;"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -253,7 +256,7 @@ if($j == 0){
                     <!-- Tajeta y Contenido -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Insertar Datos
+                        <h6 class="m-0 font-weight-bold" style="color:#060724;"><i class="bi bi-textarea-t"></i> Insertar datos
                             </h6>
                         </div>
                         <div class="card-body">
@@ -486,8 +489,8 @@ return ((zero.repeat(width - length)) + numberOutput.toString());
                             <div class="mb-3">
                                   <input class="form-control" name="tarjeta" id="tarjeta" type="text" placeholder="Numero de Tarjeta" disabled="true" onkeypress="return event.charCode>=48 && event.charCode<=57" minlength="13" maxlength="18" required>
                             </div>
-                              <div class="col-md-12  mt-5 text-center">
-                                   <button class="btn btn-primary" name="btnnombre" type="submit">Guardar</button>
+                            <div class="col-md-12  mt-5 text-center">
+                                   <button name="btnnombre" type="submit" style="background-color:#060724;color:white;"><i class="bi bi-save" style="text-color:white;"></i> Guardar</button>
                               </div>
                               <div class="mb-3">
                               <input name="cod" id="cod" type=hidden>  

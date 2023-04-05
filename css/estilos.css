@@ -28,7 +28,7 @@ align-items: center;
 }
 
 .formulario {
-	background: linear-gradient(rgba(66,92,90,0.90), rgba(66,92,90,0.90));
+	background: #060724;
 	align-content: center;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -130,10 +130,11 @@ align-items: center;
 }
 
 .formulario__btn {
-	width: 200%;
+	width: 140%;
 	align-items: center;
-	margin-left: 10%;
+	margin-left: 40%;
 	margin-right: 40%;
+	margin-top: 5%;
 	height: 45px;
 	line-height: 45px;
 	background: #fcc09b;
