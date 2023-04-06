@@ -11,7 +11,7 @@
 
             echo 
             "
-                <table class='table table-sm table-dark table-responsive-sm table-bordered'>
+                <table class='table table-striped table-hover'>
                     <thead>
                         <tr class='text-center'>
                             <th scope='col'>Id de factura</th>

@@ -14,14 +14,14 @@
             "
             <table>
             <thead>
-            <th scope='col'><a class='btn btn-info' href='../Procesos/Reportes/chechinpdf.php'>Generar PDF
+            <th scope='col'><a class='btn btn-danger' href='../Procesos/Reportes/chechinpdf.php'><i class='fa-solid fa-file-pdf'></i> Generar PDF
             </a></th>
                         <th scope='col'>
-                        <a class='btn btn-info' href='../Procesos/Reportes/checkinxlsx.php'>Generar EXCEL
+                        <a class='btn btn-success' href='../Procesos/Reportes/checkinxlsx.php'><i class='fa-regular fa-file-excel'></i> Generar EXCEL
                          </a></th>
                         </thead>
                         </table>
-                <table class='table table-sm table-dark table-responsive-sm table-bordered'>
+                <table class='table table-striped table-hover'>
                     <thead>
                         <tr class='text-center'>
                             <th scope='col'>Id de check-in</th>
