@@ -1,8 +1,9 @@
 
 
 body {
+	background-image: url("http://localhost/AeropuertoMaya_ISI_2023/img/jeje.jpg");
 	font-family: 'Roboto', sans-serif;
-	background: url("/img/Avioncomplete.jpg");
+	
 	height: 100vh;
 	width: 100vh;
 	background-size: cover;
@@ -22,13 +23,15 @@ h1{
 	width: 200%;
 }
 
+
+
 .formulario__grupo{
 align-content: center;
 align-items: center;
 }
 
 .formulario {
-	background: #060724;
+	background-color: rgba(58, 56, 56, 0.5);
 	align-content: center;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
