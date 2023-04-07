@@ -58,14 +58,19 @@ $queryparametro=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$
     <link href="../style/cuerpo/dashboard.css" rel="stylesheet">
     <link href="../style/Dashboard/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-***" crossorigin="anonymous" />
+ <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body id="page-top">
     <div id="wrapper">
         <!--Empieza Lista -->
         <ul class="navbar-nav color sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../principaladmin.php">
-                <div class="sidebar-brand-text mx-3">Administracion</div>
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../principaladmin.php">
+            <div class="sidebar-brand-text mx-3" style="font-family:Luminari;font-size:20px;"> <i class="fa-solid fa-mosque"></i> Emirates Airlines</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
@@ -170,19 +175,18 @@ $queryparametro=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$
             </li>
         </ul>
         <!--Termina Lista -->
-        <div id="content">
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <div id="content" style="width:150%;">
+                <nav class="navbar navbar-expand topbar mb-4 text-light shadow" style="background-color:#060724;text-color:white;">
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-                <h2>Usuario</h2>
+                    <h2 style="font-family:Luminari;text-color:white;"><i class="fa-solid fa-users"></i> Usuario</h2>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/Icono/Usuario.png">
+                                <i class="bi bi-box-arrow-left" style="color:white;font-size:32px;"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -201,8 +205,8 @@ $queryparametro=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$
                 <div class="col-auto text-center">
                     <!-- Tajeta y Contenido -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Insertar Datos
+                        <div class="card-header py-3"style="background-color:#060724;">
+                            <h6 class="m-0 font-weight-bold" style="color:#ffff;"><i class="fa-solid fa-users"></i> Insertar Datos
                             </h6>
                         </div>
                         <div class="card-body">
@@ -227,8 +231,8 @@ $queryparametro=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$
                                     </select>
                                 </div>
                               
-                              <div class="col-md-12  mt-5 text-center">
-                                   <button class="btn btn-primary" name="btnnombre" type="submit">Guardar</button>
+                                <div class="col-md-12  mt-5 text-center">
+                                   <button name="btnnombre" type="submit" style="background-color:#060724;color:white;"><i class="bi bi-save" style="text-color:white;"></i> Guardar</button>
                               </div>
                       </form>
                         </div>

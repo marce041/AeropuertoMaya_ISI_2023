@@ -197,7 +197,7 @@ if (!isset($_SESSION['idUser'])) {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><i class="fa-solid fa-plane-departure"></i> 
                                                Vuelos programados</div>
                                             <?php 
                                                while($datos = mysqli_fetch_array($vuelo)) {
@@ -220,7 +220,7 @@ if (!isset($_SESSION['idUser'])) {
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Aeronaves en propiedad</div>
+                                            <i class="fa-solid fa-plane"></i>  Aeronaves en propiedad</div>
                                             <?php 
                                                 while($datos = mysqli_fetch_array($aeronaves)) {
                                             ?>
@@ -241,7 +241,7 @@ if (!isset($_SESSION['idUser'])) {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Usuarios registrados
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><i class="fa-solid fa-users-viewfinder"></i> Usuarios registrados
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
@@ -269,7 +269,7 @@ if (!isset($_SESSION['idUser'])) {
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Boletos vendidos</div>
+                                            <i class="fa-solid fa-dollar-sign"></i> Boletos vendidos</div>
                                             <?php 
                                                 while($datos = mysqli_fetch_array($boleto)) {
                                             ?>
@@ -290,8 +290,8 @@ if (!isset($_SESSION['idUser'])) {
                         <div class="col-xl-6 col-lg-7">
                             <div class="card shadow mb-4">
                                 <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Gráfica de Aeronave por Capacidad</h6>
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between" style="background-color:#060724;">
+                                    <h6 class="m-0 font-weight-bold"style="color:#ffff;"><i class="fa-solid fa-plane-departure"></i> Gráfica de aeronave por capacidad</h6>
                                 </div>
                                 <div class="card-body">
                                     <canvas id="myChart" style="width:100%; max-width:700px"></canvas>
@@ -328,8 +328,8 @@ if (!isset($_SESSION['idUser'])) {
                         <div class="col-xl-6 col-lg-5">
                             <div class="card shadow mb-4">
                                 <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Gráfica de vuelo por día</h6>
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between" style="background-color:#060724;">
+                                    <h6 class="m-0 font-weight-bold" style="color:#ffff;"><i class="fa-solid fa-sun"></i> Gráfica de vuelo por día</h6>
                                 </div>
                                 <div class="card-body">
                                 <canvas id="myChart2" style="width:100%; max-width:3000px"></canvas>
@@ -370,7 +370,7 @@ if (!isset($_SESSION['idUser'])) {
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Emirates Airlanes 2022</span>
+                        <span>Copyright &copy; Emirates Airlanes 2023</span>
                     </div>
                 </div>
             </footer>
