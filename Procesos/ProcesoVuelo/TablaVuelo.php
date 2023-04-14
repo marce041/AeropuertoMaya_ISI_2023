@@ -1,5 +1,6 @@
 <?php
 
+
     class elementosMenu
     {
         public function mostarTablaVuelo()
@@ -9,8 +10,11 @@
             $query = mysqli_query($conn,"SELECT * FROM vuelo")
             or die ('error: '.mysqli_error($conn));
 
+        
             echo 
             "
+            <table>
+            <thead>
             <th scope='col'><a class='btn btn-danger' href='../Procesos/Reportes/vuelopdf.php'><i class='fa-solid fa-file-pdf'></i> Generar PDF
             </a></th>
                         <th scope='col'>
@@ -18,7 +22,8 @@
                          </a></th>
                         </thead>
                         </table>
-                <table class='table table-striped table-hover'>
+                        <br>
+                <table class='table table-striped table-hover table_id'>
                     <thead>
                         <tr class='text-center'>
                             <th scope='col'>Id de vuelo</th>
@@ -153,16 +158,19 @@
                     </tr>
 
                 ";  
+                
         }
+        
         }
             echo
             "
                 </tbody>
                 </table>
-               
+              
 
             ";
         }
     }
+    
 
 ?>

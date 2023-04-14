@@ -1,16 +1,16 @@
 <?php
 
 
-    class elementosMenu
+class elementosMenu
+{
+    public function mostarTablaCheckin()
     {
-        public function mostarTablaCheckin()
-        {
-            include "../conexion.php";
+        include "../conexion.php";
 
-            $query = mysqli_query($conn,"SELECT * FROM checkin")
-            or die ('error: '.mysqli_error($conn));
+        $query = mysqli_query($conn, "SELECT * FROM checkin")
+            or die('error: ' . mysqli_error($conn));
 
-            echo 
+        echo
             "
             <table>
             <thead>
@@ -32,64 +32,63 @@
                     </thead>
                 <tbody class='text-center'>
             ";
-            $user=$_SESSION['idUser'];
+        $user = $_SESSION['idUser'];
 
-            $queryllamar_id_rol=mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$user;");
-         
-            $id_rol = array();
-           
-             while($datos = mysqli_fetch_array($queryllamar_id_rol)) {
-                 array_push($id_rol, $datos['Id_Rol']);
-             }
-         
-             $id_rol_seleccionado=$id_rol[0];
-         
-         
-         //Con el Rol traer las tablas a las que puede acceder dicho rol
-             $queryllamar_id_tabla=mysqli_query($conn, "SELECT Id_Pantalla FROM rolespantallasacciones WHERE `Id_Rol`=$id_rol_seleccionado;");
-         
-             $llamar_id_tabla="SELECT Id_Pantalla FROM rolespantallasacciones WHERE `Id_Rol`=$id_rol_seleccionado";
-         
-             $id_pantalla = array();
-         
-             $resultado2 = $conn->query($llamar_id_tabla);
-         
-             $rows2 = $resultado2->num_rows;
-             
-             $ids = "";
-             if($resultado2){
-                while($row=$resultado2->fetch_array()){
+        $queryllamar_id_rol = mysqli_query($conn, "SELECT Id_Rol FROM usuario WHERE `idUser`=$user;");
+
+        $id_rol = array();
+
+        while ($datos = mysqli_fetch_array($queryllamar_id_rol)) {
+            array_push($id_rol, $datos['Id_Rol']);
+        }
+
+        $id_rol_seleccionado = $id_rol[0];
+
+
+        //Con el Rol traer las tablas a las que puede acceder dicho rol
+        $queryllamar_id_tabla = mysqli_query($conn, "SELECT Id_Pantalla FROM rolespantallasacciones WHERE `Id_Rol`=$id_rol_seleccionado;");
+
+        $llamar_id_tabla = "SELECT Id_Pantalla FROM rolespantallasacciones WHERE `Id_Rol`=$id_rol_seleccionado";
+
+        $id_pantalla = array();
+
+        $resultado2 = $conn->query($llamar_id_tabla);
+
+        $rows2 = $resultado2->num_rows;
+
+        $ids = "";
+        if ($resultado2) {
+            while ($row = $resultado2->fetch_array()) {
                 // Esto crea un string como 'id1','id2','id3',
-                    $ids .= "'".$row['Id_Pantalla'] . "', ";
-                }
-                // Esto quita el ultimo espacio y coma del string generado con lo cual
-                // el string queda 'id1','id2','id3'
-             
-                $ids = substr($ids,0,-2);
-             }
-             $queryllamar_nombre_tabla=mysqli_query($conn, "SELECT Nombre FROM pantallas WHERE `Id_Pantalla`in (".$ids.")");
-         
-             $nombre_tabla = array();
-           
-             while($datos = mysqli_fetch_array($queryllamar_nombre_tabla)) {
-                 array_push($nombre_tabla, $datos['Nombre']);
-             }
-         $i=0;
-         $j=0;
-         
-         while($i<$rows2){
-             if($nombre_tabla[$i]=='ModificarCheckin'){
-                 $j=1;
-             }
-             $i+=1;
-         }
-         
-         if($j == 1){
+                $ids .= "'" . $row['Id_Pantalla'] . "', ";
+            }
+            // Esto quita el ultimo espacio y coma del string generado con lo cual
+            // el string queda 'id1','id2','id3'
 
-            while ($data = mysqli_fetch_assoc($query))
-            {
-                echo 
-                "
+            $ids = substr($ids, 0, -2);
+        }
+        $queryllamar_nombre_tabla = mysqli_query($conn, "SELECT Nombre FROM pantallas WHERE `Id_Pantalla`in (" . $ids . ")");
+
+        $nombre_tabla = array();
+
+        while ($datos = mysqli_fetch_array($queryllamar_nombre_tabla)) {
+            array_push($nombre_tabla, $datos['Nombre']);
+        }
+        $i = 0;
+        $j = 0;
+
+        while ($i < $rows2) {
+            if ($nombre_tabla[$i] == 'ModificarCheckin') {
+                $j = 1;
+            }
+            $i += 1;
+        }
+
+        if ($j == 1) {
+
+            while ($data = mysqli_fetch_assoc($query)) {
+                echo
+                    "
                     <tr>
 
                         <form action='formEditCheckin.php?id=$data[Id_Checkin]' method='POST' name='form2'>
@@ -112,11 +111,10 @@
 
                 ";
             }
-        }else{
-            while ($data = mysqli_fetch_assoc($query))
-            {
-                echo 
-                "
+        } else {
+            while ($data = mysqli_fetch_assoc($query)) {
+                echo
+                    "
                     <tr>
 
                         <form action='formEditNave.php?id=$data[Id_Checkin]' method='POST' name='form2'>
@@ -138,9 +136,9 @@
                         </form>
                     </tr>
 
-                ";  
+                ";
+            }
         }
-        }
 
 
 
@@ -148,14 +146,14 @@
 
 
 
-            echo
+        echo
             "
                 </tbody>
                 </table>
 
                
             ";
-        }
     }
+}
 
 ?>
